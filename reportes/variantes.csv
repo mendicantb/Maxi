@@ -1,0 +1,6 @@
+categoria,plantilla_id,plantilla,variante,prendas,contratos,prestamo_total,prestamo_prom,prestamo_p25,prestamo_mediana,prestamo_p75,avaluo_prom,ltv,pct_desempeno,pct_remate,pct_vigente,pct_refrenda,refrendos_prom,drop_cerrados,drop_valor_cerrados,dias_vida_prom
+Celulares,cel.apple.generico,iPhone (modelo sin identificar),?,50.0,50.0,180405.16,3608.1032,2000.0,3000.0,4450.0,8957.68,0.40279438426021025,0.72,0.22,0.06,0.28,0.5,0.23404255319148937,0.2280888405143206,31.19148936170213
+Celulares,cel.apple.generico,iPhone (modelo sin identificar),128,10.0,10.0,50000.0,5000.0,3750.0,5000.0,6500.0,12500.0,0.4,0.5,0.5,0.0,0.4,0.6,0.5,0.47,48.5
+Celulares,cel.apple.iphone-14-pro-max,iPhone 14 Pro Max,?,3.0,3.0,24000.0,8000.0,8000.0,8000.0,8000.0,20000.0,0.4,1.0,0.0,0.0,0.6666666666666666,0.6666666666666666,0.0,0.0,19.666666666666668
+Celulares,cel.apple.generico,iPhone (modelo sin identificar),64,2.0,2.0,6000.0,3000.0,3000.0,3000.0,3000.0,6250.0,0.48,0.0,1.0,0.0,0.5,1.0,1.0,1.0,42.5
+Celulares,cel.apple.generico,iPhone (modelo sin identificar),256,2.0,2.0,9200.0,4600.0,4400.0,4600.0,4800.0,11500.0,0.4,0.5,0.5,0.0,1.0,5.0,0.5,0.45652173913043476,191.0

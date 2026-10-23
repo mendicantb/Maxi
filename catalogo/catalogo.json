@@ -1,0 +1,200 @@
+{
+ "generado": "2026-10-23 23:15",
+ "resumen": {
+  "fecha": "2026-10-23 23:15",
+  "categorias": 1,
+  "plantillas": 2,
+  "prendas": 9973,
+  "pct_prendas_cubiertas": 0.0067,
+  "pct_prendas_especificas": 0.0003,
+  "pct_prestamo_cubierto": 0.0187,
+  "pct_fuera_de_familia": 0.0
+ },
+ "categorias": [
+  {
+   "categoria": "Celulares",
+   "familias_prendaflex": [
+    "CELULARES"
+   ],
+   "atributos": {
+    "capacidad": {
+     "regex": "\\b(16|32|64|128|256|512)\\s*GB\\b(?!\\s*(DE\\s*)?RAM)",
+     "crea_variante": true
+    },
+    "color": {
+     "regex": "\\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|MORADA|ROSA|DORADO|DORADA|PLATA)\\b",
+     "mapa": {
+      "NEGRA": "NEGRO",
+      "BLANCA": "BLANCO",
+      "ROJA": "ROJO",
+      "MORADA": "MORADO",
+      "DORADA": "DORADO"
+     }
+    }
+   },
+   "plantillas": [
+    {
+     "id": "cel.apple.iphone-14-pro-max",
+     "nombre": "iPhone 14 Pro Max",
+     "marca": "Apple",
+     "match": [
+      "IPHONE\\s*14\\s*PRO\\s*MAX",
+      "\\bA2893\\b"
+     ],
+     "metricas": {
+      "prendas": 3.0,
+      "contratos": 3.0,
+      "prestamo_total": 24000.0,
+      "prestamo_prom": 8000.0,
+      "prestamo_p25": 8000.0,
+      "prestamo_mediana": 8000.0,
+      "prestamo_p75": 8000.0,
+      "avaluo_prom": 20000.0,
+      "ltv": 0.4,
+      "pct_desempeno": 1.0,
+      "pct_remate": 0.0,
+      "pct_vigente": 0.0,
+      "pct_refrenda": 0.6666666667,
+      "refrendos_prom": 0.6666666667,
+      "drop_cerrados": 0.0,
+      "drop_valor_cerrados": 0.0,
+      "dias_vida_prom": 19.6666666667
+     },
+     "variantes": [
+      {
+       "variante": "?",
+       "prendas": 3.0,
+       "contratos": 3.0,
+       "prestamo_total": 24000.0,
+       "prestamo_prom": 8000.0,
+       "prestamo_p25": 8000.0,
+       "prestamo_mediana": 8000.0,
+       "prestamo_p75": 8000.0,
+       "avaluo_prom": 20000.0,
+       "ltv": 0.4,
+       "pct_desempeno": 1.0,
+       "pct_remate": 0.0,
+       "pct_vigente": 0.0,
+       "pct_refrenda": 0.6666666667,
+       "refrendos_prom": 0.6666666667,
+       "drop_cerrados": 0.0,
+       "drop_valor_cerrados": 0.0,
+       "dias_vida_prom": 19.6666666667
+      }
+     ]
+    },
+    {
+     "id": "cel.apple.generico",
+     "nombre": "iPhone (modelo sin identificar)",
+     "marca": "Apple",
+     "generica": true,
+     "match": [
+      "\\bIPHONE\\b",
+      "MARCA APPLE"
+     ],
+     "metricas": {
+      "prendas": 64.0,
+      "contratos": 64.0,
+      "prestamo_total": 245605.16,
+      "prestamo_prom": 3837.580625,
+      "prestamo_p25": 2000.0,
+      "prestamo_mediana": 3150.0,
+      "prestamo_p75": 5000.0,
+      "avaluo_prom": 9506.0,
+      "ltv": 0.4037008863,
+      "pct_desempeno": 0.65625,
+      "pct_remate": 0.296875,
+      "pct_vigente": 0.046875,
+      "pct_refrenda": 0.328125,
+      "refrendos_prom": 0.671875,
+      "drop_cerrados": 0.3114754098,
+      "drop_valor_cerrados": 0.3093849895,
+      "dias_vida_prom": 39.6393442623
+     },
+     "variantes": [
+      {
+       "variante": "?",
+       "prendas": 50.0,
+       "contratos": 50.0,
+       "prestamo_total": 180405.16,
+       "prestamo_prom": 3608.1032,
+       "prestamo_p25": 2000.0,
+       "prestamo_mediana": 3000.0,
+       "prestamo_p75": 4450.0,
+       "avaluo_prom": 8957.68,
+       "ltv": 0.4027943843,
+       "pct_desempeno": 0.72,
+       "pct_remate": 0.22,
+       "pct_vigente": 0.06,
+       "pct_refrenda": 0.28,
+       "refrendos_prom": 0.5,
+       "drop_cerrados": 0.2340425532,
+       "drop_valor_cerrados": 0.2280888405,
+       "dias_vida_prom": 31.1914893617
+      },
+      {
+       "variante": "128",
+       "prendas": 10.0,
+       "contratos": 10.0,
+       "prestamo_total": 50000.0,
+       "prestamo_prom": 5000.0,
+       "prestamo_p25": 3750.0,
+       "prestamo_mediana": 5000.0,
+       "prestamo_p75": 6500.0,
+       "avaluo_prom": 12500.0,
+       "ltv": 0.4,
+       "pct_desempeno": 0.5,
+       "pct_remate": 0.5,
+       "pct_vigente": 0.0,
+       "pct_refrenda": 0.4,
+       "refrendos_prom": 0.6,
+       "drop_cerrados": 0.5,
+       "drop_valor_cerrados": 0.47,
+       "dias_vida_prom": 48.5
+      },
+      {
+       "variante": "64",
+       "prendas": 2.0,
+       "contratos": 2.0,
+       "prestamo_total": 6000.0,
+       "prestamo_prom": 3000.0,
+       "prestamo_p25": 3000.0,
+       "prestamo_mediana": 3000.0,
+       "prestamo_p75": 3000.0,
+       "avaluo_prom": 6250.0,
+       "ltv": 0.48,
+       "pct_desempeno": 0.0,
+       "pct_remate": 1.0,
+       "pct_vigente": 0.0,
+       "pct_refrenda": 0.5,
+       "refrendos_prom": 1.0,
+       "drop_cerrados": 1.0,
+       "drop_valor_cerrados": 1.0,
+       "dias_vida_prom": 42.5
+      },
+      {
+       "variante": "256",
+       "prendas": 2.0,
+       "contratos": 2.0,
+       "prestamo_total": 9200.0,
+       "prestamo_prom": 4600.0,
+       "prestamo_p25": 4400.0,
+       "prestamo_mediana": 4600.0,
+       "prestamo_p75": 4800.0,
+       "avaluo_prom": 11500.0,
+       "ltv": 0.4,
+       "pct_desempeno": 0.5,
+       "pct_remate": 0.5,
+       "pct_vigente": 0.0,
+       "pct_refrenda": 1.0,
+       "refrendos_prom": 5.0,
+       "drop_cerrados": 0.5,
+       "drop_valor_cerrados": 0.4565217391,
+       "dias_vida_prom": 191.0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

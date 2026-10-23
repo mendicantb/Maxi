@@ -1,0 +1,19 @@
+categoria: Celulares
+familias_prendaflex: [CELULARES]
+atributos:
+  capacidad:
+    regex: '\b(16|32|64|128|256|512)\s*GB\b(?!\s*(DE\s*)?RAM)'
+    crea_variante: true
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|MORADA|ROSA|DORADO|DORADA|PLATA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO, DORADA: DORADO}
+plantillas:
+  - id: cel.apple.iphone-14-pro-max
+    nombre: iPhone 14 Pro Max
+    marca: Apple
+    match: ['IPHONE\s*14\s*PRO\s*MAX', '\bA2893\b']
+  - id: cel.apple.generico
+    nombre: iPhone (modelo sin identificar)
+    marca: Apple
+    generica: true
+    match: ['\bIPHONE\b', 'MARCA APPLE']
