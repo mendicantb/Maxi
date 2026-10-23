@@ -1,0 +1,107 @@
+categoria: Videojuegos
+familias_prendaflex: [VIDEOJUEGOS]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|ROJO|ROJA|AZUL|VERDE|ROSA|TURQUESA|GRIS)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+  almacenamiento:
+    regex: '(?<![0-9])(32|256|360|500|512|825|1)\s*(GB|T|TB)\b'
+    mapa: {'1': 1TB, '500': 500GB, '512': 512GB}
+    crea_variante: false
+  estado:
+    regex: '\b(EN CAJA|CAJA DANADA|SUCIO|MARCAS DE USO|NUEVO)\b'
+    crea_variante: false
+
+plantillas:
+  - id: elec.consola.ps5
+    nombre: Consola PlayStation 5
+    marca: Sony
+    match: ['\bPS\s*5\b', 'PLAY\s*STATIONS?\s*5', 'PLAYSTATION\s*5']
+    sinonimos: [ps5, playstation 5, play 5]
+    atributos:
+      version:
+        regex: '\b(DIGITAL|DISCO|SLIM|PRO)\b'
+        crea_variante: false
+    checklist: [Enciende y da imagen, Control(es) cargan y emparejan, Lee discos, Cable HDMI y corriente, Cuenta PSN desvinculada, Sin sobrecalentamiento]
+    fotos: [Consola completa, Etiqueta inferior (serie), Controles y accesorios]
+    molde_descripcion: 'PlayStation 5 {version} {almacenamiento}'
+
+  - id: elec.consola.ps4
+    nombre: Consola PlayStation 4
+    marca: Sony
+    match: ['\bPS\s*4\b', 'PLAY\s*STATIONS?\s*(4|C4)', 'PLAYSTATION\s*(4|C4)', 'PLAY\s*ST\b', 'PLAYSTATION', 'PLAY\s*STATION']
+    sinonimos: [ps4, playstation 4, play 4, play]
+    atributos:
+      version:
+        regex: '\b(SLIM|PRO)\b'
+        crea_variante: false
+    checklist: [Enciende y da imagen, Control(es) cargan y emparejan, Lee discos, Cable HDMI y corriente, Cuenta PSN desvinculada]
+    fotos: [Consola completa, Etiqueta inferior (serie), Controles y accesorios]
+    molde_descripcion: 'PlayStation 4 {version} {almacenamiento}'
+
+  - id: elec.consola.xbox-series
+    nombre: Consola Xbox Series S / X
+    marca: Microsoft
+    match: ['XBOX\s*SERIES?', 'XBOX\s*SERIE', 'SERIES?\s*[SX]\b', 'XBOX\s*S\b(?!\s*\d)(?!.*ONE)', 'XBOX\s*ONE\s*SERIES', 'CONSOLA\s*SERIE\s*S', 'XBOX.*\b1883\b', 'XBOX\s*S\s*CAJA']
+    excluir: ['XBOX\s*ONE\s*S\b(?!.*SERIES)']
+    sinonimos: [xbox series s, xbox series x, series s, series x]
+    atributos:
+      modelo_series:
+        regex: 'SERIES?\s*([SX])\b'
+        formato: 'Series {}'
+        crea_variante: true
+    checklist: [Enciende y da imagen, Control cargado/pilas, Cable HDMI y corriente, Cuenta Microsoft desvinculada]
+    fotos: [Consola completa, Etiqueta inferior (serie), Control y accesorios]
+    molde_descripcion: 'Xbox {modelo_series} {almacenamiento} {color}'
+
+  - id: elec.consola.xbox-one
+    nombre: Consola Xbox One / One S / One X
+    marca: Microsoft
+    match: ['XBOX\s*ONE', 'XBOX\s*1\b', '\bXBO(X|T)\b', '\bXBOOX\b', 'XBOX\s*S\b', '\b168[0-9]\b']
+    sinonimos: [xbox one, one s, one x, xbox]
+    atributos:
+      modelo_one:
+        regex: '\bONE\s*([SX])\b|\bXBOX\s*S\b'
+        formato: 'One {}'
+        crea_variante: true
+    checklist: [Enciende y da imagen, Control cargado/pilas, Cable HDMI y corriente, Lee discos, Cuenta Microsoft desvinculada]
+    fotos: [Consola completa, Etiqueta inferior (serie), Control y accesorios]
+    molde_descripcion: 'Xbox {modelo_one} {almacenamiento} {color}'
+
+  - id: elec.consola.xbox-360
+    nombre: Consola Xbox 360
+    marca: Microsoft
+    match: ['XBOO?X\s*360', '\b360\s*GB\b']
+    sinonimos: [xbox 360]
+    checklist: [Enciende y da imagen, Control, Cable AV/HDMI y corriente, Lee discos, Sin luz roja]
+    fotos: [Consola completa, Etiqueta, Control]
+    molde_descripcion: 'Xbox 360 {almacenamiento}'
+
+  - id: elec.consola.switch
+    nombre: Consola Nintendo Switch
+    marca: Nintendo
+    match: ['SWI?TCH', 'SWICH', 'NI?TENDO', '\bHAC\s*O?0?0?1\b', 'HAC\s*OO1', 'HDH\s*001']
+    sinonimos: [nintendo switch, switch, nintendo]
+    atributos:
+      version:
+        regex: '\b(LITE|OLED)\b'
+        crea_variante: false
+    checklist: [Enciende y da imagen, Joy-Con funcionan (sin drift), Base/dock y HDMI, Cargador, Pantalla sin rayones, Cuenta Nintendo desvinculada]
+    fotos: [Consola con base, Etiqueta posterior (serie), Joy-Con y accesorios]
+    molde_descripcion: 'Nintendo Switch {version} {color}'
+
+  - id: elec.consola.retro-portatil
+    nombre: Consola retro / portátil genérica (R36S, Game Stick…)
+    match: ['\bR36\w*', 'GAME\s*(CONSOLA|STICK|BOY|CUBE)', 'VIDEO\s*JUEGO\s*PEQUE', 'RETRO', 'ATARI', 'SEGA', 'NES\b']
+    sinonimos: [retro, r36s, game stick, consola portatil]
+    checklist: [Enciende, Pantalla/imagen, Botones funcionan, Cargador, Juegos cargados]
+    fotos: [Consola, Accesorios]
+    molde_descripcion: 'Consola {marca} {modelo}'
+
+  - id: elec.consola.generica
+    nombre: Consola de videojuegos (sin identificar)
+    generica: true
+    match: ['VIDEO\s*JUEGOS?', 'VIDEOJUEGO', 'CONSOLA', '\bCONTRO[LN]', 'HDMI', 'XBOX|NINTENDO|PLAY|SONY|MICROSOFT']

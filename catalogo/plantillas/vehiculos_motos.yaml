@@ -1,0 +1,418 @@
+# Motos y motocarros. Plantilla = MARCA + MODELO; el AÑO crea la variante (curva de depreciación).
+# PF: MOTOCICLETA y POCHIMOVIL (las evaluadoras mezclan motos con pochimóviles; Italika/Veloci caen en ambas).
+categoria: Motos
+familias_prendaflex: [MOTOCICLETA, POCHIMOVIL, CAMION]   # CAMION: hay un 'Italika FT180' capturado como camión
+excluir: ['\bCASCO\b', '\bLLANTA\b', '\bCAJONERA\b', '\bBOCINA\b']
+
+atributos:
+  anio:
+    regex: '(?<!\d)((?:19[6-9]|20[0-3])\d)(?!\d)'
+    crea_variante: true          # el año mueve el préstamo
+  cilindrada:
+    regex: '(?<!\d)(110|115|125|150|160|180|200|250|300|400)\s*CC\b'
+    formato: '{} cc'
+    crea_variante: false
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|PLATA|DORAD[OA]|MORAD[OA]|ROSA|CAFE)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, DORADA: DORADO, MORADA: MORADO}
+    crea_variante: false
+
+x-checklist: &chk_moto
+  - Factura original (a nombre del cliente o endosada)
+  - Tarjeta de circulación vigente
+  - Placas puestas (anotar número)
+  - NIV del chasis coincide con factura / tarjeta
+  - REPUVE sin reporte de robo
+  - Sin adeudo de tenencia ni multas
+  - Arranca y funciona
+  - Llaves (cuántas)
+  - Luces, direccionales y claxon
+  - Llantas y frenos
+  - Sin golpes ni tanque abollado
+  - Tablero / kilometraje
+x-fotos: &fotos_moto [Lado izquierdo, Lado derecho, Frente, Trasera, Tablero (kilometraje), NIV (chasis), Número de motor, Placa, Tarjeta de circulación, Factura]
+x-molde: &molde_moto 'Motocicleta {marca} {nombre} {anio} {color} · placas {placas} · NIV {niv} · km {km} · llaves {llaves}'
+
+plantillas:
+  # ---------------------------------------------------------------- Italika
+  - id: moto.italika.ft150
+    solo_familia: true
+    nombre: FT150
+    marca: Italika
+    match: ['\bFT\s*-?\s*150', '\bFT\s*-?\s*15\b']
+    sinonimos: [ft150, ft 150, ft150 gts, ft150 ts, italika ft 150]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.ft125
+    solo_familia: true
+    nombre: FT125
+    marca: Italika
+    match: ['\bFT\s*-?\s*125']
+    sinonimos: [ft125, ft 125 ts]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.ft180
+    solo_familia: true
+    nombre: FT180
+    marca: Italika
+    match: ['\bFT\s*-?\s*(180|1780)']        # FT1780 se interpreta como FT180 (typo)
+    sinonimos: [ft180, ft 180]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.ft200
+    solo_familia: true
+    nombre: FT200
+    marca: Italika
+    match: ['\bFT\s*-?\s*200']
+    sinonimos: [ft200, ft 200]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.dm150
+    solo_familia: true
+    nombre: DM150
+    marca: Italika
+    match: ['\bDM\s*-?\s*150']
+    sinonimos: [dm150, dm 150]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.dm200
+    solo_familia: true
+    nombre: DM200
+    marca: Italika
+    match: ['\bDM\s*-?\s*200']           # incluye DM2002024 (DM200 + año pegado)
+    sinonimos: [dm200, dm 200]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.dm250
+    solo_familia: true
+    nombre: DM250
+    marca: Italika
+    match: ['\bDM\s*-?\s*250']
+    sinonimos: [dm250, dm 250]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.d125
+    solo_familia: true
+    nombre: D125
+    marca: Italika
+    match: ['\bD\s*-?\s*125\b']
+    sinonimos: [d125, d 125]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.ds150
+    solo_familia: true
+    nombre: DS150
+    marca: Italika
+    match: ['\bDS\s*-?\s*150']
+    sinonimos: [ds150]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.dt125
+    solo_familia: true
+    nombre: DT125
+    marca: Italika
+    match: ['\bDT\s*-?\s*125']
+    sinonimos: [dt125, dt125lt]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.zw150
+    solo_familia: true
+    nombre: ZW150
+    marca: Italika
+    match: ['\bZW\s*-?\s*150']
+    sinonimos: [zw150, zw 150]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.zw125
+    solo_familia: true
+    nombre: ZW125
+    marca: Italika
+    match: ['\bZW\s*-?\s*125']
+    sinonimos: [zw125]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.zr200
+    solo_familia: true
+    nombre: ZR200
+    marca: Italika
+    match: ['\bZR\s*-?\s*200']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.serie-z
+    solo_familia: true
+    nombre: Serie Z (125Z / 150Z / 200Z)
+    marca: Italika
+    match: ['(?<!\d)(125|150|200)\s*Z\b', '\bZ\s*(125|150|200)\b']
+    sinonimos: [125z, 150z, 200z]
+    atributos:
+      modelo_z:
+        regex: '(?<!\d)(125|150|200)\s*Z\b'
+        formato: '{}Z'
+        crea_variante: true
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.at110
+    solo_familia: true
+    nombre: AT110 (scooter)
+    marca: Italika
+    match: ['\bAT\s*-?\s*110']
+    sinonimos: [at110, at110lt, scooter 110]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.at125
+    solo_familia: true
+    nombre: AT125 (scooter)
+    marca: Italika
+    match: ['\bAT\s*-?\s*125']
+    sinonimos: [at125, scooter 125]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.st110
+    solo_familia: true
+    nombre: ST110
+    marca: Italika
+    match: ['\bST\s*-?\s*110']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.gs150
+    solo_familia: true
+    nombre: GS150
+    marca: Italika
+    match: ['\bGS\s*-?\s*150']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.italika.v200
+    solo_familia: true
+    nombre: V200
+    marca: Italika
+    match: ['\bV\s*-?\s*200\b']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+
+  - id: moto.italika.150cc
+    solo_familia: true
+    nombre: Italika 150 cc (modelo sin identificar)
+    marca: Italika
+    match: ['\bITA?L[IY][CK]A\s+150\b', 'MARCA ITALIKA \| MODELO 150\b']
+    sinonimos: [italika 150, 150 cc]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+
+  # ---------------------------------------------------------------- otras marcas (moto)
+  - id: moto.yamaha.fz16
+    solo_familia: true
+    nombre: FZ16
+    marca: Yamaha
+    match: ['\bFZ\s*-?\s*(16|25|150|S)\b']
+    sinonimos: [fz16, fz 16, fz-s]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.yamaha.enticer
+    solo_familia: true
+    nombre: Enticer 125
+    marca: Yamaha
+    match: ['\bENTICER', '\bENTISER', '\bINTICER']
+    sinonimos: [enticer, enticer 125]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.yamaha.otros
+    solo_familia: true
+    nombre: Yamaha (otro modelo)
+    marca: Yamaha
+    match: ['\bYAMAHA', '\bYAMAJA\b', '\bYAMHA\b', '\bYBR\b', '\bXTZ\b']
+    excluir: ['GENERADOR', 'TECLADO', 'GUITARRA', 'PIANO']
+    sinonimos: [yamaha, ybr, xtz]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.vento.cyclone
+    solo_familia: true
+    nombre: Cyclone
+    marca: Vento
+    match: ['\bCYCLONE', '\bSICLONE', '\bCICLON[EA]\b']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.vento.lithium
+    solo_familia: true
+    nombre: Lithium (eléctrica)
+    marca: Vento
+    match: ['\bLITHIUM', '\bLITIUM']
+    checklist: [Factura, Cargador original, Batería con carga, Llaves, Enciende, Luces y frenos]
+    fotos: *fotos_moto
+    molde_descripcion: 'Moto eléctrica {marca} {nombre} {anio} {color} · NIV {niv} · llaves {llaves}'
+  - id: moto.vento.otros
+    solo_familia: true
+    nombre: Vento (otro modelo)
+    marca: Vento
+    match: ['\bVENTO\b', '\bBENTO\b', '\bVENT0\b']
+    sinonimos: [vento]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.dinamo
+    solo_familia: true
+    nombre: Dinamo
+    marca: Dinamo
+    match: ['\bDINAMO', '\bDYNAMO', '\bDINAMOT']
+    sinonimos: [dinamo]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.tribu
+    solo_familia: true
+    nombre: Tribu
+    marca: Tribu
+    match: ['\bTRIBU\b', '\bTRIBO\b']
+    sinonimos: [tribu]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.kiwo
+    solo_familia: true
+    nombre: Kiwo KY200
+    marca: Kiwo
+    match: ['\bKIWO', '\bKY\s*-?\s*200']
+    sinonimos: [kiwo, ky200]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.veloci
+    solo_familia: true
+    nombre: Velocí
+    marca: Velocí
+    match: ['\bVELOC[IY]\b', '\bVELOCCI\b', '\bVELOSI\b']
+    excluir: ['BICICLETA', 'BICI\b', 'RODADA']
+    sinonimos: [veloci, velocy]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.honda
+    solo_familia: true
+    nombre: Honda
+    marca: Honda
+    match: ['\bHONDA', '\bCGL?\s*-?\s*(125|150|160)\b', '\bCB\s*-?\s*(125|150|160|190)\b', '\bXR\s*-?\s*(150|190)\b']
+    excluir: ['GENERADOR', 'MOTOBOMBA', 'MOTOR\b']
+    sinonimos: [honda, cgl, cb150, xr150]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.bajaj
+    solo_familia: true
+    nombre: Bajaj (Pulsar / Boxer / Dominar)
+    marca: Bajaj
+    match: ['\bBAJAJ', '\bPULSAR\b', '\bBOXER\b', '\bDOMINAR\b', '\bDISCOVER\b']
+    sinonimos: [bajaj, pulsar, boxer, dominar]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.suzuki
+    solo_familia: true
+    nombre: Suzuki
+    marca: Suzuki
+    match: ['\bSUZUKI', '\bSUSUKI', '\bGIXXER\b', '\bGN\s*-?\s*125\b']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.kawasaki
+    solo_familia: true
+    nombre: Kawasaki
+    marca: Kawasaki
+    match: ['\bKAWASAKI', '\bKAWAZAKI', '\bNINJA\b']
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.otras-marcas
+    solo_familia: true
+    nombre: Otras marcas de moto (Carabela, Hero, KTM, Cuatro Mil, Keeway, Mojave, Zongshen…)
+    marca: Varias
+    match: ['\bCARABELA', '\bHERO\b', '\bKTM\b', '\bKEEWAY', '\bMOJAVE', '\bZONGSHEN', '\bLIFAN', '\bUM\s+MOTORCYCLES', '\bCFMOTO', '\bBENELLI', '\bRAZOR\b', '\bSERPENTO', '\bBMW\s*G', '\bHARLEY']
+    sinonimos: [carabela, hero, ktm, keeway, zongshen, harley]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+
+  # ---------------------------------------------------------------- motocarros / pochimóviles
+  - id: moto.piaggio.ape
+    solo_familia: true
+    nombre: Ape (motocarro / pochimóvil)
+    marca: Piaggio
+    match: ['\bPIAGGIO', '\bPIAGIO', '\bPIAJJIO', '\bAPE\s*(CITY|XTRA|CARGO|TM)?\b']
+    sinonimos: [piaggio, ape, pochimovil, pochi, mototaxi]
+    checklist: &chk_moc
+      - Factura original
+      - Tarjeta de circulación vigente
+      - Placas puestas (anotar número)
+      - NIV / número de motor coinciden con factura
+      - REPUVE sin reporte
+      - Concesión / permiso de servicio (si es de pasaje)
+      - Arranca y funciona
+      - Llaves (cuántas)
+      - Cabina / caja o asientos en buen estado
+      - Llantas, frenos y luces
+    fotos: &fotos_moc [Lado izquierdo, Lado derecho, Frente, Trasera, Interior cabina / asientos, Tablero (kilometraje), NIV, Número de motor, Placa, Tarjeta de circulación]
+    molde_descripcion: &molde_moc 'Motocarro {marca} {nombre} {anio} {color} · placas {placas} · NIV {niv} · llaves {llaves}'
+  - id: moto.tvs.motocarro
+    solo_familia: true
+    nombre: Motocarro King / Deluxe
+    marca: TVS
+    match: ['\bTVS\b', '\bKING\s+(DELUXE|DE\s?LUXE)', '\bKING\s*200']
+    sinonimos: [tvs, tvs king, motocarro]
+    checklist: *chk_moc
+    fotos: *fotos_moc
+    molde_descripcion: *molde_moc
+  - id: moto.motocarro.generico
+    solo_familia: true
+    nombre: Motocarro / pochimóvil (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['MOTO\s?CARRO', 'MOTCARRO', 'MOTOCAROO', '\bPOCHI', '\bMOTO\s?TAXI', '\bTRIMOTO', '\bCARGO\s+(150|200|250)\b']
+    sinonimos: [motocarro, pochimovil, pochi, mototaxi, trimoto]
+    checklist: *chk_moc
+    fotos: *fotos_moc
+    molde_descripcion: *molde_moc
+
+  # ---------------------------------------------------------------- genéricas (siempre al final)
+  - id: moto.italika.generico
+    solo_familia: true
+    nombre: Italika (modelo sin identificar)
+    marca: Italika
+    generica: true
+    match: ['\bITA?L[IY][CK]A\b', '\bITALICA\b', '\bITALKA\b', '\bITAKA\b', 'MARCA\s+ITALIKA']
+    sinonimos: [italika, italica]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto
+  - id: moto.generica
+    solo_familia: true
+    nombre: Motocicleta (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bMOTO(CICLETA)?\b', '\bSCOOTER\b', '\bMOTONETA\b', '\bCUATRIMOTO\b']
+    excluir: ['\bMOTO\s+G\d', '\bMOTO\s+E\d', 'MOTOROLA', 'CASCO']
+    sinonimos: [moto, motocicleta, motoneta, cuatrimoto]
+    checklist: *chk_moto
+    fotos: *fotos_moto
+    molde_descripcion: *molde_moto

@@ -1,0 +1,123 @@
+# Bebés y juguetes. Triciclo infantil: la CASITA (capota/lona/techo) crea variante, como en el mockup.
+# Nota: en TRICICLO la evaluadora también captura sandalias, navajas y una "bicicleta eléctrica para niño".
+categoria: Bebés y juguetes
+familias_prendaflex: [TRICICLO, JUGUETERIA, VARIOS, BICICLETAS]   # VARIOS: portabebés, mecedoras, cajoneras infantiles, tinas…
+excluir: ['\bNAVAJA\b', 'VICTORINOX', 'SANDALIA', 'SANADALIA']
+
+atributos:
+  casita:
+    regex: '\b(?:CON|SIN|EN)\s+(?:CASITA|CASA|LONA|TECHO|CAPOTA)\b'
+    mapa:
+      CON CASITA: con casita
+      CON CASA: con casita
+      CON LONA: con casita
+      CON TECHO: con casita
+      CON CAPOTA: con casita
+      EN CASITA: con casita
+      SIN CASITA: sin casita
+      SIN CASA: sin casita
+      SIN LONA: sin casita
+      SIN TECHO: sin casita
+      SIN CAPOTA: sin casita
+    crea_variante: true
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|ROSA|MORAD[OA]|CAFE)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO}
+    crea_variante: false
+
+x-chk-trici: &chk_trici
+  - Armazón sin soldaduras rotas
+  - Pedales y cadena completos
+  - Asiento(s) y respaldo
+  - Casita / lona / techo completo (si lo tiene)
+  - Frenos y llantas
+  - Caja o plataforma de carga (si aplica)
+
+plantillas:
+  - id: bebes.triciclo-infantil
+    solo_familia: true
+    nombre: Triciclo infantil
+    marca: Mercurio
+    match: ['\bTRI?CI?C?L[IO]+\b', '\bTRCICLO\b', '\bTRICICCLO\b', '\bTRICILO\b', '\bTRICICLIO\b', '\bTRICI\b', 'MODELO\s+TRICICL', '\b(CON|SIN|EN)\s+(CASITA|LONA|TECHO|CAPOTA)\b']
+    excluir: ['\bMOTO\b', 'MOTORIZ', 'ELECTRICA PARA NINO']
+    sinonimos: [triciclo, triciclo infantil, triciclo con casita, triciclo mercurio, trici]
+    atributos:
+      marca_trici:
+        regex: '\b(MERCURIO|MAGNUM|MAGNA|BENOTTO|ROCKET)\b'
+        crea_variante: false
+    checklist: *chk_trici
+    fotos: [Lado derecho, Lado izquierdo, Frente, Trasera, Casita / lona (si aplica), Detalles de desgaste]
+    molde_descripcion: 'Triciclo infantil {marca_trici} {casita} {color} · {detalles}'
+  - id: bebes.bici-electrica-nino
+    solo_familia: true
+    nombre: Bicicleta eléctrica infantil
+    marca: Varias
+    match: ['ELECTRICA\s+PARA\s+NINO', 'BICICLETA\s+ELECTRICA']
+    sinonimos: [bicicleta electrica niño]
+    checklist: [Cargador, Batería carga, Llave, Frenos, Llantas]
+    fotos: [Lado derecho, Lado izquierdo, Batería y cargador]
+    molde_descripcion: 'Bicicleta eléctrica infantil {color} · con cargador {cargador}'
+  - id: juguetes.transformers
+    nombre: Transformers (figura de colección)
+    marca: Takara Tomy
+    match: ['TRANSFORMERS?', 'TRANSFORMES', 'OPTIMUS', 'BUMBLEBEE', 'SCOURGE', 'MEGATRON']
+    sinonimos: [transformers, optimus prime, bumblebee, takara tomy]
+    atributos:
+      personaje:
+        regex: '\b(OPTIMUS PRIME|OPTIMUS|BUMBLEBEE|SCOURGE|MEGATRON|STARSCREAM)\b'
+        crea_variante: false
+      caja:
+        regex: '\bEN\s+CAJA\b'
+        mapa: {EN CAJA: en caja}
+        crea_variante: true          # en caja vs. suelto mueve el valor de colección
+    checklist: [Figura completa (piezas y armas), Transforma bien, Caja original, Marca / sello Takara Tomy o Hasbro]
+    fotos: [Figura frente, Figura transformada, Caja, Sello / marca]
+    molde_descripcion: 'Transformers {personaje} {color} {caja}'
+  - id: juguetes.montable-electrico
+    solo_familia: true
+    nombre: Vehículo montable eléctrico / de pedales
+    marca: Varias
+    match: ['\bMONTABLE\b', '\bCARRITO\b.*\b(MONTABLE|CARGADOR)', '\bCAMIONETA\b.*\bNINO\b', '\bFUNZONE\b', '\bPRINSEL\b']
+    excluir: ['BICICLETA']
+    sinonimos: [montable, carrito montable, carro eléctrico niño, funzone, prinsel]
+    checklist: [Enciende, Batería carga, Cargador incluido, Control remoto (si trae), Llantas y volante]
+    fotos: [Frente, Lado, Trasera, Cargador y control]
+    molde_descripcion: 'Montable eléctrico {marca} {nombre} {color} · cargador {cargador} · control {control}'
+  - id: bebes.portabebe-autoasiento
+    solo_familia: true
+    nombre: Portabebé / autoasiento
+    marca: Evenflo
+    match: ['PORTA\s?BEB[EÉ]', 'PORTABBE', 'AUTO\s?ASIENTO', 'ASIENTO\s+PARA\s+AUTO', 'BUTACA\s+PARA\s+AUTO']
+    sinonimos: [portabebe, porta bebe, autoasiento, evenflo, silla de auto]
+    checklist: [Cinturones completos, Sin golpes ni desgaste en estructura, Fecha de fabricación vigente, Base (si la trae)]
+    fotos: [Frente, Lado, Etiqueta de fabricación]
+    molde_descripcion: 'Portabebé {marca} {color} · base {base}'
+  - id: bebes.carriola
+    solo_familia: true
+    nombre: Carriola
+    marca: Varias
+    match: ['\bCARRIOLA', '\bCARRIOLLA', '\bCOCHE\s+(DE|PARA)\s+BEBE', '\bPASEADOR\b']
+    sinonimos: [carriola, coche de bebe, paseador]
+    checklist: [Plegado funciona, Frenos, Llantas, Toldo y cinturón, Charola]
+    fotos: [Abierta de lado, Plegada, Etiqueta de marca]
+    molde_descripcion: 'Carriola {marca} {color} · {detalles}'
+  - id: bebes.tina-mecedora-cuna
+    solo_familia: true
+    nombre: Tina, mecedora y mobiliario de bebé
+    marca: Varias
+    match: ['\bTINA\b', '\bBEBEDERO\b', '\bMECEDORA\b', '\bMESEDORA\b', '\bCORRALITO\b', '\bCUNA\b', '\bCAMINADORA\s+(DE|PARA)\s+BEBE', '\bBRINCOLIN\b', '\bSILLA\s+ALTA\b', '\bCAJONERA\s+DE\s+NINA\b', '\bCAJONERA\b.*(MCQUEEN|RAYO)', '\bBAUL\s+DE\s+JUGUETES\b']
+    excluir: ['CAJONERA\s+PARA\s+MOTO', 'CAJONERA\s+MOTO']
+    sinonimos: [tina bebe, mecedora, corralito, cuna, cajonera niña]
+    checklist: [Armado completo, Sin piezas rotas, Limpieza]
+    fotos: [Frente, Lado, Detalle de uso]
+    molde_descripcion: '{nombre} {color} · {detalles}'
+  - id: juguetes.generico
+    solo_familia: true
+    nombre: Juguete (sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bJUGUETE', 'AJEDRE[SZ]', '\bDOMINO\b', '\bLOTERIA\b', '\bJUEGO\s+DE\s+MESA\b', '\bMUNEC[AO]\b', '\bPELUCHE\b', '\bLEGO\b', '\bHOT\s?WHEELS\b', '\bFUNKO\b', '\bFIGURA\b', '\bMONTABLE\b', '\bCARRITO\b', '\bBLOCKS?\b', '\bPLAYMOBIL\b', '\bBARBIE\b', '\bHASBRO\b', '\bMATTEL\b', '\bTAKARA\b', '\bTOMY\b']
+    sinonimos: [juguete, muñeca, peluche, lego, hot wheels, funko, barbie]
+    checklist: [Completo, Funciona (si es electrónico), Caja original]
+    fotos: [Frente, Lado, Caja]
+    molde_descripcion: 'Juguete {marca} {nombre} · {detalles}'

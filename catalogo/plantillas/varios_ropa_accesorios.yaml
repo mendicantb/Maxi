@@ -1,0 +1,73 @@
+# Ropa, calzado y accesorios personales (todo viene capturado en VARIOS).
+categoria: Ropa, calzado y accesorios
+familias_prendaflex: [VARIOS, PERFUMES, TRICICLO]
+
+atributos:
+  cantidad:
+    regex: '\b(\d{1,2})\s*(?:PARES?\s+DE\s+)?(?:SANDALIAS|PERFUMES|BOLSOS|MOCHILAS|LENTES|GORRAS)\b'
+    formato: 'x{}'
+    crea_variante: false
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|ROSA|MORAD[OA]|CAFE|PLATA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO}
+    crea_variante: false
+
+plantillas:
+  - id: ropa.sandalias
+    solo_familia: true
+    nombre: Sandalias / calzado (lote)
+    marca: Varias
+    match: ['\bSANDALIAS?\b', '\bSANADALIAS\b', '\bTENIS\b', '\bZAPATOS?\b', '\bBOTAS?\s+(DE|PARA)\b', '\bHUARACHES\b', '\bCALZADO\b']
+    sinonimos: [sandalias, tenis, zapatos, huaraches]
+    checklist: [Cantidad de pares, Talla(s), Estado de la suela, Nuevas o usadas]
+    fotos: [Lote completo, Etiquetas de talla]
+    molde_descripcion: 'Sandalias/calzado {cantidad} · tallas {tallas} · {detalles}'
+  - id: ropa.mochila-maleta
+    solo_familia: true
+    nombre: Mochila, bolso y maleta
+    marca: Varias
+    match: ['\bMOCHILAS?\b', '\bBOLSOS?\b', '\bMALETA', '\bMALETIN\b', '\bCARTERA\b', '\bRIÑONERA\b', '\bRINONERA\b', '\bMARIPOSA\b', '\bEQUIPO\s+DE\s+MALETA\b', '\bSTAR\s+ALBAN\b']
+    excluir: ['\bEN\s+BOLSA\b', 'MOCHILA\s+(ASPERSORA|FUMIGADORA)', 'FUMIGADORA', 'ASPERSORA']
+    sinonimos: [mochila, bolso, maleta, maletin, cartera]
+    checklist: [Cierres funcionan, Costuras, Ruedas y asa (maleta), Candado / llaves]
+    fotos: [Frente, Interior, Etiqueta de marca]
+    molde_descripcion: '{nombre} {marca} {color} {cantidad} · {detalles}'
+  - id: ropa.impermeable-polainas
+    solo_familia: true
+    nombre: Impermeable, polainas y ropa de protección
+    marca: Varias
+    match: ['\bIMPERMEABLE\b', '\bPOLAINAS?\b', '\bCHAMARRA\b', '\bCHAQUETA\b', '\bGUANTES\s+(DE|PARA)\s+MOTO', '\bROPA\b', '\bTRAJE\b', '\bCAPA\s+DE\s+AGUA\b']
+    sinonimos: [impermeable, polainas, chamarra, ropa de lluvia]
+    checklist: [Talla, Cierres / velcros, Sin roturas]
+    fotos: [Completo, Etiqueta de talla]
+    molde_descripcion: '{nombre} {marca} {color} · talla {talla}'
+  - id: ropa.lentes
+    solo_familia: true
+    nombre: Lentes (sol / graduados)
+    marca: Varias
+    match: ['\bLENTES\b(?!\s+(NEON|RAYADOS))', '\bGAFAS\b(?!\s+Y\s+GUANTES)', '\bANTEOJOS\b', '\bRAY\s?BAN\b', '\bOAKLEY\b']
+    excluir: ['CASCO', 'SOLDADORA']
+    sinonimos: [lentes, gafas, ray ban, oakley]
+    checklist: [Micas sin rayones, Armazón completo, Estuche, Marca original]
+    fotos: [Frente, Perfil, Marca interior]
+    molde_descripcion: 'Lentes {marca} {color} · {detalles}'
+  - id: ropa.perfumes
+    solo_familia: true
+    nombre: Perfumes (lote o pieza)
+    marca: Varias
+    match: ['\bPERFUMES?\b', '\bCOLONIA\b', '\bFRAGANCIA\b', '\bAVON\b', '\bFULLER\b(?!.*TAZA)', '\bJAFRA\b']
+    excluir: ['TAZAS?']
+    sinonimos: [perfume, colonia, avon, jafra, fragancia]
+    checklist: [Cantidad de piezas, Sellados o usados, Nivel de contenido, Originales]
+    fotos: [Lote completo, Etiquetas]
+    molde_descripcion: 'Perfumes {marca} {cantidad} · {detalles}'
+  - id: ropa.gorra-accesorio
+    solo_familia: true
+    nombre: Gorras y accesorios (cinturón, cartera, gorra)
+    marca: Varias
+    generica: true
+    match: ['\bGORRAS?\b', '\bCINTURON\b', '\bBUFANDA\b', '\bSOMBRERO\b', '\bPAÑUELO\b']
+    sinonimos: [gorra, cinturón, sombrero]
+    checklist: [Original, Estado]
+    fotos: [Frente]
+    molde_descripcion: '{nombre} {marca} {color}'

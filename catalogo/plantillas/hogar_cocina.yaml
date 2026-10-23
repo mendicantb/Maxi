@@ -1,0 +1,317 @@
+categoria: Hogar - Cocina
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: ['DESBROZADORA', 'MOTOSIERRA', 'ESMERIL', 'PULIDORA', 'TALADRO', 'ROTOMARTILLO']
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|ROSA|NARANJA|PLATA|BEIGE|AMARILLO|CAFE)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+
+plantillas:
+  # ---------- gas
+  - id: hogar.cocina.tanque-gas
+    nombre: Tanque de gas
+    atributos:
+      capacidad:
+        regex: '(?<![\d.])(6|9|10|20|30|45)\s*(?:K|KG|KGS|KILOS?|KLOS|LK|CILINDROS?|CILIDROS?)?(?![\d.A-JL-Z])'
+        formato: '{} kg'
+        crea_variante: true
+    match: ['\bARMEBE\b', '\bARMABE\b', '\bTANQ\w+', '\bT[A-Z]{1,4} ?(QUE|UE)? ?D?E? ?GAS\b', '\bTAN ?QUE\b', '\bTANQUE', 'TANWUER', 'TANDE GAS', 'CILINDRO DE \d+ ?KG', 'TAN ?DE GAS', 'TAQUE DE GAS', '^TANA DE GAS', '\b(\d+) ?K GAS', 'RANQUE DE GAS']
+    excluir: ['ESTUFA', 'PARRILLA', 'LAVADORA']
+    sinonimos: [tanque de gas, cilindro de gas, tanque estacionario, gas lp, tanque 20 kilos, tanque 30 kilos, tanque 9 kilos]
+    checklist: [Con valvula, Sin fugas, Sin oxido excesivo, Con gas o vacio, Con regulador y manguera si aplica]
+    fotos: [Frente, Base, Valvula, Placa de capacidad]
+    molde_descripcion: 'Tanque de gas {capacidad} {marca} {color}'
+
+  - id: hogar.cocina.estufa-lena
+    nombre: Estufa de leña / ahorradora
+    match: ['ESTUFA.{0,15}LE[NÑ]A', 'ECO ESTUFA', 'AHORRADORA DE LE']
+    checklist: [Completa, Sin grietas, Chimenea]
+    fotos: [Frente, Interior]
+    molde_descripcion: 'Estufa de leña {marca}'
+
+  - id: hogar.cocina.parrilla-induccion
+    nombre: Parrilla de induccion
+    match: ['INDUCCION']
+    checklist: [Enciende, Calienta, Vidrio sin estrellar, Con cable]
+    fotos: [Frente, Cable, Marca/modelo]
+    molde_descripcion: 'Parrilla de induccion {marca}'
+
+  - id: hogar.cocina.estufa-empotrable
+    nombre: Estufa / parrilla empotrable
+    atributos:
+      quemadores:
+        regex: '(?<![\d.])(1|2|3|4|5|6|UN|UNO|DOS|TRES|CUATRO|CINCO|SEIS)\s*(?:QUEMADORES|QUEMADOR|Q|ORNILLAS|HORNILLAS)\b'
+        mapa: {UN: '1', UNO: '1', DOS: '2', TRES: '3', CUATRO: '4', CINCO: '5', SEIS: '6'}
+        formato: '{} quemadores'
+        crea_variante: true
+    match: ['EMPOTRA', 'ENPOTRA', 'EMPOTRANLE', 'GUTSTARK']
+    sinonimos: [estufa empotrable, parrilla empotrable, cubierta, parrilla de empotrar]
+    checklist: [Quemadores completos, Perillas, Encendido, Con regulador y manguera, Sin fugas]
+    fotos: [Frente, Quemadores, Placa de datos]
+    molde_descripcion: 'Estufa empotrable {marca} {quemadores}'
+
+  - id: hogar.cocina.parrilla-electrica
+    nombre: Parrilla electrica
+    match: ['(PARRILLA|PARRILA|PARILLA|ESTUFA) (ELECTRIC|ELEKTRIC)', 'PARRILLA ELECT', 'PARRILLA ELEKTRICA', 'MODELO PARRILLA ELECT', 'MARCA ESTUFA ELECTRICA', 'ESTUFA ELECTRICA']
+    excluir: ['SANDWICH', 'PANINI']
+    sinonimos: [parrilla electrica, estufa electrica, anafre electrico, hornilla electrica]
+    checklist: [Calienta, Cable sin danos, Discos/resistencias]
+    fotos: [Frente, Cable, Marca/modelo]
+    molde_descripcion: 'Parrilla electrica {marca}'
+
+  - id: hogar.cocina.estufa-piso
+    nombre: Estufa de gas de piso (con horno)
+    atributos:
+      quemadores:
+        regex: '(?<![\d.])(1|2|3|4|5|6|UN|UNO|DOS|TRES|CUATRO|CINCO|SEIS)\s*(?:QUEMADORES|QUEMADOR|Q|ORNILLAS|HORNILLAS)\b'
+        mapa: {UN: '1', UNO: '1', DOS: '2', TRES: '3', CUATRO: '4', CINCO: '5', SEIS: '6'}
+        formato: '{} quemadores'
+        crea_variante: true
+    match:
+      - 'ESTUFA.*\bHORNO\b'
+      - '\bESTUFA\b.*MARCA (MABE|ACROS|MIDEA|WHIRLPOOL|CRISTAL|IEM|PALERMO)\b'
+      - 'ESTUFA.*(6 QUEMADORES|INDUSTRIAL|INDUSTRILA)'
+      - 'MODELO (EM\d|CEM\d)'
+      - 'ASADOR DE ESTUFA'
+    excluir: ['MESA', 'PARRILLA', 'PARRILA', 'ELECTRIC', 'ELEKTRIC', 'LE[NÑ]A', 'EMPOTRA', 'ENPOTRA']
+    sinonimos: [estufa, estufa de gas, estufa de piso, estufa con horno, cocina integral]
+    checklist: [Quemadores completos, Perillas, Encendido, Horno enciende, Parrillas/charolas, Con regulador y manguera, Sin fugas]
+    fotos: [Frente, Quemadores, Horno, Placa de datos]
+    molde_descripcion: 'Estufa {marca} {quemadores} {color}'
+
+  - id: hogar.cocina.estufa-mesa
+    nombre: Estufa / parrilla de gas de mesa
+    atributos:
+      quemadores:
+        regex: '(?<![\d.])(1|2|3|4|5|6|UN|UNO|DOS|TRES|CUATRO|CINCO|SEIS)\s*(?:QUEMADORES|QUEMADOR|Q|ORNILLAS|HORNILLAS)\b'
+        mapa: {UN: '1', UNO: '1', DOS: '2', TRES: '3', CUATRO: '4', CINCO: '5', SEIS: '6'}
+        formato: '{} quemadores'
+        crea_variante: true
+    match:
+      - '\bEST[A-Z]{1,3}FA\b'
+      - 'ESTUFA|DE MESA'
+      - '\bPA?R+I?L+A\w*\b.*(GAS|QUEMADOR|4Q|SOBREPONER|VALVULA|ORNILLA)'
+      - 'PARRILLA DE (UN|1)? ?QUEMADOR'
+      - '\bPA?R+I?L+A\w*\b.*(QUEMADOR|ORNILLA)'
+      - 'PARILLA'
+      - 'PAGA 3X'
+      - 'QUEMADOR TIPO FOGON'
+      - '^\d QUEMADOR'
+      - 'MODELO DE PARRILA'
+    excluir: ['ELECTRIC', 'ELEKTRIC', 'PANINI', 'SANDWICH', 'INDUCCION', 'HORNO']
+    sinonimos: [estufa de mesa, parrilla de gas, parrilla, estufa portatil, anafre, fogon]
+    checklist: [Quemadores completos, Perillas, Encendido, Con regulador y manguera, Sin fugas]
+    fotos: [Frente, Quemadores, Marca/modelo]
+    molde_descripcion: 'Estufa de mesa {marca} {quemadores}'
+
+  # ---------- coccion
+  - id: hogar.cocina.microondas
+    nombre: Microondas
+    atributos:
+      capacidad:
+        regex: '(?<![\d])(0?\.\d{1,2}|1\.\d)\s*(?:PIES|PIE|P\b)'
+        mapa: {}
+        crea_variante: false
+    match: ['\bM[IR]{1,2}C?I?R?[OR]{1,2}\s?[ON]{1,2}[AD]{1,2}[SA]*\b', 'MICRODA', 'MODELO WM1[12]', 'HMM1', 'MAQUINA PARA HACER \d+ MINI HOT CAKES']
+    excluir: ['MAQUINA PARA HACER']
+    sinonimos: [microondas, horno de microondas, micro]
+    checklist: [Enciende, Calienta, Plato giratorio, Puerta cierra bien, Panel/botones]
+    fotos: [Frente, Interior, Placa de datos]
+    molde_descripcion: 'Microondas {marca} {capacidad} {color}'
+
+  - id: hogar.cocina.freidora-aire
+    nombre: Freidora de aire
+    match: ['FR[EI]?[IE]?D\w*R?A? ?(DE|DEL)? ?AIRE', 'FRIDORA DE AIRE', 'FREIDORA DE AIRE', 'AIR FRYER', 'KUKI FRYER', 'FRYER', 'MODELO (DCAF|CKSTAF)', 'FREIDORA (NEGRA )?(SIN MARCA )?(MEDIANA )?DIGITAL', 'FREIDORA .*GOURMIA', 'FREIDORA .*DIGITAL']
+    sinonimos: [freidora de aire, air fryer, freidora]
+    checklist: [Enciende, Canasta incluida, Calienta, Antiadherente sin dano]
+    fotos: [Frente, Canasta, Marca/modelo]
+    molde_descripcion: 'Freidora de aire {marca} {color}'
+
+  - id: hogar.cocina.freidora-electrica
+    nombre: Freidora electrica
+    match: ['FRE?I?DURA ELECT', 'FREIDORA', 'FREDURA', 'FRIDORA']
+    sinonimos: [freidora electrica, freidora de aceite, deep fryer]
+    checklist: [Enciende, Canasta incluida, Calienta]
+    fotos: [Frente, Interior, Marca/modelo]
+    molde_descripcion: 'Freidora {marca} {color}'
+
+  - id: hogar.cocina.horno-electrico
+    nombre: Horno electrico / tostador
+    match: ['H[O]?T?NO (ELECTRICO|PRACTICO|CHICO|PARRIL|DE)?', '\bHORNO\b', 'TOSTADOR', 'TOSTADORA', 'MODELO TOV', 'ROSTI']
+    excluir: ['MICRO']
+    sinonimos: [horno electrico, horno tostador, tostador, tostadora]
+    checklist: [Enciende, Calienta, Charolas incluidas, Puerta/vidrio sin dano]
+    fotos: [Frente, Interior, Marca/modelo]
+    molde_descripcion: 'Horno/tostador {marca} {color}'
+
+  - id: hogar.cocina.sandwichera
+    nombre: Sandwichera / panini
+    match: ['SA?N?DWI?CHE?RA', 'SAMWICHERA', 'SANWI\w+RA', 'SANWICHERA', 'SANDWI\w+', 'PANINI', 'HAMBURGUESERA', 'TOSTADORA DE SANDWICH']
+    sinonimos: [sandwichera, panini, parrilla panini, hamburguesera]
+    checklist: [Enciende, Calienta, Antiadherente sin dano, Cable sin cortes]
+    fotos: [Frente, Interior, Marca/modelo]
+    molde_descripcion: 'Sandwichera {marca} {color}'
+
+  - id: hogar.cocina.wafflera
+    nombre: Wafflera / crepera / palomitera y similares
+    match: ['WAFLERA', 'WAFFLE', 'CREPERA', 'CREPER', 'PALOMERA', 'PALOMITERA', 'ALGODON DE AZUCAR', 'HOT CAKES', 'HOTCAKES', 'DONAS', 'MINI DONA']
+    sinonimos: [wafflera, waflera, crepera, palomitera, algodon de azucar, maquina de hot cakes]
+    checklist: [Enciende, Calienta, Antiadherente sin dano, Cable sin cortes]
+    fotos: [Frente, Interior, Marca/modelo]
+    molde_descripcion: '{nombre} {marca} {color}'
+
+  - id: hogar.cocina.sarten-electrico
+    nombre: Sarten electrico
+    match: ['SARTEN EL[EÉ]CTRIC', 'SARTEN ELECTRICO', 'ELECTRICA.*SARTEN', 'SARTEN ELEC', 'MODELO B12', 'CAJA TIMCO']
+    sinonimos: [sarten electrico, sarten electrica]
+    checklist: [Calienta, Tapa, Antiadherente sin dano, Cable y control de temperatura]
+    fotos: [Frente, Interior, Marca/modelo]
+    molde_descripcion: 'Sarten electrico {marca}'
+
+  - id: hogar.cocina.arrocera
+    nombre: Arrocera / olla electrica
+    match: ['ARROCERA', 'ARROZERA', 'OLLA ELECT', 'OLLA DE COCCION', 'INSTANT ?POT', 'INSTA POP', 'OLLA INSTANTANEA']
+    sinonimos: [arrocera, olla electrica, instant pot, multicocina]
+    checklist: [Enciende, Cuerpo interior sin rayones, Tapa, Accesorios]
+    fotos: [Frente, Interior, Accesorios]
+    molde_descripcion: 'Arrocera {marca}'
+
+  # ---------- bebidas / preparacion
+  - id: hogar.cocina.cafetera
+    nombre: Cafetera
+    atributos:
+      tazas:
+        regex: '\b(4|6|8|10|12)\s*(?:TAZAS|TAZS|TZ)\b'
+        formato: '{} tazas'
+        crea_variante: false
+    match: ['CAF[A-Z]{1,3}R[AE]', 'CAFETRERA', 'CAFETRA', 'CAFETREA', 'CAFETERA', 'CAFETE', 'ESPRESO', 'EXPRESO', 'TETERA', 'HERVIDOR']
+    sinonimos: [cafetera, cafetera electrica, expreso, tetera, hervidor, cafetera de goteo]
+    checklist: [Enciende, Calienta, Jarra completa, Sin fugas]
+    fotos: [Frente, Jarra, Marca/modelo]
+    molde_descripcion: 'Cafetera {marca} {tazas} {color}'
+
+  - id: hogar.cocina.licuadora-ninja
+    nombre: Licuadora Ninja / procesador multifuncion
+    match: ['\bN[IN]+GA\b', '\bNINJA\b', 'NIGA COLOR', 'SMOTHIES', 'SMOOTHIE', 'MULTIFUNCIONAL']
+    sinonimos: [ninja, licuadora ninja, nutribullet, extractor, smoothie]
+    checklist: [Enciende, Vasos incluidos, Aspas, Tapas]
+    fotos: [Frente, Vasos, Base/modelo]
+    molde_descripcion: 'Licuadora {marca} {color}'
+
+  - id: hogar.cocina.licuadora
+    nombre: Licuadora
+    match: ['L[IE]C?[UA]?[EA]?D[OA]?[IR]?R?A\b', 'LICUADORA', 'LICUEDORA', 'LICUADOIRA', 'LICUADOR', 'LICUA']
+    sinonimos: [licuadora, osterizer, oster, vaso de vidrio]
+    checklist: [Enciende, Vaso sin fisuras, Aspas, Tapa, Todas las velocidades]
+    fotos: [Frente, Vaso, Base/modelo]
+    molde_descripcion: 'Licuadora {marca} {color}'
+
+  - id: hogar.cocina.exprimidor
+    nombre: Exprimidor / extractor de jugos
+    match: ['EXPRIM', 'EXTRA[CK]TOR (DE )?JUG', 'EXTRATOR DE JUG', 'EXTRACTOR', 'JUGUERA']
+    excluir: ['ASPIRA']
+    sinonimos: [exprimidor, extractor de jugos, juguera]
+    checklist: [Enciende, Accesorios completos, Sin rajaduras]
+    fotos: [Frente, Accesorios, Marca/modelo]
+    molde_descripcion: 'Exprimidor {marca} {color}'
+
+  - id: hogar.cocina.batidora-pedestal
+    nombre: Batidora de pedestal
+    match: ['BATIDORA.{0,30}(PEDESTAL|PEESTAL|DE BANO|TAZON|TAZONES)', 'KITCHENAID', 'BATIDORA (OSTER )?GRANDE', 'MODELO (MK45|KSM|63232)', 'BATIDORA DE PEESTAL', 'BATIDORA BLACK.*GRANDE']
+    excluir: ['MANO']
+    sinonimos: [batidora de pedestal, batidora kitchenaid, mezcladora]
+    checklist: [Enciende, Tazon incluido, Batidores/ganchos, Velocidades]
+    fotos: [Frente, Tazon y accesorios, Modelo]
+    molde_descripcion: 'Batidora de pedestal {marca} {color}'
+
+  - id: hogar.cocina.batidora-mano
+    nombre: Batidora de mano / inmersion
+    match: ['B[AE]TIDORA', 'BATIDOS DUAL', 'BATTER CHEF', 'MODELO IM.807', 'INVERSION', 'MEZCLADORA']
+    sinonimos: [batidora, batidora de mano, batidora de inmersion, mixer]
+    checklist: [Enciende, Aspas/accesorios, Velocidades, Cable]
+    fotos: [Frente, Accesorios, Marca/modelo]
+    molde_descripcion: 'Batidora {marca} {color}'
+
+  - id: hogar.cocina.procesador
+    nombre: Procesador de alimentos / picador
+    match: ['PROCESADOR', 'PRECESADOR', 'PICADORA', 'CORTA ?VEGETAL', 'CHOPPER', 'MOLINO DE CARNE', 'MOLINO', 'RAYADOR', 'RALLADOR', 'TRITURADORA', 'MOLINA']
+    excluir: ['CAFETERA']
+    sinonimos: [procesador de alimentos, picadora, molino de carne, rallador, triturador de hielo]
+    checklist: [Enciende, Cuchillas, Accesorios, Vaso/tazon]
+    fotos: [Frente, Accesorios, Marca/modelo]
+    molde_descripcion: '{nombre} {marca}'
+
+  # ---------- trastes
+  - id: hogar.cocina.olla-presion
+    nombre: Olla de presion
+    atributos:
+      litros:
+        regex: '\b(\d{1,2}(?:\.\d)?)\s*(?:L|LT|LTS|LITROS)\b'
+        formato: '{} L'
+        crea_variante: true
+    match: ['OLLA (A|DE) PRESION', 'OLLA EXPRESS', 'PRESION']
+    sinonimos: [olla de presion, olla express]
+    checklist: [Valvula y seguro, Empaque, Tapa, Sin abolladuras]
+    fotos: [Frente, Tapa y valvula, Marca]
+    molde_descripcion: 'Olla de presion {marca} {litros}'
+
+  - id: hogar.cocina.vaporera
+    nombre: Vaporera / olla vaporera
+    match: ['VAPORERA']
+    sinonimos: [vaporera, olla vaporera, tamalera]
+    checklist: [Tapa, Niveles completos, Sin abolladuras]
+    fotos: [Frente, Niveles]
+    molde_descripcion: 'Vaporera {marca}'
+
+  - id: hogar.cocina.cazuela
+    nombre: Cazuela / cazo / chicharronera
+    match: ['CAZUELA', 'CAZEROLA', 'CASEROLA', 'CAZO\b', 'CHICHARRON', '\bCOMAL\b']
+    sinonimos: [cazuela, cazo, chicharronera, cacerola, comal]
+    checklist: [Sin hoyos, Sin abolladuras, Asas]
+    fotos: [Frente, Interior]
+    molde_descripcion: 'Cazuela {marca}'
+
+  - id: hogar.cocina.sartenes
+    nombre: Sartenes / juego de sartenes
+    match: ['SART[EÉ]N', 'SARTENES', 'SARTEN', 'SILV STANINLES']
+    sinonimos: [sarten, sartenes, juego de sartenes, antiadherente]
+    checklist: [Antiadherente sin rayones, Completo, Asas firmes]
+    fotos: [Piezas, Interior]
+    molde_descripcion: 'Juego de sartenes {marca} {color}'
+
+  - id: hogar.cocina.bateria-cocina
+    nombre: Bateria de cocina / juego de ollas
+    match: ['JUEGO DE (COCINA|OLLAS)', 'BATERIA', 'PAR DE OLLAS', 'OLLAS', '\bOLLA\b', 'ARROZERA', 'BUDINERA', 'ESCURRIDOR', 'PELTRE', 'JUEGO DE \d+ PIEZAS', 'VASOS DE CRISTAL', 'CRISTALERIA', 'VAJILLA', 'TUPPERWARE']
+    excluir: ['LAVADORA']
+    sinonimos: [bateria de cocina, juego de ollas, olla, trastes, vajilla]
+    checklist: [Piezas completas, Tapas, Sin abolladuras, Antiadherente sin dano]
+    fotos: [Conjunto, Detalle]
+    molde_descripcion: 'Juego de ollas {marca} {color}'
+
+  - id: hogar.cocina.termo
+    nombre: Termo / hielera de agua
+    match: ['\bTERMO\b', 'GARRAFON TERMICO']
+    sinonimos: [termo, termo igloo, garrafon termico]
+    checklist: [Tapa y llave, Sin golpes, Sin fugas]
+    fotos: [Frente, Tapa]
+    molde_descripcion: 'Termo {marca} {color}'
+
+  - id: hogar.cocina.hielera
+    nombre: Nevera portatil / hielera
+    match: ['NEVERA', 'HIELERA', 'COOLER', 'CHILLER', 'COLEMAN']
+    excluir: ['REFRIGERADOR', 'CONGELADOR', 'HISENSE', 'AURUS', 'MODELO (FC|AFC)']
+    sinonimos: [nevera, hielera, nevera igloo, cooler, hielera con ruedas]
+    checklist: [Tapa cierra, Sin grietas, Asa/ruedas, Limpia]
+    fotos: [Frente, Tapa]
+    molde_descripcion: 'Nevera portatil {marca} {color}'
+
+  - id: hogar.cocina.cocina-generico
+    nombre: Electrodomestico de cocina (sin identificar)
+    generica: true
+    match: ['COCINA', 'MARCA (OSTER|HAMILTON BEACH|BLACK|T.FAL|TAURUS|RCA|BRENTWOOD|CHEFMATE|RIVAL|TIMCO|PHILCO|MOULINEX|KOBLENZ|TURMIX)\b']
+    excluir: ['VENT', 'LAVADORA', 'CONGELA', 'FRIGOBAR', 'REFRIG', 'CLIMA', 'DISP', 'SILLA', 'CAMA', 'MALETA', 'COSER', 'COCER', 'COSTUR', 'PL\w{0,5}CHA', 'HIELO', 'ASPIRA', 'CABELLO', 'MESA', 'ESMERIL', 'DESBROZ', 'EXTENSION', 'BASCULA']
+    checklist: [Enciende, Completo, Con caja]
+    fotos: [Frente, Marca/modelo]
+    molde_descripcion: '{marca} {color}'

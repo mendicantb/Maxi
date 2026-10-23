@@ -1,0 +1,214 @@
+categoria: Audio
+familias_prendaflex: [BOCINAS PORTATILES, BOCINAS DE PISO, BOCINAS AMPLIFICADAS, AUDIO, AUDICULARES, MINI COPONENTE, ESTEREO DE AUTO]
+excluir: ['\bBICI(CLETA)?\b', 'BICILETA', 'ROTOMARTILLO', 'PULIDORA']
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|GRIS|AZUL|ROJO|ROJA|ROSA|VERDE|NARANJA|MORADO|MORADA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO}
+    crea_variante: false
+  tamano:
+    regex: '\b(MINI|CHICA|CHICO|PEQUENA|PEQUENO|MEDIANA|MEDIANO|GRANDE|ALTA)\b'
+    mapa: {CHICO: CHICA, PEQUENA: CHICA, PEQUENO: CHICA, MINI: CHICA, MEDIANO: MEDIANA}
+    crea_variante: false
+  marca_audio:
+    regex: '\b(JBL|SONY|LG|KAISER|KSR|HKPRO|HKRPO|QFX|AEK\s*CYBER|LINK\s*BITS|SELECT\s*SOUND|TRONSMART|TROSMART|XIAOMI|MISIK|MITZU|STF|MELO|RCA|PANASONIC|PHILIPS|AIWA|ALWA|HYUNDAI|HYPER|BILLBOARD|BOSE|BEATS|HUAWEI|SAMSUNG|AMAZON|ALEXA|BEHRINGER|PIONEER|PIONNER)\b'
+    crea_variante: false
+
+plantillas:
+  # ---------- JBL ----------
+  - id: elec.bocina.jbl-flip
+    nombre: Bocina JBL Flip
+    marca: JBL
+    match: ['\bJBL\b.*\bF?LIP\b', '\bFLIP\s*\d', 'PLIP\s*\d']
+    sinonimos: [jbl flip, flip 5, flip 6, flip 4]
+    atributos:
+      modelo_flip:
+        regex: 'FLIP\s*(\d)'
+        formato: 'Flip {}'
+        crea_variante: true
+    checklist: [Enciende, Conecta por Bluetooth, Suena sin ruido ni distorsión, Batería carga, Cargador/cable, Rejilla sin golpes]
+    fotos: [Frente, Etiqueta inferior, Accesorios]
+    molde_descripcion: 'JBL {modelo_flip} {color}'
+
+  - id: elec.bocina.jbl-charge
+    nombre: Bocina JBL Charge
+    marca: JBL
+    match: ['\bJBL\b.*CHARGE', 'CHARGE\s*\d']
+    sinonimos: [jbl charge, charge 5, charge 4]
+    atributos:
+      modelo_charge:
+        regex: 'CHARGE\s*(\d)'
+        formato: 'Charge {}'
+        crea_variante: true
+    checklist: [Enciende, Conecta por Bluetooth, Suena sin distorsión, Batería carga, Cargador/cable]
+    fotos: [Frente, Etiqueta inferior, Accesorios]
+    molde_descripcion: 'JBL {modelo_charge} {color}'
+
+  - id: elec.bocina.jbl-partybox
+    nombre: Bocina JBL Partybox
+    marca: JBL
+    match: ['PARTY\s*BOX', 'JBL.*(BOOMBOX|XTREME|ENCORE)']
+    sinonimos: [partybox, jbl partybox, boombox]
+    checklist: [Enciende, Bluetooth, Suena sin distorsión, Luces funcionan, Cargador/cable, Micrófono, Batería]
+    fotos: [Frente, Etiqueta, Accesorios]
+    molde_descripcion: 'JBL Partybox {color}'
+
+  - id: elec.bocina.jbl-otra
+    nombre: Bocina JBL (otros modelos)
+    marca: JBL
+    match: ['\bJBL\b']
+    excluir: ['AUDIFONO', 'AUDICULAR', 'AURICULAR', 'BUDS', 'TUNE']
+    sinonimos: [jbl, go, clip, pulse]
+    checklist: [Enciende, Bluetooth, Suena sin distorsión, Batería carga, Cargador/cable]
+    fotos: [Frente, Etiqueta inferior, Accesorios]
+    molde_descripcion: 'JBL {modelo} {color}'
+
+  # ---------- Otras portátiles de marca ----------
+  - id: elec.bocina.sony
+    nombre: Bocina Sony (portátil / alta potencia)
+    marca: Sony
+    match: ['\bSRS\b', 'SONY.*\b(XP500|XP\d{3}|XB\d{2}|XE\d{3})\b', '\bXP500\b']
+    excluir: ['MHC', 'XAV']
+    sinonimos: [sony xp500, sony srs, sony xb]
+    checklist: [Enciende, Bluetooth, Suena sin distorsión, Luces funcionan, Batería, Cargador]
+    fotos: [Frente, Etiqueta, Accesorios]
+    molde_descripcion: 'Sony {modelo} {color}'
+
+  - id: elec.bocina.alexa-echo
+    nombre: Bocina inteligente Alexa / Echo
+    marca: Amazon
+    match: ['\bALEXA\b', '\bECHO\b', 'AMAZON']
+    excluir: ['AUDIFONO']
+    sinonimos: [alexa, echo dot, echo show, amazon echo]
+    checklist: [Enciende, Conecta a WiFi, Responde a voz, Cuenta Amazon cerrada, Cargador/cable, Pantalla sin daño (Show)]
+    fotos: [Frente, Etiqueta inferior, Accesorios]
+    molde_descripcion: 'Amazon {modelo} {color}'
+
+  - id: elec.bocina.barra-sonido
+    nombre: Barra de sonido / Teatro en casa
+    match: ['BARRA\s*DE\s*SONI', 'TEATRO\s*EN\s*CASA', 'HOME\s*THEATER', 'SOUNDBAR', 'SOUND\s*BAR']
+    sinonimos: [barra de sonido, soundbar, teatro en casa]
+    checklist: [Enciende, Suena sin distorsión, Bluetooth/HDMI, Control remoto, Cargador/cable, Subwoofer incluido]
+    fotos: [Frente, Etiqueta, Accesorios]
+    molde_descripcion: 'Barra de sonido {marca} {color}'
+
+  - id: elec.estereo.mini-componente
+    nombre: Mini componente / Estéreo de casa
+    match: ['MINI\s*CO+M?PO+NENTE', 'MINICOPONENTE', 'MINICOMPONENTE', 'COMPONENTE', 'ESTEREO\s*(DE\s*CASA|HKPRO)?', '\bMHC\b', 'EQUIPO\s*DE\s*SONIDO', '\bRADIO\b', 'SA\s*(MAX|AK)\s*\d+']
+    excluir: ['AUTO(ESTEREO)?\b', 'AUTO\b', 'CARRO', 'TOUCH', 'XAV']
+    sinonimos: [mini componente, minicomponente, estereo, equipo de sonido, radio]
+    checklist: [Enciende, Suena ambas bocinas, Lee CD/USB/Bluetooth, Control remoto, Bocinas incluidas, Cable de corriente]
+    fotos: [Frente encendido, Reverso con etiqueta, Bocinas]
+    molde_descripcion: 'Mini componente {marca} {modelo} {color}'
+
+  # ---------- Estéreo de auto ----------
+  - id: elec.estereo.auto
+    nombre: Estéreo de auto
+    match: ['AUTO\s*ESTEREO', 'AUTOESTEREO', 'ESTE?RE?IO\s*(DE\s*)?AUTO', 'ESTERIO\s*DE\s*AUTO', 'ESTREO', '\bXAV\b', 'CAR\s*AUDIO', 'PANTALLA\s*(PARA|DE)\s*(AUTO|CARRO)', '\bBT\s*998\b']
+    sinonimos: [estereo de auto, autoestereo, radio de carro, stereo]
+    checklist: [Enciende, Pantalla/display sin daño, Bluetooth, Entrada USB/AUX, Arnés/cables, Frente desmontable]
+    fotos: [Frente encendido, Etiqueta, Accesorios]
+    molde_descripcion: 'Estéreo de auto {marca} {modelo}'
+
+  # ---------- Audífonos ----------
+  - id: elec.audifonos.inalambricos
+    nombre: Audífonos inalámbricos (TWS / true wireless)
+    match: ['AIR\s*PODS', 'AIRPODS', 'FREE\s*BUDS', 'FREEBUDS', 'FRE+BUDS', 'FRRE3', '\bBUDS\b', 'TWS', 'AUFINONOS', 'AUD?I?FINOS?\s*(JBL|INALAMBR)', 'INALAMBRIC', 'AUT202']
+    sinonimos: [airpods, freebuds, audifonos inalambricos, buds, tws]
+    checklist: [Ambos audífonos funcionan, Estuche carga, Bluetooth conecta, Cuenta/dispositivo desvinculado, Cargador]
+    fotos: [Audífonos y estuche, Etiqueta del estuche]
+    molde_descripcion: 'Audífonos {marca} {modelo} {color}'
+
+  - id: elec.audifonos.diadema
+    nombre: Audífonos de diadema / alámbricos
+    match: ['AUDIFONO', 'AUDIFINO', 'AUDICULAR', 'AURICULAR', 'AUDIF', '\bDIADEMA\b', '\bBEATS\b', 'MITZU\s*MH', 'MISIK\s*MH', '\bMH\s*\d{3}']
+    excluir: ['MICROFONO\s*SHURE']
+    sinonimos: [audifonos, auriculares, diadema, headphones, beats]
+    checklist: [Suenan ambos lados, Micrófono funciona, Almohadillas en buen estado, Cable/Bluetooth, Cargador]
+    fotos: [Frente, Etiqueta o modelo]
+    molde_descripcion: 'Audífonos {marca} {modelo} {color}'
+
+  # ---------- Bocinas amplificadas / de piso / torre ----------
+  - id: elec.bocina.piso-amplificada
+    nombre: Bocina de piso / amplificada
+    match:
+      - 'BOCINA\s*(DE\s*)?(PISO|TORRE|ALTA|GRANDE|LARGA)'
+      - 'BOCINAS?\s*GRANDES?'
+      - '\bTRIPIE\b'
+      - 'AMPLIFICAD'
+      - 'AMPLIFIVADO'
+      - '\b(KAISER|KSR|KIASER)\b'
+      - '\bMSA\s*\d{4}'
+      - '\bPAK\s*\d{4}'
+      - '\bKSW\s*\d{4}'
+      - '\bKSB\s*\d{4}'
+      - '\bHKS[BD]?\w*\d{3}'
+      - 'XBOOM'
+      - 'LG.*\bRM2\b'
+      - '\bRM2\b'
+      - 'SELECT\s*SOUND'
+      - 'MELO'
+      - 'DSP\s*\d{4}'
+      - '\bSUB\s*WOOFER\b|SUBWOOFER|\bPJ\s*18'
+      - 'CAJON\s*DE\s*AUDIO'
+      - 'BOCINA.*(MICROFONO|MICROFONO|RUEDITAS|BOLA\s*DISCO|PRENDE\s*LUC|LUCES|CON\s*LUZ)'
+      - '\bMASTER\s*SOUND\b'
+      - '\bKTS\s*17\d{2}'
+      - 'PANASONIC'
+      - 'QUADRATO'
+      - '\bBAFLE\b'
+      - 'STAGE\s*PRO'
+    excluir: ['AUDIFONO', 'AUDICULAR']
+    sinonimos: [bocina de piso, bocina grande, bocina amplificada, torre, kaiser, cabina]
+    atributos:
+      pulgadas_bocina:
+        regex: '(?<![0-9.])(6|8|10|12|15|18)\s*(PULG|PULGADAS|")'
+        formato: '{} pulgadas'
+        crea_variante: false   # casi nunca se captura; se vuelve variante cuando haya datos
+    checklist: [Enciende, Suena sin distorsión, Bluetooth/USB/AUX, Micrófono incluido, Cable de corriente, Luces funcionan, Tripié/soporte]
+    fotos: [Frente, Reverso con etiqueta, Accesorios]
+    molde_descripcion: 'Bocina de piso {marca} {modelo} {pulgadas_bocina} {color}'
+
+  # ---------- Portátiles genéricas ----------
+  - id: elec.bocina.portatil-marcas
+    nombre: Bocina portátil Bluetooth (otras marcas)
+    match:
+      - 'BOCINA'
+      - 'PARLANTE'
+      - '\bOCIAN\b'
+      - 'BOCINAPORTATIL'
+      - '\b(B|O)?(BO)?C[OI]+(IN|IAN|NA|MA)\w*\b'
+      - '\bBOSE\b'
+      - 'GREATNICE|GRETNICE|GREATRICE'
+      - 'SELEC\s*SOUN'
+      - 'BOPCIAN'
+      - 'ABOINA'
+      - '\bSPEAKER\b'
+      - '\bTRON?S?MART\b'
+      - '\bQFX\b'
+      - '\bXIAOMI\b.*SOUND'
+      - 'LINK\s*(BITS|NITS)'
+    sinonimos: [bocina, bocina bluetooth, bocina portatil, speaker]
+    atributos: {}
+    checklist: [Enciende, Conecta por Bluetooth, Suena sin distorsión, Batería carga, Cargador/cable, Luces funcionan]
+    fotos: [Frente, Etiqueta inferior, Accesorios]
+    molde_descripcion: 'Bocina {marca} {modelo} {tamano} {color}'
+
+  # ---------- DJ / mezcladoras (duplicada también en música) ----------
+  - id: elec.audio.dj-mezcladora
+    nombre: Mezcladora / Controlador DJ / Micrófono
+    match: ['MEZCLAD', 'MICROFONO', 'CONTROLADOR\s*DJ', 'CPNTROLADOR', '\bDDJ\b', 'MIXER', '\bDJ\b']
+    sinonimos: [mezcladora, controlador dj, dj, pioneer]
+    checklist: [Enciende, Perillas y faders funcionan, Cable USB, Cables de audio, Software/licencia]
+    fotos: [Frente, Reverso con conexiones, Etiqueta]
+    molde_descripcion: 'Mezcladora/DJ {marca} {modelo}'
+
+  # ---------- GENÉRICA ----------
+  - id: elec.audio.generica
+    nombre: Equipo de audio (sin identificar)
+    generica: true
+    match:
+      - 'SONIDO|AUDIO|BLUETOOTH|BAFLE|MUSIC'
+      - 'CON CARGADOR'
+      - 'MARCA\s+(SONY|LG|JBL|RCA|PHILIPS|PANASONIC|HKPRO|KAISER|AIWA|QFX|MISIK|MITZU|STF|BEATS|BOSE|SAMSUNG|HUAWEI|XIAOMI|MELO|ICON|ENERGY|STEREN|ZEALOT|KEGNER|HYPER|HYUNDAI)\b'

@@ -1,0 +1,70 @@
+# Deportes, ejercicio y recreación (todo viene capturado en VARIOS).
+categoria: Deportes y recreación
+familias_prendaflex: [VARIOS]
+
+atributos:
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|ROSA|MORAD[OA]|CAFE|PLATA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO}
+    crea_variante: false
+
+plantillas:
+  - id: dep.caminadora-eliptico
+    solo_familia: true
+    nombre: Caminadora / elíptico
+    marca: Varias
+    match: ['\bCAMINADORA\b(?!\s+(DE|PARA)\s+BEBE)', '\bCAMINADRA\b', '\bELIPTICO\b', '\bTREADMILL\b', '\bESCALADORA\b']
+    sinonimos: [caminadora, eliptico, treadmill, escaladora]
+    atributos:
+      tipo_c:
+        regex: '\b(CAMINADORA|ELIPTICO)\b'
+        crea_variante: true
+    checklist: [Enciende, Banda gira / pedales sin juego, Consola y botones, Cable y llave de seguridad, Velocidades]
+    fotos: [Completa de lado, Consola encendida, Etiqueta de marca / modelo]
+    molde_descripcion: '{tipo_c} {marca} {color} · {detalles}'
+  - id: dep.bici-estatica
+    solo_familia: true
+    nombre: Bicicleta estática / de ejercicio
+    marca: Varias
+    match: ['BICICLETA\s+(ESTATICA|DE\s+EJERCI)', 'BICI\s+ESTATICA', '\bSPINNING\b', '\bBODY\s+CRUNCH\b', '\bBODU\s+CRNCH\b', '\bBODY\s+CRNH\b', 'BICICLETA.*EJERCISIO']
+    sinonimos: [bicicleta estatica, bici de ejercicio, spinning, body crunch]
+    checklist: [Pedales y resistencia funcionan, Asiento, Consola (si tiene), Estructura firme]
+    fotos: [Completa de lado, Consola, Etiqueta]
+    molde_descripcion: 'Bicicleta estática {marca} {color} · {detalles}'
+  - id: dep.pesas-banca
+    solo_familia: true
+    nombre: Banca de ejercicio / pesas / mancuernas
+    marca: Varias
+    match: ['\bBANCA\s+DE\s+EJERC', '\bPESAS?\b', '\bMANCUERNAS?\b', '\bBARRA\s+OLIMPICA\b', '\bKETTLEBELL\b', '\bGIMNASIO\b']
+    sinonimos: [banca de ejercicio, pesas, mancuernas, barra olimpica]
+    checklist: [Estructura firme, Tapicería, Discos / mancuernas completos y su peso]
+    fotos: [Completa, Detalle de discos / etiquetas de peso]
+    molde_descripcion: '{nombre} {marca} · peso {peso} · {detalles}'
+  - id: dep.trampolin-patineta
+    solo_familia: true
+    nombre: Trampolín, patineta y patines
+    marca: Varias
+    match: ['\bTRAMPOLIN\b', '\bPATINETA\b', '\bPATINES\b', '\bMONOPATIN\b', '\bECKO\b', '\bSKATE']
+    sinonimos: [trampolin, patineta, patines, skate]
+    checklist: [Estructura / tabla sin fisuras, Ruedas giran, Accesorios completos (red, resortes, tubos)]
+    fotos: [Completo, Detalle de malla / ruedas, Etiqueta]
+    molde_descripcion: '{nombre} {marca} {color} · {detalles}'
+  - id: dep.pesca-camping
+    solo_familia: true
+    nombre: Caña de pescar / binoculares / campismo
+    marca: Varias
+    match: ['\bCANA\s+DE\s+PESCAR\b', '\bCARRETE\s+DE\s+PESCA', '\bBINOCULARES\b', '\bTASCO\b', '\bTIENDA\s+DE\s+CAMPANA\b', '\bSLEEPING\b', '\bBOLSA\s+DE\s+DORMIR\b']
+    sinonimos: [caña de pescar, binoculares, tienda de campaña]
+    checklist: [Completo, Funciona (carrete / enfoque), Estuche]
+    fotos: [Completo, Detalle]
+    molde_descripcion: '{nombre} {marca} {color} · {detalles}'
+  - id: dep.pistola-balines
+    solo_familia: true
+    nombre: Pistola / rifle de balines, postas o salva (aire)
+    marca: Mendoza
+    match: ['PISTOLA\s+(DE\s+)?(BALINES|POSTAS|TIRO)', 'PISTOLA\s+(CAMUFLAJE\s+)?K[\s-]?62', 'PISTOLA\s+MENDOZA', '\bMENDOZA\b', 'RIFLE\s+DE\s+(SALVA|AIRE|BALINES|POSTAS)', '\bAIRSOFT\b', '\bPISTOLA\s+DE\s+PERDIGONES']
+    excluir: ['PISTOLA\s+DE\s+IMPACTO', 'PISTOLA\s+PARA\s+(TUBO|SILICON)', 'PISTOLA\s+DE\s+CALOR']
+    sinonimos: [pistola de balines, rifle de salva, mendoza, k-62, pistola de postas]
+    checklist: [Confirmar que NO es arma de fuego (aire / balines / salva), Funciona el mecanismo, Estuche o funda, Número de modelo]
+    fotos: [Lado izquierdo, Lado derecho, Marca / modelo grabado, Estuche]
+    molde_descripcion: '{nombre} {marca} {color} · calibre {calibre} · {detalles}'

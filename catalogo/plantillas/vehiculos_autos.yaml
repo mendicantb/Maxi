@@ -1,0 +1,182 @@
+# Autos, camionetas y camiones. Plantilla = MARCA + MODELO; el AÑO crea la variante.
+# En la captura real casi sólo viene "MARCA AÑO" (p.ej. "VOLKSWAGEN 2015", "NISSAN 2002 NATS01"): el modelo
+# (Jetta, Tsuru, Voyager…) casi nunca se escribe -> hay una plantilla por marca y una por modelo conocido.
+categoria: Autos y camionetas
+familias_prendaflex: [AUTOMOVIL, AUTOS, CAMION, CAMIONETA]
+excluir: ['\bCASCO\b', '\bBOCINA\b', 'ESTEREO', 'JUGUETE', 'MONTABLE']
+
+atributos:
+  anio:
+    regex: '(?<!\d)((?:19[6-9]|20[0-3])\d)(?!\d)'
+    crea_variante: true
+  transmision:
+    regex: '\b(AUTOMATIC[OA]|ESTANDAR|MANUAL|STANDARD)\b'
+    crea_variante: false
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|PLATA|DORAD[OA]|VINO|CAFE|BEIGE|NARANJA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, DORADA: DORADO}
+    crea_variante: false
+
+x-checklist: &chk_auto
+  - Factura original o carta factura
+  - Tarjeta de circulación vigente
+  - Placas (anotar número y estado)
+  - NIV en tablero/puerta coincide con factura y tarjeta
+  - REPUVE sin reporte de robo
+  - Tenencia / refrendo al corriente, sin multas
+  - Verificación vigente (si aplica)
+  - Enciende y avanza
+  - Llaves (cuántas) y control de alarma
+  - Llanta de refacción, gato y herramienta
+  - Carrocería (golpes, pintura), cristales, luces
+  - Tapicería y tablero sin testigos encendidos
+  - Kilometraje
+x-fotos: &fotos_auto [Frente, Trasera, Lado izquierdo, Lado derecho, Interior (asientos), Tablero (kilometraje), NIV, Motor (cofre abierto), Placa, Tarjeta de circulación, Factura]
+x-molde: &molde_auto '{marca} {nombre} {anio} {color} {transmision} · placas {placas} · NIV {niv} · km {km} · llaves {llaves}'
+
+plantillas:
+  # ---------------------------------------------------------------- camionetas / SUV
+  - id: auto.ford.explorer
+    solo_familia: true
+    nombre: Explorer
+    marca: Ford
+    match: ['\bEXPL?O?R[EA]?[RT]?\b', '\bEXPLORER', '\bEXPLRET', '\bEXPLORE\b']
+    sinonimos: [explorer, explorer ford, camioneta ford]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.chrysler.voyager
+    solo_familia: true
+    nombre: Voyager
+    marca: Chrysler
+    match: ['\bVOYAGER', '\bCHYSLER', '\bCHRYSLER', '\bCRISLER', '\bCHRISLER']
+    sinonimos: [voyager, chrysler, minivan]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.ford.otros
+    solo_familia: true
+    nombre: Ford (otro modelo)
+    marca: Ford
+    match: ['\bFORD\b', '\bLOBO\b', '\bRANGER\b', '\bFIESTA\b', '\bFOCUS\b', '\bF[\s-]?150\b', '\bF[\s-]?250\b']
+    sinonimos: [ford, lobo, ranger, fiesta, focus]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  # ---------------------------------------------------------------- tractores / camión
+  - id: auto.massey-ferguson.tractor
+    solo_familia: true
+    nombre: Tractor agrícola
+    marca: Massey Ferguson
+    match: ['\bMASSEY', '\bMASEY', '\bMF[\s-]?\d{3,4}', '\bTRACTOR', '\bJOHN\s+DEERE', '\bNEW\s+HOLLAND', '\bKUBOTA']
+    excluir: ['\bCESPED\b', 'PODADORA']
+    sinonimos: [tractor, massey ferguson, mf 2625, john deere]
+    atributos:
+      modelo_mf:
+        regex: '\bMF[\s-]?(\d{3,4})\b'
+        formato: 'MF-{}'
+        crea_variante: false
+    checklist:
+      - Factura o contrato de compraventa
+      - Número de serie / placa de identificación del tractor
+      - Horas de trabajo (horómetro)
+      - Enciende y funciona hidráulico / toma de fuerza
+      - Llantas, implementos incluidos (rastra, arado, etc.)
+      - Sin adeudos ni reporte
+    fotos: [Frente, Lado izquierdo, Lado derecho, Trasera, Horómetro, Placa de serie, Motor, Implementos]
+    molde_descripcion: 'Tractor {marca} {nombre} {modelo_mf} {anio} · horas {horas} · serie {niv}'
+  - id: auto.camion.generico
+    solo_familia: true
+    nombre: Camión de carga (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bCAMION\b', '\bTORTON\b', '\bRABON\b', '\bPIPA\b', '\bVOLTEO\b', '\bTRAILER\b', '\bTRACTOCAMION']
+    sinonimos: [camion, torton, rabon, volteo]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  # ---------------------------------------------------------------- autos por marca
+  - id: auto.volkswagen
+    solo_familia: true
+    nombre: Volkswagen (Jetta / Vocho / Pointer / Gol…)
+    marca: Volkswagen
+    match: ['\bV(OLK|OLC|OK)[SW]*AG[EU]N\b', '\bVOLKSWAGEN', '\bVOLSWAGEN', '\bVOLKS\b', '\bVW\b', '\bJETTA\b', '\bVOCHO\b', '\bGOLF\s*(A\d|GTI|VARIANT)\b', '\bPOINTER\b', '\bSEDAN\b', '\bSAVEIRO\b']
+    sinonimos: [volkswagen, vw, jetta, vocho, pointer, golf, polo, gol]
+    atributos:
+      modelo:
+        regex: '\b(JETTA|VOCHO|GOLF|POINTER|POLO|GOL|SEDAN|SAVEIRO|VENTO|BORA|TIGUAN)\b'
+        crea_variante: false
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.nissan
+    solo_familia: true
+    nombre: Nissan (Tsuru / Versa / March / NP300…)
+    marca: Nissan
+    match: ['\bNISS?AN\b', '\bNISAN\b', '\bTSURU\b', '\bVERSA\b', '\bMARCH\s+(20\d\d|SENSE|ADVANCE)\b', '\bNP\s?300\b', '\bSENTRA\b', '\bFRONTIER\b', '\bURVAN\b', '\bNATS?\s?0?1\b']
+    sinonimos: [nissan, tsuru, versa, march, np300, sentra, frontier]
+    atributos:
+      modelo:
+        regex: '\b(TSURU|VERSA|MARCH|NP\s?300|SENTRA|FRONTIER|URVAN|KICKS|ALTIMA|PLATINA)\b'
+        crea_variante: false
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.dodge
+    solo_familia: true
+    nombre: Dodge / Chrysler (Attitude / Neon / Ram…)
+    marca: Dodge
+    match: ['\bDODGE', '\bDOG\b', '\bDOGE\b', '\bNEON\b', '\bATTITUDE\b', '\bRAM\s*(1500|2500|700|PROMASTER)\b', '\bDURANGO\b', '\bCARAVAN\b', '\bJOURNEY\b', '\bPICKUP\b']
+    excluir: ['\bDOG\s+(FOOD|HOUSE)', 'PERRO']
+    sinonimos: [dodge, dog, neon, attitude, ram, durango]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.chevrolet
+    solo_familia: true
+    nombre: Chevrolet (Aveo / Chevy / Silverado…)
+    marca: Chevrolet
+    match: ['\bCHEV(Y|ROLE?T)\b', '\bCHEVROLET', '\bCHEVY\b', '\bAVEO\b', '\bSILVERADO\b', '\bSPARK\b', '\bTORNADO\b', '\bSONIC\b', '\bCAVALIER\b', '\bGMC\b', '\bTAHOE\b', '\bSUBURBAN\b']
+    sinonimos: [chevrolet, chevy, aveo, silverado, spark]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.toyota
+    solo_familia: true
+    nombre: Toyota (Hilux / Corolla / Yaris…)
+    marca: Toyota
+    match: ['\bTOYOTA', '\bTOLLOTA', '\bHILUX\b', '\bCOROLLA\b', '\bYARIS\b', '\bHIACE\b', '\bTACOMA\b', '\bRAV\s?4\b']
+    sinonimos: [toyota, hilux, corolla, yaris]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.otras-marcas
+    solo_familia: true
+    nombre: Otras marcas de auto (Honda, Kia, Hyundai, Mazda, Suzuki, Renault, Peugeot, SEAT, Fiat, Mitsubishi, Jeep, Isuzu, JAC…)
+    marca: Varias
+    match: ['\bHONDA\b(?!.*MOTO)', '\bCIVIC\b', '\bACCORD\b', '\bKIA\s+(RIO|SOUL|SPORTAGE|FORTE|PICANTO)\b', '\bHYUNDAI', '\bMAZDA\b', '\bRENAULT\b', '\bPEUGEOT\b', '\bSEAT\s+(IBIZA|LEON|TOLEDO)\b', '\bFIAT\b', '\bMITSUBISHI\b', '\bJEEP\b', '\bISUZU\b', '\bJAC\s+(S\d|T\d)\b', '\bMERCEDES', '\bBMW\b', '\bAUDI\b', '\bVOLVO\b', '\bCHIRON\b']
+    sinonimos: [honda civic, kia, hyundai, mazda, renault, fiat, jeep, mitsubishi, isuzu]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  # ---------------------------------------------------------------- genéricas
+  - id: auto.camioneta.generica
+    solo_familia: true
+    nombre: Camioneta / pickup (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bCAMIONETA\b', '\bPICK\s?UP\b', '\bSUV\b', '\bVAN\s+(DE\s+)?(CARGA|PASAJE)', '\bMINIVAN\b']
+    sinonimos: [camioneta, pickup, suv, van]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto
+  - id: auto.generico
+    solo_familia: true
+    nombre: Automóvil (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bAUTO(MOVIL|MOVL)?\b', '\bCARRO\b', '\bCOCHE\b', '\bVEHICULO\b', '\bSEDAN\b', '\bHATCHBACK\b']
+    sinonimos: [auto, automovil, carro, coche, vehiculo]
+    checklist: *chk_auto
+    fotos: *fotos_auto
+    molde_descripcion: *molde_auto

@@ -1,0 +1,62 @@
+categoria: Hogar - Ropa y limpieza
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: ['DESBROZADORA', 'ASPERSORA', 'ASPERSONA']
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|ROSA|MORADO|MORADA|GRIS|VERDE|NARANJA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO}
+    crea_variante: false
+
+plantillas:
+  - id: hogar.ropa.maquina-coser
+    nombre: Maquina de coser
+    atributos:
+      tipo:
+        regex: '\b(OVERLOCK|OVER LOCK|INDUSTRIAL|BORDADORA|RECTA)\b'
+        mapa: {OVER LOCK: OVERLOCK}
+        crea_variante: true
+    match: ['M[AQ]+U?I?[AN]+ D?E? ?(COSER|COSTURAR|COCER|COSTURA)', 'MAQUINAD DE COSER', 'MAQUIAN DE COSER', 'OVERLOCK', 'COSER', 'COSTURAR', '\bSINGER\b', 'JANOME', 'MARCA BROTHER']
+    sinonimos: [maquina de coser, singer, maquina de costura, overlock, janome, brother]
+    checklist: [Enciende, Pedal, Cable, Aguja y pie prensatela, Hace puntada, Con estuche/accesorios]
+    fotos: [Frente, Pedal y cable, Placa de modelo, Accesorios]
+    molde_descripcion: 'Maquina de coser {marca} {tipo}'
+
+  - id: hogar.ropa.plancha-vapor
+    nombre: Plancha de ropa (vapor)
+    match:
+      - '\bPL\w{0,6}CHA\b'
+      - '\bPL\w{3,6}CH?A\b'
+      - '\bPLANCHA\b'
+      - 'PLNACHA'
+      - 'PLAMNCHA'
+      - 'PLANHA'
+      - 'PLANACHA'
+      - 'PLACHA'
+      - 'MODELO PLANCHA'
+    excluir: ['CABELL', 'ALAC', 'ALIS', 'HAIR', 'PELO', 'NANO TITANIUM', 'MARCA (CONAIR|REVLON|GWB|REMINGTON|FASHION|STEAM STYLE|SAEDAY|SURKER)', 'WAFLERA', 'RAMPA', 'PULIDOR', 'ESCALERA', 'PLANCHADOR', 'COMBO', 'PISCINA']
+    sinonimos: [plancha, plancha de vapor, plancha de ropa, plancha oster, plancha black decker]
+    checklist: [Calienta, Vapor funciona, Suela sin rayones, Tanque de agua, Cable sin danos]
+    fotos: [Frente, Suela, Cable, Marca/modelo]
+    molde_descripcion: 'Plancha de vapor {marca} {color}'
+
+  - id: hogar.ropa.aspiradora
+    nombre: Aspiradora
+    atributos:
+      tipo:
+        regex: '\b(STICK|VERTICAL|ROBOT|INDUSTRIAL|DE MANO|INALAMBRICA|ALAMBRICA)\b'
+        crea_variante: true
+    match: ['ASPIRADORA', 'ARPIRADORA', 'ASPIRADOR\b', 'ASP.03', 'STICK VAC']
+    excluir: ['ADACTADO', 'ASPERS']
+    sinonimos: [aspiradora, aspiradora koblenz, aspiradora industrial, aspirador, stick vac]
+    checklist: [Enciende, Succiona, Manguera y accesorios, Bolsa/deposito, Cable]
+    fotos: [Frente, Accesorios, Marca/modelo]
+    molde_descripcion: 'Aspiradora {marca} {tipo}'
+
+  - id: hogar.ropa.generico
+    nombre: Articulo de ropa/limpieza (sin identificar)
+    generica: true
+    match: ['VAPORIZADOR', 'LAVANDERIA', 'TENDEDERO']
+    checklist: [Funciona, Completo]
+    fotos: [Frente, Marca/modelo]
+    molde_descripcion: '{nombre} {marca}'

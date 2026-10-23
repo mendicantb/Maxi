@@ -1,0 +1,131 @@
+categoria: Hogar - Ventilacion y clima
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|ROSA|NARANJA|CAFE|CHOCOLATE|AMARILLO)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+
+plantillas:
+  # ---------- ventiladores
+  - id: hogar.clima.ventilador-techo
+    nombre: Ventilador de techo
+    match: ['V\w{3,9}D[OA][RT].{0,20}\bTECHO\b', '\bTECHO\b.{0,30}V\w{3,9}D[OA][RT]', 'MODELO (EV1453|MUE42)']
+    sinonimos: [ventilador de techo, abanico de techo, ventilador techo]
+    checklist: [Completo (aspas y lampara), Con control, Enciende, Sin golpes]
+    fotos: [Caja o frente, Aspas, Marca/modelo]
+    molde_descripcion: 'Ventilador de techo {marca} {color}'
+
+  - id: hogar.clima.ventilador-torre
+    nombre: Ventilador de torre
+    match: ['V\w{3,9}D[OA][RT].{0,30}\bTORRE\b', '\bTORRE\b.{0,20}V\w{3,9}D[OA][RT]', 'MODELO TORRE']
+    sinonimos: [ventilador de torre, torre, columna]
+    checklist: [Enciende, Con control remoto, Oscila, Sin golpes]
+    fotos: [Frente, Base, Marca/modelo]
+    molde_descripcion: 'Ventilador de torre {marca} {color}'
+
+  - id: hogar.clima.ventilador-mini
+    nombre: Mini ventilador (portatil / recargable)
+    match:
+      - '\bMINI ?VENT'
+      - 'V\w{3,9}D[OA][RT].{0,25}(RECARGABLE|USB|PORTATIL|MANO)'
+      - 'LNK BITS'
+      - 'VENTILADOR REFRIGERADO POR AGUA'
+      - 'MINI ENFRIADOR'
+      - 'AIRE PORTATIL.*MODELO KU'
+    sinonimos: [mini ventilador, ventilador recargable, ventilador usb, enfriador]
+    checklist: [Enciende, Bateria/carga, Con cargador]
+    fotos: [Frente, Cargador]
+    molde_descripcion: 'Mini ventilador {marca} {color}'
+
+  - id: hogar.clima.ventilador-caja
+    nombre: Ventilador de caja
+    match: ['V\w{3,9}D[OA][RT].{0,12}(DE CAJ|CAJON)', 'V\w{3,9}D[OA][RT] CAJA']
+    excluir: ['PEDESTAL', 'TECHO']
+    sinonimos: [ventilador de caja, ventilador de cajon, ventilador cuadrado]
+    checklist: [Enciende, Aspas completas, Velocidades, Sin golpes]
+    fotos: [Frente, Reverso, Marca/modelo]
+    molde_descripcion: 'Ventilador de caja {marca} {color}'
+
+  - id: hogar.clima.ventilador-pedestal-chico
+    nombre: Ventilador de pedestal chico (10-12 pulgadas)
+    match:
+      - 'V\w{3,9}D[OA][RT].*\b(CHIC[OA]|CHIQUIT[OA]|PEQU\w+|PEDQU\w+)\b'
+      - 'V\w{3,9}D[OA][RT].*MODELO (PEDESTAL )?(10|12|CHICO|KAZE.12|MF.12)'
+      - 'V\w{3,9}D[OA][RT] .*(ROJO|NEGRO) 10\b'
+      - 'V\w{3,9}D[OA][RT].*\bMARCA (SUPER CROWN?|SUPER DELUXE|VORTEX)\b.*(CHIC|PEQ)'
+    excluir: ['\bMINI', 'MODELO 18', '20 PULG']
+    sinonimos: [ventilador chico, ventilador pequeno, ventilador de 10 pulgadas, ventilador de 12 pulgadas]
+    checklist: [Enciende, Gira bien, Aspas sin rotura, Base completa]
+    fotos: [Frente, Base, Marca/modelo]
+    molde_descripcion: 'Ventilador chico {marca} {color}'
+
+  - id: hogar.clima.ventilador-pedestal
+    nombre: Ventilador de pedestal / piso
+    match:
+      - 'V\w{3,9}D[OA][RT].*\b(PEDESTAL\w*|PISO|PEDESTALO)\b'
+      - '\bMODELO (PEDESTAL|DE PISO|DE PEDESTAL)\b'
+      - 'MARCA (MAN|CRASFMAN|CRAFSMAN|CRAFTSMAN|FANCY|FANCI|NAVIA|RECORD|RECORRD|RECOR|KINGSMAN)\b.*MODELO'
+      - '^(DEJA )?V\w{3,9}D[OA][RT]\b'
+      - '^VEN\w+ (MAN|FANCY|NAVIA|RECORD|VEC|MYTEK)\b'
+    excluir: ['TECHO', 'TORRE', 'DE CAJ', 'CAJON', '\bMINI']
+    sinonimos: [ventilador de pedestal, ventilador de piso, ventilador de 18 pulgadas, ventilador de 20 pulgadas, ventilador grande]
+    checklist: [Enciende, Gira y oscila, Aspas y rejilla completas, Base y pedestal completos, Con control si aplica]
+    fotos: [Frente, Base, Placa marca/modelo]
+    molde_descripcion: 'Ventilador de pedestal {marca} {color}'
+
+  # ---------- clima
+  - id: hogar.clima.minisplit
+    nombre: Minisplit
+    atributos:
+      capacidad:
+        regex: '(?<![\d.])(0?\.?[5-9]|1|1\.5|2|3)\s*(?:TON|TONELADA|TONELADAS)\b|(?<!\d)(9|12|18|24|30)\s*(?:000\s*)?BTU'
+        crea_variante: true
+    match: ['MINI ?SPLIT', 'MINI PLIS', 'MINISPLI', 'EV1426', 'INVERTER']
+    sinonimos: [minisplit, mini split, aire acondicionado, clima, inverter]
+    checklist: [Evaporador y condensador completos, Con control remoto, Enfria, Sin fugas, Con manguera/cableado]
+    fotos: [Evaporador, Condensador, Placa de datos, Control]
+    molde_descripcion: 'Minisplit {marca} {capacidad}'
+
+  - id: hogar.clima.clima-portatil
+    nombre: Clima / aire acondicionado portatil
+    atributos:
+      capacidad:
+        regex: '(?<!\d)(9|12|14|18|24)\s*(?:000\s*)?BTU|(?<=MODELO )(?:AP|MAPS|HKAP)\W?(\d{2})'
+        crea_variante: false
+    match: ['(CLIMA|CLIAMA|AIRE)( ACONDICIONADO)? (PORTATIL|PORTARIL|MIREGE)', 'MAPS1211', 'AIRE PORTATIL', 'CLIMA PORTARIL']
+    sinonimos: [clima portatil, aire portatil, aire acondicionado portatil]
+    checklist: [Enfria, Con manguera de desfogue, Con control, Sin fugas]
+    fotos: [Frente, Placa de datos, Manguera y control]
+    molde_descripcion: 'Clima portatil {marca}'
+
+  - id: hogar.clima.clima-ventana
+    nombre: Clima de ventana
+    atributos:
+      capacidad:
+        regex: '(?<!\d)(5|6|8|10|12)\s*(?:000\s*)?BTU'
+        crea_variante: false
+    match: ['CLIMA DE VENTA', 'CLIMA DE VENTANA', 'AIRE ACONDICIONADO', 'AIRE ACONDIC', 'MODELO (W0?5|WO5|MACC|AEZ|W051)', 'CLIMA\b']
+    excluir: ['PORTATIL', 'MINI ?SPLIT']
+    sinonimos: [clima de ventana, aire acondicionado, clima, ventana]
+    checklist: [Enfria, Con control, Cubre/soportes completos, Sin fugas]
+    fotos: [Frente, Placa de datos, Control]
+    molde_descripcion: 'Clima de ventana {marca}'
+
+  - id: hogar.clima.aire-lavado
+    nombre: Aire lavado / enfriador evaporativo
+    match: ['AIRE LAVADO', 'ENFRIADOR (DE AIRE|EVAPORATIVO)', 'HUMIDIFICADOR', 'PURIFICADOR DE AIRE']
+    checklist: [Enciende, Deposito sin fugas, Con control]
+    fotos: [Frente, Marca/modelo]
+    molde_descripcion: '{nombre} {marca}'
+
+  - id: hogar.clima.ventilador-generico
+    nombre: Ventilador (tipo sin identificar)
+    generica: true
+    match: ['V\w{3,9}D[OA][RT]', 'VENR?T\w+', 'MARCA (MAN|CRASFMAN|CRAFSMAN|FANCY|NAVIA|RECORD|VEC|MYTEK|KONNING|ATVIO)\b.*MODELO (ATF|KYT|RD)']
+    excluir: ['ASPIRADORA', 'LAVADORA', 'PATIN', 'LICUA', 'MICRO', 'CAFE', 'REFRIG', 'CLIMA']
+    checklist: [Enciende, Gira, Aspas completas]
+    fotos: [Frente, Marca/modelo]
+    molde_descripcion: 'Ventilador {marca} {color}'

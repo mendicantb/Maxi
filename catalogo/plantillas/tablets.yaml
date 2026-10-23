@@ -1,0 +1,262 @@
+# Plantillas de TABLETS (PRENDA FLEX: TABLETS). Ver docs/notas_celulares.md
+# Específicas por marca/modelo primero; genéricas al final. iPad no apareció en los datos (agregar cuando llegue).
+categoria: Tablets
+familias_prendaflex: [TABLETS]
+
+defaults:
+  chk_tablet: &chk_tablet [Enciende, Pantalla sin estrellar ni manchas, Táctil responde, Cuenta Google / Samsung cerrada (sin FRP), Sin bloqueo de patrón o PIN, Con cargador, Con funda o accesorios (anotar)]
+  fotos_tablet: &fotos_tablet [Frente encendido, Reverso, Ajustes > Acerca de la tablet (modelo / serie), Cargador y accesorios]
+  molde_tablet: &molde_tablet '{marca} {nombre} {capacidad} {color}'
+
+atributos:
+  capacidad:
+    regex: '\b(16|32|64|128|256|512)\s*GB\b(?!\s*(DE\s*)?RAM)'
+    formato: '{}GB'
+    crea_variante: true
+  ram:
+    regex: '\b(2|3|4|6|8|12)\s*(?:GB)?\s*(?:DE\s*)?RAM\b'
+    formato: '{}GB RAM'
+    crea_variante: false
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|MORADA|ROSA|DORADO|DORADA|PLATA|AZUL MARINO)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO, DORADA: DORADO}
+    crea_variante: false
+
+plantillas:
+  - id: tab.samsung.tab-s10-fe
+    nombre: 'Galaxy Tab S10 FE'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?X6[12]\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:TAB\s?S\s?10)'
+    sinonimos: [galaxy tab s10 fe, tab s10 fe]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.samsung.tab-a9-plus
+    nombre: 'Galaxy Tab A9+'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?X21\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:A\s?9\s?(?:PLUS|\+))'
+    sinonimos: [galaxy tab a9+, tab a9+, a9 plus]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.samsung.tab-a9
+    nombre: 'Galaxy Tab A9'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?X11\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:TAB\s?A\s?9|\bTABLET A9\b|MODELO A9$)'
+    sinonimos: [galaxy tab a9, tab a9, a9]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.samsung.tab-a-8-2019
+    nombre: 'Galaxy Tab A 8.0 (2019)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?T29\d'
+    sinonimos: [galaxy tab a 8.0 (2019), tab a 8.0, t290]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.samsung.tab-a8
+    nombre: 'Galaxy Tab A8'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?X20\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:TAB\s?A\s?8|TABLET A8\b)'
+    sinonimos: [galaxy tab a8, tab a8, a8]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.tab-m8
+    nombre: 'Lenovo Tab M8 (TB-8505F)'
+    marca: Lenovo
+    match:
+      - 'TB\s?-?8?8505F?'
+      - '^(?=.*(?:LENOVO|\bTB\s?-?\d{3,5}[A-Z]{1,2})).*(?:TAB\s?M\s?8)'
+    sinonimos: [lenovo tab m8 (tb-8505f), tab m8, tb8505]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.tab-m10-3gen
+    nombre: 'Lenovo Tab M10 3ra Gen (TB-328FU)'
+    marca: Lenovo
+    match:
+      - 'TB\s?-?328FU'
+      - '^(?=.*(?:LENOVO|\bTB\s?-?\d{3,5}[A-Z]{1,2})).*(?:TAB\s?M\s?10)'
+    sinonimos: [lenovo tab m10 3ra gen (tb-328fu), tab m10, tb328]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.tab-m11
+    nombre: 'Lenovo Tab M11 (TB-330FU)'
+    marca: Lenovo
+    match:
+      - 'TB\s?-?330FU'
+      - '^(?=.*(?:LENOVO|\bTB\s?-?\d{3,5}[A-Z]{1,2})).*(?:TAB\s?M\s?11|TAB\s?11(?![A-Z0-9]))'
+    sinonimos: [lenovo tab m11 (tb-330fu), tab m11, tb330]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.tab-m9
+    nombre: 'Lenovo Tab M9 (TB-310FU / 311FU)'
+    marca: Lenovo
+    match:
+      - 'TB\s?-?31[01]FU'
+      - '^(?=.*(?:LENOVO|\bTB\s?-?\d{3,5}[A-Z]{1,2})).*(?:TAB\s?M\s?9)'
+    sinonimos: [lenovo tab m9 (tb-310fu / 311fu), tab m9, tb311]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.xiaoxin-pad-2024
+    nombre: 'Lenovo Xiaoxin Pad 2024 (TB331FC)'
+    marca: Lenovo
+    match:
+      - 'TB\s?-?331FC'
+      - 'XIAOXIN'
+    sinonimos: [lenovo xiaoxin pad 2024 (tb331fc), xiaoxin pad, legion tab]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.huawei.matepad-t10
+    nombre: 'Huawei MatePad T10 / T10s'
+    marca: Huawei
+    match:
+      - '\bAGRK?[ -]?W09'
+      - '\bAGS\d?[ -]?W09'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|MAT\s?PADD?|MATEPAD)).*(?:MAT\s?PADD?\s?T)'
+    sinonimos: [huawei matepad t10 / t10s, matepad t10, agr-w09]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.huawei.matepad-t8
+    nombre: 'Huawei MatePad T8'
+    marca: Huawei
+    match:
+      - '\bKOB\d?[ -]?W09'
+    sinonimos: [huawei matepad t8, matepad t8, kob2]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.aoc.a732g
+    nombre: 'AOC A732G'
+    marca: AOC
+    match:
+      - '\bA732G'
+      - 'MARCA AOC'
+    sinonimos: [aoc a732g, aoc]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.hyundai.hytab-plus-8
+    nombre: 'Hyundai HyTab Plus 8 (8LAB1)'
+    marca: Hyundai
+    match:
+      - '8LAB1'
+      - 'HYTAB'
+    sinonimos: [hyundai hytab plus 8 (8lab1), hytab, hyundai tablet]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.onn.surf-8
+    nombre: 'Onn Surf 8 (PP86AW)'
+    marca: Onn
+    match:
+      - '\bPP86AW'
+      - '\bONN\s?8\b'
+    sinonimos: [onn surf 8 (pp86aw), onn 8, onn surf]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.onn.10-1
+    nombre: 'Onn 10.1 (PM106A)'
+    marca: Onn
+    match:
+      - '\bPM106A'
+    sinonimos: [onn 10.1 (pm106a), onn 10]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.tcl.tab-11
+    nombre: 'TCL Tab 11 LTE'
+    marca: TCL
+    match:
+      - '\bTAB\s?11\s?L[EF]T?'
+      - 'TABLE?T.*\bTCL\b'
+    sinonimos: [tcl tab 11 lte, tcl tab 11]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.oneplus.pad
+    nombre: 'OnePlus Pad'
+    marca: OnePlus
+    match:
+      - '\bOPD2304'
+      - 'ONE\s?PLUS'
+    sinonimos: [oneplus pad, oneplus pad]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.revvl.tab-2
+    nombre: 'Revvl Tab 2'
+    marca: T-Mobile
+    match:
+      - 'REVVL'
+    sinonimos: [revvl tab 2, revvl tab]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.samsung.generico
+    nombre: 'Samsung Tab (modelo sin identificar)'
+    marca: Samsung
+    generica: true
+    solo_familia: true
+    match:
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bTAB'
+      - '(?<![A-Z0-9])SM\s?-?[TX]\d{3}'
+    sinonimos: [samsung tab, galaxy tab]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.lenovo.generico
+    nombre: 'Lenovo Tab (modelo sin identificar)'
+    marca: Lenovo
+    generica: true
+    solo_familia: true
+    match:
+      - '\bLENOVO'
+      - '\bTB\s?-?\d{3,5}[A-Z]{1,2}\b'
+    sinonimos: [lenovo]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.huawei.generico
+    nombre: 'Huawei Tablet (modelo sin identificar)'
+    marca: Huawei
+    generica: true
+    solo_familia: true
+    match:
+      - '\bHUAWEI'
+      - '\bHAUAWEI'
+      - '\bBTK[ -]?W09'
+      - 'MAT\s?PADD?'
+    sinonimos: [huawei, matepad]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet
+  - id: tab.generica-china
+    nombre: 'Tablet genérica (Androit / Umiio / Sebbe / otras)'
+    marca: Otra
+    generica: true
+    solo_familia: true
+    match:
+      - '\bTAB(?:LE)?[A-Z]{0,3}\b'
+      - '\bTABLET'
+    sinonimos: [tablet, tableta]
+    checklist: *chk_tablet
+    fotos: *fotos_tablet
+    molde_descripcion: *molde_tablet

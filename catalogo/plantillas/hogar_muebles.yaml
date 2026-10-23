@@ -1,0 +1,83 @@
+categoria: Hogar - Muebles
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|CAFE|ROJO|ROJA|ROSA|AZUL|GRIS|VERDE|MADERA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+
+plantillas:
+  - id: hogar.muebles.mesa-plegable
+    nombre: Mesa plegable
+    match: ['MESA.{0,8}P[EL]{1,2}[GE]?[AB]?[LG]?[EB]?L?E?\b', 'MESA PELGABLE', 'MESA MEGABLE', 'MESA PLEG', 'MESA BLANCA', 'MESA (DE )?MALETIN', 'MODELO PLEGABLE']
+    sinonimos: [mesa plegable, mesa de maletin, mesa blanca, mesa de plastico plegable]
+    checklist: [Patas firmes, Pliega bien, Cubierta sin grietas]
+    fotos: [Abierta, Plegada, Detalles]
+    molde_descripcion: 'Mesa plegable {marca} {color}'
+
+  - id: hogar.muebles.mesa-plastico
+    nombre: Mesa de plastico
+    match: ['MESA']
+    sinonimos: [mesa, mesa de plastico, mesa rimax]
+    checklist: [Patas firmes, Cubierta sin grietas]
+    fotos: [Frente, Detalles]
+    molde_descripcion: 'Mesa {marca} {color}'
+
+  - id: hogar.muebles.base-cama
+    nombre: Base de cama / cama
+    atributos:
+      tamano:
+        regex: '\b(INDIVIDUAL|MATRIMONIAL|QUEEN|KING|KING SIZE|LITERA)\b'
+        crea_variante: true
+    match: ['BA[SC]E (DE )?CAMA', 'BACE DE CAMA', 'MARCO DE CAMA', '\bCAMA\b', 'BASE DE MADERA', 'COLCHON', 'LITERA']
+    sinonimos: [base de cama, cama, colchon, cama individual, cama matrimonial]
+    checklist: [Completa, Madera sin rajaduras, Con tornilleria]
+    fotos: [Frente, Detalles de dano]
+    molde_descripcion: 'Base de cama {tamano} {color}'
+
+  - id: hogar.muebles.silla
+    nombre: Silla / sillon
+    match: ['SILL[AO]N?', 'SILLA', 'SILLON', 'BANCO', 'COMEDOR']
+    sinonimos: [silla, sillon de oficina, sillon, banco, silla de oficina]
+    checklist: [Firme, Ruedas/base, Tapiz sin roturas, Palanca de altura]
+    fotos: [Frente, Base, Detalles]
+    molde_descripcion: '{nombre} {marca} {color}'
+
+  - id: hogar.muebles.repisa
+    nombre: Repisa / estante / porta garrafon
+    match: ['REPISA', 'ESTANTE', 'PORTA GARRAFON', 'LIBRERO', 'ANAQUEL', 'RACK', 'ZAPATERA']
+    checklist: [Completo, Sin oxido, Firme]
+    fotos: [Frente, Detalles]
+    molde_descripcion: 'Repisa {marca} {color}'
+
+  - id: hogar.muebles.mecedora
+    nombre: Mecedora
+    match: ['MECEDORA']
+    checklist: [Firme, Sin oxido, Soldaduras]
+    fotos: [Frente, Lado]
+    molde_descripcion: 'Mecedora {marca} {color}'
+
+  - id: hogar.muebles.vanity
+    nombre: Tocador / vanity con luces
+    match: ['VANITY', 'TOCADOR', 'ESPEJO']
+    checklist: [Focos completos, Enciende, Espejo sin dano]
+    fotos: [Frente, Encendido]
+    molde_descripcion: 'Vanity {marca} {color}'
+
+  - id: hogar.muebles.maleta
+    nombre: Maleta
+    match: ['MALETA']
+    checklist: [Cierres, Ruedas, Asa]
+    fotos: [Frente, Detalles]
+    molde_descripcion: 'Maleta {marca} {color}'
+
+  - id: hogar.muebles.generico
+    nombre: Mueble (sin identificar)
+    generica: true
+    match: ['MUEBLE', 'MADERA', 'HERRERIA', 'PLASTICO']
+    excluir: ['LAVADORA', 'GUITARRA']
+    checklist: [Firme, Completo]
+    fotos: [Frente, Detalles]
+    molde_descripcion: 'Mueble {marca} {color}'

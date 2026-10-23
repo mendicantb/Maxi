@@ -1,0 +1,612 @@
+# Generado y revisado para MAXI-POS. Ver docs/notas_herramientas.md
+categoria: Herramienta manual y de obra
+familias_prendaflex:
+- HERRAMIENTA LIGERA
+- HERRAMIENTAS ALBAÑILERIA
+- HERRAMIENTAS MANUALES
+- HERRAMIENTAS DE MECANICO
+- HERRAMIENTE INDUSTRIAL
+- CEPILLO DE MANO
+- GATO HIDRAHULICO
+- MATRACAS DE MANO
+- NIVELES
+- LLAVE MECANICA
+- CARRETIA TRUPER
+- CARRITIA TRUPPER
+- ESCALERAS
+- BASCULAS
+excluir: []
+atributos:
+  color:
+    regex: \b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|NARANJA|AMARILLO|AMARILLA|PLATEADO|PLATA)\b
+    mapa:
+      NEGRA: NEGRO
+      BLANCA: BLANCO
+      ROJA: ROJO
+      AMARILLA: AMARILLO
+    crea_variante: false
+  marca_detectada:
+    regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|PITTSBURGH|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|BOWOSHEN|VICTECHE|COLUMBIA|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|MAXTOOL|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|PRETUL|PREMUL|PRETUR|SURTEK|SRTTEK|BURCAT|SHAWTY|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|TEENO|BOSH|BOCH|STHL|STIL|SKIL|ADIR|WEG)\b
+    mapa:
+      DEWALT: DeWalt
+      DEWAL: DeWalt
+      DWALT: DeWalt
+      DEWATL: DeWalt
+      DELWAL: DeWalt
+      DEWALL: DeWalt
+      DEWLT: DeWalt
+      DEWAT: DeWalt
+      MAKITA: Makita
+      MAKTA: Makita
+      MAKIKA: Makita
+      BOSCH: Bosch
+      BOSH: Bosch
+      BOCH: Bosch
+      MILWAWKEE: Milwaukee
+      MILKWAUKEE: Milwaukee
+      MILKWWUELKEE: Milwaukee
+      MILKWAKEE: Milwaukee
+      MILWAUKEE: Milwaukee
+      MILWAKEE: Milwaukee
+      MILWAKEN: Milwaukee
+      MILWUAKEE: Milwaukee
+      MILWAAUKEE: Milwaukee
+      MILWAUKE: Milwaukee
+      MILWAKKE: Milwaukee
+      MILWAKE: Milwaukee
+      MILWAUKEN: Milwaukee
+      HILTI: Hilti
+      STIHL: Stihl
+      STHIL: Stihl
+      STHILL: Stihl
+      STILHL: Stihl
+      STHILT: Stihl
+      STHL: Stihl
+      THILL: Stihl
+      STIHIL: Stihl
+      STILH: Stihl
+      STIL: Stihl
+      HUSQVARNA: Husqvarna
+      HSQVARNA: Husqvarna
+      HUSQURVANA: Husqvarna
+      HUSQUARNA: Husqvarna
+      HUSQVANA: Husqvarna
+      HUSQVARMA: Husqvarna
+      KARCHER: Kärcher
+      KERCHER: Kärcher
+      KAYCHER: Kärcher
+      LINCOLN: Lincoln
+      LINCOLT: Lincoln
+      LINCOL: Lincoln
+      RIDGID: Ridgid
+      RIGID: Ridgid
+      HONDA: Honda
+      MILLER: Miller
+      FESTOOL: Festool
+      TRUPER: Truper
+      TRUPPER: Truper
+      TRUPPEER: Truper
+      TRUPPE: Truper
+      TRUPE: Truper
+      TRUPERR: Truper
+      URREA: Urrea
+      BLACK DECKER: Black+Decker
+      BLACK AND DECKER: Black+Decker
+      BLACK A DECKER: Black+Decker
+      BLACK DECKE: Black+Decker
+      BALCK DECKER: Black+Decker
+      BLACK DEKER: Black+Decker
+      BLACK Y DECKER: Black+Decker
+      BLACK DECKR: Black+Decker
+      BLAK DECKER: Black+Decker
+      BLACK DECKERT: Black+Decker
+      SKIL: Skil
+      SKILL: Skil
+      KOBLENZ: Koblenz
+      KOBLEZ: Koblenz
+      RYOBI: Ryobi
+      STANLEY: Stanley
+      STNALEY: Stanley
+      STARLEY: Stanley
+      CRAFTSMAN: Craftsman
+      CASFTMAN: Craftsman
+      CRASFTMAN: Craftsman
+      CRAFSMAN: Craftsman
+      TOTAL: Total
+      INGCO: Ingco
+      INCCO: Ingco
+      HUSKY: Husky
+      HUSKI: Husky
+      KINRO: Kinro
+      KINRRO: Kinro
+      KINROO: Kinro
+      OAKLAND: Oakland
+      OAKLAN: Oakland
+      HITACHI: Hitachi
+      ITACHI: Hitachi
+      TOYAMA: Toyama
+      HYUNDAI: Hyundai
+      WEG: Weg
+      SIEMENS: Siemens
+      SIEMNS: Siemens
+      GLADIADOR: Gladiador
+      GLADIATOR: Gladiador
+      GLADIATPOR: Gladiador
+      PRETUL: Pretul
+      PREMUL: Pretul
+      PRETUR: Pretul
+      SURTEK: Surtek
+      SRTTEK: Surtek
+      BOWOSHEN: Bowoshen
+      BURCAT: Burcat
+      MAXTOOL: Maxtool
+      PITTSBURGH: Pittsburgh
+      TEENO: Teeno
+      SHAWTY: Shawty
+      VICTECHE: Victeche
+      COLUMBIA: Columbia
+      ADIR: Adir
+    crea_variante: false
+plantillas:
+- id: herr.gato
+  nombre: Gato hidráulico
+  match:
+  - \bGATO\b|\bGATOS\b|GATO\s*DE\s*(BOTELLA|BOTEELA|PATIN|TIJERA)
+  sinonimos:
+  - gato
+  - gato hidraulico
+  - gato de botella
+  - gato de patin
+  - gato de tijera
+  atributos:
+    tonelaje:
+      regex: \b(\d(?:\.\d)?)\s?(?:T|TON|TONS|TONELADAS?)\b|\A(?!.*\b\d(?:\.\d)?\s?(?:T|TON|TONS|TONELADAS?)\b)
+      mapa:
+        '1': 1 t
+        '1.5': 1.5 t
+        '2': 2 t
+        '2.5': 2.5 t
+        '3': 3 t
+        '4': 4 t
+        '5': 5 t
+        '10': 10 t
+        '12': 12 t
+        '20': 20 t
+        ? ''
+        : N/D
+      crea_variante: true
+    tipo:
+      regex: \b(BOTELLA|BOTEELA|PATIN|TIJERA)\b
+      mapa:
+        BOTEELA: BOTELLA
+      crea_variante: false
+  checklist:
+  - Levanta y sostiene carga
+  - Sin fugas de aceite
+  - Palanca/maneral incluido
+  - Base sin deformación
+  fotos:
+  - Vista general
+  - Placa de capacidad
+  - Palanca incluida
+  molde_descripcion: '{nombre} {tipo} {tonelaje} {marca_detectada}'
+- id: herr.carretilla
+  nombre: Carretilla
+  match:
+  - CARR?ETI?L+A|CARRETIA|CARRITIA|CARRETILA
+  sinonimos:
+  - carretilla
+  - carretilla de obra
+  atributos:
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: &id001
+        DEWALT: Alta
+        DEWAL: Alta
+        DWALT: Alta
+        DEWATL: Alta
+        DELWAL: Alta
+        DEWALL: Alta
+        DEWLT: Alta
+        DEWAT: Alta
+        MAKITA: Alta
+        MAKTA: Alta
+        MAKIKA: Alta
+        BOSCH: Alta
+        BOSH: Alta
+        BOCH: Alta
+        MILWAWKEE: Alta
+        MILKWAUKEE: Alta
+        MILKWWUELKEE: Alta
+        MILKWAKEE: Alta
+        MILWAUKEE: Alta
+        MILWAKEE: Alta
+        MILWAKEN: Alta
+        MILWUAKEE: Alta
+        MILWAAUKEE: Alta
+        MILWAUKE: Alta
+        MILWAKKE: Alta
+        MILWAKE: Alta
+        MILWAUKEN: Alta
+        HILTI: Alta
+        STIHL: Alta
+        STHIL: Alta
+        STHILL: Alta
+        STILHL: Alta
+        STHILT: Alta
+        STHL: Alta
+        THILL: Alta
+        STIHIL: Alta
+        STILH: Alta
+        STIL: Alta
+        HUSQVARNA: Alta
+        HSQVARNA: Alta
+        HUSQURVANA: Alta
+        HUSQUARNA: Alta
+        HUSQVANA: Alta
+        HUSQVARMA: Alta
+        KARCHER: Alta
+        KERCHER: Alta
+        KAYCHER: Alta
+        LINCOLN: Alta
+        LINCOLT: Alta
+        LINCOL: Alta
+        RIDGID: Alta
+        RIGID: Alta
+        HONDA: Alta
+        MILLER: Alta
+        FESTOOL: Alta
+        TRUPER: Media
+        TRUPPER: Media
+        TRUPPEER: Media
+        TRUPPE: Media
+        TRUPE: Media
+        TRUPERR: Media
+        URREA: Media
+        BLACK DECKER: Media
+        BLACK AND DECKER: Media
+        BLACK A DECKER: Media
+        BLACK DECKE: Media
+        BALCK DECKER: Media
+        BLACK DEKER: Media
+        BLACK Y DECKER: Media
+        BLACK DECKR: Media
+        BLAK DECKER: Media
+        BLACK DECKERT: Media
+        SKIL: Media
+        SKILL: Media
+        KOBLENZ: Media
+        KOBLEZ: Media
+        RYOBI: Media
+        STANLEY: Media
+        STNALEY: Media
+        STARLEY: Media
+        CRAFTSMAN: Media
+        CASFTMAN: Media
+        CRASFTMAN: Media
+        CRAFSMAN: Media
+        TOTAL: Media
+        INGCO: Media
+        INCCO: Media
+        HUSKY: Media
+        HUSKI: Media
+        KINRO: Media
+        KINRRO: Media
+        KINROO: Media
+        OAKLAND: Media
+        OAKLAN: Media
+        HITACHI: Media
+        ITACHI: Media
+        TOYAMA: Media
+        HYUNDAI: Media
+        WEG: Media
+        SIEMENS: Media
+        SIEMNS: Media
+        GLADIADOR: Media
+        GLADIATOR: Media
+        GLADIATPOR: Media
+        ? ''
+        : Básica
+      crea_variante: false
+  checklist:
+  - Llanta en buen estado
+  - Chasis sin óxido/roturas
+  - Mangos firmes
+  fotos:
+  - Vista general
+  - Llanta
+  - Charola
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.escalera
+  nombre: Escalera
+  match:
+  - ESCALERA
+  sinonimos:
+  - escalera
+  - escalera de tijera
+  - escalera de aluminio
+  checklist:
+  - Peldaños firmes
+  - Seguros/bisagras funcionan
+  - Sin dobleces
+  - Zapatas antiderrapantes
+  fotos:
+  - Vista completa
+  - Etiqueta de capacidad
+  - Bisagras
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.bascula
+  nombre: Báscula
+  match:
+  - BA?S?CULA|ABSACULA|BASCULLA|\bPESA\b
+  sinonimos:
+  - bascula
+  - bascula digital
+  - bascula comercial
+  - bascula clinica
+  atributos:
+    capacidad:
+      regex: \b(\d{1,3})\s?KG\b
+      crea_variante: false
+    tipo:
+      regex: \b(DIGITAL|MECANICA|CLINICA|PEDIATRICA|PLATAFORMA|COLGANTE)\b
+      crea_variante: false
+  checklist:
+  - Enciende y marca peso
+  - Con cargador/pilas
+  - Plato o base completa
+  - Calibrada (probar con peso conocido)
+  fotos:
+  - Frente encendida
+  - Base
+  - Placa de capacidad
+  molde_descripcion: '{nombre} {tipo} {capacidad}KG {marca_detectada}'
+- id: herr.neumatica
+  nombre: Pistola neumática y accesorios de aire
+  match:
+  - PISTOLA\s+(DE\s+)?(AIRE|NEUMAT|PINTAR)|NEUMATIC|CLAVADORA|ENGRAPADORA|BOMBA\s+DE\s+AIRE|PISTOLA\s+DE\s+PIN\b|PISTOLA\s+DE\s+IMPACTO
+  sinonimos:
+  - pistola de aire
+  - pistola neumatica
+  - clavadora
+  - engrapadora
+  checklist:
+  - Funciona con aire
+  - Sin fugas
+  - Accesorios/acoples
+  fotos: &id002
+  - Vista general
+  - Detalle de marcas/medidas
+  - Estuche o caja
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.juego.herramientas
+  nombre: Maletín / lote de herramientas varias
+  match:
+  - ^(?:[^|]*?\b(?:MARRO|MARTILLO|PICO|PALA|LLANA|CINCEL|SINCEL|NIVEL|PIN|LLAVES?|SERRUCHO|DESARMADOR\w*|COA|ESPATULA|SEGUETA|METRO|CUCHARA|PERICA|SISAYA|TENAZA|BARRETA|MAZO|ACHA|HACHA|PINZAS?)\b){3}
+  - (?:JUEGO|JUEFO|CAJA|ESTUCHE|MALETIN|MALETA|PORTA|KIT)\s+(?:DE\s+)?HERRA\w+|HERRAMIENTAS?\s+(?:VARI\w+|DE|PARA)|VARIAS\s+HERRAMIENTAS|LOTE\s+DE|DEJA\s+HERRAMIENTA|HERRAMIENTA\s+VARIA|KIT\s+DE\s+HERR|TOOL\s?BOX|CAJA\s+DE\s+METAL
+  sinonimos:
+  - maletin de herramientas
+  - caja de herramientas
+  - lote de herramientas
+  - juego de herramientas
+  atributos:
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id001
+      crea_variante: false
+  checklist:
+  - Contar y listar piezas
+  - Maletín/caja cierra bien
+  - Piezas sin óxido severo
+  fotos:
+  - Vista general
+  - Detalle de marcas/medidas
+  - Estuche o caja
+  - Todas las piezas juntas
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.nivel
+  nombre: Nivel y flexómetro
+  match:
+  - \bNIVEL\b|PLOMO\s+NIVEL|FLEXOMETRO|\bMETRO\b|ESCUADRA|PLOMADA|NIVEL\s+LASER
+  sinonimos:
+  - nivel
+  - nivel de burbuja
+  - flexometro
+  - metro
+  checklist:
+  - Burbujas/lectura correctas
+  - Sin golpes ni dobleces
+  - Cinta enrolla (flexómetro)
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.dados.matracas
+  nombre: Juego de dados y matracas
+  match:
+  - DADOS?\b|MANERAL|MATRACA|CRICKET|TORQUE|ESTUCHE\s+DE\s+DADOS|SOCKET\s+SET|LLAVE\s+TORQU
+  sinonimos:
+  - dados
+  - juego de dados
+  - matraca
+  - juego de matracas
+  - set de dados
+  atributos:
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id001
+      crea_variante: false
+  checklist:
+  - Juego completo (contar piezas)
+  - Matraca gira y traba
+  - Dados sin desgaste/redondeo
+  - Estuche/caja
+  fotos:
+  - Vista general
+  - Detalle de marcas/medidas
+  - Estuche o caja
+  - Piezas contadas
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.llaves
+  nombre: Llaves (españolas, allen, perico, stillson)
+  match:
+  - \bLLAVES?\b|PERICO|STILLSON|STILSON|ALLEN|ESPA[NÑ]OLA|COMBINADA|\bLLAVE
+  sinonimos:
+  - llave
+  - llaves
+  - llave allen
+  - llave de presion
+  - llave perico
+  - llave mecanica
+  - llave stillson
+  atributos:
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id001
+      crea_variante: false
+  checklist:
+  - Juego completo (contar piezas)
+  - Sin desgaste en bocas
+  - Estuche si aplica
+  fotos:
+  - Vista general
+  - Detalle de marcas/medidas
+  - Estuche o caja
+  - Piezas contadas
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.pinzas
+  nombre: Pinzas, alicates y cizallas
+  match:
+  - \bPIN\b|PERIC[AO]|HERCULES|PINZA|ALICATE|CORTA\s*PERNOS|CORTAPERNOS|CIZALLA|\b(?:SI|CI)[SZC]A[YL]+A\b|SISAYA|GRIFA|MASTILLO|PRENSA|TORNILLO\s+DE\s+BANCO|LLAVE\s+DE\s+PRESION|CORTADOR|TIJERA|CORTAFRIO
+  sinonimos:
+  - pinzas
+  - alicates
+  - pinza de presion
+  - mastillo
+  - cizalla
+  - sisaya
+  - corta pernos
+  - prensa
+  atributos:
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id001
+      crea_variante: false
+  checklist:
+  - Cortan/aprietan bien
+  - Mangos completos
+  - Sin óxido severo
+  - Abren y cierran sin juego
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.desarmadores
+  nombre: Desarmadores y destornilladores
+  match:
+  - DESA\w{0,3}DOR|DESARM|DESAMR|DESATOR|DESTORNILL|TORNILLADOR
+  sinonimos:
+  - desarmador
+  - destornillador
+  - juego de desarmadores
+  checklist:
+  - Juego completo (contar piezas)
+  - Puntas sin desgaste
+  - Mangos firmes
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.martillos
+  nombre: Martillos, marros y cinceles
+  match:
+  - MART[IL]+O+|\bMASO\b|PATA\s+DE\s+CABRA|MARRO|MAZO|CINCEL|SINCEL|CU[NÑ]A\b|\bCUNA\b|BARRETA|HACHA|MACHETE|PUNZON|DESPERDICIADOR|ESCARPELO|ESCARPIO|BURIL|COA\b
+  sinonimos:
+  - martillo
+  - marro
+  - marros
+  - cincel
+  - mazo
+  - barreta
+  - cuña
+  checklist:
+  - Cabeza firme en el mango
+  - Mango sin rajaduras
+  - Filo/punta sin desgaste excesivo
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.excavacion
+  nombre: Palas, picos y coas
+  match:
+  - CA?CAVA\w*|CAVA\s*OLLOS|\bPALAS?\b|TALACHO|PISON|\bPICOS?\b|ZAPAPICO|AZADON|RASTRILLO|\bCOAS?\b|\bCOA\b|PALA\s|CAVADORA|BARRETON
+  sinonimos:
+  - pala
+  - pico
+  - coa
+  - azadon
+  - zapapico
+  - rastrillo
+  - barreton
+  checklist:
+  - Mango firme
+  - Filo sin deformación
+  - Sin óxido severo
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.albanileria
+  nombre: Llanas, cucharas y herramienta de albañil
+  match:
+  - LLANA|CORTA\s*AZULEJO|CUCHARA|PLANCHUELA|ESPATULA|PALETA|REGLA|ALBA[NÑ]IL|ALABANILERIA|ALBANILES|ALBANIL|CUCHARILLA|BOQUILLERA|PERFILADOR|RODILLO|BROCHA|CEPILLO\s+DE\s+ALAMBRE|CORTADORA\s+DE\s+AZULEJO|CORTAAZULEJO|TIRALINEA|HILO\b|MEZCLA|CALAFATEO|CUBETA|BOTE|CORTADOR\s+DE\s+AZ
+  sinonimos:
+  - llana
+  - cuchara
+  - cuchara de albañil
+  - espatula
+  - albañileria
+  - herramienta de albañil
+  - plana
+  - paleta
+  checklist:
+  - Piezas completas
+  - Sin óxido severo
+  - Mangos firmes
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.serrucho
+  nombre: Serrucho y sierras de mano
+  match:
+  - SERRUCHO|SEGUETA|ARCO\s+(DE\s+)?SEGUETA|[SC]EGUETA|COSTILLA|CIERRA\s+DE\s+MANO
+  sinonimos:
+  - serrucho
+  - arco de segueta
+  - segueta
+  checklist:
+  - Dientes completos y filo
+  - Mango firme
+  - Hoja sin torceduras
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.especializada
+  nombre: Herramienta especializada (remachadora, cautín, terrajas)
+  match:
+  - REMACHAD|CAUTIN|TERRAJA|SACA\s?HOYOS|ABRE\s?HOYOS|AMARRADOR|PERCA|PIZON|TARRAJA|MULTIUSO|NAVAJA|VICT?O?RINOX|VIXCTORINO|LEATHERMAN|ENGRAPAD|PISTOLA\s+DE\s+SILICON|GRASERA|PROBADOR|MULTIMETRO|INYECTORA|BOMIN|DESPOLVADOR|EXTRACTOR
+  sinonimos:
+  - remachadora
+  - cautin
+  - terrajas
+  - amarrador de varilla
+  - navaja multiusos
+  checklist:
+  - Funciona/acciona correctamente
+  - Juego completo
+  - Sin óxido severo
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.cepillo.mano
+  nombre: Cepillo de carpintero (manual)
+  match:
+  - CEPILLO\s+(DE\s+)?(MANO|CARPIN|MADERA)|CEPILLO\s+STANLEY|\bCEPILLO\b
+  sinonimos:
+  - cepillo de mano
+  - cepillo de carpintero
+  - garlopa
+  checklist:
+  - Cuchilla afilada y firme
+  - Cuerpo sin fracturas
+  - Tornillo de ajuste funciona
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'

@@ -1,0 +1,161 @@
+# Bicicletas. Plantilla = TIPO (montaña, chopper, ruta, BMX, infantil, paseo/canasta, eléctrica, plegable);
+# la RODADA crea la variante. La marca (Mercurio domina) es atributo descriptivo; las bicis que sólo dicen
+# la marca van a "Bicicleta <marca>" y el resto a la genérica.
+# Los triciclos infantiles están en varios_bebes_juguetes.yaml (Bebés y juguetes › Triciclo infantil).
+categoria: Bicicletas
+familias_prendaflex: [BICICLETAS, VARIOS]   # VARIOS: hay ~5 bicicletas capturadas ahí
+excluir:
+  - 'BICICLETA\s+(ESTATICA|DE\s+EJERCICIO)'
+  - 'ESTATICA'
+  - 'EJERCISIO|EJERCICIO'
+  - '\bBOCINA\b'
+  - 'TRIC[A-Z]*[LC]O\b'       # TRICICLO / TRICICLIO -> Bebés y juguetes
+  - '\b(CON|SIN|EN)\s+(CASITA|CASA|LONA|TECHO|CAPOTA)\b'
+
+atributos:
+  rodada:
+    regex: '(?:\bRODA?D?A?\s*[-.]?\s*|\bR\s*[-.]?\s*|\bMODELO\s+|\bRIN\s+)(12|14|16|18|20|24|26|27\.5|28|29)\b(?!\s*(?:MM|CC|W))'
+    formato: 'R{}'
+    crea_variante: true
+  marca_bici:
+    regex: '\b(MERCURIO|BENOTT?O|BENNOTO|MONGOOSE|MONK(?:GOOSE)?|KAI[SZ]E?R|BIMEX|ROCKET|VELOC[IY]|SPORT\s?TIMES|CONDOR|BUCANERO|GHOST|GOHST|STRONGER|ALTREG?O?|BET\s?MOTION|SHIMANO|GIANT|TREK|SPECIALIZED|ITALIKA|FEROZ|PROFLEX|RENZO|NEXT|KINGSTONE|TURBO|FUJI|CANNONDALE|GW)\b'
+    mapa: {BENOTO: BENOTTO, BENNOTO: BENOTTO, MONK: MONGOOSE, MONKGOOSE: MONGOOSE, KAISER: KAISER, KAIZER: KAISER, GOHST: GHOST, ALTREGO: ALTREGO, ALTREG: ALTREGO}
+    crea_variante: false
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|PLATA|MORAD[OA]|ROSA|ROSAS|CAFE|DORAD[OA])\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO, DORADA: DORADO, ROSAS: ROSA}
+    crea_variante: false
+
+x-chk: &chk_bici
+  - Cuadro sin fisuras ni soldaduras
+  - Frenos delantero y trasero funcionan
+  - Llantas y rines (sin chuecos)
+  - Cadena, cambios y pedales
+  - Asiento / sillín completo
+  - Manubrio y puños
+  - Número de serie (si lo tiene)
+  - Accesorios incluidos (canasta, parrilla, luces, candado)
+x-fotos: &fotos_bici [Lado derecho completo, Lado izquierdo, Frente (manubrio), Transmisión (cadena/cambios), Número de serie (si hay), Detalles de desgaste]
+x-molde: &molde_bici 'Bicicleta {nombre} {marca_bici} rodada {rodada} {color} · frenos {frenos} · detalles {detalles}'
+
+plantillas:
+  - id: bici.electrica
+    solo_familia: true
+    nombre: Bicicleta eléctrica
+    marca: Varias
+    match: ['BICI\w*\s+ELECTRICA', 'ELECTRICA\s+PARA\s+NINO', 'BICI\w*\s+ELECTR', 'E[\s-]?BIKE', 'BICIMOTO']
+    sinonimos: [bicicleta electrica, ebike, bici electrica]
+    checklist: [Cargador original, Batería con carga y autonomía, Llave, Motor y acelerador funcionan, Frenos, Llantas]
+    fotos: [Lado derecho completo, Lado izquierdo, Batería y cargador, Tablero / acelerador, Número de serie]
+    molde_descripcion: 'Bicicleta eléctrica {marca_bici} {color} · batería {bateria} · cargador {cargador}'
+  - id: bici.bmx
+    solo_familia: true
+    nombre: Bicicleta BMX / freestyle
+    marca: Varias
+    match: ['\bBMX\b', '\bFREESTYLE\b', '\bACROBATICA\b']
+    sinonimos: [bmx, freestyle]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.plegable
+    solo_familia: true
+    nombre: Bicicleta plegable
+    marca: Varias
+    match: ['\bPLEGABLE\b', '\bFOLDING\b']
+    sinonimos: [plegable]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.chopper
+    solo_familia: true
+    nombre: Bicicleta chopper
+    marca: Varias
+    match: ['\bCHOP+ER\b', '\bCHOPPE?R?\b', '\bCHOPER\b', '\bCHOPPERA\b', '\bCHOPERA\b']
+    sinonimos: [chopper, choper, chopera]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.ruta-ciclismo
+    solo_familia: true
+    nombre: Bicicleta de ruta / ciclismo
+    marca: Varias
+    match: ['\bCICLISMO\b', '\bRUTA\b', '\bCARRERAS?\b', '\bCARBONO\b', '\bGRAVEL\b', '\bPISTA\b']
+    sinonimos: [ruta, ciclismo, carreras, carbono]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.montana
+    solo_familia: true
+    nombre: Bicicleta de montaña
+    marca: Varias
+    match: ['\bMONTA[NÑ]?(A|ERA|ERO)\b', '\bMOTANA\b', '\bMONTANA\b', '\bMTB\b', '\bSUSPENSION\b', '\bDOBLE\s+SUSPENSION\b', 'MODELO\s+MONTANA']
+    sinonimos: [montaña, montanera, mtb, mountain bike]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.infantil
+    solo_familia: true
+    nombre: Bicicleta infantil
+    marca: Varias
+    match: ['\bDE\s+NINO\b', '\bDE\s+NINA\b', '\bPARA\s+NINO\b', '\bPARA\s+NINA\b', '\bNINO\b', '\bNINA\b', '\bINFANTIL\b', '\bCHICA\b', '\bCHICO\b', '\bPEQUENA\b', '\bPEQUENO\b', '\bMONTABLE\b', '\bCON\s+PATITA', '\bLLANTAS?\s+DE\s+ESPONJA', '\bRODA?D?A?\s*(12|14|16|18|20)\b', '\bR\s*(12|14|16|18|20)\b', 'MODELO\s+(12|16|20)\b']
+    sinonimos: [bicicleta niño, bicicleta niña, bici infantil, bici chica]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.paseo-canasta
+    solo_familia: true
+    nombre: Bicicleta urbana / de paseo
+    marca: Varias
+    match: ['\bCANAST[AI]', '\bPASEO\b', '\bURBANA\b', '\bCRUCERO\b', '\bDE\s+MUJER\b', '\bDAMA\b', '\bDE\s+CANASTA\b', '\bSILLON\b.*\bMADERA\b']
+    sinonimos: [bici de paseo, urbana, canasta, dama]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  # ---- por marca (sin tipo): la marca ya define gama
+  - id: bici.mercurio
+    solo_familia: true
+    nombre: Bicicleta Mercurio (tipo sin identificar)
+    marca: Mercurio
+    match: ['\bMERCURIO', '\bKAI[SZ]E?R\b', '\bKZG\b']
+    sinonimos: [mercurio, kaiser, kaizer]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.benotto
+    solo_familia: true
+    nombre: Bicicleta Benotto (tipo sin identificar)
+    marca: Benotto
+    match: ['\bBENO?T+O\b', '\bBENNOTO\b']
+    sinonimos: [benotto]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.mongoose
+    solo_familia: true
+    nombre: Bicicleta Mongoose (tipo sin identificar)
+    marca: Mongoose
+    match: ['\bMONGOOSE\b', '\bMONKGOOSE\b', '\bMONK\b']
+    sinonimos: [mongoose, monk]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  - id: bici.otras-marcas
+    solo_familia: true
+    nombre: Bicicleta de otra marca (Bimex, Rocket, Velocí, Ghost, Condor…)
+    marca: Varias
+    match: ['\bBIMEX\b', '\bROCKET\b', '\bVELOC[IY]\b', '\bSPORT\s?TIMES\b', '\bCONDOR\b', '\bBUCANERO\b', '\bGHOST\b', '\bGOHST\b', '\bSTRONGER\b', '\bALTREG?O?\b', '\bBET\s?MOTION\b', '\bSHIMANO\b', '\bGIANT\b', '\bTREK\b', '\bSPECIALIZED\b', '\bRENZO\b', '\bNEXT\b', '\bKINGSTONE\b', '\bTURBO\b', '\bFUJI\b', '\bPROFLEX\b', '\bFEROZ\b']
+    sinonimos: [bimex, rocket, veloci, ghost, condor, giant, trek]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici
+  # ---- genérica (al final)
+  - id: bici.generica
+    solo_familia: true
+    nombre: Bicicleta (tipo sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bB[IO][A-Z]{1,5}[LC]E?TA\b', '\bBICIS?\b', '\bBICICLET', '\bBICILET', '\bBICLET', '\bBOICIC', '\bBICICLCET', '\bRODA?D?A?\s*\d{2}\b', '\bR\s*(24|26|27\.5|29)\b']
+    sinonimos: [bicicleta, bici, bicleta]
+    checklist: *chk_bici
+    fotos: *fotos_bici
+    molde_descripcion: *molde_bici

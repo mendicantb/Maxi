@@ -1,0 +1,376 @@
+# Generado y revisado para MAXI-POS. Ver docs/notas_herramientas.md
+categoria: Herramienta varia (sin identificar)
+familias_prendaflex:
+- ROTOMARTILLO
+- TALADRO
+- TALADRO INALAMBRICO
+- ATORNILLADOR INALAMBRICO
+- ESMERILADORA
+- PULIDOR
+- RECTIFICADORA
+- SIERRA CIRCULAR
+- SIERRA ELECTRICA CIRCULAR
+- SIERRA DE VAIVEN
+- SIERA  CALADORA
+- CALADORAS
+- SIERRA DE INGLETE
+- SIERRA DE PANEL ELECTRICA
+- CEPILLO DE MANO
+- LIJADORAS
+- SOLDADORA
+- DESBROZADORA
+- MOTOSIERRAS
+- SOPLADORA
+- BOMBAS ASPERSORAS
+- BOMBA DE ASPIRACION
+- BOMBA TRUPPER
+- MOTOMBAS
+- GENERADORES
+- MOTOR MULTIPROPOSITO
+- HIDROLAVADORAS
+- COMPRESOR
+- GATO HIDRAHULICO
+- MATRACAS DE MANO
+- NIVELES
+- LLAVE MECANICA
+- CARRETIA TRUPER
+- CARRITIA TRUPPER
+- ESCALERAS
+- BASCULAS
+- HERRAMIENTA LIGERA
+- HERRAMIENTAS ALBAÑILERIA
+- HERRAMIENTAS MANUALES
+- HERRAMIENTAS DE MECANICO
+- HERRAMIENTE INDUSTRIAL
+excluir: []
+atributos:
+  color:
+    regex: \b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|NARANJA|AMARILLO|AMARILLA|PLATEADO|PLATA)\b
+    mapa:
+      NEGRA: NEGRO
+      BLANCA: BLANCO
+      ROJA: ROJO
+      AMARILLA: AMARILLO
+    crea_variante: false
+  marca_detectada:
+    regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|PITTSBURGH|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|BOWOSHEN|VICTECHE|COLUMBIA|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|MAXTOOL|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|PRETUL|PREMUL|PRETUR|SURTEK|SRTTEK|BURCAT|SHAWTY|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|TEENO|BOSH|BOCH|STHL|STIL|SKIL|ADIR|WEG)\b
+    mapa:
+      DEWALT: DeWalt
+      DEWAL: DeWalt
+      DWALT: DeWalt
+      DEWATL: DeWalt
+      DELWAL: DeWalt
+      DEWALL: DeWalt
+      DEWLT: DeWalt
+      DEWAT: DeWalt
+      MAKITA: Makita
+      MAKTA: Makita
+      MAKIKA: Makita
+      BOSCH: Bosch
+      BOSH: Bosch
+      BOCH: Bosch
+      MILWAWKEE: Milwaukee
+      MILKWAUKEE: Milwaukee
+      MILKWWUELKEE: Milwaukee
+      MILKWAKEE: Milwaukee
+      MILWAUKEE: Milwaukee
+      MILWAKEE: Milwaukee
+      MILWAKEN: Milwaukee
+      MILWUAKEE: Milwaukee
+      MILWAAUKEE: Milwaukee
+      MILWAUKE: Milwaukee
+      MILWAKKE: Milwaukee
+      MILWAKE: Milwaukee
+      MILWAUKEN: Milwaukee
+      HILTI: Hilti
+      STIHL: Stihl
+      STHIL: Stihl
+      STHILL: Stihl
+      STILHL: Stihl
+      STHILT: Stihl
+      STHL: Stihl
+      THILL: Stihl
+      STIHIL: Stihl
+      STILH: Stihl
+      STIL: Stihl
+      HUSQVARNA: Husqvarna
+      HSQVARNA: Husqvarna
+      HUSQURVANA: Husqvarna
+      HUSQUARNA: Husqvarna
+      HUSQVANA: Husqvarna
+      HUSQVARMA: Husqvarna
+      KARCHER: Kärcher
+      KERCHER: Kärcher
+      KAYCHER: Kärcher
+      LINCOLN: Lincoln
+      LINCOLT: Lincoln
+      LINCOL: Lincoln
+      RIDGID: Ridgid
+      RIGID: Ridgid
+      HONDA: Honda
+      MILLER: Miller
+      FESTOOL: Festool
+      TRUPER: Truper
+      TRUPPER: Truper
+      TRUPPEER: Truper
+      TRUPPE: Truper
+      TRUPE: Truper
+      TRUPERR: Truper
+      URREA: Urrea
+      BLACK DECKER: Black+Decker
+      BLACK AND DECKER: Black+Decker
+      BLACK A DECKER: Black+Decker
+      BLACK DECKE: Black+Decker
+      BALCK DECKER: Black+Decker
+      BLACK DEKER: Black+Decker
+      BLACK Y DECKER: Black+Decker
+      BLACK DECKR: Black+Decker
+      BLAK DECKER: Black+Decker
+      BLACK DECKERT: Black+Decker
+      SKIL: Skil
+      SKILL: Skil
+      KOBLENZ: Koblenz
+      KOBLEZ: Koblenz
+      RYOBI: Ryobi
+      STANLEY: Stanley
+      STNALEY: Stanley
+      STARLEY: Stanley
+      CRAFTSMAN: Craftsman
+      CASFTMAN: Craftsman
+      CRASFTMAN: Craftsman
+      CRAFSMAN: Craftsman
+      TOTAL: Total
+      INGCO: Ingco
+      INCCO: Ingco
+      HUSKY: Husky
+      HUSKI: Husky
+      KINRO: Kinro
+      KINRRO: Kinro
+      KINROO: Kinro
+      OAKLAND: Oakland
+      OAKLAN: Oakland
+      HITACHI: Hitachi
+      ITACHI: Hitachi
+      TOYAMA: Toyama
+      HYUNDAI: Hyundai
+      WEG: Weg
+      SIEMENS: Siemens
+      SIEMNS: Siemens
+      GLADIADOR: Gladiador
+      GLADIATOR: Gladiador
+      GLADIATPOR: Gladiador
+      PRETUL: Pretul
+      PREMUL: Pretul
+      PRETUR: Pretul
+      SURTEK: Surtek
+      SRTTEK: Surtek
+      BOWOSHEN: Bowoshen
+      BURCAT: Burcat
+      MAXTOOL: Maxtool
+      PITTSBURGH: Pittsburgh
+      TEENO: Teeno
+      SHAWTY: Shawty
+      VICTECHE: Victeche
+      COLUMBIA: Columbia
+      ADIR: Adir
+    crea_variante: false
+plantillas:
+- id: herr.sierra.generica
+  nombre: Sierra eléctrica (sin identificar)
+  generica: true
+  solo_familia: true
+  match:
+  - \bSIERRA\b|\bSEIRRA|\bCIERRA\b|\bSIRRA
+  sinonimos:
+  - sierra
+  atributos:
+    gama: &id001
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa:
+        DEWALT: Alta
+        DEWAL: Alta
+        DWALT: Alta
+        DEWATL: Alta
+        DELWAL: Alta
+        DEWALL: Alta
+        DEWLT: Alta
+        DEWAT: Alta
+        MAKITA: Alta
+        MAKTA: Alta
+        MAKIKA: Alta
+        BOSCH: Alta
+        BOSH: Alta
+        BOCH: Alta
+        MILWAWKEE: Alta
+        MILKWAUKEE: Alta
+        MILKWWUELKEE: Alta
+        MILKWAKEE: Alta
+        MILWAUKEE: Alta
+        MILWAKEE: Alta
+        MILWAKEN: Alta
+        MILWUAKEE: Alta
+        MILWAAUKEE: Alta
+        MILWAUKE: Alta
+        MILWAKKE: Alta
+        MILWAKE: Alta
+        MILWAUKEN: Alta
+        HILTI: Alta
+        STIHL: Alta
+        STHIL: Alta
+        STHILL: Alta
+        STILHL: Alta
+        STHILT: Alta
+        STHL: Alta
+        THILL: Alta
+        STIHIL: Alta
+        STILH: Alta
+        STIL: Alta
+        HUSQVARNA: Alta
+        HSQVARNA: Alta
+        HUSQURVANA: Alta
+        HUSQUARNA: Alta
+        HUSQVANA: Alta
+        HUSQVARMA: Alta
+        KARCHER: Alta
+        KERCHER: Alta
+        KAYCHER: Alta
+        LINCOLN: Alta
+        LINCOLT: Alta
+        LINCOL: Alta
+        RIDGID: Alta
+        RIGID: Alta
+        HONDA: Alta
+        MILLER: Alta
+        FESTOOL: Alta
+        TRUPER: Media
+        TRUPPER: Media
+        TRUPPEER: Media
+        TRUPPE: Media
+        TRUPE: Media
+        TRUPERR: Media
+        URREA: Media
+        BLACK DECKER: Media
+        BLACK AND DECKER: Media
+        BLACK A DECKER: Media
+        BLACK DECKE: Media
+        BALCK DECKER: Media
+        BLACK DEKER: Media
+        BLACK Y DECKER: Media
+        BLACK DECKR: Media
+        BLAK DECKER: Media
+        BLACK DECKERT: Media
+        SKIL: Media
+        SKILL: Media
+        KOBLENZ: Media
+        KOBLEZ: Media
+        RYOBI: Media
+        STANLEY: Media
+        STNALEY: Media
+        STARLEY: Media
+        CRAFTSMAN: Media
+        CASFTMAN: Media
+        CRASFTMAN: Media
+        CRAFSMAN: Media
+        TOTAL: Media
+        INGCO: Media
+        INCCO: Media
+        HUSKY: Media
+        HUSKI: Media
+        KINRO: Media
+        KINRRO: Media
+        KINROO: Media
+        OAKLAND: Media
+        OAKLAN: Media
+        HITACHI: Media
+        ITACHI: Media
+        TOYAMA: Media
+        HYUNDAI: Media
+        WEG: Media
+        SIEMENS: Media
+        SIEMNS: Media
+        GLADIADOR: Media
+        GLADIATOR: Media
+        GLADIATPOR: Media
+        ? ''
+        : Básica
+      crea_variante: true
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Disco o cuchilla incluido
+  fotos: &id002
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.electrica.generica
+  nombre: Herramienta eléctrica (sin identificar)
+  generica: true
+  solo_familia: true
+  match:
+  - ELECTRIC|CABLE|INALAMB|\bPILAS?\b|CARGADOR|BATERIA|MAQUINA|WATTS|\bHP\b|VOLT|\bDISCO|\bW\b|\d{3,4}W\b|CHICAGO
+  - MODELO\s+(DW|GA|GB|DC|DH)
+  excluir:
+  - \bPIN\b|ELECTRICISTA|LLAVES?\b|DADOS|MATRACA|CINCEL|CELULAR|MOTOROLA|REDMI|XIAOMI|\bCHIP\b|\bGB\b|SINGER|COSER|GATO|CAUTIN|PISTOLA|PROBADOR|CONVERTIDOR|SOLD|HIDRO|COMPRES
+  sinonimos:
+  - herramienta electrica
+  - herramienta
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.motor.generica
+  nombre: Equipo a motor (sin identificar)
+  generica: true
+  solo_familia: true
+  match:
+  - GASOLINA|\bMOTOR\b|\bCC\b|\bHP\b|ARRANQUE|2\s?TIEMPOS|4\s?TIEMPOS|HONDA
+  sinonimos:
+  - equipo a gasolina
+  - maquina a gasolina
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  fotos:
+  - Frente completo
+  - Placa de datos/modelo
+  - Motor y arranque
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.manual.generica
+  nombre: Herramienta manual varias
+  generica: true
+  solo_familia: true
+  match:
+  - HERRAM\w+|JUEGO|JUEFO|ESTUCHE|MALETIN|CAJA|PIEZAS|PZAS?|\bKIT\b|MANGO|BROCAS?|DISCOS?|SIERRA|ARCO|SEGUETA|TIJERA|LIMA|METAL|ACERO|\bPZ\b|\bSET\b|ACCESORIOS|SIN MARCAS? DE USO|MARCAS DE USO
+  sinonimos:
+  - herramienta manual
+  - herramienta
+  - herramienta varia
+  checklist:
+  - Completa y sin piezas faltantes
+  - Sin óxido severo ni cuarteaduras
+  - Mangos firmes
+  - Estuche/caja si aplica
+  fotos:
+  - Vista general
+  - Detalle de marcas/medidas
+  - Estuche o caja
+  molde_descripcion: '{nombre} {marca_detectada}'

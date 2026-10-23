@@ -1,0 +1,428 @@
+# Plantillas de joyería (oro). Regla de pieza principal: ver docs/notas_joyeria.md
+# Orden: juego > lote (2+ tipos distintos) > argollas matrimonio > monedas > lingote > anillo > broquel > arete > argolla > esclava > pulso > gargantilla > cadena > dije > genérica.
+solo_familia: true   # joyería sólo aplica dentro de sus familias PF
+categoria: Joyería de oro
+familias_prendaflex:
+- ORO
+excluir: []
+atributos:
+  kilataje:
+    regex: \b(8|10|14|18|21|22|24)\s*(?:K|KT|KL|KI|KLS|KILATES?|KILATAJE)\b|\bK\s*(10|14|18)\b
+    mapa: {}
+    crea_variante: true
+  color_oro:
+    regex: \b(TRES OROS|3 OROS|DOS OROS|2 OROS|TRICOLOR|BICOLOR|ORO ROSA|ORO BLANCO|ORO AMARILLO|ROSA|BLANCO|AMARILLO|ROJO)\b
+    mapa:
+      3 OROS: TRES OROS
+      2 OROS: DOS OROS
+      DOS OROS: BICOLOR
+      TRICOLOR: TRES OROS
+      ROSA: ORO ROSA
+      BLANCO: ORO BLANCO
+      AMARILLO: ORO AMARILLO
+      ROJO: ORO ROSA
+    crea_variante: false
+  tejido:
+    regex: \b(CARTIER|FIGARO|BISMARCK|CUBANA|BARBADA|TORZAL|TORSAL|TORZALADA|ROLO|LAZO|SINGAPUR|CLABES?|VENECIANA|CLEOPATRA|ESLABON\w*|ESLABOM\w*|ESLAVON\w*|CUADRO|CUADRADO|ESCALERITAS?|GUCCI|COCODRILO|ENTRELAZAD[OA]|TRENZAD[OA]|TIPO
+      RIEL|ROSARIO|BOLITAS|PLACA|LISO|LISA|CUENTAS|ESPIGA|GRUMET|PANZER|MARINERA)\b
+    mapa:
+      TORSAL: TORZAL
+      TORZALADA: TORZAL
+      CLABE: CLABES
+      ESLABOM: ESLABON
+      ESLAVON: ESLABON
+      ESLABONES: ESLABON
+      CUADRADO: CUADRO
+      LISA: LISO
+      ENTRELAZADA: ENTRELAZADO
+      ENTRELAZADO: ENTRELAZADO
+      TRENZADA: TRENZADO
+      BOLITAS: BOLITA
+      CUENTAS: BOLITA
+      ESCALERITAS: ESCALERITA
+    crea_variante: false
+  peso_g:
+    regex: (\d{1,3}(?:\.\d{1,3})?)\s*(?:G|GR|GRS|GRAMOS|GMS)\b
+    crea_variante: false
+  piedra:
+    regex: \b(?:PIEDRAS?|PIEDRITAS?|PIEDRIT\w*|ZIRCON\w*|CIRCON\w*|DIAMANTES?|BRILLANTES?|PERLAS?|RUBI|ESMERALDA|ZAFIRO|AMATISTA|TOPACIO|CRISTALES?|CRISTAL)\b
+    mapa: {}
+    crea_variante: false
+  condicion:
+    regex: \b(?:ROTA|ROTO|ROTAS|ROTOS|DA[NÑ]AD[OA]S?|DALLAD[OA]S?|MALTRATAD[OA]S?|INCOMPLET[OA]S?|SIN PAR|SIN BROCHE|SIN DIJE|REVENTAD\w+|REVENTADFO|ABOLLAD[OA]S?|DESOLDAD[OA]S?|PARTID[OA]S?|QUEBRAD[OA]S?|SOLDAD[OA]|FALTA\w*|ESTRELLAD[OA]|DOBLAD[OA]|APLASTAD[OA])\b
+    mapa:
+      ROTA: ROTO
+      ROTAS: ROTO
+      ROTOS: ROTO
+      DAÑADO: DAÑADO
+      DANADO: DAÑADO
+      DANADA: DAÑADO
+      DAÑADA: DAÑADO
+      SIN PAR: INCOMPLETO
+      SIN BROCHE: INCOMPLETO
+      SIN DIJE: INCOMPLETO
+    crea_variante: false
+plantillas:
+- id: oro.juego
+  nombre: Juego / Conjunto
+  match:
+  - \b(?:JUEGOS?|CONJUNTOS?|JGO)\b
+  sinonimos:
+  - juego
+  - conjunto
+  - media joya
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Todas las piezas presentes
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Piezas juntas
+  molde_descripcion: Juego {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.lote
+  nombre: Lote de varias piezas
+  match:
+  - (?=.*\b(?:AN?I?LL?O\w*|NILLO|ANILL|ANIO|ANIN\w*|ANI|SORTIJAS?|SOLITARIOS?|SELLO)\b)(?=.*\b(?:ARE?S?TE?S?|ARRAC\w*|ARANC\w*|ARACA\w*|ARCADAS|ARETRES|AREYES|BROQUE\w*|BROCLE\w*|BROKEL\w*|BORQUEL\w*|BROQ\w*|ARETITOS?|ARGOLL\w*|AROGLL\w*|AGORLL\w*|ARDOLL\w*|AROGAL\w*|ARGOLAS?|ARGOYAS?|ZARCILLOS?)\b)
+  - (?=.*\b(?:AN?I?LL?O\w*|NILLO|ANILL|ANIO|ANIN\w*|ANI|SORTIJAS?|SOLITARIOS?|SELLO)\b)(?=.*\b(?:PULSOS?|PUSO|PULSERAS?|PULCERAS?|PULSEROS?|PUSLO|PUILSO|PUSERA|PULZERA|PULCER\w*|PULSE\w*|BRAZALETES?|BRAZAETE|BRASALETE|BRAZALET\w*|BRAZAL\w*|ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA|TOBILLERAS?|MANILLA)\b)
+  - (?=.*\b(?:AN?I?LL?O\w*|NILLO|ANILL|ANIO|ANIN\w*|ANI|SORTIJAS?|SOLITARIOS?|SELLO)\b)(?=.*\b(?:CADENAS?|CADENITAS?|CADEN\w*|CAND?ENA|DAENA|CADE|CAENA|CADELA|CADEMA|CADNA|CADNEA|CAD)\b)
+  - (?=.*\b(?:AN?I?LL?O\w*|NILLO|ANILL|ANIO|ANIN\w*|ANI|SORTIJAS?|SOLITARIOS?|SELLO)\b)(?=.*\b(?:GARGANTILLAS?|COLLAR(?:ES)?|CHOKER|GARGANTILA)\b)
+  - (?=.*\b(?:ARE?S?TE?S?|ARRAC\w*|ARANC\w*|ARACA\w*|ARCADAS|ARETRES|AREYES|BROQUE\w*|BROCLE\w*|BROKEL\w*|BORQUEL\w*|BROQ\w*|ARETITOS?|ARGOLL\w*|AROGLL\w*|AGORLL\w*|ARDOLL\w*|AROGAL\w*|ARGOLAS?|ARGOYAS?|ZARCILLOS?)\b)(?=.*\b(?:PULSOS?|PUSO|PULSERAS?|PULCERAS?|PULSEROS?|PUSLO|PUILSO|PUSERA|PULZERA|PULCER\w*|PULSE\w*|BRAZALETES?|BRAZAETE|BRASALETE|BRAZALET\w*|BRAZAL\w*|ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA|TOBILLERAS?|MANILLA)\b)
+  - (?=.*\b(?:ARE?S?TE?S?|ARRAC\w*|ARANC\w*|ARACA\w*|ARCADAS|ARETRES|AREYES|BROQUE\w*|BROCLE\w*|BROKEL\w*|BORQUEL\w*|BROQ\w*|ARETITOS?|ARGOLL\w*|AROGLL\w*|AGORLL\w*|ARDOLL\w*|AROGAL\w*|ARGOLAS?|ARGOYAS?|ZARCILLOS?)\b)(?=.*\b(?:CADENAS?|CADENITAS?|CADEN\w*|CAND?ENA|DAENA|CADE|CAENA|CADELA|CADEMA|CADNA|CADNEA|CAD)\b)
+  - (?=.*\b(?:ARE?S?TE?S?|ARRAC\w*|ARANC\w*|ARACA\w*|ARCADAS|ARETRES|AREYES|BROQUE\w*|BROCLE\w*|BROKEL\w*|BORQUEL\w*|BROQ\w*|ARETITOS?|ARGOLL\w*|AROGLL\w*|AGORLL\w*|ARDOLL\w*|AROGAL\w*|ARGOLAS?|ARGOYAS?|ZARCILLOS?)\b)(?=.*\b(?:GARGANTILLAS?|COLLAR(?:ES)?|CHOKER|GARGANTILA)\b)
+  - (?=.*\b(?:PULSOS?|PUSO|PULSERAS?|PULCERAS?|PULSEROS?|PUSLO|PUILSO|PUSERA|PULZERA|PULCER\w*|PULSE\w*|BRAZALETES?|BRAZAETE|BRASALETE|BRAZALET\w*|BRAZAL\w*|ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA|TOBILLERAS?|MANILLA)\b)(?=.*\b(?:CADENAS?|CADENITAS?|CADEN\w*|CAND?ENA|DAENA|CADE|CAENA|CADELA|CADEMA|CADNA|CADNEA|CAD)\b)
+  - (?=.*\b(?:PULSOS?|PUSO|PULSERAS?|PULCERAS?|PULSEROS?|PUSLO|PUILSO|PUSERA|PULZERA|PULCER\w*|PULSE\w*|BRAZALETES?|BRAZAETE|BRASALETE|BRAZALET\w*|BRAZAL\w*|ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA|TOBILLERAS?|MANILLA)\b)(?=.*\b(?:GARGANTILLAS?|COLLAR(?:ES)?|CHOKER|GARGANTILA)\b)
+  - (?=.*\b(?:CADENAS?|CADENITAS?|CADEN\w*|CAND?ENA|DAENA|CADE|CAENA|CADELA|CADEMA|CADNA|CADNEA|CAD)\b)(?=.*\b(?:GARGANTILLAS?|COLLAR(?:ES)?|CHOKER|GARGANTILA)\b)
+  - \bVARI(?:AS?|ADAS?|ADOS?|OS)\b|\bVAROAS\b|\bSET\b
+  excluir:
+  - TIPO ARGOLLA
+  - ARETES? (?:DE )?PULSERA
+  sinonimos:
+  - lote
+  - varias piezas
+  - deja varias
+  - mixto
+  checklist:
+  - Contar piezas por tipo
+  - Peso total en báscula
+  - Separar piezas con piedra
+  - Prueba de metal
+  fotos:
+  - Todas las piezas juntas
+  - Báscula con peso total
+  molde_descripcion: Lote {peso_g}g {kilataje}
+- id: oro.argollas-matrimonio
+  nombre: Argollas de matrimonio
+  match:
+  - (?:ARGOLLAS?|AROGLLAS?|ARGOYAS?).{0,40}\b(?:MATRIMONIO|BODA|CASAMIENTO)\b|\b(?:MATRIMONIO|BODA)\b.{0,25}(?:ARGOLL\w*|AROGLL\w*)
+  - \bALIANZAS?\b
+  sinonimos:
+  - argollas de matrimonio
+  - alianzas
+  - argollas de boda
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Par completo
+  - Grabado interior
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Interior grabado
+  molde_descripcion: Argollas de matrimonio {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.monedas
+  nombre: Monedas (Centenario, Hidalgo, Onza)
+  match:
+  - \b(?:MONEDAS?|CENTENARIOS?|HIDALGOS?|ONZAS?|ONZA LIBERTAD|LIBERTAD|AZTECAS?|DOLARES?|PESOS? FUERTES?|MORELOS|MEDIO PESO|VICTORIA)\b
+  sinonimos:
+  - moneda
+  - centenario
+  - hidalgo
+  - onza libertad
+  - onza plata
+  - azteca
+  checklist:
+  - Peso en báscula
+  - Autenticidad (imán/ácido)
+  - Año y denominación
+  - Sin desgaste excesivo
+  fotos:
+  - Anverso
+  - Reverso
+  - Báscula
+  molde_descripcion: Moneda {peso_g}g {kilataje}
+- id: oro.lingote
+  nombre: Lingote / oro fundido / chatarra
+  match:
+  - \b(?:LINGOTES?|BARRAS?|ORO FUNDIDO|CHATARRA|DIENTES?|ORO ROTO|TROZOS?|PEPITAS?|FUNDICION|GRANALLA|ONZA TROY)\b
+  sinonimos:
+  - lingote
+  - barra
+  - chatarra
+  - fundicion
+  checklist:
+  - Peso en báscula
+  - Prueba de pureza
+  - Sello de ensayador
+  fotos:
+  - Pieza
+  - Báscula
+  molde_descripcion: Lingote {peso_g}g {kilataje}
+- id: oro.reloj
+  nombre: Reloj de oro
+  match:
+  - \b(?:RELOJES|RELOJ|RELOS|REJOJ)\b
+  sinonimos:
+  - reloj de oro
+  - reloj 14k
+  - reloj bolsillo
+  checklist:
+  - Peso en báscula
+  - Funciona
+  - Pulso/caja con sello del kilataje
+  - Cristal sin rayas
+  fotos:
+  - Frente
+  - Caja con sello
+  - Báscula
+  molde_descripcion: Reloj de oro {kilataje} {peso_g}g {condicion}
+- id: oro.anillo
+  nombre: Anillo
+  match:
+  - \b(?:AN?I?LL?O\w*|NILLO|ANILL|ANIO|ANIN\w*|ANI|SORTIJAS?|SOLITARIOS?|SELLO)\b
+  sinonimos:
+  - anillo
+  - anillos
+  - sortija
+  - solitario
+  - anillo de compromiso
+  - anillo graduacion
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Talla
+  - Piedra firme (engaste)
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Detalle de piedra/engaste
+  molde_descripcion: Anillo {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.broqueles
+  nombre: Broqueles
+  match:
+  - \b(?:BROQUE\w*|BROCLE\w*|BROKEL\w*|BORQUEL\w*|BROQ\w*|ARETES? (?:DE )?BOLITAS?|ARETITOS?)\b
+  sinonimos:
+  - broquel
+  - broqueles
+  - broquelitos
+  - aretes de bolita
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Par completo
+  - Taquetes/tapones presentes
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Par juntos
+  molde_descripcion: Broqueles {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.aretes-arracadas
+  nombre: Aretes / Arracadas
+  match:
+  - \b(?:ARE?S?TE?S?|ARRAC\w*|ARANC\w*|ARACA\w*|ARCADAS|ARETRES|AREYES|ZARCILLOS?|COLGANTES)\b
+  sinonimos:
+  - aretes
+  - arete
+  - arracadas
+  - arracada
+  - aretes colgantes
+  - par de aretes
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Par completo
+  - Cierres/ganchos presentes
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Par juntos
+  molde_descripcion: Aretes {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.argollas
+  nombre: Argollas (aretes de aro)
+  match:
+  - \b(?:ARGOLL\w*|AROGLL\w*|AGORLL\w*|ARDOLL\w*|AROGAL\w*|ARGOLAS?|ARGOYAS?)\b
+  sinonimos:
+  - argollas
+  - argolla
+  - aros
+  - aretes de aro
+  - hoops
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Par completo
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Par juntos
+  molde_descripcion: Argollas {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.esclava
+  nombre: Esclava
+  match:
+  - \b(?:ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA)\b
+  sinonimos:
+  - esclava
+  - esclavas
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Cierre/broche funciona
+  - Placa/grabado legible
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Placa grabada
+  molde_descripcion: Esclava {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.pulso
+  nombre: Pulso / Pulsera
+  match:
+  - \b(?:PULSOS?|PUSO|PULSERAS?|PULCERAS?|PULSEROS?|PUSLO|PUILSO|PUSERA|PULZERA|PULCER\w*|PULSE\w*|BRAZALETES?|BRAZAETE|BRASALETE|BRAZALET\w*|BRAZAL\w*|ESCLAVAS?|ESCLABAS?|ECLAVA|ESLCAVA|TOBILLERAS?|MANILLA)\b
+  sinonimos:
+  - pulso
+  - pulsera
+  - pulcera
+  - brazalete
+  - tobillera
+  - pulso de placa
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Cierre/broche funciona
+  - Eslabones sin abrir
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Cierre
+  molde_descripcion: Pulso {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.gargantilla
+  nombre: Gargantilla / Collar
+  match:
+  - \b(?:GARGANTILLAS?|COLLAR(?:ES)?|CHOKER|GARGANTILA)\b
+  sinonimos:
+  - gargantilla
+  - collar
+  - choker
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Cierre/broche funciona
+  - Longitud
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Cierre
+  molde_descripcion: Gargantilla {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.cadena
+  nombre: Cadena (con o sin dije)
+  match:
+  - \b(?:CADENAS?|CADENITAS?|CADEN\w*|CAND?ENA|DAENA|CADE|CAENA|CADELA|CADEMA|CADNA|CADNEA|CAD|CORDON(?:ES)?|ESLABON\w*|ESLABOM\w*|ESLAVON\w*|TORZAL\w*|TORSAL\w*|CARTIER|FIGARO|BISMARCK|CUBANA|BARBADA|ROLO|SINGAPUR|CLABES?|VENECIANA|CLEOPATRA|ROSARIO|RIEL|GUCCI|COCODRILO|BOLITAS?)\b
+  sinonimos:
+  - cadena
+  - cadenita
+  - cordon
+  - cadena con dije
+  - eslabon
+  - torzal
+  - cartier
+  - figaro
+  - bismarck
+  - cubana
+  - barbada
+  - clabes
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Cierre/broche funciona
+  - Eslabones sin abrir
+  - Longitud
+  - Dije incluido (si trae)
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Cierre
+  - Dije (si trae)
+  molde_descripcion: Cadena {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.dije
+  nombre: Dije / Medalla (solo)
+  match:
+  - \b(?:DIJES?|DJIE|DIGE|DILE|DIJ|MEDALLAS?|MEDALLON(?:ES)?|CRUZ|CRUCES|CRUCIFIJO|ESCAPULARIO|SAN \w+|VIRGEN|GUADALUPE|SANTO|CRISTO|JESUS|SANTA \w+|COLMILLO|HERRADURA|LLAVE|ANGEL|CORAZON|CORAZONES|ELEFANTE|MUERTE|SOL|LUNA|ESTRELLA|INICIAL|INICIALES|LETRA|PLACA|PLACAS|RELICARIO|PENDIENTE|AMULETO|MARIPOSA|FLOR|TREBOL|HERRADURA|PALOMA|GALLO|CABALLO|DELFIN|ESPADA|OJO
+    TURCO|TIGRE|LEON|BARCO|ARBOL)\b
+  sinonimos:
+  - dije
+  - medalla
+  - cruz
+  - san judas
+  - virgen de guadalupe
+  - escapulario
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  - Argolla/bail presente
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  - Anverso
+  - Reverso
+  molde_descripcion: Dije {tejido} {kilataje} {color_oro} {piedra} {peso_g}g {condicion}
+- id: oro.generica
+  nombre: Joya de oro (pieza sin identificar)
+  match:
+  - \bORO\b|\bOROS\b|\b\d{1,2}\s*K\b|\bK(?:ILATE|LT)\w*\b|\bKI\b
+  sinonimos:
+  - oro
+  - joya de oro
+  - deja oro
+  generica: true
+  checklist:
+  - Peso en báscula
+  - Prueba de metal (ácido/imán)
+  - Piedras contadas
+  - Marca/sello visible
+  fotos:
+  - Pieza completa
+  - Sello/kilataje
+  - Báscula con peso
+  molde_descripcion: Joya oro {kilataje} {peso_g}g

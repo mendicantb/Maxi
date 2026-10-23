@@ -1,0 +1,209 @@
+categoria: Cómputo
+familias_prendaflex: [LAPTOP, COMPUTO, IMPRESORA, ROUTER, REGULADORES]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|GRIS|PLATA|AZUL|ROJO|ROJA|ROSA|VERDE|DORADO|DORADA|MORADO|MORADA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, DORADA: DORADO, MORADA: MORADO}
+    crea_variante: false
+
+plantillas:
+  # ---------- LAPTOPS ----------
+  - id: elec.laptop.macbook
+    nombre: Laptop Apple MacBook
+    marca: Apple
+    match: ['MA?C?KBOOK', 'MACBOOK', 'MAC\s*BOOK', 'MARCA APPLE']
+    sinonimos: [macbook, macbook air, macbook pro, mac]
+    atributos:
+      chip:
+        regex: '\b(M1|M2|M3|M4|INTEL)\b'
+        crea_variante: true
+    checklist: [Enciende, Cuenta iCloud cerrada, Pantalla sin líneas, Teclado completo, Batería carga, Cargador MagSafe/USB-C original]
+    fotos: [Cerrada (tapa), Abierta encendida, Acerca de esta Mac, Cargador]
+    molde_descripcion: 'MacBook {modelo} {chip} {color}'
+
+  - id: elec.laptop.chromebook
+    nombre: Laptop Chromebook
+    match: ['CHO?R?O?M?E?BO+K', 'CHORMEBOK', 'CROMEBOOK', 'CHROME', 'CRHOME']
+    sinonimos: [chromebook, chrome]
+    checklist: [Enciende, Cuenta Google cerrada, Pantalla sin líneas, Teclado, Batería carga, Cargador]
+    fotos: [Cerrada, Abierta encendida, Cargador]
+    molde_descripcion: 'Chromebook {marca} {modelo} {color}'
+
+  - id: elec.laptop.gamer
+    nombre: Laptop Gamer
+    match: ['GAMER', 'GAMING', '\bTUF\b', '\bROG\b', '\bLEGION\b', '\bNITRO\b', '\bVICTUS\b', '\bRTX\b', '\bGTX\b', 'ALIENWARE']
+    sinonimos: [laptop gamer, gaming, tuf, legion, nitro, victus]
+    atributos:
+      procesador:
+        regex: '\b(I3|I5|I7|I9|RYZEN\s*[3579])\b'
+        crea_variante: true
+    checklist: [Enciende, Pantalla sin líneas, Teclado e iluminación, Ventilación sin ruido, Batería, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop gamer {marca} {modelo} {procesador}'
+
+  - id: elec.laptop.hp
+    nombre: Laptop HP
+    marca: HP
+    match: ['\bHP\b', 'LAP\w*\s+HP', '\bHO\b.*LAPTOP', 'PAVILION', 'ELITE\s*BOO?K', 'ELITEBOOK', 'PROBOOK', 'MARCA HP\b']
+    excluir: ['IMPRESORA', 'MONITOR', 'PROYECTOR']
+    sinonimos: [laptop hp, hp pavilion, hp 14, hp 15, notebook hp]
+    atributos:
+      procesador:
+        regex: '\b(I3|I5|I7|I9|RYZEN\s*[3579]|CELERON|ATHLON|PENTIUM)\b'
+        crea_variante: false
+      almacenamiento:
+        regex: '\b(128|240|256|477|480|500|512|1000|1)\s*(GB|TB)\b'
+        crea_variante: false
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada, Rendimiento aceptable]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop HP {modelo} {procesador} {almacenamiento} {color}'
+
+  - id: elec.laptop.lenovo
+    nombre: Laptop Lenovo
+    marca: Lenovo
+    match: ['LENOVO', 'IDE?A?L?PAD', 'IDEAPA', 'THINKPAD', 'THINKBOOK', '\bV130\b', '\bL470\b', 'IDAPPA', 'IDEALPAD']
+    excluir: ['THINKCENTRE']
+    sinonimos: [laptop lenovo, ideapad, thinkpad]
+    atributos:
+      procesador:
+        regex: '\b(I3|I5|I7|I9|RYZEN\s*[3579]|CELERON|ATHLON|PENTIUM)\b'
+        crea_variante: false
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop Lenovo {modelo} {procesador} {color}'
+
+  - id: elec.laptop.acer
+    nombre: Laptop Acer
+    marca: Acer
+    match: ['\bACER\b', 'ASPIRE', 'ASPIREAL', '\bN17Q4\b']
+    sinonimos: [laptop acer, aspire]
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop Acer {modelo} {color}'
+
+  - id: elec.laptop.asus
+    nombre: Laptop Asus
+    marca: Asus
+    match: ['\bA[SZ]US\b', 'VIVOBOOK', 'ZENBOOK', 'AZUS']
+    sinonimos: [laptop asus, vivobook, zenbook]
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop Asus {modelo} {color}'
+
+  - id: elec.laptop.dell
+    nombre: Laptop Dell
+    marca: Dell
+    match: ['\bDELL\b', 'LATITUDE', 'LATUTUDE', 'INSPIRON', 'VOSTRO']
+    excluir: ['IMPRESORA']
+    sinonimos: [laptop dell, latitude, inspiron]
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop Dell {modelo} {color}'
+
+  - id: elec.laptop.otras-marcas
+    nombre: Laptop (otras marcas)
+    match: ['\b(SA?M?N?SUNG|SANSUNG|SAMNSUNG|HUAWEI|LANIX|CHUWI|TOSHIBA|SONY VAIO|VAIO|MSI|GATEWAY|COMPAQ|HY|VIOS\s*TECH|XIAOMI|MICROSOFT|SURFACE|GHIA|VORAGO|PCBOX)\b.*(LAP|NOTEBOOK|\bPC\b|BOOK|NEURO)',
+            '\bLAPTOP\b', 'LAP\s*TOP', 'LAPTO\w*', 'LAPTON', 'LAPTP', 'LAPA\b', '\bLAP\b', 'NOTEBOOK', 'PORTATIL\s*(PC|COMPUT)', '\bLANIX\b', '\bCHUWI\b', 'NEURO']
+    excluir: ['IMPRESORA']
+    sinonimos: [laptop, lap, notebook, computadora portatil]
+    atributos:
+      procesador:
+        regex: '\b(I3|I5|I7|I9|RYZEN\s*[3579]|CELERON|ATHLON|PENTIUM)\b'
+        crea_variante: false
+    checklist: [Enciende, Pantalla sin líneas, Teclado completo, Batería carga, Cargador original, Contraseña/cuenta retirada]
+    fotos: [Cerrada, Abierta encendida, Etiqueta inferior, Cargador]
+    molde_descripcion: 'Laptop {marca} {modelo} {color}'
+
+  # ---------- ESCRITORIO / PUNTO DE VENTA / PERIFÉRICOS ----------
+  - id: elec.computo.escritorio
+    nombre: Computadora de escritorio / CPU / Punto de venta
+    match: ['ESCRITORIO', '\bCPU\b', 'THINKCENTRE', 'PUNTO\s*DE\s*VENTA', 'ALL\s*IN\s*ONE', 'COMPUTADORA', 'DESKTOP', '\bTORRE\b.*PC']
+    excluir: ['LAPTOP']
+    sinonimos: [cpu, computadora, pc de escritorio, punto de venta, all in one]
+    checklist: [Enciende, Monitor incluido, Teclado y mouse, Cables, Contraseña retirada, Disco duro funcional]
+    fotos: [Equipo completo, Etiqueta, Accesorios]
+    molde_descripcion: 'Computadora {marca} {modelo}'
+
+  - id: elec.computo.teclado-mouse
+    nombre: Teclado / Mouse / Periféricos
+    match: ['TECLADO', 'MOUSE', 'MAUSE', 'RATON', 'WEBCAM', 'MONITOR']
+    sinonimos: [teclado, mouse, raton, monitor]
+    checklist: [Funciona, Cable o receptor USB]
+    fotos: [Foto del artículo]
+    molde_descripcion: '{marca} {modelo}'
+
+  # ---------- IMPRESORAS ----------
+  - id: elec.impresora.brother
+    nombre: Impresora Brother
+    marca: Brother
+    match: ['BROTHERS?\b', '\bDCP\b']
+    sinonimos: [brother, dcp, t520w, t220]
+    checklist: [Enciende, Imprime y escanea, Cabezal sin tapar, Tintas, Cable USB/corriente, WiFi]
+    fotos: [Frente, Etiqueta modelo, Impresión de prueba]
+    molde_descripcion: 'Impresora Brother {modelo} {color}'
+
+  - id: elec.impresora.epson
+    nombre: Impresora Epson (EcoTank / L-series)
+    marca: Epson
+    match: ['EPSON.*\bL\s?\d{4}\b', '\bL\s?[1-9]\d{3}\b.*EPSON', '\bEPSON\b.*IMPRES', 'IMPRES.*\bEPSON\b', '\bEPSON\s*L\d{3,4}', '^EPSON\s*L\d{4}', 'EPSON\s+L\d{4}', 'IMNPRESORA\s*EPSON']
+    sinonimos: [epson, l3210, l3250, ecotank, l5290, l3110]
+    checklist: [Enciende, Imprime y escanea, Cabezal sin tapar, Tintas, Cable USB/corriente, WiFi]
+    fotos: [Frente, Etiqueta modelo, Impresión de prueba]
+    molde_descripcion: 'Impresora Epson {modelo} {color}'
+
+  - id: elec.impresora.hp
+    nombre: Impresora HP
+    marca: HP
+    match: ['IMPRESORA.*\bHP\b', '\bHP\b.*IMPRESORA', 'OFFICEJET', 'ADVANTAGE', 'DESKJET', 'LASERJET']
+    sinonimos: [impresora hp, deskjet, officejet, laserjet]
+    checklist: [Enciende, Imprime y escanea, Cartuchos, Cable USB/corriente, WiFi]
+    fotos: [Frente, Etiqueta modelo, Impresión de prueba]
+    molde_descripcion: 'Impresora HP {modelo} {color}'
+
+  - id: elec.impresora.generica
+    nombre: Impresora (otras marcas / mini impresora)
+    match: ['IMPRES\w*', 'IMNPRESORA', 'IMPRESION', 'PRINTER', 'EPSON', 'CANON', 'LEXMARK']
+    sinonimos: [impresora, printer, multifuncional, canon]
+    checklist: [Enciende, Imprime, Tintas o tóner, Cable USB/corriente]
+    fotos: [Frente, Etiqueta modelo]
+    molde_descripcion: 'Impresora {marca} {modelo} {color}'
+
+  # ---------- ROUTER de carpintería (la familia ROUTER de PRENDA FLEX son fresadoras, no de red) ----------
+  - id: elec.router.carpinteria
+    nombre: Router de carpintería (fresadora)
+    match: ['ROUTER.*(MAKI?TA|DEWALT|BOS(C)?H|RT0701|GKF|GOF|HP\b|RYOBI|TRUPER|MILWAUKEE)', '(MAKI?TA|DEWALT|BOSC?H|RYOBI|TRUPER|MILWAUKEE).*ROUTER', '\bFRESADORA\b', '\bROUTER\b\s*(CON\s*MARCAS|EN\s*CAJA)']
+    excluir: ['WIFI', 'WI FI', 'INTERNET', 'TP\s*LINK', 'MODEM']
+    sinonimos: [router, fresadora, router carpinteria, rebajadora]
+    checklist: [Enciende, Sin juego en el mandril, Con base y guías, Con fresas, Cable en buen estado]
+    fotos: [Herramienta completa, Etiqueta de modelo, Accesorios]
+    molde_descripcion: 'Router {marca} {modelo}'
+
+  # ---------- ROUTER de red ----------
+  - id: elec.router.red
+    nombre: Router WiFi / Módem
+    match: ['ROUTER.*(WIFI|WI\s*FI|INTERNET|TP\s*LINK|TPLINK|HUAWEI|TOTOLINK|TELMEX|MODEM)', '\bMODEM\b', 'TP\s*LINK', 'TOTOLINK', 'REPETIDOR', 'ACCESS\s*POINT']
+    sinonimos: [router, modem, wifi, repetidor]
+    checklist: [Enciende, Puertos completos, Fuente de poder, Antenas]
+    fotos: [Frente, Etiqueta]
+    molde_descripcion: 'Router {marca} {modelo}'
+
+  # ---------- REGULADORES / NO BREAK ----------
+  - id: elec.regulador.voltaje
+    nombre: Regulador de voltaje / No Break
+    match: ['REGULADOR', 'NO\s*BREAK', 'UPS\b', 'KOBLENZ', 'SUPRESOR']
+    excluir: ['ROTOMARTILLO']
+    sinonimos: [regulador, no break, ups, koblenz]
+    checklist: [Enciende, Contactos funcionan, Batería (no break), Cable de corriente]
+    fotos: [Frente, Etiqueta de capacidad]
+    molde_descripcion: 'Regulador {marca} {modelo}'
+
+  # ---------- GENÉRICA ----------
+  - id: elec.computo.generica
+    nombre: Equipo de cómputo (sin identificar)
+    generica: true
+    match:
+      - 'CARGADOR'
+      - 'CONTRASENA'
+      - 'PANTALLA|TECLA|COMPU'

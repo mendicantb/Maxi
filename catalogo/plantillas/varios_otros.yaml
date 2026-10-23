@@ -1,0 +1,171 @@
+# Varios de verdad: hamacas, escaleras, hieleras, artículos médicos, comercio, coleccionables.
+# (Cascos, navajas, bebés/juguetes, deportes y ropa/accesorios tienen su propio archivo varios_*.yaml.)
+categoria: Varios
+familias_prendaflex: [VARIOS, COLECCIONABLES, ESCALERAS, TERMO, ART. MEDICOS]
+# ESCALERAS/TERMO/ART. MEDICOS: familias con 1-2 prendas que caen aquí (escaleras, termo Igloo, andadera).
+
+atributos:
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|ROSA|MORAD[OA]|CAFE|PLATA|MULTICOLOR)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO}
+    crea_variante: false
+
+plantillas:
+  # ---------------------------------------------------------------- hamacas (78 en VARIOS + 1 en NIVELES)
+  - id: varios.hamaca.costal
+    solo_familia: true
+    nombre: Hamaca de costal
+    marca: Varias
+    match: ['HAMACAS?\s+DE\s+COSTAL', 'HAMACAS?\s+COSTAL', 'MARCA\s+HAMACAS\s+DE\s+COSTAL']
+    sinonimos: [hamaca de costal, hamaca costal]
+    atributos:
+      tamano: &tam_hamaca
+        regex: '\b(INDIVIDUAL|MATRIMONIAL|KING\s?SIZE|KING|FAMILIAR|DOBLE)\b'
+        mapa: {KING SIZE: KING, KINGSIZE: KING, DOBLE: MATRIMONIAL}
+        crea_variante: true
+    checklist: &chk_hamaca [Tejido sin roturas ni manchas, Argollas y cuerdas completas, Tamaño (individual / matrimonial / king), Palo o soporte (si incluye)]
+    fotos: &fotos_hamaca [Extendida, Detalle del tejido, Argollas / cuerdas]
+    molde_descripcion: &molde_hamaca 'Hamaca {nombre} {tamano} {color} · {detalles}'
+  - id: varios.hamaca
+    solo_familia: true
+    nombre: Hamaca (tejida / multicolor)
+    marca: Varias
+    match: ['\bHAMAC', '\bHAMAKA', '\bHAMACA', 'HAMACA\s+DE\s+SANDIA']
+    sinonimos: [hamaca, hamaca multicolor, hamaca de algodon, hamaca matrimonial]
+    atributos:
+      tamano: *tam_hamaca
+      material:
+        regex: '\b(ALGODON|HILO|NYLON|CORDON|COSTAL)\b'
+        crea_variante: false
+      estilo:
+        regex: '\b(MULTICOLOR|SANDIA|ABIERTO|LISA)\b'
+        crea_variante: false
+    checklist: *chk_hamaca
+    fotos: *fotos_hamaca
+    molde_descripcion: 'Hamaca {estilo} {material} {tamano} {color} · {detalles}'
+
+  # ---------------------------------------------------------------- escaleras
+  - id: varios.escalera.peldanos
+    solo_familia: true
+    nombre: Escalera de peldaños (tipo tijera / familiar)
+    marca: Truper
+    match: ['ESCALER\w*\s.*\b\d+\s*(PISOS|PELDA\w*|ESCALONES|ESCALO\w*)', 'ESCALER\w*\s+TRUPER', 'ESCALER\w*\s+TRUPPER', 'MARCA\s+TRUPER.*ESCALER']
+    sinonimos: [escalera truper, escalera de 4 pisos, escalera tijera, escalera de aluminio]
+    atributos:
+      peldanos:
+        regex: '\b(\d+)\s*(?:PISOS|PELDA\w*|ESCALONES|ESCALO\w*)\b'
+        formato: '{} peldaños'
+        crea_variante: true
+    checklist: [Peldaños firmes y sin doblar, Seguros / bisagras funcionan, Zapatas antideslizantes, Capacidad (kg) en etiqueta]
+    fotos: [Abierta, Plegada, Etiqueta de capacidad]
+    molde_descripcion: 'Escalera {marca} {peldanos} {color} · {detalles}'
+  - id: varios.escalera.extension
+    solo_familia: true
+    nombre: Escalera extensible (por metros)
+    marca: Varias
+    match: ['ESCALER\w*.*\b\d+([.,]\d+)?\s*(MTS|MTRS|METROS|M,TS|M\b)', 'ESCALAR\w*\s+TAMANO']
+    sinonimos: [escalera extension, escalera 6 metros, escalera de aluminio extension]
+    atributos:
+      metros:
+        regex: '\b(\d+(?:[.,]\d+)?)\s*(?:MTS|MTRS|METROS|M,TS|M)\b'
+        formato: '{} m'
+        crea_variante: true
+    checklist: [Secciones deslizan y traban, Peldaños firmes, Cuerdas / poleas, Zapatas]
+    fotos: [Extendida, Plegada, Etiqueta]
+    molde_descripcion: 'Escalera extensible {marca} {metros} · {detalles}'
+  - id: varios.escalera.generica
+    solo_familia: true
+    nombre: Escalera (sin medida)
+    marca: Varias
+    generica: true
+    match: ['\bESCALER', '\bESCALARA\b']
+    sinonimos: [escalera]
+    checklist: [Peldaños firmes, Seguros, Zapatas]
+    fotos: [Abierta, Plegada]
+    molde_descripcion: 'Escalera {marca} {color} · {detalles}'
+
+  # ---------------------------------------------------------------- hieleras / neveras portátiles
+  - id: varios.hielera
+    nombre: Hielera / nevera portátil
+    marca: Igloo
+    solo_familia: true
+    match: ['\bHIELERA', '\bHILERA\b', '\bCOOLER\b', '\bIGLOO', '\bIGLU', '\bIGLLO', '\bCOLEMAN', '\bTERMO\s+IGLOO', 'NEVERA\s+(CHICA|PORTATIL|CON\s+RUED|AZUL|ROJA|NARANJA|BLANCA|IGL|COL)', 'NEVERA\s+DE\s+GUTZA', 'MARCA\s+(IGLOO|COLEMAN)']
+    excluir: ['\bPIES\b', 'REFRIGERADOR', 'NO\s?FROST', 'CICLICO', 'FRIGOBAR']
+    sinonimos: [hielera, nevera portatil, igloo, coleman, cooler, nevera de unicel]
+    atributos:
+      litros:
+        regex: '\b(\d{1,3})\s*(?:L|LT|LTS|LTR|LITROS)\b'
+        formato: '{} L'
+        crea_variante: true
+      marca_h:
+        regex: '\b(IGLOO|IGLLOO|IGLUOS?|COLEMAN|TRUPER|RUBBERMAID|ORBIT)\b'
+        mapa: {IGLLOO: IGLOO, IGLUOS: IGLOO, IGLU: IGLOO}
+        crea_variante: false
+    checklist: [Tapa cierra bien, Sin grietas ni fugas, Asas / ruedas completas, Tapón de drenaje]
+    fotos: [Cerrada, Abierta (interior), Etiqueta de capacidad]
+    molde_descripcion: 'Hielera {marca_h} {litros} {color} · {detalles}'
+
+  # ---------------------------------------------------------------- artículos médicos / ortopédicos
+  - id: varios.silla-ruedas
+    solo_familia: true
+    nombre: Silla de ruedas
+    marca: Varias
+    match: ['SILLA\s+DE\s+RUEDAS?', 'SILLA\s+DE\s+RUEDA\b']
+    sinonimos: [silla de ruedas, silla de baño]
+    atributos:
+      tipo_sr:
+        regex: '\b(DE\s+BANO|PLEGABLE|ELECTRICA|INFANTIL)\b'
+        crea_variante: true
+    checklist: [Plegado funciona, Frenos, Llantas / ruedas, Descansapiés, Tapizado]
+    fotos: [Lado, Frente, Plegada]
+    molde_descripcion: 'Silla de ruedas {tipo_sr} {color} · {detalles}'
+  - id: varios.ortopedico
+    solo_familia: true
+    nombre: Andadera / bastón / muletas
+    marca: Varias
+    match: ['\bANDADERA', '\bANRADERA', '\bANDANDERA', '\bBASTON\b', '\bMULETAS?\b']
+    sinonimos: [andadera, bastón, muletas]
+    checklist: [Altura ajustable, Regatones, Estructura firme]
+    fotos: [Completa, Detalle de regatones]
+    molde_descripcion: '{nombre} {color} · {detalles}'
+  - id: varios.medico-diagnostico
+    solo_familia: true
+    nombre: Nebulizador / baumanómetro / glucómetro
+    marca: Omron
+    match: ['\bNEBULIZ', '\bBAUMAN', '\bGLUCOMETRO', '\bOXIMETRO', '\bTENSIOMETRO', '\bESFIGMO', '\bOMRON\b', '\bONROM\b', '\bOMROM\b']
+    sinonimos: [nebulizador, baumanometro, glucometro, oximetro, omron]
+    checklist: [Enciende, Mide correctamente, Accesorios completos (manguera, brazalete, mascarilla), Caja original]
+    fotos: [Frente, Accesorios, Caja]
+    molde_descripcion: '{nombre} {marca} · {detalles}'
+
+  # ---------------------------------------------------------------- comercio
+  - id: varios.caja-registradora
+    solo_familia: true
+    nombre: Caja registradora / caja de dinero
+    marca: Casio
+    match: ['CAJA\s+REGISTRADORA', 'CAJA\s+(PARA|DE)\s+DOINERO', 'CAJA\s+(PARA|DE)\s+DINERO', 'CAJA\s+DE\s+SEGURIDAD', '\bCAJA\s+FUERTE\b']
+    sinonimos: [caja registradora, caja de dinero, casio]
+    checklist: [Enciende, Cajón abre, Teclado, Llaves del cajón, Rollo / accesorios]
+    fotos: [Frente, Cajón abierto, Etiqueta de modelo]
+    molde_descripcion: '{nombre} {marca} {color} · llaves {llaves}'
+  - id: varios.terminal-pago
+    solo_familia: true
+    nombre: Terminal punto de venta (Mercado Pago, Clip…)
+    marca: Mercado Pago
+    match: ['TERMINAL\s+(MERCADO\s*PAGO|CLIP|IZETTLE|ZETTLE|SUMUP|PAYPAL|BBVA|BANORTE)', 'MERCADO\s*PAGO', '\bPUNTO\s+DE\s+VENTA\b', '\bTPV\b', '\bLECTOR\s+DE\s+TARJETAS?\b']
+    sinonimos: [terminal mercado pago, point, clip, lector de tarjetas]
+    checklist: [Desvinculada de la cuenta del cliente, Enciende y carga, Cargador, Caja]
+    fotos: [Frente, Caja, Cargador]
+    molde_descripcion: 'Terminal {marca} {color} · desvinculada {desvinculada}'
+
+  # ---------------------------------------------------------------- coleccionables (la familia casi no tiene coleccionables reales)
+  - id: varios.coleccionable
+    solo_familia: true
+    nombre: Coleccionable (figura, moneda, carta, álbum)
+    marca: Varias
+    generica: true
+    match: ['\bFUNKO\b', '\bCOLECCION', '\bPOKEMON\b', '\bALBUM\b', '\bMONEDA\s+CONMEMORATIVA', '\bFIGURA\s+DE\s+ACCION', '\bHOT\s?WHEELS\b', '\bAMIIBO\b']
+    sinonimos: [coleccionable, funko, figura de colección, monedas antiguas]
+    checklist: [Completo, Caja / empaque original, Autenticidad]
+    fotos: [Frente, Reverso, Empaque]
+    molde_descripcion: 'Coleccionable {nombre} {marca} · {detalles}'

@@ -1,0 +1,878 @@
+# Generado y revisado para MAXI-POS. Ver docs/notas_herramientas.md
+categoria: Herramienta de jardín y motor
+familias_prendaflex:
+- DESBROZADORA
+- MOTOSIERRAS
+- SOPLADORA
+- BOMBAS ASPERSORAS
+- BOMBA DE ASPIRACION
+- BOMBA TRUPPER
+- MOTOMBAS
+- GENERADORES
+- MOTOR MULTIPROPOSITO
+- HIDROLAVADORAS
+- COMPRESOR
+- HERRAMIENTA LIGERA
+- HERRAMIENTAS ALBAÑILERIA
+- HERRAMIENTAS MANUALES
+- HERRAMIENTAS DE MECANICO
+- HERRAMIENTE INDUSTRIAL
+excluir: []
+atributos:
+  color:
+    regex: \b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|NARANJA|AMARILLO|AMARILLA|PLATEADO|PLATA)\b
+    mapa:
+      NEGRA: NEGRO
+      BLANCA: BLANCO
+      ROJA: ROJO
+      AMARILLA: AMARILLO
+    crea_variante: false
+  marca_detectada:
+    regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|PITTSBURGH|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|BOWOSHEN|VICTECHE|COLUMBIA|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|MAXTOOL|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|PRETUL|PREMUL|PRETUR|SURTEK|SRTTEK|BURCAT|SHAWTY|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|TEENO|BOSH|BOCH|STHL|STIL|SKIL|ADIR|WEG)\b
+    mapa:
+      DEWALT: DeWalt
+      DEWAL: DeWalt
+      DWALT: DeWalt
+      DEWATL: DeWalt
+      DELWAL: DeWalt
+      DEWALL: DeWalt
+      DEWLT: DeWalt
+      DEWAT: DeWalt
+      MAKITA: Makita
+      MAKTA: Makita
+      MAKIKA: Makita
+      BOSCH: Bosch
+      BOSH: Bosch
+      BOCH: Bosch
+      MILWAWKEE: Milwaukee
+      MILKWAUKEE: Milwaukee
+      MILKWWUELKEE: Milwaukee
+      MILKWAKEE: Milwaukee
+      MILWAUKEE: Milwaukee
+      MILWAKEE: Milwaukee
+      MILWAKEN: Milwaukee
+      MILWUAKEE: Milwaukee
+      MILWAAUKEE: Milwaukee
+      MILWAUKE: Milwaukee
+      MILWAKKE: Milwaukee
+      MILWAKE: Milwaukee
+      MILWAUKEN: Milwaukee
+      HILTI: Hilti
+      STIHL: Stihl
+      STHIL: Stihl
+      STHILL: Stihl
+      STILHL: Stihl
+      STHILT: Stihl
+      STHL: Stihl
+      THILL: Stihl
+      STIHIL: Stihl
+      STILH: Stihl
+      STIL: Stihl
+      HUSQVARNA: Husqvarna
+      HSQVARNA: Husqvarna
+      HUSQURVANA: Husqvarna
+      HUSQUARNA: Husqvarna
+      HUSQVANA: Husqvarna
+      HUSQVARMA: Husqvarna
+      KARCHER: Kärcher
+      KERCHER: Kärcher
+      KAYCHER: Kärcher
+      LINCOLN: Lincoln
+      LINCOLT: Lincoln
+      LINCOL: Lincoln
+      RIDGID: Ridgid
+      RIGID: Ridgid
+      HONDA: Honda
+      MILLER: Miller
+      FESTOOL: Festool
+      TRUPER: Truper
+      TRUPPER: Truper
+      TRUPPEER: Truper
+      TRUPPE: Truper
+      TRUPE: Truper
+      TRUPERR: Truper
+      URREA: Urrea
+      BLACK DECKER: Black+Decker
+      BLACK AND DECKER: Black+Decker
+      BLACK A DECKER: Black+Decker
+      BLACK DECKE: Black+Decker
+      BALCK DECKER: Black+Decker
+      BLACK DEKER: Black+Decker
+      BLACK Y DECKER: Black+Decker
+      BLACK DECKR: Black+Decker
+      BLAK DECKER: Black+Decker
+      BLACK DECKERT: Black+Decker
+      SKIL: Skil
+      SKILL: Skil
+      KOBLENZ: Koblenz
+      KOBLEZ: Koblenz
+      RYOBI: Ryobi
+      STANLEY: Stanley
+      STNALEY: Stanley
+      STARLEY: Stanley
+      CRAFTSMAN: Craftsman
+      CASFTMAN: Craftsman
+      CRASFTMAN: Craftsman
+      CRAFSMAN: Craftsman
+      TOTAL: Total
+      INGCO: Ingco
+      INCCO: Ingco
+      HUSKY: Husky
+      HUSKI: Husky
+      KINRO: Kinro
+      KINRRO: Kinro
+      KINROO: Kinro
+      OAKLAND: Oakland
+      OAKLAN: Oakland
+      HITACHI: Hitachi
+      ITACHI: Hitachi
+      TOYAMA: Toyama
+      HYUNDAI: Hyundai
+      WEG: Weg
+      SIEMENS: Siemens
+      SIEMNS: Siemens
+      GLADIADOR: Gladiador
+      GLADIATOR: Gladiador
+      GLADIATPOR: Gladiador
+      PRETUL: Pretul
+      PREMUL: Pretul
+      PRETUR: Pretul
+      SURTEK: Surtek
+      SRTTEK: Surtek
+      BOWOSHEN: Bowoshen
+      BURCAT: Burcat
+      MAXTOOL: Maxtool
+      PITTSBURGH: Pittsburgh
+      TEENO: Teeno
+      SHAWTY: Shawty
+      VICTECHE: Victeche
+      COLUMBIA: Columbia
+      ADIR: Adir
+    crea_variante: false
+plantillas:
+- id: herr.motosierra
+  nombre: Motosierra
+  match:
+  - MOTO\s?\w{0,4}\s?SIE?RR?A|MOTOCIERRA|MOTOSOSIERRA|\bMS\s?\d{3}\b|SIERRA\s+DE\s+CADENA|CHAIN\s?SAW|CADENA\s+Y\s+BARRA|^(?!.*\bD[EA]?[SZ][BP]).*\b(?:ST[IH]+L\w*|HUSQVARNA)\s+(?:MS\s?)?\d{2,3}\b
+  sinonimos:
+  - motosierra
+  - moto sierra
+  - sierra de cadena
+  - motocierra
+  - chainsaw
+  atributos:
+    gama: &id001
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: &id004
+        DEWALT: Alta
+        DEWAL: Alta
+        DWALT: Alta
+        DEWATL: Alta
+        DELWAL: Alta
+        DEWALL: Alta
+        DEWLT: Alta
+        DEWAT: Alta
+        MAKITA: Alta
+        MAKTA: Alta
+        MAKIKA: Alta
+        BOSCH: Alta
+        BOSH: Alta
+        BOCH: Alta
+        MILWAWKEE: Alta
+        MILKWAUKEE: Alta
+        MILKWWUELKEE: Alta
+        MILKWAKEE: Alta
+        MILWAUKEE: Alta
+        MILWAKEE: Alta
+        MILWAKEN: Alta
+        MILWUAKEE: Alta
+        MILWAAUKEE: Alta
+        MILWAUKE: Alta
+        MILWAKKE: Alta
+        MILWAKE: Alta
+        MILWAUKEN: Alta
+        HILTI: Alta
+        STIHL: Alta
+        STHIL: Alta
+        STHILL: Alta
+        STILHL: Alta
+        STHILT: Alta
+        STHL: Alta
+        THILL: Alta
+        STIHIL: Alta
+        STILH: Alta
+        STIL: Alta
+        HUSQVARNA: Alta
+        HSQVARNA: Alta
+        HUSQURVANA: Alta
+        HUSQUARNA: Alta
+        HUSQVANA: Alta
+        HUSQVARMA: Alta
+        KARCHER: Alta
+        KERCHER: Alta
+        KAYCHER: Alta
+        LINCOLN: Alta
+        LINCOLT: Alta
+        LINCOL: Alta
+        RIDGID: Alta
+        RIGID: Alta
+        HONDA: Alta
+        MILLER: Alta
+        FESTOOL: Alta
+        TRUPER: Media
+        TRUPPER: Media
+        TRUPPEER: Media
+        TRUPPE: Media
+        TRUPE: Media
+        TRUPERR: Media
+        URREA: Media
+        BLACK DECKER: Media
+        BLACK AND DECKER: Media
+        BLACK A DECKER: Media
+        BLACK DECKE: Media
+        BALCK DECKER: Media
+        BLACK DEKER: Media
+        BLACK Y DECKER: Media
+        BLACK DECKR: Media
+        BLAK DECKER: Media
+        BLACK DECKERT: Media
+        SKIL: Media
+        SKILL: Media
+        KOBLENZ: Media
+        KOBLEZ: Media
+        RYOBI: Media
+        STANLEY: Media
+        STNALEY: Media
+        STARLEY: Media
+        CRAFTSMAN: Media
+        CASFTMAN: Media
+        CRASFTMAN: Media
+        CRAFSMAN: Media
+        TOTAL: Media
+        INGCO: Media
+        INCCO: Media
+        HUSKY: Media
+        HUSKI: Media
+        KINRO: Media
+        KINRRO: Media
+        KINROO: Media
+        OAKLAND: Media
+        OAKLAN: Media
+        HITACHI: Media
+        ITACHI: Media
+        TOYAMA: Media
+        HYUNDAI: Media
+        WEG: Media
+        SIEMENS: Media
+        SIEMNS: Media
+        GLADIADOR: Media
+        GLADIATOR: Media
+        GLADIATPOR: Media
+        ? ''
+        : Básica
+      crea_variante: true
+    cc:
+      regex: \b(\d{2,3})\s?CC\b
+      crea_variante: false
+  checklist:
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  - Cadena afilada y barra sin desgaste
+  - Freno de cadena funciona
+  fotos: &id002
+  - Frente completo
+  - Placa de datos/modelo
+  - Motor y arranque
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada} {cc}'
+- id: herr.desbrozadora.electrica
+  nombre: Desbrozadora eléctrica / inalámbrica
+  match:
+  - \bFSE\s?\d{2}
+  - ^(?=.*(?:\bD[EA]?[SZ][BP][RO]{0,2}Z?A?D?[OP]{0,2}RA\b|\bDESBROZ))(?=.*(?:ELECTRIC|INALAM|CARGADOR|BATERIA|\bPILAS?\b|\b\d{2}\s?V\b|MINI))
+  sinonimos:
+  - desbrozadora electrica
+  - desbrozadora inalambrica
+  - orilladora
+  - cortadora de pasto electrica
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Con batería y cargador (si es inalámbrica)
+  - Cable sin empalmes (si es eléctrica)
+  - Cabezal/hilo o cuchilla
+  - Incluye arnés/protector
+  fotos:
+  - Frente completo
+  - Placa de datos/modelo
+  - Batería y cargador
+  - Maletín/accesorios
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.desbrozadora.gasolina
+  nombre: Desbrozadora a gasolina
+  match:
+  - \bD[EA]?[SZ][BP][RO]{0,2}Z?A?D?[OP]{0,2}RA\b|\bDESBROZ|\bBROZADORA|\bDES-?\s?\d{2,3}[A-Z]?\b|\bFS\s?-?\d{2,3}\b|\bORILLADORA|CORTA\s*CESPED.*GASOLINA|DESMALEZADORA|\b(?:25|26|33|43|51|52)\s?CC\b|\bMANBA\s?52|\bM52\b|\bBLACKMAMBA
+  sinonimos:
+  - desbrozadora
+  - desbrozadora a gasolina
+  - orilladora
+  - guadañadora
+  - guadaña
+  - decbrozadora
+  atributos:
+    gama: *id001
+    cc:
+      regex: \b(\d{2,3})\s?CC\b
+      crea_variante: false
+  checklist: &id003
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada} {cc}'
+- id: herr.sopladora
+  nombre: Sopladora
+  match:
+  - SOPLA|SOPLADOR|\bBG\s?\d{2,3}\b|BLOWER|ASPIRASOPLADORA
+  sinonimos:
+  - sopladora
+  - sopladora de hojas
+  - blower
+  atributos:
+    gama: *id001
+  checklist: *id003
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.aspersora
+  nombre: Aspersora / fumigadora
+  match:
+  - ASPERSOR|FUMIG|BOMBA\s+(DE\s+)?MOCHILA|MOCHILA\s+(ASP|FUM)\w*|\bSR-?\s?\d{3}|PULVERIZADOR\s+DE\s+MOCHILA
+  sinonimos:
+  - aspersora
+  - fumigadora
+  - bomba mochila
+  - bomba de mochila
+  - mochila aspersora
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende/bombea correctamente
+  - Sin fugas
+  - Manguera y lanza completas
+  - Tanque limpio
+  - Arneses completos
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.motobomba
+  nombre: Motobomba a gasolina
+  match:
+  - MOTOBOMBA|MOTOMBA|MOTO\s+BOMBA|BOMBA.{0,25}GASOLINA|GASOLINA.{0,25}BOMBA|\bGX\s?160
+  sinonimos:
+  - motobomba
+  - bomba de gasolina
+  - bomba de agua a gasolina
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  - Bombea agua (si es posible probar)
+  - Mangueras/conexiones
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.bailarina
+  nombre: Bailarina apisonadora
+  match:
+  - APISONAD|BAILARINA|COMPACTADOR|PLACA\s+VIBRA
+  sinonimos:
+  - bailarina
+  - apisonador
+  - compactadora
+  atributos:
+    gama: *id001
+  checklist: *id003
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.generador
+  nombre: Generador eléctrico
+  match:
+  - GENERADOR|PLANTA\s+DE\s+LUZ|\bPANTA\b|CORRIENTE\s+DE|\bG\s?[23]\d{3}\b
+  sinonimos:
+  - generador
+  - planta de luz
+  - generador de corriente
+  atributos:
+    gama: *id001
+    potencia:
+      regex: \b(\d{3,5})\s?(?:W|WTS|WHTS|WATTS)\b|\b(\d(?:\.\d)?)\s?(?:HP|KW)\b
+      crea_variante: false
+  checklist:
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  - Entrega voltaje (probar con foco)
+  - Tomacorrientes/breaker
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada} {potencia}'
+- id: herr.hidrolavadora
+  nombre: Hidrolavadora
+  match:
+  - HI?DD?RO?R?\s*LA?V|HIDORLAVADORA|KAYCHER|HIDROLABADORA|\bHLT\s?-?\d|\bHL\s?-?\d{3}|PRESSURE\s*WASHER|LAVADORA\s+DE\s+PRESION|\bK[1-5]\b.*KARCHER|KARCHER
+  sinonimos:
+  - hidrolavadora
+  - lavadora a presion
+  - karcher
+  - hidrolavadora electrica
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y presuriza
+  - Manguera de alta presión y pistola
+  - Cable sin empalmes
+  - Sin fugas
+  - Incluye lanza/boquillas
+  fotos:
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  - Pistola y manguera
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.compresor
+  nombre: Compresor de aire
+  match:
+  - COMPRE?N?SOR|\bCOMP-?\s?\d{1,3}|TANQUE\s+DE\s+AIRE
+  sinonimos:
+  - compresor
+  - compresor de aire
+  - compresora
+  atributos:
+    litros:
+      regex: \b(\d{1,3})\s?(?:L|LT|LTS|LITROS)\b|\A(?!.*\b\d{1,3}\s?(?:L|LT|LTS|LITROS)\b)
+      mapa:
+        '1': 1 L
+        '2': 2 L
+        '3': 3 L
+        '4': 4 L
+        '5': 5 L
+        '6': 6 L
+        '7': 7 L
+        '8': 8 L
+        '9': 9 L
+        '10': 10 L
+        '11': 11 L
+        '12': 12 L
+        '13': 13 L
+        '14': 14 L
+        '15': 15 L
+        '16': 16 L
+        '17': 17 L
+        '18': 18 L
+        '19': 19 L
+        '20': 20 L
+        '21': 21 L
+        '22': 22 L
+        '23': 23 L
+        '24': 24 L
+        '25': 25 L
+        '26': 26 L
+        '27': 27 L
+        '28': 28 L
+        '29': 29 L
+        '30': 30 L
+        '31': 31 L
+        '32': 32 L
+        '33': 33 L
+        '34': 34 L
+        '35': 35 L
+        '36': 36 L
+        '37': 37 L
+        '38': 38 L
+        '39': 39 L
+        '40': 40 L
+        '41': 41 L
+        '42': 42 L
+        '43': 43 L
+        '44': 44 L
+        '45': 45 L
+        '46': 46 L
+        '47': 47 L
+        '48': 48 L
+        '49': 49 L
+        '50': 50 L
+        '51': 51 L
+        '52': 52 L
+        '53': 53 L
+        '54': 54 L
+        '55': 55 L
+        '56': 56 L
+        '57': 57 L
+        '58': 58 L
+        '59': 59 L
+        '60': 60 L
+        '61': 61 L
+        '62': 62 L
+        '63': 63 L
+        '64': 64 L
+        '65': 65 L
+        '66': 66 L
+        '67': 67 L
+        '68': 68 L
+        '69': 69 L
+        '70': 70 L
+        '71': 71 L
+        '72': 72 L
+        '73': 73 L
+        '74': 74 L
+        '75': 75 L
+        '76': 76 L
+        '77': 77 L
+        '78': 78 L
+        '79': 79 L
+        '80': 80 L
+        '81': 81 L
+        '82': 82 L
+        '83': 83 L
+        '84': 84 L
+        '85': 85 L
+        '86': 86 L
+        '87': 87 L
+        '88': 88 L
+        '89': 89 L
+        '90': 90 L
+        '91': 91 L
+        '92': 92 L
+        '93': 93 L
+        '94': 94 L
+        '95': 95 L
+        '96': 96 L
+        '97': 97 L
+        '98': 98 L
+        '99': 99 L
+        '100': 100 L
+        '101': 101 L
+        '102': 102 L
+        '103': 103 L
+        '104': 104 L
+        '105': 105 L
+        '106': 106 L
+        '107': 107 L
+        '108': 108 L
+        '109': 109 L
+        '110': 110 L
+        '111': 111 L
+        '112': 112 L
+        '113': 113 L
+        '114': 114 L
+        '115': 115 L
+        '116': 116 L
+        '117': 117 L
+        '118': 118 L
+        '119': 119 L
+        '120': 120 L
+        '121': 121 L
+        '122': 122 L
+        '123': 123 L
+        '124': 124 L
+        '125': 125 L
+        '126': 126 L
+        '127': 127 L
+        '128': 128 L
+        '129': 129 L
+        '130': 130 L
+        '131': 131 L
+        '132': 132 L
+        '133': 133 L
+        '134': 134 L
+        '135': 135 L
+        '136': 136 L
+        '137': 137 L
+        '138': 138 L
+        '139': 139 L
+        '140': 140 L
+        '141': 141 L
+        '142': 142 L
+        '143': 143 L
+        '144': 144 L
+        '145': 145 L
+        '146': 146 L
+        '147': 147 L
+        '148': 148 L
+        '149': 149 L
+        '150': 150 L
+        '151': 151 L
+        '152': 152 L
+        '153': 153 L
+        '154': 154 L
+        '155': 155 L
+        '156': 156 L
+        '157': 157 L
+        '158': 158 L
+        '159': 159 L
+        '160': 160 L
+        '161': 161 L
+        '162': 162 L
+        '163': 163 L
+        '164': 164 L
+        '165': 165 L
+        '166': 166 L
+        '167': 167 L
+        '168': 168 L
+        '169': 169 L
+        '170': 170 L
+        '171': 171 L
+        '172': 172 L
+        '173': 173 L
+        '174': 174 L
+        '175': 175 L
+        '176': 176 L
+        '177': 177 L
+        '178': 178 L
+        '179': 179 L
+        '180': 180 L
+        '181': 181 L
+        '182': 182 L
+        '183': 183 L
+        '184': 184 L
+        '185': 185 L
+        '186': 186 L
+        '187': 187 L
+        '188': 188 L
+        '189': 189 L
+        '190': 190 L
+        '191': 191 L
+        '192': 192 L
+        '193': 193 L
+        '194': 194 L
+        '195': 195 L
+        '196': 196 L
+        '197': 197 L
+        '198': 198 L
+        '199': 199 L
+        '200': 200 L
+        '201': 201 L
+        '202': 202 L
+        '203': 203 L
+        '204': 204 L
+        '205': 205 L
+        '206': 206 L
+        '207': 207 L
+        '208': 208 L
+        '209': 209 L
+        '210': 210 L
+        '211': 211 L
+        '212': 212 L
+        '213': 213 L
+        '214': 214 L
+        '215': 215 L
+        '216': 216 L
+        '217': 217 L
+        '218': 218 L
+        '219': 219 L
+        '220': 220 L
+        '221': 221 L
+        '222': 222 L
+        '223': 223 L
+        '224': 224 L
+        '225': 225 L
+        '226': 226 L
+        '227': 227 L
+        '228': 228 L
+        '229': 229 L
+        '230': 230 L
+        '231': 231 L
+        '232': 232 L
+        '233': 233 L
+        '234': 234 L
+        '235': 235 L
+        '236': 236 L
+        '237': 237 L
+        '238': 238 L
+        '239': 239 L
+        '240': 240 L
+        '241': 241 L
+        '242': 242 L
+        '243': 243 L
+        '244': 244 L
+        '245': 245 L
+        '246': 246 L
+        '247': 247 L
+        '248': 248 L
+        '249': 249 L
+        '250': 250 L
+        '251': 251 L
+        '252': 252 L
+        '253': 253 L
+        '254': 254 L
+        '255': 255 L
+        '256': 256 L
+        '257': 257 L
+        '258': 258 L
+        '259': 259 L
+        '260': 260 L
+        '261': 261 L
+        '262': 262 L
+        '263': 263 L
+        '264': 264 L
+        '265': 265 L
+        '266': 266 L
+        '267': 267 L
+        '268': 268 L
+        '269': 269 L
+        '270': 270 L
+        '271': 271 L
+        '272': 272 L
+        '273': 273 L
+        '274': 274 L
+        '275': 275 L
+        '276': 276 L
+        '277': 277 L
+        '278': 278 L
+        '279': 279 L
+        '280': 280 L
+        '281': 281 L
+        '282': 282 L
+        '283': 283 L
+        '284': 284 L
+        '285': 285 L
+        '286': 286 L
+        '287': 287 L
+        '288': 288 L
+        '289': 289 L
+        '290': 290 L
+        '291': 291 L
+        '292': 292 L
+        '293': 293 L
+        '294': 294 L
+        '295': 295 L
+        '296': 296 L
+        '297': 297 L
+        '298': 298 L
+        '299': 299 L
+        ? ''
+        : N/D
+      crea_variante: true
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id004
+      crea_variante: false
+  checklist:
+  - Enciende y llena el tanque
+  - Manómetro funciona
+  - Sin fugas de aire
+  - Cable sin empalmes
+  - Mangueras/accesorios
+  fotos:
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  - Manómetro
+  molde_descripcion: '{nombre} {litros} {marca_detectada}'
+- id: herr.vibrador
+  nombre: Vibrador de concreto
+  match:
+  - VIBRADOR
+  sinonimos:
+  - vibrador de concreto
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y arranca
+  - Acelera y no se apaga
+  - Sin fugas de combustible
+  - Filtro de aire y bujía en buen estado
+  - Incluye accesorios (arnés, cuchilla/barra, funda)
+  - Manguera/chicote sin daños
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.bomba.vacio
+  nombre: Bomba de vacío
+  match:
+  - BOMBA\s+DE\s+VACIO|VACUUM|\bMVP
+  sinonimos:
+  - bomba de vacio
+  - bomba de refrigeracion
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y hace vacío
+  - Manguera/manómetros
+  - Aceite sin fuga
+  - Cable sin empalmes
+  fotos: &id005
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.bomba.agua
+  nombre: Bomba de agua eléctrica
+  match:
+  - BOMBA\s*(SUMERGIBLE|PRESURIZ|DE\s+AGUA|PERIFERICA|CENTRIFUGA)|BOMBAPRESURIZ|PRESURIZADORA|\bBOS-?\s?\d|\bBOMBA\b|HIDRONEUMATICO|\bCE110
+  excluir:
+  - BOMBA\s+DE\s+AIRE|DE\s+MANO|FUMIG|TIJERA|GRASA|INYECTOR
+  sinonimos:
+  - bomba de agua
+  - bomba sumergible
+  - presurizadora
+  - bomba periferica
+  - bomba
+  atributos:
+    gama: *id001
+    hp:
+      regex: \b(\d(?:[./]\d)?(?:\s\d/\d)?)\s?HP\b
+      crea_variante: false
+  checklist:
+  - Enciende y bombea
+  - Cable sin empalmes ni pelado
+  - Sin fugas ni golpes en la carcasa
+  - Impulsor gira libre
+  fotos: *id005
+  molde_descripcion: '{nombre} {hp} {marca_detectada}'
+- id: herr.motor.electrico
+  nombre: Motor eléctrico multipropósito
+  match:
+  - MOTOR\b|MONOFASICO|MULTIPROPOSITO|TRIFASICO
+  sinonimos:
+  - motor
+  - motor electrico
+  - motor monofasico
+  - motor multiproposito
+  atributos:
+    hp:
+      regex: \b(\d(?:[.,]\d)?(?:\s\d/\d)?|\d/\d)\s?HP\b|MONOFASICO\s+(\d\s\d/\d|\d)\b
+      crea_variante: false
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id004
+      crea_variante: false
+  checklist:
+  - Gira libre y sin ruidos
+  - Cable/caja de conexiones completa
+  - Placa de datos legible
+  - Flecha sin juego
+  fotos:
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  - Placa de datos
+  molde_descripcion: '{nombre} {hp} HP {marca_detectada}'

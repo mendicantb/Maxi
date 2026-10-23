@@ -1,0 +1,93 @@
+# Cascos de moto. Ojo: en VARIOS hay ~58 cascos más (la familia CASCOS sólo tiene 28) -> el motor los cruza por texto.
+# Plantilla = TIPO de casco (integral, abierto, modular, cross); condición (nuevo/usado) crea variante.
+categoria: Cascos
+familias_prendaflex: [CASCOS, VARIOS]
+excluir: ['\bCASCO\s+DE\s+BICI', 'ALBANIL', 'SEGURIDAD\s+INDUSTRIAL']
+
+atributos:
+  condicion:
+    regex: '\b(NUEVO|NUEVA|SEMINUEVO|SEMINUEVA|USADO)\b'
+    mapa: {NUEVA: nuevo, NUEVO: nuevo, SEMINUEVO: seminuevo, SEMINUEVA: seminuevo, USADO: usado}
+    crea_variante: true
+  marca_casco:
+    regex: '\b(MRC|MCR|UCHOOSE|BRUMM?|BRUMV|ITALIKA|POTION|FOX|YB|ISP|GUIRA|AZTECA|SLEEK|HELANO|THUNDER|SHAFT|ANDA|NZI|VELOCITY|LITIO|MCT|KYT|HJC|LS2|SHOEI|AGV|ICON|FLY|AFX)\b'
+    mapa: {MCR: MRC, BRUM: BRUMM, BRUMV: BRUMM}
+    crea_variante: false
+  certificacion:
+    regex: '\b(DOT\s*\d*|FMVSS\s*-?\s*218|ECE\s*-?\s*22\.?0?[56]|ECER22\.?0?6?)\b'
+    crea_variante: false
+  talla:
+    regex: '\b(CHICO|MEDIANO|GRANDE|XL|XXL|L|M|S)\b(?=.*\bCASCO\b|\s*$)|\bCASCO\s+(CHICO|MEDIANO|GRANDE)\b'
+    crea_variante: false
+  color:
+    regex: '\b(NEGR[OA]|BLANC[OA]|ROJ[OA]|AZUL|GRIS|VERDE|NARANJA|AMARILL[OA]|ROSA|MORAD[OA]|MULTICOLOR|FOSFORESENTES?)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, AMARILLA: AMARILLO, MORADA: MORADO}
+    crea_variante: false
+
+x-chk: &chk_casco
+  - Casco sin golpes ni fisuras en la carcasa
+  - Visera / careta sin rayones fuertes ni rota
+  - Correa y broche funcionan
+  - Interior (espuma) completo
+  - Etiqueta de certificación DOT / ECE
+  - Talla
+x-fotos: &fotos_casco [Lado izquierdo, Frente (visera), Interior, Etiqueta de certificación]
+x-molde: &molde_casco 'Casco {nombre} {marca_casco} {color} talla {talla} {condicion} · {certificacion}'
+
+plantillas:
+  - id: casco.modular
+    solo_familia: true
+    nombre: Casco modular / abatible
+    marca: Varias
+    match: ['\bMODULAR\b', '\bABATIBLE\b', '\bDESARMABLE\b', '\bLEVANTABLE\b', '\bDOBLE\s+VISERA\b']
+    sinonimos: [casco modular, abatible, desarmable]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco
+  - id: casco.cross
+    solo_familia: true
+    nombre: Casco cross / off-road
+    marca: Varias
+    match: ['\bCROSS\b', '\bMOTOCROSS\b', '\bOFF\s?ROAD\b', '\bENDURO\b', '\bBUSTER\b', '\bMX\b']
+    sinonimos: [casco cross, motocross, off road, fox]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco
+  - id: casco.abierto
+    solo_familia: true
+    nombre: Casco abierto / semi-cerrado
+    marca: Varias
+    match: ['\bABIERTO\b', '\bSEMI\s?-?\s?CERRADO\b', '\bSEMICERRADO\b', '\bMEDIO\s+CASCO\b', '\bDE\s+GORRA\b', '\bJET\b', '\b3/4\b', '\bTIPO\s+GORRA\b']
+    sinonimos: [casco abierto, semi cerrado, medio casco, gorra, jet]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco
+  - id: casco.integral
+    solo_familia: true
+    nombre: Casco integral (cerrado)
+    marca: Varias
+    match: ['\bCERRADO\b', '\bINTEGRAL\b', '\bCOMPLETO\b', '\bFULL\s?FACE\b', '\bCON\s+CARETA\b', '\bFIBRA\b', '\bCON\s+LENTES\b', '\bCARETA\b']
+    sinonimos: [casco integral, casco cerrado, casco completo, fibra]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco
+  - id: casco.marca-conocida
+    solo_familia: true
+    nombre: Casco de moto (marca conocida, tipo sin identificar)
+    marca: Varias
+    match: ['\b(MRC|MCR|UCHOOSE|BRUMM?|BRUMV|POTION|GUIRA|AZTECA|SLEEK|HELANO|THUNDER|SHAFT|NZI|VELOCITY|LITIO|KYT|HJC|LS2|SHOEI|AGV|ICON|YB|ISP|ANDA|ANDAHELMET|MEK|MCT)\b', 'MARCA\s+ITALIKA', '\bFMVSS\s*-?\s*218\b', '\bDOT\b', '\bECE\s*-?\s*22', '\bECER22']
+    excluir: ['\bBOCINA\b', 'ROTOMARTILLO']
+    sinonimos: [mrc, uchoose, brum, potion, helano, hjc, ls2]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco
+  - id: casco.generico
+    solo_familia: true
+    nombre: Casco de moto (sin más datos)
+    marca: Varias
+    generica: true
+    match: ['\bCASCO', '\bCACOS\b', '\bCASO\s+(DE|PARA)\s+MOTO', '\bHELMET', '\bHEMETS\b', '\bHELMETS\b']
+    sinonimos: [casco, casco moto, casco de moto]
+    checklist: *chk_casco
+    fotos: *fotos_casco
+    molde_descripcion: *molde_casco

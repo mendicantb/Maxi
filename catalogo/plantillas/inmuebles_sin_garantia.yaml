@@ -1,0 +1,63 @@
+# Inmuebles. La captura es un formato fijo:
+#   "SUP. <m2> CONSTRUCCIÓN: <m2> RECAMARAS: <n> BAÑOS: <n> NIVELES: <n>"
+# con muchos "0", "SN", "SIN GARANTIA", "X" cuando no se llenó. El texto NO trae la palabra casa/terreno/lote
+# (Marca y Modelo vienen vacíos): el tipo sólo se sabe por la FAMILIA de PRENDA FLEX. Por eso hay un archivo por
+# familia (el motor prueba primero las plantillas de la familia de la prenda) y todas llevan solo_familia: true.
+# Familia "SIN GARANTÍA": mezcla inmuebles sin datos (Prenda=INMUEBLES) y 4 prendas ELECTRÓNICOS/VARIOS
+# que dicen "SIN GARANTÍA" o son otra cosa (una soldadora Husky).
+categoria: Inmuebles - Sin garantía
+familias_prendaflex: [SIN GARANTÍA]
+
+atributos:
+  superficie:
+    regex: 'SUP\.?\s*(\d[\d.,]*)'
+    formato: '{} m2'
+    crea_variante: false
+  construccion:
+    regex: 'CONSTRUCCION:?\s*(\d[\d.,]*)'
+    formato: '{} m2 construidos'
+    crea_variante: false
+  recamaras:
+    regex: 'RECAMARAS:?\s*([1-9]\d?)\b'
+    formato: '{} rec.'
+    crea_variante: false
+  banos:
+    regex: 'BANOS:?\s*([1-9])\b'
+    formato: '{} baños'
+    crea_variante: false
+  niveles:
+    regex: 'NIVELES:?\s*([1-9])\b'
+    formato: '{} niv.'
+    crea_variante: false
+
+x-chk: &chk_inm
+  - Escritura / título de propiedad a nombre del cliente (o cesión de derechos / constancia ejidal)
+  - Boleta predial al corriente
+  - Libre de gravamen (certificado de libertad de gravamen)
+  - Identificación y comprobante de domicilio del propietario
+  - Cónyuge / copropietarios firman
+  - Ubicación y colindancias verificadas
+  - Avalúo o visita física
+x-fotos: &fotos_inm [Fachada, Frente del predio, Interior (si hay construcción), Colindancias, Escritura (primera hoja), Boleta predial, Ubicación en mapa]
+
+plantillas:
+  - id: inm.sin-garantia.inmueble
+    nombre: Inmueble sin tipo ni datos (SIN GARANTÍA)
+    marca: Inmueble
+    generica: true
+    solo_familia: true
+    match: ['\bSUP\.?\s', 'CONSTRUCCION']
+    sinonimos: [inmueble sin garantia, inmueble sin datos]
+    checklist: *chk_inm
+    fotos: *fotos_inm
+    molde_descripcion: 'Inmueble (completar tipo, superficie, ubicación) · documento {documento}'
+  - id: inm.sin-garantia.sin-descripcion
+    nombre: Préstamo sin garantía descrita
+    marca: Varias
+    generica: true
+    solo_familia: true
+    match: ['^SIN GARANTIA$', '^SIN GARANTIA \|']
+    sinonimos: [sin garantia, prestamo sin garantia]
+    checklist: [Documento que respalda el préstamo, Quién avala]
+    fotos: [Documento]
+    molde_descripcion: 'Préstamo sin garantía · respaldo {respaldo}'

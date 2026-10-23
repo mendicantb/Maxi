@@ -1,0 +1,117 @@
+categoria: Hogar - Linea blanca
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|GRIS|PLATA|ROJO|ROJA|AZUL|CREMA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+
+plantillas:
+  - id: hogar.blanca.lavadora
+    nombre: Lavadora
+    atributos:
+      capacidad:
+        regex: '(?:(?<![\d.])(?=\d{1,2}\s*(?:K|KG|KGS|KILOS?|KLOS)(?![A-Z]))|(?<=MODELO LMS0)|(?<=MODELO LMS)|(?<=MODELO LMD0)|(?<=MODELO WSA)|(?<=MODELO THK SM))(1\d|2[0-4]|[6-9])(?!\d)'
+        formato: '{} kg'
+        crea_variante: true
+      tipo:
+        regex: '\b(DOBLE TINA|DOS TINAS|2 TINAS|DOS TTINAS|2 TTINAS|SEMI ?AUTOMATICA|AUTOMATICA|UNA TINA|UNA INA|1 TINA|CARGA FRONTAL)\b'
+        mapa:
+          DOBLE TINA: Doble tina
+          DOS TINAS: Doble tina
+          2 TINAS: Doble tina
+          DOS TTINAS: Doble tina
+          2 TTINAS: Doble tina
+          SEMIAUTOMATICA: Doble tina
+          SEMI AUTOMATICA: Doble tina
+          AUTOMATICA: Automatica
+          UNA TINA: Automatica
+          UNA INA: Automatica
+          1 TINA: Automatica
+          CARGA FRONTAL: Carga frontal
+        crea_variante: true
+    match: ['\bL?AV?[A-Z]{0,2}ADOR?[A-Z]?[AO]?\b', 'LAVADORA', 'LAVADOR', 'LAVAORA', 'LKAVADORA', 'AVADORA', 'LAVADORTA', 'LAVADRA', 'LAVASECADORA', 'MODELO (LMS|LMD|LMX|LMDX|WSA|WP1|MTD|MT100|MTG|THK|TT.11)']
+    excluir: ['HIDROLAV', 'LAVAMAN', 'LAVAPLATOS', 'ASPIRADORA', 'PRESION']
+    sinonimos: [lavadora, lavadora automatica, lavadora doble tina, lavadora semiautomatica, lavasecadora, lavadora 13 kilos, lavadora mabe, lavadora mirage]
+    checklist: [Enciende, Llena y desagua, Centrifuga/exprime, Sin fugas, Con tapas, Con manguera, Tina sin oxido]
+    fotos: [Frente, Tinas/tambor, Panel de control, Placa de datos]
+    molde_descripcion: 'Lavadora {marca} {capacidad} {tipo}'
+
+  - id: hogar.blanca.frigobar
+    nombre: Frigobar / minirefrigerador
+    atributos:
+      capacidad:
+        regex: '(?<![\d.])(1|2|3|4|4\.4|5|6)\s*(?:PIES|PIE|P\b)'
+        formato: '{} pies'
+        crea_variante: false
+    match: ['FRIGOBAR', 'MINI ?REFRIGERADOR', 'MINIBAR', 'MINI BAR', 'MODELO (MDRD142|DAR044|RMF04)']
+    sinonimos: [frigobar, minibar, refrigerador chico, mini refri]
+    checklist: [Enfria, Congelador, Puerta y empaques, Parrillas, Sin oxido]
+    fotos: [Frente, Interior, Placa de datos]
+    molde_descripcion: 'Frigobar {marca} {capacidad} {color}'
+
+  - id: hogar.blanca.congelador
+    nombre: Congelador
+    atributos:
+      capacidad:
+        regex: '(?<![\d.])(5|7|9|11|13|15|17|19)\s*(?:PIES|PIE|P\b|")'
+        formato: '{} pies'
+        crea_variante: true
+    excluir: ['REFIRG', 'REFRIG']
+    match: ['CONGELADOR', 'CONGELADO[RT]', 'MODELO (FC\d|MFCD|MDRC280)', 'MODELO AFC', 'NEVERA (HISENSE|AURUS)']
+    sinonimos: [congelador, congelador horizontal, freezer, arcon, congelador 7 pies, congelador 9 pies]
+    checklist: [Enfria y congela, Tapa/puerta y empaques, Canastillas, Sin oxido, Sin ruido anormal]
+    fotos: [Frente, Interior, Placa de datos]
+    molde_descripcion: 'Congelador {marca} {capacidad}'
+
+  - id: hogar.blanca.maquina-hielo
+    nombre: Maquina de hacer hielo
+    match: ['MAQUINA DE HIELO', 'FABRICADOR DE HIELO']
+    sinonimos: [maquina de hielo]
+    checklist: [Enciende, Produce hielo, Sin fugas]
+    fotos: [Frente, Interior, Placa de datos]
+    molde_descripcion: 'Maquina de hielo {marca}'
+
+  - id: hogar.blanca.refrigerador
+    nombre: Refrigerador
+    atributos:
+      capacidad:
+        regex: '(?<![\d.])(5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|25)\s*(?:PIES|PIE|PI\b|PIEZ|P\b)'
+        formato: '{} pies'
+        crea_variante: true
+      puertas:
+        regex: '\b(DOS PUERTAS|2 PUERTAS|UNA PUERTA|1 PUERTA|SIDE BY SIDE)\b'
+        mapa: {DOS PUERTAS: 2 puertas, 2 PUERTAS: 2 puertas, UNA PUERTA: 1 puerta, 1 PUERTA: 1 puerta}
+        crea_variante: false
+    match: ['R[EI]?F?[IR]?[IR]?GER', 'REFIRG', 'REFRIGERRDOR', 'REFRIGERADOPR', 'REFRIG', 'REFIRGERAR', 'MODELO (RMA|RMS|RMP|RR63|AT.6|HKBC|DFR|DFB|GR.3|WT1|FRT|AT1130|AS7516|LT32)', 'REFRI\b']
+    excluir: ['FRIGOBAR', 'MINI REFRIGERADOR', 'CONGELADOR']
+    sinonimos: [refrigerador, refri, nevera, refrigerador mabe, refrigerador 9 pies, refrigerador 11 pies]
+    checklist: [Enfria, Congela, Puertas y empaques, Parrillas/cajones, Sin golpes, Sin oxido, Sin ruido anormal]
+    fotos: [Frente, Interior, Placa de datos, Detalles/golpes]
+    molde_descripcion: 'Refrigerador {marca} {capacidad} {color}'
+
+  - id: hogar.blanca.dispensador-agua
+    nombre: Dispensador de agua
+    match: ['DISP[A-Z]{0,3}ADOR', 'DISPENSADOR DE AGUA', 'DISPEMSADOR', 'ENFRIADOR DE AGUA']
+    sinonimos: [dispensador, despachador de agua, garrafon]
+    checklist: [Enfria, Calienta, Llaves, Sin fugas, Con charola]
+    fotos: [Frente, Llaves, Placa de datos]
+    molde_descripcion: 'Dispensador de agua {marca} {color}'
+
+  - id: hogar.blanca.secadora-ropa
+    nombre: Secadora de ropa
+    match: ['SECADORA (DE )?ROPA', 'SECADORA KOBLENZ', 'SECADORA (A )?GAS', 'SECADORA ELECTRICA']
+    checklist: [Enciende, Gira, Calienta, Filtro]
+    fotos: [Frente, Interior, Placa de datos]
+    molde_descripcion: 'Secadora de ropa {marca}'
+
+  - id: hogar.blanca.generico
+    nombre: Linea blanca (sin identificar)
+    generica: true
+    match: ['NEVERA', 'ENFRIA', 'CONGELA', 'MABE', 'MARCA (WHIRLPOOL|WHIRPOOL|LG|SAMSUNG|MIDEA|HISENSE|MIRAGE|ACROS|ATVIO|FRIGIDAIRE|DAEWOO)\b']
+    excluir: ['MICROONDAS', 'LICUADORA', 'ESTUFA', 'PANTALLA', 'TV', 'LAPTOP', 'BOCINA', 'CELULAR']
+    checklist: [Enciende, Completo]
+    fotos: [Frente, Placa de datos]
+    molde_descripcion: '{marca} {color}'

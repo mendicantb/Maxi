@@ -1,4 +1,4 @@
-"""Paso 3 — Clasifica cada prenda en una plantilla y calcula métricas.
+"""Paso 4 — Clasifica cada prenda en una plantilla y calcula métricas.
 
 Uso:  python scripts/plantillas.py [--sin-historial]
 Lee:  data/processed/prendas.csv  +  catalogo/plantillas/*.yaml
@@ -105,7 +105,8 @@ def variante(plantilla, attrs):
 
 
 def buscar(plantillas, texto):
-    for p in plantillas:
+    # específicas antes que genéricas, respetando el orden de cada archivo
+    for p in sorted(plantillas, key=lambda x: bool(x.get("generica"))):
         if any(r.search(texto) for r in p["_match"]) and not any(r.search(texto) for r in p["_excluir"]):
             return p
     return None
@@ -128,7 +129,9 @@ def clasificar(prendas, categorias):
         p = buscar(por_familia.get(fam, []), texto)
         tipo = "familia"
         if p is None:
-            p = buscar([x for x in todas if not x.get("solo_familia")], texto)
+            # fuera de su familia sólo aplican plantillas específicas
+            p = buscar([x for x in todas if not x.get("generica") and not x.get("solo_familia")
+                        and not x["_cat"].get("solo_familia")], texto)
             tipo = "otra_familia"
         if p is None:
             filas.append(dict(prenda_id=row["prenda_id"], texto=texto, match="ninguno"))
@@ -144,10 +147,39 @@ def clasificar(prendas, categorias):
 
 # ---------------------------------------------------------------- métricas
 
+def salida(dias):
+    """Velocidad de venta: A <= 30 días, B <= 90, C > 90 (mediana de días en vitrina)."""
+    if pd.isna(dias):
+        return None
+    return "A" if dias <= 30 else "B" if dias <= 90 else "C"
+
+
+def metricas_venta(g):
+    # incluye compras: el precio de venta habla del artículo, no del contrato
+    rem = g[(g.estado == "REMATE") | (g.vendida == True)]  # noqa: E712
+    vend = g[g.vendida == True]  # noqa: E712
+    dias = vend.dias_a_venta.median() if len(vend) else None
+    return {
+        "vendidas": len(vend),
+        "pct_vendidas_de_rematadas": len(vend) / len(rem) if len(rem) else None,
+        "venta_prom": vend.p_venta.mean() if len(vend) else None,
+        "venta_p25": vend.p_venta.quantile(.25) if len(vend) else None,
+        "venta_mediana": vend.p_venta.median() if len(vend) else None,
+        "venta_p75": vend.p_venta.quantile(.75) if len(vend) else None,
+        "venta_sobre_prestamo": vend.multiplicador.median() if len(vend) else None,
+        "margen_mediana": vend.margen.median() if len(vend) else None,
+        "dias_vitrina_mediana": dias,
+        "salida": salida(dias),
+        "pct_apartado_perdido": (g.apartado_perdido == True).sum() / g.n_apartados.notna().sum()  # noqa: E712
+        if g.n_apartados.notna().any() else None,
+    }
+
+
 def metricas(g):
+    venta = metricas_venta(g)
     g = g[g.es_compra != True]  # noqa: E712  las compras no son empeños
     if g.empty:
-        return pd.Series(dtype=float)
+        return pd.Series(venta)
     cerr = g[g.cerrado == True]  # noqa: E712
     return pd.Series({
         "prendas": len(g),
@@ -168,6 +200,7 @@ def metricas(g):
         "drop_valor_cerrados": (cerr.loc[cerr.estado == "REMATE", "Préstamo"].sum()
                                 / cerr["Préstamo"].sum()) if len(cerr) and cerr["Préstamo"].sum() else None,
         "dias_vida_prom": g.dias_vida.mean(),
+        **venta,
     })
 
 
@@ -193,6 +226,14 @@ def pendientes(df):
 
 def pct(x):
     return "—" if pd.isna(x) else f"{x*100:.0f}%"
+
+
+def veces(x):
+    return "—" if pd.isna(x) else f"{x:.1f}×"
+
+
+def num(x):
+    return "—" if pd.isna(x) else f"{x:.0f}"
 
 
 def dinero(x):
@@ -258,18 +299,22 @@ def escribir_reportes(df, categorias, guardar_historial=True):
          f"(específicas: {pct(resumen['pct_prendas_especificas'])}, el resto cae en una genérica)",
          f"- Préstamo cubierto: **{pct(resumen['pct_prestamo_cubierto'])}**",
          f"- Clasificadas fuera de su familia PRENDA FLEX: {pct(resumen['pct_fuera_de_familia'])} (revisar)",
+         "", "Desempeña / Refrenda / Remate: % de prendas empeñadas (sin compras). Venta: precio final en vitrina "
+         "de lo rematado. Salida: A ≤30 días en vitrina, B ≤90, C >90 (mediana).",
          "", "## Por categoría", "",
-         "| Categoría | Prendas | Préstamo prom. | Desempeña | Remate | Refrenda ≥1 | DROP (cerrados) |",
-         "|---|---:|---:|---:|---:|---:|---:|"]
+         "| Categoría | Prendas | Préstamo mediana | Desempeña | Refrenda ≥1 | Remate | Venta mediana | Venta/préstamo | Días vitrina | Salida |",
+         "|---|---:|---:|---:|---:|---:|---:|---:|---:|:-:|"]
     for _, r in cats.iterrows():
-        L.append(f"| {r.categoria} | {int(r.prendas):,} | {dinero(r.prestamo_prom)} | {pct(r.pct_desempeno)} | "
-                 f"{pct(r.pct_remate)} | {pct(r.pct_refrenda)} | {pct(r.drop_cerrados)} |")
+        L.append(f"| {r.categoria} | {int(r.prendas):,} | {dinero(r.prestamo_mediana)} | {pct(r.pct_desempeno)} | "
+                 f"{pct(r.pct_refrenda)} | {pct(r.pct_remate)} | {dinero(r.venta_mediana)} | {veces(r.venta_sobre_prestamo)} | "
+                 f"{num(r.dias_vitrina_mediana)} | {r.salida if isinstance(r.salida, str) else '—'} |")
     L += ["", "## Top 40 plantillas", "",
-          "| Categoría | Plantilla | Prendas | Préstamo mediana | Desempeña | Remate | Refrenda ≥1 |",
-          "|---|---|---:|---:|---:|---:|---:|"]
+          "| Categoría | Plantilla | Prendas | Préstamo mediana | Desempeña | Refrenda ≥1 | Remate | Venta mediana | Días vitrina | Salida |",
+          "|---|---|---:|---:|---:|---:|---:|---:|---:|:-:|"]
     for _, r in plts.head(40).iterrows():
         L.append(f"| {r.categoria} | {r.plantilla} | {int(r.prendas):,} | {dinero(r.prestamo_mediana)} | "
-                 f"{pct(r.pct_desempeno)} | {pct(r.pct_remate)} | {pct(r.pct_refrenda)} |")
+                 f"{pct(r.pct_desempeno)} | {pct(r.pct_refrenda)} | {pct(r.pct_remate)} | {dinero(r.venta_mediana)} | "
+                 f"{num(r.dias_vitrina_mediana)} | {r.salida if isinstance(r.salida, str) else '—'} |")
     L += ["", "## Top 30 pendientes (sin plantilla)", "", "| Familia PF | Marca | Inicio | Prendas | Ejemplo |",
           "|---|---|---|---:|---|"]
     for _, r in pend.head(30).iterrows():
@@ -309,6 +354,12 @@ def probar(path, prendas):
 
 def main():
     prendas = pd.read_csv(os.path.join(P, "prendas.csv"))
+    pv = os.path.join(P, "prendas_ventas.csv")
+    if os.path.exists(pv):
+        prendas = prendas.merge(pd.read_csv(pv), on="prenda_id", how="left")
+    else:
+        prendas = prendas.assign(vendida=False, p_venta=None, dias_a_venta=None, multiplicador=None,
+                                 margen=None, n_apartados=None, apartado_perdido=None)
     if "--probar" in sys.argv:
         probar(sys.argv[sys.argv.index("--probar") + 1], prendas)
         return

@@ -1,0 +1,50 @@
+# Inmuebles. La captura es un formato fijo:
+#   "SUP. <m2> CONSTRUCCIÓN: <m2> RECAMARAS: <n> BAÑOS: <n> NIVELES: <n>"
+# con muchos "0", "SN", "SIN GARANTIA", "X" cuando no se llenó. El texto NO trae la palabra casa/terreno/lote
+# (Marca y Modelo vienen vacíos): el tipo sólo se sabe por la FAMILIA de PRENDA FLEX. Por eso hay un archivo por
+# familia (el motor prueba primero las plantillas de la familia de la prenda) y todas llevan solo_familia: true.
+categoria: Inmuebles - Terrenos y lotes
+familias_prendaflex: [TERRENO, LOTE, VARIOS]   # VARIOS: hay 1 "TERRERO EJIDAL" capturado ahí
+
+atributos:
+  superficie:
+    regex: 'SUP\.?\s*(\d[\d.,]*)'
+    formato: '{} m2'
+    crea_variante: false
+  construccion:
+    regex: 'CONSTRUCCION:?\s*(\d[\d.,]*)'
+    formato: '{} m2 construidos'
+    crea_variante: false
+  recamaras:
+    regex: 'RECAMARAS:?\s*([1-9]\d?)\b'
+    formato: '{} rec.'
+    crea_variante: false
+  banos:
+    regex: 'BANOS:?\s*([1-9])\b'
+    formato: '{} baños'
+    crea_variante: false
+  niveles:
+    regex: 'NIVELES:?\s*([1-9])\b'
+    formato: '{} niv.'
+    crea_variante: false
+
+x-chk: &chk_inm
+  - Escritura / título de propiedad a nombre del cliente (o cesión de derechos / constancia ejidal)
+  - Boleta predial al corriente
+  - Libre de gravamen (certificado de libertad de gravamen)
+  - Identificación y comprobante de domicilio del propietario
+  - Cónyuge / copropietarios firman
+  - Ubicación y colindancias verificadas
+  - Avalúo o visita física
+x-fotos: &fotos_inm [Fachada, Frente del predio, Interior (si hay construcción), Colindancias, Escritura (primera hoja), Boleta predial, Ubicación en mapa]
+
+plantillas:
+  - id: inm.terreno-lote
+    nombre: Terreno / lote
+    marca: Inmueble
+    solo_familia: true
+    match: ['\bSUP\.?\s', 'CONSTRUCCION', '\bTERRE[NR]O\b', '\bEJIDAL\b', '\bPARCELA\b', '\bPREDIO\b', '\bLOTE\s+BALDIO\b']
+    sinonimos: [terreno, lote, predio, parcela, terreno ejidal]
+    checklist: *chk_inm
+    fotos: *fotos_inm
+    molde_descripcion: 'Terreno/lote · superficie {superficie} · ubicación {ubicacion} · documento {documento}'

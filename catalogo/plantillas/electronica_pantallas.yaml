@@ -1,0 +1,112 @@
+categoria: Pantallas y Proyectores
+familias_prendaflex: [PANTALLAS, MONITOR, PROYECTORES, "DVD´S"]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|GRIS|PLATA|AZUL|ROJO|ROJA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO}
+    crea_variante: false
+  estado:
+    regex: '\b(NUEV[OA]|SEMI\s*NUEV[OA]|SEMINUEV[OA]|MARCAS?\s+DE\s+USO|DETALLES?|ESTRELLAD[OA]|RAYAD[OA])\b'
+    crea_variante: false
+
+plantillas:
+  # ---------- PANTALLAS (variante = pulgadas, lo que mueve el préstamo) ----------
+  - id: elec.pantalla.smart-tv
+    nombre: Pantalla Smart TV
+    marca: ""
+    match:
+      - '\b(SMA?R?T?\s*T?V|SMART|SMAR|SMARTV|ROKU|ROKO|ANDROID\s*TV|GOOGLE\s*TV|FIRE\s*TV|WEB\s*OS|WEBOS|TIZEN|QLED|NANO\s*CELL|UHD|4K)\b'
+      - 'ROKU'
+      - '\bHKP\s*\d{2}\s*(R|RU|SM|SMART)'
+      - '\bSI+32RF\b'
+      - '\bA4K?V?\b.*\bHISENSE\b'
+    excluir: ['NO ES (ROKU )?(NI )?SMART', 'NO SMART', 'NO ES SMART', 'MONITOR', 'PROYECTOR']
+    sinonimos: [smart tv, pantalla smart, roku tv, television smart, tele, tv]
+    atributos:
+      pulgadas:
+        regex: '(?<![0-9.])(19|22|24|28|32|39|40|42|43|46|48|49|50|55|58|60|65|70|75|85)(?![0-9])(?!\s*(GB|HZ|W\b|V\b))'
+        formato: '{} pulgadas'
+        crea_variante: true
+      marca_tv:
+        regex: '\b(HKPRO|JVC|HISENSE|LG|SAMSUNG|SANSUNG|SAMNSUNG|TCL|SONY|SANSUI|SASUI|SANSU|RCA|DAEWOO|DAEWWO|DAEWWOD|PHILIPS|MOTOROLA|HYUNDAI|SHARP|AIWA|VIZIO|XIAOMI|PANASONIC|SPECTRA|MITSUI|MITZU|ROKU|INFINIX)\b'
+        crea_variante: false
+      sistema:
+        regex: '\b(ROKU|ANDROID|GOOGLE|FIRE|WEBOS|TIZEN)\b'
+        crea_variante: false
+    checklist: [Enciende, Imagen sin líneas ni manchas, Pantalla sin estrellar, Control remoto, Cable de corriente, Con patas o soporte, WiFi/apps funcionan, Entradas HDMI]
+    fotos: [Frente encendido, Reverso con etiqueta de modelo, Control remoto, Detalles/golpes]
+    molde_descripcion: 'Pantalla {marca_tv} {pulgadas} Smart TV {sistema} {color}'
+
+  - id: elec.pantalla.led-lcd
+    nombre: Pantalla LED / LCD (no smart)
+    marca: ""
+    match:
+      - '\b(NO\s+(ES\s+)?(ROKU\s+)?(NI\s+)?SMART)\b'
+      - '\b(PANT?A?L?L?A?S?|PANATALLA|PANTALL|TELEVISION|TELEVIXON|TELEVISOR|TELEVISIO|TV|TELE|LED|LCD|PLASMA)\b'
+    excluir: ['MONITOR', 'PROYECTOR', 'PANTALLA\s+(DE\s+)?(CELULAR|TACTIL|DIGITAL)', 'MINI COMPONENTE', 'ESTEREO', 'AUTOESTEREO', 'BICICLETA', 'LAPTOP', 'LAPTOT', 'PANTALLA\s+(PROYECTOR|PROYECCION)']
+    sinonimos: [pantalla, television, tv, led, lcd, plasma, tele]
+    atributos:
+      pulgadas:
+        regex: '(?<![0-9.])(19|22|24|28|32|39|40|42|43|46|48|49|50|55|58|60|65|70|75|85)(?![0-9])(?!\s*(GB|HZ|W\b|V\b))'
+        formato: '{} pulgadas'
+        crea_variante: true
+      marca_tv:
+        regex: '\b(HKPRO|JVC|HISENSE|LG|SAMSUNG|SANSUNG|SAMNSUNG|TCL|SONY|SANSUI|SASUI|RCA|DAEWOO|DAEWWO|DAEWWOD|PHILIPS|MOTOROLA|HYUNDAI|SHARP|AIWA|VIZIO|PANASONIC|SPECTRA|MITSUI|MITZU|TOSHIBA|SANYO)\b'
+        crea_variante: false
+    checklist: [Enciende, Imagen sin líneas ni manchas, Pantalla sin estrellar, Control remoto, Cable de corriente, Con patas o soporte, Entradas HDMI]
+    fotos: [Frente encendido, Reverso con etiqueta de modelo, Control remoto, Detalles/golpes]
+    molde_descripcion: 'Pantalla {marca_tv} {pulgadas} LED {color}'
+
+  # ---------- MONITOR ----------
+  - id: elec.monitor.pc
+    nombre: Monitor de computadora
+    match: ['\bMONITOR\b', '\bMONITO\b']
+    excluir: ['PROYECTOR']
+    sinonimos: [monitor, pantalla de pc, display]
+    atributos:
+      pulgadas:
+        regex: '(?<![0-9.])(15|17|19|20|21|22|23|24|27|32)(?![0-9])(?!\s*(GB|HZ|W\b|V\b))'
+        formato: '{} pulgadas'
+        crea_variante: true
+    checklist: [Enciende, Imagen sin líneas, Cable de video, Cable de corriente, Base]
+    fotos: [Frente encendido, Reverso con etiqueta]
+    molde_descripcion: 'Monitor {marca} {pulgadas} {color}'
+
+  # ---------- PROYECTORES ----------
+  - id: elec.proyector.epson
+    nombre: Proyector Epson
+    marca: Epson
+    match: ['\bEPSON\b.*(PROY|POWER\s*LITE|\bS18\b|\bS41\b|\bH\d{3}[A-Z]\b|\bHA86A\b)', '\bEDSON\b', 'PROY\w*.*\bEPSON\b', 'POWER\s*LITE']
+    sinonimos: [proyector epson, power lite, s41, s18]
+    checklist: [Enciende, Imagen nítida, Lámpara en buen estado, Control remoto, Cable VGA/HDMI, Cable de corriente, Con maletín]
+    fotos: [Proyector encendido, Etiqueta de modelo, Accesorios]
+    molde_descripcion: 'Proyector Epson {color}'
+
+  - id: elec.proyector.generico
+    nombre: Proyector (otras marcas)
+    match: ['PRO+Y?E?C?T?O?R', 'PROIYECTOR', 'PROJECTOR', '\bINFOCUS\b', '\bIN\s?FOCUS\b']
+    sinonimos: [proyector, cañon, cañón, beam]
+    checklist: [Enciende, Imagen nítida, Control remoto, Cable de video, Cable de corriente, Con maletín]
+    fotos: [Proyector encendido, Etiqueta de modelo, Accesorios]
+    molde_descripcion: 'Proyector {marca} {color}'
+
+  # ---------- DVD / BLURAY ----------
+  - id: elec.dvd.reproductor
+    nombre: Reproductor DVD / Blu-ray
+    match: ['\bDVD\b', 'BLU\s*-?RAY', 'BLURAY', 'REPRODUCTOR']
+    sinonimos: [dvd, bluray, reproductor de discos]
+    checklist: [Enciende, Lee discos, Control remoto, Cable AV/HDMI]
+    fotos: [Frente, Reverso con etiqueta]
+    molde_descripcion: 'Reproductor DVD {marca} {color}'
+
+  # ---------- GENÉRICA ----------
+  - id: elec.pantallas.generica
+    nombre: Pantalla / video (sin identificar)
+    generica: true
+    match:
+      - 'MARCA\s+(HKPRO|JVC|HISENSE|LG|SAMSUNG|SANSUNG|TCL|SONY|SANSUI|SASUI|RCA|DAEWOO|DAEWWO|PHILIPS|MOTOROLA|HYUNDAI|SHARP|AIWA|SPECTRA|MITSUI|MITZU|VIZIO|PANASONIC|TOSHIBA|SANYO)\b'
+      - '^(DEJA\s+)?(\w+\s+){0,3}(CON|SIN)\s+CONTROL'
+      - 'CONTROL'
+      - 'MODELO\s+\w*\d{2}\w*'

@@ -1,0 +1,87 @@
+categoria: Hogar - Belleza y salud
+familias_prendaflex: [VENTILADORES, ELECTRODOMESTICOS, TANQUE DE GAS, LAVADORAS, ELECTRODOMESTICOS PEQUEÑOS, ART. BELLEZA, ESTUFAS, PLANCHAS DE VAPOR, REFRIGERADOR, MICROONDAS, LICUADORA, OLLAS Y CACEROLAS, CAFETERAS, MAQUINA DE COSER, MUEBLES PARA EL HOGAR, MINI SPLIT, CONGELADOR, NEVERAS, SECADORAS, PARRILLAS, BATIDORA, ASPIRADORAS, AIRE LAVADOS, HORNO, SARTEN/JUEGO SARTEN, SARTEN ELECTRICA, MESA PLASTICO, MUEBLES HERRERIA, DISPENSADORES DE AGUA, FRIGOBAR, SECADORA PARA CABELLO, TERMO, PERFUMES, ART. MEDICOS]
+excluir: []
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|ROSA|ROSADA|MORADO|MORADA|GRIS|VERDE|DORADO|PLATA|NARANJA)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO, ROSADA: ROSA}
+    crea_variante: false
+
+plantillas:
+  - id: hogar.belleza.plancha-cabello
+    nombre: Plancha de cabello
+    match:
+      - '\bP[AL]\w{0,5}CHA\b.{0,30}(CABELL|PELO|ALAC|ALIS)'
+      - '(ALAC?IADOR|ALISADOR|STRAIGHTENER|PLANCHADOR)'
+      - 'PEINE PARA PLANCHAR'
+      - '(PLANCHA|PLACHA|PALCHA|PLANHA|PLNCHA|PLANACHA)\b.*MARCA (CONAIR|CONARI|CONAI|REVLON|GWB|REMINGTON|FASHION|STEAM STYLE|NANO TITANIUM|SAEDAY|SURKER|BETTERWARE|BETTER WARE|PROFESSIONAL|HAIR)'
+      - 'HAIR STRAIGHTENER'
+    excluir: ['\bVAPOR\b', 'ROPA']
+    sinonimos: [plancha de cabello, alaciadora, alisadora, plancha para el pelo, cepillo alaciador, peine alaciador]
+    checklist: [Calienta, Placas sin dano, Cable sin cortes, Con caja]
+    fotos: [Frente, Placas, Cable y clavija, Marca/modelo]
+    molde_descripcion: 'Plancha de cabello {marca} {color}'
+
+  - id: hogar.belleza.rizadora
+    nombre: Rizadora / tenaza de cabello
+    match: ['R[IS]ZADOR', 'RISADOR', 'TENAZA', 'ONDAS TIPO WAFLERA', 'CHINOS']
+    sinonimos: [rizadora, risador, tenaza, onduladora]
+    checklist: [Calienta, Cable sin cortes, Con caja]
+    fotos: [Frente, Cable, Marca/modelo]
+    molde_descripcion: 'Rizadora {marca} {color}'
+
+  - id: hogar.belleza.secadora-cabello
+    nombre: Secadora de cabello
+    match: ['\bSEC[A-Z]{0,2}DORA\b', 'SECADOR DE CABELLO', 'SECADORA PARA (EL )?CABELLO', 'SECADORA DE PELO', 'HAIR DRYER']
+    excluir: ['LAVA', 'ROPA', 'CALZADO']
+    sinonimos: [secadora de pelo, secadora, blower, hair dryer, secador]
+    checklist: [Enciende, Calienta y sopla, Cable sin cortes, Boquilla/difusor]
+    fotos: [Frente, Cable, Marca/modelo]
+    molde_descripcion: 'Secadora de cabello {marca} {color}'
+
+  - id: hogar.belleza.rasuradora
+    nombre: Rasuradora / maquina de afeitar
+    match: ['RASURAD', 'RESURAD', 'RESURAR', 'RASURAR', 'AFEITAD', 'CORTADORA DE (PELO|CABELLO)', 'BARBA Y BIGOTE', 'CANAIR CABALL', 'CORTAPELO', 'TRIMMER', 'MAQUINA DE CORTE', 'CORTADOR DE CABELLO']
+    sinonimos: [rasuradora, afeitadora, maquina de afeitar, trimmer, cortadora de pelo, patillera]
+    checklist: [Enciende, Cuchillas completas, Con cargador/cable, Accesorios]
+    fotos: [Frente, Accesorios, Cargador, Marca/modelo]
+    molde_descripcion: 'Rasuradora {marca} {color}'
+
+  - id: hogar.belleza.pistola-masaje
+    nombre: Pistola de masaje
+    match: ['PISTOLA MASA', 'MASAJEADOR', 'MASAGEADOR', 'MASSAGE']
+    checklist: [Enciende, Cargador, Cabezales/accesorios, Estuche]
+    fotos: [Frente, Accesorios, Cargador]
+    molde_descripcion: 'Pistola de masaje {marca}'
+
+  - id: hogar.belleza.lavamanos
+    nombre: Lavamanos
+    match: ['LAVA ?MANOS?']
+    checklist: [Completo, Sin fisuras, Con llave/accesorios]
+    fotos: [Frente, Detalles]
+    molde_descripcion: 'Lavamanos {marca}'
+
+  - id: hogar.belleza.perfumes
+    nombre: Perfumes
+    match: ['PERFUME', 'COLONIA', 'FRAGANCIA']
+    checklist: [Original, Nivel de contenido, Caja]
+    fotos: [Frasco, Caja]
+    molde_descripcion: 'Perfume {marca}'
+
+  - id: hogar.belleza.andadera
+    nombre: Andadera / aparato ortopedico
+    match: ['ANDADERA', 'ANDADOR', 'BASTON', 'MULETA', 'SILLA DE RUEDAS', 'ORTOPEDIC', 'NEBULIZADOR', 'BAUMANOMETRO', 'GLUCOMETRO', 'OXIMETRO']
+    sinonimos: [andadera, andador, baston, silla de ruedas, nebulizador, baumanometro]
+    checklist: [Completa, Plegado funciona, Sin oxido, Gomas/ruedas]
+    fotos: [Frente, Plegada, Detalles]
+    molde_descripcion: '{nombre} {marca}'
+
+  - id: hogar.belleza.generico
+    nombre: Articulo de belleza (sin identificar)
+    generica: true
+    excluir: ['MOLINO']
+    match: ['\bCEPILLO\b', 'CABELL', 'PELO', 'BELLEZA', 'MAQUILLAJE', 'DEPILAD', 'MANICURE', 'PEDICURE', 'PEDICURE']
+    checklist: [Enciende, Completo]
+    fotos: [Frente, Marca/modelo]
+    molde_descripcion: '{nombre} {marca}'

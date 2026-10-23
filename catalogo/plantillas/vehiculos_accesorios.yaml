@@ -1,0 +1,39 @@
+# Refacciones y accesorios de vehículo capturados en VARIOS (llantas de pochimóvil, cajoneras de moto…).
+categoria: Accesorios para vehículos
+familias_prendaflex: [VARIOS]
+
+atributos:
+  rodado:
+    regex: '\b(R\s?\d{2}|\d{2,3}\s*/\s*\d{2}\s*R?\s*\d{2}|\d{2}\s*"?\s*PULGADAS)\b'
+    crea_variante: false
+
+plantillas:
+  - id: acc.llanta-rin
+    solo_familia: true
+    nombre: Llanta / rin de refacción
+    marca: Varias
+    match: ['\bLLANTAS?\s+DE\s+REFACCION\b', '\bLLANTA\b.*\b(POCHI|MOTO|AUTO|CARRO)', '\bROIN\b', '\bRIN(ES)?\b(?!\s+(ROSA|DE\s+COLOR))', '\bLLANTA\s+DE\s+POCHI\b']
+    excluir: ['BICICLETA', 'CARRETILLA', 'CON\s+RINES\s+ROSA', 'LLANTAS\s+CON\s+FIGURAS']
+    sinonimos: [llanta, llanta de refacción, rin, llanta de pochi]
+    checklist: [Medida (ancho/perfil/rin), Fecha de fabricación, Banda de rodamiento, Sin cortes ni burbujas, Nueva o usada]
+    fotos: [Frente de la llanta, Medida en el costado, Banda de rodamiento]
+    molde_descripcion: 'Llanta/rin {rodado} · {detalles}'
+  - id: acc.cajonera-moto
+    solo_familia: true
+    nombre: Cajonera / caja de carga para moto
+    marca: Varias
+    match: ['\bCAJONERA\s+(PARA|DE)\s+MOTO\b', '\bCAJONERA\s+MOTO\b', '\bBAUL\s+(PARA|DE)\s+MOTO\b', '\bTOP\s?CASE\b']
+    sinonimos: [cajonera moto, baúl moto, top case]
+    checklist: [Cierre y llave, Soporte / parrilla, Sin grietas]
+    fotos: [Frente, Interior, Soporte]
+    molde_descripcion: 'Cajonera para moto {color} · llave {llave}'
+  - id: acc.otros-auto
+    solo_familia: true
+    nombre: Accesorios de auto sin categoría (tapetes, cubreasientos, gatos)
+    marca: Varias
+    generica: true
+    match: ['\bTAPETES?\s+PARA\s+(AUTO|CARRO)', '\bCUBREASIENTOS\b', '\bPORTAEQUIPAJE', '\bPARRILLA\s+PARA\s+(AUTO|CARRO|MOTO)']
+    sinonimos: [tapetes auto, cubreasientos]
+    checklist: [Completo]
+    fotos: [Frente]
+    molde_descripcion: '{nombre} {color}'

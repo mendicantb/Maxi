@@ -1,0 +1,730 @@
+# Generado y revisado para MAXI-POS. Ver docs/notas_herramientas.md
+categoria: Herramienta eléctrica
+familias_prendaflex:
+- ROTOMARTILLO
+- TALADRO
+- TALADRO INALAMBRICO
+- ATORNILLADOR INALAMBRICO
+- ESMERILADORA
+- PULIDOR
+- RECTIFICADORA
+- SIERRA CIRCULAR
+- SIERRA ELECTRICA CIRCULAR
+- SIERRA DE VAIVEN
+- SIERA  CALADORA
+- CALADORAS
+- SIERRA DE INGLETE
+- SIERRA DE PANEL ELECTRICA
+- CEPILLO DE MANO
+- LIJADORAS
+- SOLDADORA
+- HERRAMIENTE INDUSTRIAL
+- HERRAMIENTA LIGERA
+- HERRAMIENTAS MANUALES
+- HERRAMIENTAS DE MECANICO
+- HERRAMIENTAS ALBAÑILERIA
+excluir: []
+atributos:
+  color:
+    regex: \b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|NARANJA|AMARILLO|AMARILLA|PLATEADO|PLATA)\b
+    mapa:
+      NEGRA: NEGRO
+      BLANCA: BLANCO
+      ROJA: ROJO
+      AMARILLA: AMARILLO
+    crea_variante: false
+  marca_detectada:
+    regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|PITTSBURGH|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|BOWOSHEN|VICTECHE|COLUMBIA|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|MAXTOOL|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|PRETUL|PREMUL|PRETUR|SURTEK|SRTTEK|BURCAT|SHAWTY|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|TEENO|BOSH|BOCH|STHL|STIL|SKIL|ADIR|WEG)\b
+    mapa:
+      DEWALT: DeWalt
+      DEWAL: DeWalt
+      DWALT: DeWalt
+      DEWATL: DeWalt
+      DELWAL: DeWalt
+      DEWALL: DeWalt
+      DEWLT: DeWalt
+      DEWAT: DeWalt
+      MAKITA: Makita
+      MAKTA: Makita
+      MAKIKA: Makita
+      BOSCH: Bosch
+      BOSH: Bosch
+      BOCH: Bosch
+      MILWAWKEE: Milwaukee
+      MILKWAUKEE: Milwaukee
+      MILKWWUELKEE: Milwaukee
+      MILKWAKEE: Milwaukee
+      MILWAUKEE: Milwaukee
+      MILWAKEE: Milwaukee
+      MILWAKEN: Milwaukee
+      MILWUAKEE: Milwaukee
+      MILWAAUKEE: Milwaukee
+      MILWAUKE: Milwaukee
+      MILWAKKE: Milwaukee
+      MILWAKE: Milwaukee
+      MILWAUKEN: Milwaukee
+      HILTI: Hilti
+      STIHL: Stihl
+      STHIL: Stihl
+      STHILL: Stihl
+      STILHL: Stihl
+      STHILT: Stihl
+      STHL: Stihl
+      THILL: Stihl
+      STIHIL: Stihl
+      STILH: Stihl
+      STIL: Stihl
+      HUSQVARNA: Husqvarna
+      HSQVARNA: Husqvarna
+      HUSQURVANA: Husqvarna
+      HUSQUARNA: Husqvarna
+      HUSQVANA: Husqvarna
+      HUSQVARMA: Husqvarna
+      KARCHER: Kärcher
+      KERCHER: Kärcher
+      KAYCHER: Kärcher
+      LINCOLN: Lincoln
+      LINCOLT: Lincoln
+      LINCOL: Lincoln
+      RIDGID: Ridgid
+      RIGID: Ridgid
+      HONDA: Honda
+      MILLER: Miller
+      FESTOOL: Festool
+      TRUPER: Truper
+      TRUPPER: Truper
+      TRUPPEER: Truper
+      TRUPPE: Truper
+      TRUPE: Truper
+      TRUPERR: Truper
+      URREA: Urrea
+      BLACK DECKER: Black+Decker
+      BLACK AND DECKER: Black+Decker
+      BLACK A DECKER: Black+Decker
+      BLACK DECKE: Black+Decker
+      BALCK DECKER: Black+Decker
+      BLACK DEKER: Black+Decker
+      BLACK Y DECKER: Black+Decker
+      BLACK DECKR: Black+Decker
+      BLAK DECKER: Black+Decker
+      BLACK DECKERT: Black+Decker
+      SKIL: Skil
+      SKILL: Skil
+      KOBLENZ: Koblenz
+      KOBLEZ: Koblenz
+      RYOBI: Ryobi
+      STANLEY: Stanley
+      STNALEY: Stanley
+      STARLEY: Stanley
+      CRAFTSMAN: Craftsman
+      CASFTMAN: Craftsman
+      CRASFTMAN: Craftsman
+      CRAFSMAN: Craftsman
+      TOTAL: Total
+      INGCO: Ingco
+      INCCO: Ingco
+      HUSKY: Husky
+      HUSKI: Husky
+      KINRO: Kinro
+      KINRRO: Kinro
+      KINROO: Kinro
+      OAKLAND: Oakland
+      OAKLAN: Oakland
+      HITACHI: Hitachi
+      ITACHI: Hitachi
+      TOYAMA: Toyama
+      HYUNDAI: Hyundai
+      WEG: Weg
+      SIEMENS: Siemens
+      SIEMNS: Siemens
+      GLADIADOR: Gladiador
+      GLADIATOR: Gladiador
+      GLADIATPOR: Gladiador
+      PRETUL: Pretul
+      PREMUL: Pretul
+      PRETUR: Pretul
+      SURTEK: Surtek
+      SRTTEK: Surtek
+      BOWOSHEN: Bowoshen
+      BURCAT: Burcat
+      MAXTOOL: Maxtool
+      PITTSBURGH: Pittsburgh
+      TEENO: Teeno
+      SHAWTY: Shawty
+      VICTECHE: Victeche
+      COLUMBIA: Columbia
+      ADIR: Adir
+    crea_variante: false
+plantillas:
+- id: herr.demoledor
+  nombre: Martillo demoledor
+  match:
+  - DEMO\w{1,4}OR|DEMODED|\bDH ?95|MARTILLO\s*ELECTRICO|MARTILLOELECTRICO|MARTILLO\s+PERCUTOR\s+DEMOL|ROTO\w*\s*/\s*DEMOL
+  sinonimos:
+  - demoledor
+  - martillo demoledor
+  - cincelador
+  - martillo electrico
+  atributos:
+    gama: &id001
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: &id006
+        DEWALT: Alta
+        DEWAL: Alta
+        DWALT: Alta
+        DEWATL: Alta
+        DELWAL: Alta
+        DEWALL: Alta
+        DEWLT: Alta
+        DEWAT: Alta
+        MAKITA: Alta
+        MAKTA: Alta
+        MAKIKA: Alta
+        BOSCH: Alta
+        BOSH: Alta
+        BOCH: Alta
+        MILWAWKEE: Alta
+        MILKWAUKEE: Alta
+        MILKWWUELKEE: Alta
+        MILKWAKEE: Alta
+        MILWAUKEE: Alta
+        MILWAKEE: Alta
+        MILWAKEN: Alta
+        MILWUAKEE: Alta
+        MILWAAUKEE: Alta
+        MILWAUKE: Alta
+        MILWAKKE: Alta
+        MILWAKE: Alta
+        MILWAUKEN: Alta
+        HILTI: Alta
+        STIHL: Alta
+        STHIL: Alta
+        STHILL: Alta
+        STILHL: Alta
+        STHILT: Alta
+        STHL: Alta
+        THILL: Alta
+        STIHIL: Alta
+        STILH: Alta
+        STIL: Alta
+        HUSQVARNA: Alta
+        HSQVARNA: Alta
+        HUSQURVANA: Alta
+        HUSQUARNA: Alta
+        HUSQVANA: Alta
+        HUSQVARMA: Alta
+        KARCHER: Alta
+        KERCHER: Alta
+        KAYCHER: Alta
+        LINCOLN: Alta
+        LINCOLT: Alta
+        LINCOL: Alta
+        RIDGID: Alta
+        RIGID: Alta
+        HONDA: Alta
+        MILLER: Alta
+        FESTOOL: Alta
+        TRUPER: Media
+        TRUPPER: Media
+        TRUPPEER: Media
+        TRUPPE: Media
+        TRUPE: Media
+        TRUPERR: Media
+        URREA: Media
+        BLACK DECKER: Media
+        BLACK AND DECKER: Media
+        BLACK A DECKER: Media
+        BLACK DECKE: Media
+        BALCK DECKER: Media
+        BLACK DEKER: Media
+        BLACK Y DECKER: Media
+        BLACK DECKR: Media
+        BLAK DECKER: Media
+        BLACK DECKERT: Media
+        SKIL: Media
+        SKILL: Media
+        KOBLENZ: Media
+        KOBLEZ: Media
+        RYOBI: Media
+        STANLEY: Media
+        STNALEY: Media
+        STARLEY: Media
+        CRAFTSMAN: Media
+        CASFTMAN: Media
+        CRASFTMAN: Media
+        CRAFSMAN: Media
+        TOTAL: Media
+        INGCO: Media
+        INCCO: Media
+        HUSKY: Media
+        HUSKI: Media
+        KINRO: Media
+        KINRRO: Media
+        KINROO: Media
+        OAKLAND: Media
+        OAKLAN: Media
+        HITACHI: Media
+        ITACHI: Media
+        TOYAMA: Media
+        HYUNDAI: Media
+        WEG: Media
+        SIEMENS: Media
+        SIEMNS: Media
+        GLADIADOR: Media
+        GLADIATOR: Media
+        GLADIATPOR: Media
+        ? ''
+        : Básica
+      crea_variante: true
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Cinceles/puntas incluidos
+  fotos: &id002
+  - Frente completo
+  - Placa de datos/modelo
+  - Cable y clavija
+  - Accesorios incluidos
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.rotomartillo
+  nombre: Rotomartillo
+  match:
+  - \bROTO
+  - \bT?ROT\w{0,3}MART|TOTOR\w*MART
+  - \bROTA[MN]?R?T|\bROT\s?-?\s?\d
+  - \bROTI-?\s?\d
+  - ROTO\s?MA?R?T
+  - MARTILLO\s+(PERFORADOR|ROTATIVO)
+  - \b(SDS|DCH\d{3}|GBH|TE\s?-?\s?[1-7]\b|DHR\d{3}|HR\d{4})
+  sinonimos:
+  - rotomartillo
+  - roto martillo
+  - rotormartillo
+  - martillo perforador
+  - taladro percutor
+  - roto 1/2
+  - sds
+  atributos:
+    gama: *id001
+    alimentacion: &id005
+      regex: \b(INALAMBRICO|INALAMBRICA|PILA|PILAS|BATERIA|BATERIAS|CARGADOR|LITHIUM|BRUSHLESS|12V|18V|20V|21V|24V|48V)\b|\A(?!.*\b(?:INALAMBRICO|INALAMBRICA|PILA|PILAS|BATERIA|BATERIAS|CARGADOR|LITHIUM|BRUSHLESS|12V|18V|20V|21V|24V|48V)\b)
+      mapa:
+        INALAMBRICO: Con batería
+        INALAMBRICA: Con batería
+        PILA: Con batería
+        PILAS: Con batería
+        BATERIA: Con batería
+        BATERIAS: Con batería
+        CARGADOR: Con batería
+        LITHIUM: Con batería
+        BRUSHLESS: Con batería
+        12V: Con batería
+        18V: Con batería
+        20V: Con batería
+        21V: Con batería
+        24V: Con batería
+        48V: Con batería
+        ? ''
+        : Eléctrico (cable)
+      crea_variante: true
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Selector percusión/rotación funciona
+  - Portabrocas SDS firme
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada} {alimentacion}'
+- id: herr.taladro.inalambrico
+  nombre: Taladro inalámbrico
+  match:
+  - ^(?=.*(?:TALAD|TALDR|TALDAR|DELADRO|ATORNILLADO))(?=.*(?:INALAM|\bPILAS?\b|BATERIA|CARGADOR|\b\d{2}\s?V\b|\b\d{2}V|LITHIUM|BRUSHLESS|MAX\b))
+  - \b(?:DCD|DHP|DDF|DCF|DCK|GSR|GSB|BHP|BDF|XPH)\s?-?\d{3}
+  - \bM(?:12|18)\b.*MILK|\bMILK\w*\s+M(?:12|18)\b
+  sinonimos:
+  - taladro inalambrico
+  - taladro con bateria
+  - taladro a pilas
+  - taladro atornillador
+  - drill
+  - taladro de pila
+  atributos:
+    gama: *id001
+  checklist: &id003
+  - Enciende y funciona
+  - Con batería(s) y cargador
+  - Batería retiene carga
+  - Mandril/portabrocas firme
+  - Incluye maletín/accesorios
+  fotos: &id004
+  - Frente completo
+  - Placa de datos/modelo
+  - Batería y cargador
+  - Maletín/accesorios
+  - Marcas de uso/golpes
+  molde_descripcion: '{nombre} {marca_detectada} {color}'
+- id: herr.taladro.electrico
+  nombre: Taladro eléctrico (con cable)
+  match:
+  - TALAD|TALDR|TALDAR|DELADRO|DRILL|MODELO\s+(3/8|1/2)\b|\bCON BROCA|\bDEAWAL
+  sinonimos:
+  - taladro
+  - taladro de corriente
+  - taladro con cable
+  - taladro percutor
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Mandril/portabrocas firme
+  - Reversa y velocidad variable funcionan
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.atornillador.impacto
+  nombre: Atornillador / llave de impacto inalámbrica
+  match:
+  - A\w?ORNILLAD|DESATOR\w*|DESTORNILLADOR\s+ELEC|LLAVE\s+DE\s+IM\s?PACTO|MATRACA\s+(DE\s+)?IMPACTO|MATRACA.{0,20}ELECTRIC|\bIMPACT|\bGDX|\bDTD|\bDWF
+  - MATRACA.{0,25}(PILA|CARGADOR|BATERIA)
+  sinonimos:
+  - llave de impacto
+  - atornillador
+  - matraca electrica
+  - pistola de impacto
+  - impact driver
+  atributos:
+    gama: *id001
+  checklist: *id003
+  fotos: *id004
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.pulidora.auto
+  nombre: Pulidora orbital / de auto
+  match:
+  - PULIDORA\s+ORBITAL
+  - PULIDORA.{0,25}(AUTOMOVIL|AUTO\b|CARRO|COCHE)
+  - ORBITAL\s+POLISH|\bPOLISH|ENCERADORA
+  sinonimos:
+  - pulidora de auto
+  - pulidora orbital
+  - encerador
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Plato/almohadilla incluido
+  - Velocidad variable funciona
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.esmeril.banco
+  nombre: Esmeril de banco
+  match:
+  - ESMIREL|ESMERIL\w*\s+(DE\s+)?BANCO|ESMERIL\s+DE\s+MESA|\bBANCO\b.*ESMERIL|ESMERIL\s+\d\s?/?\s?\d?\s?(HP|PULG)|\bAMOLADORA\s+DE\s+BANCO
+  sinonimos:
+  - esmeril de banco
+  - esmeril de mesa
+  - esmeril fijo
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Piedras/discos en buen estado
+  - Protecciones completas
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.esmeriladora.grande
+  nombre: Esmeriladora angular grande (7"-9")
+  match:
+  - \b[79]\s*(PULG\w*|IN\b)|\bESMA\s?-?\s?9|\b(180|230)\s?MM|\bGA\s?[79]\d{3}|\bGWS\s?2\d|\bAG\s?9|\bDW\s?4(40|49)|\bG\s?9\d{2}\b
+  sinonimos:
+  - esmeriladora 7
+  - esmeriladora 9
+  - pulidora grande
+  - esmeril angular grande
+  - esmeril 9
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Guarda del disco completa
+  - Mango lateral
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.esmeriladora.angular
+  nombre: Esmeriladora angular 4 1/2
+  match:
+  - ESMERIL|ESMERLI|ESMERIAL|ESMELAD|\bESMA|POLIDORA|AMOLADORA|ANGLE\s*GRINDER|\bGRINDER
+  - PULIDORA|PULIDOR\b
+  - RECTIFICAD\w*.{0,40}(PULID|ANGULAR|DISCO)|(PULID|ANGULAR).{0,40}RECTIFICAD
+  - \b(9002|GWS|GA\s?4|DWE4|DCG|DWE9?4\d|DWE8|WP1500|M0921|9557|9556|9565|9005|9523|6130|6131|G[67]\d{2}|DW49\d|G12|HG\d{3}|MG\d{2}|MT90|ERGO-?\s?45)
+  sinonimos:
+  - esmeriladora
+  - esmeril
+  - pulidora
+  - amoladora
+  - esmeril angular
+  - esmeriladora 4 1/2
+  - pulidora 4 1/2
+  - grinder
+  - rectificadora
+  atributos:
+    gama: *id001
+    alimentacion: *id005
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Guarda del disco completa
+  - Mango lateral
+  - Disco incluido
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada} {alimentacion}'
+- id: herr.rectificadora
+  nombre: Rectificadora / minipulidora recta
+  match:
+  - RECTIFICAD|RECTIFICAD0R|MINI\s*ESMERIL|ROTO\s?TOOL|DREMEL|MOTOTOOL|GRINDER\s+RECT|TORNO\s+DE\s+MANO
+  sinonimos:
+  - rectificadora
+  - pulidora recta
+  - dremel
+  - minipulidora
+  - die grinder
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Pinzas/boquillas incluidas
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.ingletadora
+  nombre: Ingletadora / sierra de banco
+  match:
+  - INGLET|SIERRA\s+DE\s+BANCO|SIERRA\s+TRONZ|BANCO\s+DE\s+CORTE|COMPOUND\s+MITER|\bMITER|\bLS\s?10|\bDW71|\bDW7[0-9]{2}
+  sinonimos:
+  - ingletadora
+  - sierra de inglete
+  - sierra de banco
+  - sierra ingleteadora
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Disco incluido
+  - Guarda y base firme
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.tronzadora
+  nombre: Tronzadora / cortadora de metal
+  match:
+  - \bCAZ\s?-?\s?EL|CORTADORA\s+DE\s+(METAL|DISCO|CONCRETO|AZULEJO)|TRONZADORA|CORTADORA\s+DE?\s+\w*\s*D28|\bD287\d{2}|CORTADORA\s+ELEC|COERTADORA\s+DE\s+METAL|\bCORTADORA\b
+  sinonimos:
+  - tronzadora
+  - cortadora de metal
+  - sierra de corte
+  - cortadora de disco
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Disco incluido
+  - Prensa/guía firme
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.sierra.circular
+  nombre: Sierra circular
+  match:
+  - CIRCULA|SI?R?CULA|\bCS\s?\d{3,4}|\bSICI\b|\bSICI-|SIERRA\s+ELECTRICA|SEIRRA\s+CIRC|\b(DWE5[56]\d|DW36\d|5402|6015|5007\w*|HS7010|JS1660|1658)\b|SIERRA\s+DE\s+PANEL
+  sinonimos:
+  - sierra circular
+  - cierra circular
+  - sierra electrica
+  - sierra de disco
+  - sierra de panel
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Disco incluido
+  - Guarda retráctil funciona
+  - Base nivelada
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.caladora
+  nombre: Caladora / sierra de vaivén
+  match:
+  - CA?L?A?DORA|CALDORA|VAIVEN|VAIVEM|JIG\s?-?\s?SAW|\bCALA-?\s?[A-Z]|RECIPROC|\b(JS\d{3}|GST|KS\s?\d{3}|DW3[0-9]{2}|SK\s?670)\b|SIERRA\s+SABLE
+  sinonimos:
+  - caladora
+  - sierra caladora
+  - sierra de vaiven
+  - sierra sable
+  - jigsaw
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Zapata/base firme
+  - Con cuchilla
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.cepillo.electrico
+  nombre: Cepillo eléctrico / canteadora
+  match:
+  - CEPILLO\s+ELECT|CANTEADORA|\bCEPI\b|\bCEPI\s?-?\s?\d|CEPILLO.{0,30}CABLE
+  sinonimos:
+  - cepillo electrico
+  - canteadora
+  - cepillo de carpintero electrico
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Cuchillas afiladas
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.lijadora
+  nombre: Lijadora
+  match:
+  - LIJ\w{0,2}DOR|LIJADRA|\bSANDER|LIJA\s+ORBITAL|\bLIOE
+  sinonimos:
+  - lijadora
+  - lijadora orbital
+  - lijadora de banda
+  - sander
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Base/zapata sin desgaste
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.soldadora
+  nombre: Soldadora
+  match:
+  - SOLDADOR|SOLA?D?O?R?A\b|SOLA?D?R?ORA|SOLADORA|INVERTER|WELDER|SALDADOR|SOLDADURA|SALDADURA|SOLDAR|\bSOIN\b|SOIN-\d|\bMMA\b|\bIGBT|INVERSORA|\bLINCOL|\bAC-?\s?225
+  - \bMIG\b|\bTIG\b
+  sinonimos:
+  - soldadora
+  - maquina de soldar
+  - soldadura
+  - soldadora inversora
+  - soldadora de arco
+  atributos:
+    tipo:
+      regex: \b(INVERSORA|INVERSOR|SOIN|MMA|IGBT|INV)\b|\A(?!.*\b(?:INVERSORA|INVERSOR|SOIN|MMA|IGBT|INV)\b)
+      mapa:
+        INVERSORA: Inversora
+        INVERSOR: Inversora
+        SOIN: Inversora
+        MMA: Inversora
+        IGBT: Inversora
+        INV: Inversora
+        ? ''
+        : Convencional
+      crea_variante: true
+    gama:
+      regex: \b(BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b|\A(?!.*\b(?:BLACK\s+AND\s+DECKER|BLACK\s+A\s+DECKER|BLACK\s+Y\s+DECKER|BLACK\s+DECKERT|BLACK\s+DECKER|BALCK\s+DECKER|BLACK\s+DECKE|BLACK\s+DEKER|BLACK\s+DECKR|BLAK\s+DECKER|MILKWWUELKEE|MILKWAUKEE|MILWAAUKEE|HUSQURVANA|GLADIATPOR|MILWAWKEE|MILKWAKEE|MILWAUKEE|MILWUAKEE|MILWAUKEN|HUSQVARNA|HUSQUARNA|HUSQVARMA|CRAFTSMAN|CRASFTMAN|GLADIADOR|GLADIATOR|MILWAKEE|MILWAKEN|MILWAUKE|MILWAKKE|HSQVARNA|HUSQVANA|TRUPPEER|CASFTMAN|CRAFSMAN|MILWAKE|KARCHER|KERCHER|KAYCHER|LINCOLN|LINCOLT|FESTOOL|TRUPPER|TRUPERR|KOBLENZ|STANLEY|STNALEY|STARLEY|OAKLAND|HITACHI|HYUNDAI|SIEMENS|DEWALT|DEWATL|DELWAL|DEWALL|MAKITA|MAKIKA|STHILL|STILHL|STHILT|STIHIL|LINCOL|RIDGID|MILLER|TRUPER|TRUPPE|KOBLEZ|KINRRO|KINROO|OAKLAN|ITACHI|TOYAMA|SIEMNS|DEWAL|DWALT|DEWLT|DEWAT|MAKTA|BOSCH|HILTI|STIHL|STHIL|THILL|STILH|RIGID|HONDA|TRUPE|URREA|SKILL|RYOBI|TOTAL|INGCO|INCCO|HUSKY|HUSKI|KINRO|BOSH|BOCH|STHL|STIL|SKIL|WEG)\b)
+      mapa: *id006
+      crea_variante: false
+  checklist:
+  - Enciende y suelda
+  - Cables y pinza completos
+  - Careta/accesorios
+  - Ventilador funciona
+  - Cable de corriente sin empalmes
+  fotos:
+  - Frente completo
+  - Placa de datos
+  - Cables y pinzas
+  - Accesorios
+  molde_descripcion: '{nombre} {tipo} {marca_detectada}'
+- id: herr.pistola.calor
+  nombre: Pistola de calor
+  match:
+  - PISTOLA\s+DE\s+CALOR|HOT\s*AIR|SOPLETE\s+ELEC|DECAPADOR
+  sinonimos:
+  - pistola de calor
+  - decapador
+  - heat gun
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Calienta (probar con cuidado)
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'
+- id: herr.router
+  nombre: Router / fresadora
+  match:
+  - ROUTER|FRESADORA|TUPI|TROMPO\s+ELEC|\b3606\b|\b5615\b
+  sinonimos:
+  - router
+  - fresadora
+  - tupi
+  - rebajadora
+  atributos:
+    gama: *id001
+  checklist:
+  - Enciende y funciona
+  - Cable sin empalmes ni pelado
+  - Carcasa sin roturas
+  - Carbones/escobillas en buen estado
+  - Incluye accesorios (disco, llave, maletín)
+  - Pinzas/boquillas incluidas
+  - Altura se ajusta
+  fotos: *id002
+  molde_descripcion: '{nombre} {marca_detectada}'

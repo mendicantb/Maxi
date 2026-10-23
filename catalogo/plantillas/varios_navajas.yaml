@@ -1,0 +1,69 @@
+# Navajas. En VARIOS hay ~100 navajas (casi todas Victorinox/"Victorino"/"Voictoprinox"); la familia NAVAJAS sólo tiene 4.
+# Muchas vienen con moneda de plata como llavero ("moneda de $100", "moneda de plata de virgen"): la moneda se pesa/valúa aparte.
+categoria: Navajas
+familias_prendaflex: [NAVAJAS, VARIOS, TRICICLO]
+excluir: ['\bNAVAJA\s+DE\s+AFEITAR\b', 'RASTRILLO', 'MAQUINA\s+PARA\s+AFEITAR']
+
+atributos:
+  color:
+    regex: '\b(ROJ[OA]|NEGR[OA]|BLANC[OA]|VERDE|AZUL|PLATA|GRIS|TRANSPARENTE|TRANPARENTE|ROCA)\b'
+    mapa: {ROJA: ROJO, NEGRA: NEGRO, BLANCA: BLANCO, TRANPARENTE: TRANSPARENTE}
+    crea_variante: false
+  moneda:
+    regex: '\bMONE?DA\b'
+    mapa: {MONDA: con moneda, MONEDA: con moneda}
+    crea_variante: true          # la moneda de plata cambia el préstamo
+  estuche:
+    regex: '\b(ESTUCHE|FUNDA|CAJA)\b'
+    mapa: {ESTUCHE: con estuche, FUNDA: con funda, CAJA: con caja}
+    crea_variante: false
+  usos:
+    regex: '\b(\d{1,2})\s*USOS\b'
+    formato: '{} usos'
+    crea_variante: false
+
+x-chk: &chk_navaja
+  - Hojas y herramientas abren y cierran bien
+  - Marca grabada (Victorinox: cruz suiza y "Victorinox Switzerland")
+  - Sin óxido ni hojas rotas
+  - Accesorios (estuche, funda, llavero, moneda)
+x-fotos: &fotos_navaja [Cerrada de frente, Abierta (todas las herramientas), Marca grabada, Accesorios]
+x-molde: &molde_navaja 'Navaja {nombre} {color} {usos} {moneda} {estuche}'
+
+plantillas:
+  - id: navaja.victorinox
+    nombre: Victorinox (navaja suiza)
+    marca: Victorinox
+    match: ['\bV[OI]{1,2}C?T[OIR]{0,3}P?[RN][IA]?N[OIAX]*', 'SWISS\s+ARMY', 'NAVAJA\s+SUIZA', 'NAVAJA\s+TIPO\s+REGLA']
+    sinonimos: [victorinox, victorino, victrino, navaja suiza, swiss army, navaja multiusos suiza]
+    checklist: *chk_navaja
+    fotos: *fotos_navaja
+    molde_descripcion: *molde_navaja
+  - id: navaja.leatherman
+    nombre: Leatherman / pinza multiusos
+    marca: Leatherman
+    match: ['LEATHERMAN', 'LEATHERMA\b', 'KEARTHERMAN', 'LEATHER\s?MAN', 'MULTI\s?TOOL', 'PINZA\s+MULTIUSOS', 'SURTEK\s+MULTIUSOS']
+    sinonimos: [leatherman, multitool, pinza multiusos]
+    checklist: *chk_navaja
+    fotos: *fotos_navaja
+    molde_descripcion: *molde_navaja
+  - id: navaja.marca-conocida
+    solo_familia: true
+    nombre: Navaja de marca (Traveler, Mikels, Stanley, Bear, Surtek…)
+    marca: Varias
+    match: ['^(?=.*\bNAV[AE]J)(?=.*\b(TRAVELER|MIKELS|STANLEYS?|BEAR|SURTEK|GERBER|BUCK|OPINEL|SPYDERCO|TRAMONTINA)\b)']
+    sinonimos: [traveler, mikels, stanley, bear, surtek, gerber, buck, opinel]
+    checklist: *chk_navaja
+    fotos: *fotos_navaja
+    molde_descripcion: *molde_navaja
+  - id: navaja.generica
+    solo_familia: true
+    nombre: Navaja multiusos (marca sin identificar)
+    marca: Varias
+    generica: true
+    match: ['\bNAV[AE]J[AS]?\b', '\bNACAVBA\b', '\bVAVAJA\b', '\bNAVEJA\b', '\bNAVAJ', '\bCUCHILLO\b', '\bCUTTER\b', '\bMACHETE\b']
+    excluir: ['\bNAVAJA\s+DE\s+AFEITAR\b']
+    sinonimos: [navaja, navaja multiusos, cuchillo]
+    checklist: *chk_navaja
+    fotos: *fotos_navaja
+    molde_descripcion: *molde_navaja

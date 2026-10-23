@@ -1,0 +1,365 @@
+# Relojes: marca/línea donde hay volumen; "original vs réplica" no se infiere (ver atributo autenticidad, sólo si la evaluadora lo escribió).
+categoria: Relojes
+familias_prendaflex:
+- RELOJES
+excluir: []
+atributos:
+  color:
+    regex: \b(NEGRO|NEGRA|PLATA|PLATEADO|DORADO|DORADA|AZUL|ROSA|ROJO|CAFE|GRIS|VERDE|AMARILLO|MORADA|MORADO|BLANCO)\b
+    mapa:
+      NEGRA: NEGRO
+      PLATEADO: PLATA
+      DORADA: DORADO
+      MORADA: MORADO
+    crea_variante: false
+  material:
+    regex: \b(ACERO INOX\w*|ACERO|PIEL|PLASTICO|SILICON\w*|CERAMICA|ORO)\b
+    crea_variante: false
+  autenticidad:
+    regex: \b(REPLICA|CLON|GENERICO|ORIGINAL|PIRATA)\b
+    crea_variante: false
+  estado:
+    regex: \b(NUEVO|EN CAJA|CON CAJA|MARCAS? DE USO|RAYAD[OA]|DETALLES?|DA[NÑ]AD[OA]|FUNCIO\w+|MARCAS EN LA MICA)\b
+    crea_variante: false
+  accesorios:
+    regex: \b(CARGADOR|CARAGDOR|CABLE DE CARGA|CAJA|CAJITA)\b
+    crea_variante: false
+plantillas:
+- id: rel.rolex
+  nombre: Rolex
+  marca: Rolex
+  match:
+  - \bROL[EA]?X\b
+  - \bROLEZ\b
+  - OYSTERPERPETUAL|OYSTERPERPEETUAL
+  - \bSUBMARINER\b
+  sinonimos:
+  - rolex
+  - rolex oyster
+  - rolex submariner
+  - rolex replica
+  checklist:
+  - Enciende / funciona
+  - Revisión de autenticidad (peso, mecanismo, número de serie)
+  - Cristal sin rayones
+  - Pulso completo
+  - Caja y papeles
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.tagheuer
+  nombre: Tag Heuer
+  marca: Tag Heuer
+  match:
+  - TAG\s*HEUER
+  - \bTAGHEUER\b
+  sinonimos:
+  - tag heuer
+  - tag
+  - heuer
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.michaelkors
+  nombre: Michael Kors
+  marca: Michael Kors
+  match:
+  - MICHAEL\s*KORS
+  - \bMK\s?-?\d{4}\b
+  sinonimos:
+  - michael kors
+  - mk
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.fossil
+  nombre: Fossil
+  marca: Fossil
+  match:
+  - \bFO?S+I?[SL]+\b
+  - \bFOSIL\b
+  - \bFOSSI\b
+  - \bFOSISL\b
+  sinonimos:
+  - fossil
+  - fosil
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.casio
+  nombre: Casio / G-Shock
+  marca: Casio
+  match:
+  - \bCASIO\b
+  - G\s?-?\s?SHOCK
+  - \bF\s?[-.]?\s?91W\b
+  sinonimos:
+  - casio
+  - g-shock
+  - gshock
+  - f91w
+  - digital casio
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.invicta
+  nombre: Invicta
+  marca: Invicta
+  match:
+  - \bINVICTA\b
+  sinonimos:
+  - invicta
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.rado
+  nombre: Rado
+  marca: Rado
+  match:
+  - \bRADO\b
+  sinonimos:
+  - rado
+  - rado diastar
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.orient
+  nombre: Orient (incluye clon)
+  marca: Orient
+  match:
+  - \bORIENT\b
+  sinonimos:
+  - orient
+  - orient clon
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.huawei
+  nombre: Huawei Watch / Band
+  marca: Huawei
+  match:
+  - \bHUAWEI\b
+  sinonimos:
+  - huawei watch
+  - huawei band
+  - huawei gt
+  - smartwatch huawei
+  checklist: &id002
+  - Enciende
+  - Pantalla táctil sin fallas
+  - Carga con su cargador
+  - Cargador incluido
+  - Cuenta/ID cerrado (si aplica)
+  fotos: &id001
+  - Pantalla encendida
+  - Reverso/sensores
+  - Cargador
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.applewatch
+  nombre: Apple Watch
+  marca: Apple
+  match:
+  - APPLE\s*WATCH
+  - \bIWATCH\b
+  - \bULTRA\s?2\b
+  sinonimos:
+  - apple watch
+  - iwatch
+  - watch ultra
+  checklist:
+  - Enciende
+  - Pantalla táctil sin fallas
+  - Carga con su cargador
+  - Cargador incluido
+  - Cuenta/ID cerrado (si aplica)
+  - Bloqueo de activación apagado
+  fotos: *id001
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.samsung-watch
+  nombre: Samsung Galaxy Watch
+  marca: Samsung
+  match:
+  - GALAXY\s*WATCH
+  - \bSAMSUNG\b.*\b(WATCH|WACH|RELOJ)\b
+  - \bR\d{3}EG\d+
+  sinonimos:
+  - galaxy watch
+  - samsung watch
+  checklist: *id002
+  fotos: *id001
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.otras-marcas
+  nombre: Reloj de marca (Armani, Coach, Tommy, Citizen, Bulova, Mido, Kenneth Cole, Bvlgari, Anne Klein…)
+  match:
+  - \b(ARMANI|COACH|TOMMY|CITIZEN|BULOVA|MIDO|KEN+ET+H? COLE|BVLGARI|ANNE KLEIN|PHILIPP PLEIN|PRADA|SWATCH|SWISS|SWSICH|SEIKO|TISSOT|GUESS|DIESEL|NIXON|TIMEX|FOLIO|FORCE|CURREN|NAVIFORCE|POEDAGAR|SKMEI)\b
+  sinonimos:
+  - armani
+  - coach
+  - tommy
+  - citizen
+  - bulova
+  - mido
+  - seiko
+  - tissot
+  - guess
+  - diesel
+  - timex
+  - philipp plein
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.smartwatch
+  nombre: Smartwatch / reloj inteligente (genérico)
+  match:
+  - SMART\s*WA?T?C?H|SMART\s*WACH|SWART|INTELIGENTE|INTELIJENTE|\bSMART\b|\bTOUCH\b|TOCUH|AMOLED|\bBAND\b|\bBANT\b|\bHM\d{2}\b|CARGADOR|CARAGDOR|CARAGADOR|\bTACTIL\b
+  sinonimos:
+  - smartwatch
+  - smart watch
+  - reloj inteligente
+  - reloj touch
+  - banda inteligente
+  checklist: *id002
+  fotos: *id001
+  molde_descripcion: Smartwatch {marca} {color} {condicion}
+- id: rel.pared
+  nombre: Reloj de pared / otro no de pulso
+  match:
+  - DE PARED
+  - \bDESPERTADOR\b
+  - \bDE MESA\b
+  sinonimos:
+  - reloj de pared
+  checklist:
+  - Funciona
+  - Completo
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.digital
+  nombre: Reloj digital genérico
+  match:
+  - \bDIGITAL\b
+  - \bC-SPORT\b|G\s?SPORT
+  generica: true
+  sinonimos:
+  - reloj digital
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.generico
+  nombre: Reloj genérico / marca desconocida (Salco, etc.)
+  match:
+  - \bSALCO\b
+  - \bGENERICO\b
+  - \bANALOGICO\b
+  - \bQUARTZ\b|\bQUATZ\b|\bQUARZ\b
+  generica: true
+  sinonimos:
+  - reloj generico
+  - salco
+  - reloj de pulso
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'
+- id: rel.reloj-otro
+  nombre: Reloj (sin identificar)
+  match:
+  - \bRE?LO[JGZ]\w*\b|\bREJOJ\b|\bRELOS\b|\bWATCH\b|\bWACH\b|\bRELOD\b
+  generica: true
+  sinonimos:
+  - reloj
+  checklist:
+  - Enciende / funciona
+  - Cristal o mica sin rayones
+  - Corona y botones
+  - Correa/pulso completo
+  - Caja y papeles (si trae)
+  fotos:
+  - Carátula
+  - Caja trasera (modelo/serie)
+  - Correa y broche
+  molde_descripcion: '{marca} {nombre} {color} {condicion}'

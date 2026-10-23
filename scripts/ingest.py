@@ -26,17 +26,27 @@ ARCHIVOS = {
     "desempenos": "DESEMPENOS_2024-2026.xls",
     "remates": "REMATES_2024-2026.xls",
     "clientes": "CLIENTES.xls",
+    "ventas_vitrina": "VENTAS_VITRINA_2024-2026.xls",
+    "ventas_apartados": "VENTAS_APARTADOS_2024-2026.xls",
+    "apartados_liquidados": "APARTADOS_LIQUIDADOS_2024-2026.xls",
+    "apartados_rematados": "APARTADOS_REMATADOS_2024-2026.xls",
 }
 
 MESES = {"ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6,
          "jul": 7, "ago": 8, "sep": 9, "oct": 10, "nov": 11, "dic": 12}
 
 MONTOS = {"Préstamo", "Avaluo", "Intereses", "Almacenaje", "Moratorios", "Iva",
-          "Total", "Abono", "Gtos. Venta", "P. Total", "P. Piedra", "P. Neto"}
+          "Total", "Abono", "Gtos. Venta", "P. Total", "P. Piedra", "P. Neto",
+          "Costo", "Precio", "Descuento", "P. Venta", "Utilidad Bruta", "Utilidad Neta",
+          "Margen", "Perdida", "Total Apartado", "Abonos", "Saldo", "I. Devolución",
+          "I. Penalización"}
 
-PASSWORD_RE = re.compile(
-    r"(CONTRASE[ÑN]A|CONTRA|PASSWORD|PASS|PIN|PATR[OÓ]N|CLAVE)\s*[:=]?\s*[\w\-\.]+",
-    re.IGNORECASE)
+PASSWORD_RE = [
+    # palabra fuerte: se tapa lo que sigue (salvo "NO. SERIE" / "SIN")
+    re.compile(r"\b(CONTRASE[ÑN]A|PASSWORD|CLAVE)\b\s*[:=]?\s*(?!NO\.|SIN\b)[^\s,;]+", re.IGNORECASE),
+    # palabra débil: sólo si el valor lleva dígitos (no tapa PINZA ni "CONTRA ENTREGA")
+    re.compile(r"\b(CONTRA|PASS|PIN|PATR[OÓ]N)\b\s*[:=]?\s*(?=[\w\-\.]*\d)[\w\-\.]+", re.IGNORECASE),
+]
 
 
 def leer_xls(path):
@@ -77,9 +87,17 @@ def limpiar(nombre, df):
             df[c] = df[c].map(fecha)
     if "Contrato" in df.columns:
         df["Contrato"] = pd.to_numeric(df["Contrato"], errors="coerce").astype("Int64")
+    if nombre.startswith(("ventas", "apartados")):
+        # "4001000476013 - DESCRIPCION": 4001 = prenda de empeño, dígitos 5-10 = contrato
+        cod = df["Descripcion"].fillna("").str.extract(r"^\s*(\d+)\s*-\s*(.*)$")
+        df["Codigo"] = cod[0]
+        df["Descripcion"] = cod[1].fillna(df["Descripcion"])
+        es_emp = df["Codigo"].fillna("").str.startswith("4001")
+        df["Contrato"] = pd.to_numeric(df["Codigo"].str[4:10].where(es_emp), errors="coerce").astype("Int64")
     if "Descripcion" in df.columns:
-        df["Descripcion"] = df["Descripcion"].fillna("").str.replace(
-            PASSWORD_RE, r"\1 ***", regex=True)
+        df["Descripcion"] = df["Descripcion"].fillna("")
+        for rx in PASSWORD_RE:
+            df["Descripcion"] = df["Descripcion"].str.replace(rx, r"\1 ***", regex=True)
     if nombre == "empenos":
         # "TASA GEN 4 SEM-4.06000" -> plan + tasa numérica
         partes = df["Tasa"].fillna("").str.rsplit("-", n=1, expand=True)

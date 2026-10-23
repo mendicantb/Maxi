@@ -1,0 +1,96 @@
+categoria: Instrumentos Musicales
+familias_prendaflex: [ART. MUSICALES, INSTRUMENTOS MUSICALES, BAJO ELECTRICO, GUITARRA]
+excluir: ['PULIDORA', 'ORBITAL', 'ROTOMARTILLO']
+
+atributos:
+  color:
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|CAFE|ROJO|ROJA|AZUL|VERDE|NARANJA|DORADO|DORADA|GRIS|NATURAL|SUNBURST)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, DORADA: DORADO}
+    crea_variante: false
+  accesorios:
+    regex: '\b(FUNDA|ESTUCHE|CABLE|AMPLIFICADOR)\b'
+    crea_variante: false
+
+plantillas:
+  # ---------- Guitarras (variante = tipo, mueve el préstamo) ----------
+  - id: elec.musica.guitarra-electrica
+    nombre: Guitarra eléctrica
+    match: ['GU?I?TT?A?R+A?\s*ELE?CTRICA', 'GUITARRA\s+ELECTRICA', '\bIBANEZ\b', '\bGRX\s*70', '\bERG\s*121', 'STRATOCASTER', 'TELECASTER', 'LES\s*PAUL', '\bSQUIER\b', '\bEPIPHONE\b']
+    excluir: ['ACUSTIC', 'ELECTRO\s*ACUSTICA', 'ELECTROACUSTICA']
+    sinonimos: [guitarra electrica, ibanez, yamaha erg, squier, stratocaster]
+    checklist: [Cuerdas completas, Perillas y selector funcionan, Cuello derecho sin fisuras, Suena con amplificador, Con funda o estuche]
+    fotos: [Guitarra completa, Cabezal con marca, Detalles/golpes, Funda]
+    molde_descripcion: 'Guitarra eléctrica {marca} {modelo} {color}'
+
+  - id: elec.musica.guitarra-electroacustica
+    nombre: Guitarra electroacústica
+    match: ['ELECTRO\s*-?\s*ACUSTI?CA', 'ELECTROACUSTICA', 'SGB12B', '\bSEGOVIA\b']
+    sinonimos: [electroacustica, guitarra electro acustica, segovia]
+    checklist: [Cuerdas completas, Preamplificador y salida funcionan, Cuello derecho, Tapa sin fisuras, Con funda]
+    fotos: [Guitarra completa, Cabezal con marca, Detalles/golpes, Funda]
+    molde_descripcion: 'Guitarra electroacústica {marca} {modelo} {color}'
+
+  - id: elec.musica.guitarra-acustica
+    nombre: Guitarra acústica / clásica
+    match: ['GU?I?TT?AR+A?\w*', 'GUITARRA', 'GUITTARAR', 'ACUSTI?C?A?', 'CLASICA', 'PUREPECH?A', 'FENDER', 'F4130C', 'SKP', 'VEGO', 'DEVISER', 'SYMPHONIC']
+    excluir: ['BAJO', 'TECLADO']
+    sinonimos: [guitarra, guitarra acustica, guitarra clasica, requinto]
+    checklist: [Cuerdas completas, Cuello derecho, Tapa sin fisuras ni despegaduras, Trastes en buen estado, Con funda o estuche]
+    fotos: [Guitarra completa, Cabezal con marca, Detalles/golpes, Funda]
+    molde_descripcion: 'Guitarra {marca} {modelo} {color}'
+
+  - id: elec.musica.bajo
+    nombre: Bajo eléctrico
+    match: ['BA+O+J?O+\s*ELE?CTRICO', 'BAOJO', 'BAJO\s*ELECTRICO', '\bXBR\s*70', '\bBAJO\b(?!.*(SP|SUBWOOFER))']
+    sinonimos: [bajo, bajo electrico]
+    checklist: [Cuerdas completas, Perillas funcionan, Cuello derecho, Suena con amplificador, Con funda]
+    fotos: [Bajo completo, Cabezal con marca, Detalles/golpes]
+    molde_descripcion: 'Bajo eléctrico {marca} {modelo} {color}'
+
+  # ---------- Teclados ----------
+  - id: elec.musica.teclado
+    nombre: Teclado musical / piano digital
+    match: ['TE?AC?LADO', 'TECLADO', '\bPSR\s*[SE]?\d{3}', '\bYPT\s*\d{3}', 'PIANO', 'CASIO', '\bCTK\b']
+    sinonimos: [teclado, teclado yamaha, piano digital, psr, ypt]
+    checklist: [Enciende, Todas las teclas suenan, Sonidos y ritmos funcionan, Fuente de poder, Atril]
+    fotos: [Teclado completo, Etiqueta modelo, Fuente de poder]
+    molde_descripcion: 'Teclado {marca} {modelo}'
+
+  # ---------- Alientos / cuerdas ----------
+  - id: elec.musica.alientos-cuerdas
+    nombre: Trompeta / violín / violonchelo / saxofón
+    match: ['TROMPETA', 'VIOL[IO]N', 'VIOLONCHELO', 'SAXOFON', 'CLARINETE', 'TROMBON', 'FLAUTA', 'ACORDEON', 'ARMONICA']
+    sinonimos: [trompeta, violin, violonchelo, saxofon, flauta, acordeon]
+    checklist: [Sin abolladuras, Válvulas o llaves funcionan, Cuerdas completas, Con estuche, Accesorios]
+    fotos: [Instrumento completo, Marca, Estuche]
+    molde_descripcion: '{nombre} {marca} {modelo} {color}'
+
+  # ---------- Amplificador / DJ / micrófono ----------
+  - id: elec.musica.amplificador
+    nombre: Amplificador de instrumento / audio
+    match: ['AMPLIFI?V?ICADOR', 'AMPLIFIVADO', 'AMPLIFICAD', '\bAMP\b']
+    sinonimos: [amplificador, amp, amplificador de guitarra]
+    checklist: [Enciende, Suena sin ruido, Perillas funcionan, Cable de corriente, Entradas funcionan]
+    fotos: [Frente, Reverso con etiqueta]
+    molde_descripcion: 'Amplificador {marca} {modelo}'
+
+  - id: elec.musica.dj-mezcladora
+    nombre: Mezcladora / Controlador DJ
+    match: ['MEZCLAD', 'CONTROLADOR\s*DJ', '\bDDJ\b', 'MIXER', '\bDJ\b']
+    sinonimos: [mezcladora, controlador dj, pioneer]
+    checklist: [Enciende, Perillas y faders funcionan, Cable USB, Cables de audio, Software/licencia]
+    fotos: [Frente, Reverso con conexiones, Etiqueta]
+    molde_descripcion: 'Mezcladora/DJ {marca} {modelo}'
+
+  - id: elec.musica.micro-iluminacion
+    nombre: Micrófono / equipo de eventos
+    match: ['MICROFONO', '\bSHURE\b', '\bDMX\b', 'ILUMINADOR', 'ESTEREO', 'PEDAL']
+    sinonimos: [microfono, shure, luces dj, pedal]
+    checklist: [Funciona, Cables incluidos, Baterías o fuente]
+    fotos: [Equipo completo, Etiqueta]
+    molde_descripcion: '{nombre} {marca} {modelo}'
+
+  - id: elec.musica.generica
+    nombre: Instrumento / equipo musical (sin identificar)
+    generica: true
+    match: ['FUNDA', 'ESTUCHE', 'CUERDAS', 'CABLE', 'MARCA\s+(YAMAHA|FENDER|IBANEZ|CASIO|PIONNER|PIONEER)']

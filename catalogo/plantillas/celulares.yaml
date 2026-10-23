@@ -1,19 +1,2890 @@
+# Plantillas de CELULARES (PRENDA FLEX: CELULARES). Generado/curado en conjunto con docs/notas_celulares.md
+# Orden: específicas por marca (modelo más largo antes que el corto) -> genéricas por marca -> genérica final.
+# Los "guards" ^(?=.*MARCA) evitan que A54 de Samsung le gane a A54 de Oppo/ZTE, etc.
 categoria: Celulares
 familias_prendaflex: [CELULARES]
+# Tablets/iPad capturados como celular se dejan caer a tablets.yaml (segunda pasada, otra_familia)
+excluir:
+  - '\bTABLE?T'
+  - '\bTABLES\b'
+  - '\bIPAD\b'
+  - 'MAT\s?PADD?'
+  - 'GALAXY\s?TAB'
+
+# Valores por omisión reutilizados con anclas YAML (checklist / fotos / molde por tipo de equipo)
+defaults:
+  chk_android: &chk_android [Enciende, Pantalla sin estrellar ni manchas, Táctil responde, Cuenta Google cerrada (sin FRP), Sin bloqueo de patrón o PIN, Bandeja de SIM presente, Con cargador]
+  fotos_android: &fotos_android [Frente encendido, Reverso, IMEI (marcar *#06#), Cargador y accesorios]
+  molde_android: &molde_android '{marca} {nombre} {capacidad} {color}'
+  chk_iphone: &chk_iphone [Enciende, Pantalla sin estrellar ni manchas, Táctil y Face ID / Touch ID funcionan, Cuenta iCloud cerrada (Buscar mi iPhone apagado), Salud de batería anotada, Con cargador]
+  fotos_iphone: &fotos_iphone [Frente encendido, Reverso, Ajustes > General > Acerca de (modelo / IMEI), Salud de batería]
+  molde_iphone: &molde_iphone '{marca} {nombre} {capacidad} {color}'
+
 atributos:
   capacidad:
     regex: '\b(16|32|64|128|256|512)\s*GB\b(?!\s*(DE\s*)?RAM)'
+    formato: '{}GB'
     crea_variante: true
+  ram:
+    regex: '\b(2|3|4|6|8|12)\s*(?:GB)?\s*(?:DE\s*)?RAM\b'
+    formato: '{}GB RAM'
+    crea_variante: false
   color:
-    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|MORADA|ROSA|DORADO|DORADA|PLATA)\b'
-    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO, DORADA: DORADO}
+    regex: '\b(NEGRO|NEGRA|BLANCO|BLANCA|AZUL|ROJO|ROJA|GRIS|VERDE|MORADO|MORADA|ROSA|DORADO|DORADA|PLATA|PLATEADO|AMARILLO|NARANJA|LILA|CELESTE|TITANIO)\b'
+    mapa: {NEGRA: NEGRO, BLANCA: BLANCO, ROJA: ROJO, MORADA: MORADO, DORADA: DORADO, PLATEADO: PLATA}
+    crea_variante: false
+
 plantillas:
-  - id: cel.apple.iphone-14-pro-max
-    nombre: iPhone 14 Pro Max
+  - id: cel.samsung.galaxy-a01
+    nombre: 'Galaxy A01 / A01 Core'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?015'
+      - '(?<![A-Z0-9])SM\s?-?A?013'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:01(?:\s?CORE)?)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:015|013)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a01 / a01 core, samsung a01 / a01 core, a01 / a01 core]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a02s
+    nombre: 'Galaxy A02s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?025'
+      - '(?<![A-Z0-9])SM\s?-?A?027'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:02\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:025|027)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a02s, samsung a02s, a02s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a02
+    nombre: 'Galaxy A02'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?022'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:02)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:022)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a02, samsung a02, a02]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a03s
+    nombre: 'Galaxy A03s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?037'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:03\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:037)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a03s, samsung a03s, a03s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a03-core
+    nombre: 'Galaxy A03 Core'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?032'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:03\s?CORE)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:032)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a03 core, samsung a03 core, a03 core]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a03
+    nombre: 'Galaxy A03'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?035'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:03)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:035)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a03, samsung a03, a03]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a04s
+    nombre: 'Galaxy A04s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?047'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:04\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:047)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a04s, samsung a04s, a04s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a04
+    nombre: 'Galaxy A04 / A04e'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?045'
+      - '(?<![A-Z0-9])SM\s?-?A?042'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:04[ER]?)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:045|042)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a04 / a04e, samsung a04 / a04e, a04 / a04e]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a05s
+    nombre: 'Galaxy A05s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?057'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:05\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:057)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a05s, samsung a05s, a05s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a05
+    nombre: 'Galaxy A05'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?055'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:05)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:055)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a05, samsung a05, a05]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a06
+    nombre: 'Galaxy A06'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?065'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:06)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:065)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a06, samsung a06, a06]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a07
+    nombre: 'Galaxy A07'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?075'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:07)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:075)[A-Z]?(?![A-Z0-9])'
+      - '\bSM\s?0?75M'
+    sinonimos: [galaxy a07, samsung a07, a07]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a10s
+    nombre: 'Galaxy A10s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?107'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:10\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:107)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a10s, samsung a10s, a10s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a10e
+    nombre: 'Galaxy A10e'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?102'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:10\s?E)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:102)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a10e, samsung a10e, a10e]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a10
+    nombre: 'Galaxy A10'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?105'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:10)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:105)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a10, samsung a10, a10]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a11
+    nombre: 'Galaxy A11'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?115'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:11)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:115)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a11, samsung a11, a11]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a12
+    nombre: 'Galaxy A12'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?125'
+      - '(?<![A-Z0-9])SM\s?-?A?127'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:12)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:125|127)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a12, samsung a12, a12]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a13
+    nombre: 'Galaxy A13'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?135'
+      - '(?<![A-Z0-9])SM\s?-?A?137'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:13)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:135|137)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a13, samsung a13, a13]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a14
+    nombre: 'Galaxy A14'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?145'
+      - '(?<![A-Z0-9])SM\s?-?A?146'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:14)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:145|146)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a14, samsung a14, a14]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a15
+    nombre: 'Galaxy A15'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?155'
+      - '(?<![A-Z0-9])SM\s?-?A?156'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:15)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:155|156)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a15, samsung a15, a15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a16
+    nombre: 'Galaxy A16'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?165'
+      - '(?<![A-Z0-9])SM\s?-?A?166'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:16)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:165|166)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a16, samsung a16, a16]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a17
+    nombre: 'Galaxy A17'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?175'
+      - '(?<![A-Z0-9])SM\s?-?A?176'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:17)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:175|176)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a17, samsung a17, a17]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a20s
+    nombre: 'Galaxy A20s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?207'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:20\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:207)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a20s, samsung a20s, a20s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a21s
+    nombre: 'Galaxy A21s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?217'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:21\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:217)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a21s, samsung a21s, a21s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a22
+    nombre: 'Galaxy A22'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?225'
+      - '(?<![A-Z0-9])SM\s?-?A?226'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:22)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:225|226)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a22, samsung a22, a22]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a23
+    nombre: 'Galaxy A23'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?235'
+      - '(?<![A-Z0-9])SM\s?-?A?236'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:23)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:235|236)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a23, samsung a23, a23]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a24
+    nombre: 'Galaxy A24'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?245'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:24)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:245)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a24, samsung a24, a24]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a25
+    nombre: 'Galaxy A25'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?256'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:25)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:256)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a25, samsung a25, a25]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a26
+    nombre: 'Galaxy A26'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?266'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:26)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:266)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a26, samsung a26, a26]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a32
+    nombre: 'Galaxy A32'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?325'
+      - '(?<![A-Z0-9])SM\s?-?A?326'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:32)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:325|326)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a32, samsung a32, a32]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a34
+    nombre: 'Galaxy A34'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?346'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:34)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:346)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a34, samsung a34, a34]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a35
+    nombre: 'Galaxy A35'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?356'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:35)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:356)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a35, samsung a35, a35]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a36
+    nombre: 'Galaxy A36'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?366'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:36)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:366)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a36, samsung a36, a36]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a52s
+    nombre: 'Galaxy A52s'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?528'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:52\s?S)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:528)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a52s, samsung a52s, a52s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a52
+    nombre: 'Galaxy A52'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?525'
+      - '(?<![A-Z0-9])SM\s?-?A?526'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:52)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:525|526)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a52, samsung a52, a52]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a53
+    nombre: 'Galaxy A53'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?536'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:53)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:536)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a53, samsung a53, a53]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a54
+    nombre: 'Galaxy A54'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?546'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:54)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:546)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a54, samsung a54, a54]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a55
+    nombre: 'Galaxy A55'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?556'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:55)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:556)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a55, samsung a55, a55]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-a56
+    nombre: 'Galaxy A56'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?A?566'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:(?<![A-Z0-9])A\s?|GALAX[YI]A?\s?|(?<![A-Z0-9])SM\s?-?A?\s?)(?:56)(?![A-Z0-9])'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?<![A-Z0-9])A(?:566)[A-Z]?(?![A-Z0-9])'
+    sinonimos: [galaxy a56, samsung a56, a56]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s25
+    nombre: 'Galaxy S25 (todas)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?S93\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?25(?![0-9])'
+    sinonimos: [s25, s25 ultra]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-note-20
+    nombre: 'Galaxy Note 20'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?N98\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*NOTE\s?20'
+    sinonimos: [note 20]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s24-fe
+    nombre: 'Galaxy S24 FE'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?S721'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?24\s?FE'
+    sinonimos: [s24 fe]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s24
+    nombre: 'Galaxy S24 / S24+ / Ultra'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?S92\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?24(?![0-9])'
+    sinonimos: [s24, s24 ultra]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s23
+    nombre: 'Galaxy S23 (todas)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?S91\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?23(?![0-9])'
+    sinonimos: [s23]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s22
+    nombre: 'Galaxy S22 (todas)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?S90\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?22(?![0-9])'
+    sinonimos: [s22]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s21
+    nombre: 'Galaxy S21 (todas)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?G99\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?21(?![0-9])'
+    sinonimos: [s21]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-s20
+    nombre: 'Galaxy S20 (todas)'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?G98\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bS\s?20(?![0-9])'
+    sinonimos: [s20]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-j2-prime
+    nombre: 'Galaxy J2 Prime'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?G532'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bG532M?'
+    sinonimos: [j2 prime, g532]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-j2-pro
+    nombre: 'Galaxy J2 Pro'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?J250'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bJ250'
+    sinonimos: [j2 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-j4
+    nombre: 'Galaxy J4'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?J4\d\d'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*(?:\bJ\s?4(?![0-9])|\bJ4[01]0)'
+    sinonimos: [j4]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.galaxy-j8
+    nombre: 'Galaxy J8'
+    marca: Samsung
+    match:
+      - '(?<![A-Z0-9])SM\s?-?J810'
+      - '^(?=.*(?:\bS[AM][MNSU]{1,3}[SUNG]{1,5}|GALAX|\bSM\s?-?[A-Z]?\d)).*\bJ\s?8(?![0-9])'
+    sinonimos: [j8]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g9-power
+    nombre: 'Moto G9 Power'
+    marca: Motorola
+    match:
+      - '\bXT\s?2091'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:9\s?POWE+R)(?![0-9])'
+    sinonimos: [moto g9 power, g9 power]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g9-play-plus
+    nombre: 'Moto G9 Play / Plus'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:9\s?(?:PLAY|PLUS))(?![0-9])'
+    sinonimos: [moto g9 play / plus, g9 play / plus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g8-power-lite
+    nombre: 'Moto G8 Power Lite'
+    marca: Motorola
+    match:
+      - '\bXT\s?2055'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:8\s?POWER\s?LITE)(?![0-9])'
+    sinonimos: [moto g8 power lite, g8 power lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g-stylus
+    nombre: 'Moto G Stylus'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:\s?STYLUS)(?![0-9])'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*STYLUS'
+    sinonimos: [moto g stylus, g stylus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g04s
+    nombre: 'Moto G04s'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:0?4\s?S)(?![0-9])'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*GO4S'
+    sinonimos: [moto g04s, g04s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g04
+    nombre: 'Moto G04'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:0?4)(?![0-9])'
+    sinonimos: [moto g04, g04]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g05
+    nombre: 'Moto G05'
+    marca: Motorola
+    match:
+      - '\bXT\s?2523'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:0?5(?![0-9])(?!\s?G\b))(?![0-9])'
+    sinonimos: [moto g05, g05]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g06
+    nombre: 'Moto G06'
+    marca: Motorola
+    match:
+      - '\bXT\s?2535'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:06)(?![0-9])'
+    sinonimos: [moto g06, g06]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g13
+    nombre: 'Moto G13'
+    marca: Motorola
+    match:
+      - '\bXT\s?2331'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:13)(?![0-9])'
+    sinonimos: [moto g13, g13]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g14
+    nombre: 'Moto G14'
+    marca: Motorola
+    match:
+      - '\bXT\s?2341'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:14)(?![0-9])'
+    sinonimos: [moto g14, g14]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g15
+    nombre: 'Moto G15'
+    marca: Motorola
+    match:
+      - '\bXT\s?2521'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:15)(?![0-9])'
+    sinonimos: [moto g15, g15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g20
+    nombre: 'Moto G20'
+    marca: Motorola
+    match:
+      - '\bXT\s?2128'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:20)(?![0-9])'
+    sinonimos: [moto g20, g20]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g22
+    nombre: 'Moto G22'
+    marca: Motorola
+    match:
+      - '\bXT\s?2231'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:22)(?![0-9])'
+    sinonimos: [moto g22, g22]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g23
+    nombre: 'Moto G23'
+    marca: Motorola
+    match:
+      - '\bXT\s?2333'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:23)(?![0-9])'
+    sinonimos: [moto g23, g23]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g24
+    nombre: 'Moto G24'
+    marca: Motorola
+    match:
+      - '\bXT\s?2423'
+      - '\bXT\s?24\s23'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:24)(?![0-9])'
+    sinonimos: [moto g24, g24]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g32
+    nombre: 'Moto G32'
+    marca: Motorola
+    match:
+      - '\bXT\s?2235'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:32)(?![0-9])'
+    sinonimos: [moto g32, g32]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g34
+    nombre: 'Moto G34'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:34)(?![0-9])'
+    sinonimos: [moto g34, g34]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g35
+    nombre: 'Moto G35'
+    marca: Motorola
+    match:
+      - '\bXT\s?2433'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:35)(?![0-9])'
+    sinonimos: [moto g35, g35]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g42
+    nombre: 'Moto G42'
+    marca: Motorola
+    match:
+      - '\bXT\s?2233'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:42)(?![0-9])'
+    sinonimos: [moto g42, g42]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g50
+    nombre: 'Moto G50'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:50)(?![0-9])'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*\bG\s?505G'
+    sinonimos: [moto g50, g50]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g53
+    nombre: 'Moto G53'
+    marca: Motorola
+    match:
+      - '\bXT\s?2335'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:53)(?![0-9])'
+    sinonimos: [moto g53, g53]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g54
+    nombre: 'Moto G54'
+    marca: Motorola
+    match:
+      - '\bXT\s?2343'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:54)(?![0-9])'
+    sinonimos: [moto g54, g54]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g55
+    nombre: 'Moto G55'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:55)(?![0-9])'
+    sinonimos: [moto g55, g55]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g60
+    nombre: 'Moto G60'
+    marca: Motorola
+    match:
+      - '\bXT\s?2133'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:60)(?![0-9])'
+    sinonimos: [moto g60, g60]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g72
+    nombre: 'Moto G72'
+    marca: Motorola
+    match:
+      - '\bXT\s?2255'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:72)(?![0-9])'
+    sinonimos: [moto g72, g72]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g73
+    nombre: 'Moto G73'
+    marca: Motorola
+    match:
+      - '\bXT\s?2237'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:73)(?![0-9])'
+    sinonimos: [moto g73, g73]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g82
+    nombre: 'Moto G82'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:82)(?![0-9])'
+    sinonimos: [moto g82, g82]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g84
+    nombre: 'Moto G84'
+    marca: Motorola
+    match:
+      - '\bXT\s?2347'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])G|MOTO\s?G|MOTOROLA\s?G|MTO\s?G)\s?(?:84)(?![0-9])'
+    sinonimos: [moto g84, g84]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g-5g-2022
+    nombre: 'Moto G 5G (2022)'
+    marca: Motorola
+    match:
+      - '\bXT\s?2213'
+    sinonimos: [moto g 5g (2022), g 5g (2022)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e6-play
+    nombre: 'Moto E6 Play'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:6\s?PLAY)(?![0-9])'
+    sinonimos: [moto e6 play, e6 play]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e7-plus
+    nombre: 'Moto E7 Plus'
+    marca: Motorola
+    match:
+      - '\bXT\s?2081'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:7\s?PLUS)(?![0-9])'
+    sinonimos: [moto e7 plus, e7 plus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e7-power
+    nombre: 'Moto E7 Power / E7i Power'
+    marca: Motorola
+    match:
+      - '\bXT\s?2097'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:7\s?I?\s?POWER)(?![0-9])'
+    sinonimos: [moto e7 power / e7i power, e7 power / e7i power]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e7
+    nombre: 'Moto E7'
+    marca: Motorola
+    match:
+      - '\bXT\s?2095'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:7)(?![0-9])'
+    sinonimos: [moto e7, e7]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e13
+    nombre: 'Moto E13'
+    marca: Motorola
+    match:
+      - '\bXT\s?2345'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:\s?13)(?![0-9])'
+    sinonimos: [moto e13, e13]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e14
+    nombre: 'Moto E14'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:\s?14)(?![0-9])'
+    sinonimos: [moto e14, e14]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e15
+    nombre: 'Moto E15'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:\s?15)(?![0-9])'
+    sinonimos: [moto e15, e15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e20
+    nombre: 'Moto E20'
+    marca: Motorola
+    match:
+      - '\bXT\s?2155'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:20)(?![0-9])'
+    sinonimos: [moto e20, e20]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e22
+    nombre: 'Moto E22 / E22i'
+    marca: Motorola
+    match:
+      - '\bXT\s?2239'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:22\s?I?)(?![0-9])'
+    sinonimos: [moto e22 / e22i, e22 / e22i]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e32
+    nombre: 'Moto E32 / E32s'
+    marca: Motorola
+    match:
+      - '\bXT\s?2229'
+      - '\bXT\s?2227'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:32\s?S?)(?![0-9])'
+    sinonimos: [moto e32 / e32s, e32 / e32s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.e40
+    nombre: 'Moto E40'
+    marca: Motorola
+    match:
+      - '\bXT\s?2159'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:(?<![A-Z0-9])E|MOTO\s?E|MOTOROLA\s?E)\s?(?:40)(?![0-9])'
+    sinonimos: [moto e40, e40]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.xt2421
+    nombre: 'Moto G04 / E14 (código XT2421)'
+    marca: Motorola
+    match:
+      - '\bXT\s?2421'
+    sinonimos: [xt2421]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.one-5g-ace
+    nombre: 'Moto One 5G Ace'
+    marca: Motorola
+    match:
+      - '\bXT\s?2113'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*ONE\s?5G'
+    sinonimos: [one 5g ace]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.one-hyper
+    nombre: 'Moto One Hyper'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*ONE\s?HYPER'
+    sinonimos: [one hyper]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.edge-20-lite
+    nombre: 'Moto Edge 20 Lite'
+    marca: Motorola
+    match:
+      - '\bXT\s?2139'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*EDGE\s?20'
+    sinonimos: [edge 20 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.edge-30-neo
+    nombre: 'Moto Edge 30 Neo'
+    marca: Motorola
+    match:
+      - '\bXT\s?2245'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*NEO\s?30'
+    sinonimos: [edge 30 neo]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.edge-30
+    nombre: 'Moto Edge 30'
+    marca: Motorola
+    match:
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*EDGE\s?30'
+    sinonimos: [edge 30]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.edge-40-neo
+    nombre: 'Moto Edge 40 Neo'
+    marca: Motorola
+    match:
+      - '\bXT\s?2307'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*EDGE\s?40'
+    sinonimos: [edge 40 neo]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.edge-60-fusion
+    nombre: 'Moto Edge 60 Fusion'
+    marca: Motorola
+    match:
+      - '\bXT\s?2503'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*EDGE\s?60'
+    sinonimos: [edge 60 fusion]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.g-play-2024
+    nombre: 'Moto G Play 2024'
+    marca: Motorola
+    match:
+      - '\bXT\s?2413'
+      - '^(?=.*(?:M[NO]?[OR]{1,2}T[OR]{1,3}L?A?|MOTO|\bXT\s?\d{4})).*(?:PLAY|PLYA)\b'
+    sinonimos: [g play]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-13c
+    nombre: 'Redmi 13C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23100RN82L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])13\s?C(?![A-Z0-9]))'
+    sinonimos: [redmi 13c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-14c
+    nombre: 'Redmi 14C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2409BRN2CL'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])14\s?C(?![A-Z0-9])|REDMI\s?147C)'
+    sinonimos: [redmi 14c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-15c
+    nombre: 'Redmi 15C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])25078RA3EL'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])15\s?C(?![A-Z0-9]))'
+    sinonimos: [redmi 15c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-15
+    nombre: 'Redmi 15'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])25062RN2DL'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:REDMI\s?15(?![0-9A-Z]))'
+    sinonimos: [redmi 15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-12c
+    nombre: 'Redmi 12C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2212ARNC4L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])12\s?C(?![A-Z0-9]))'
+    sinonimos: [redmi 12c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-10c
+    nombre: 'Redmi 10C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])220333QNY'
+      - '(?<![A-Z0-9])220333QL'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])10\s?C(?![A-Z0-9]))'
+    sinonimos: [redmi 10c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-9c
+    nombre: 'Redmi 9C'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])M2006C3MG'
+      - '(?<![A-Z0-9])M2004J19G'
+      - '(?<![A-Z0-9])M2004J19C?'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])9\s?C(?![A-Z0-9]))'
+    sinonimos: [redmi 9c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-9a
+    nombre: 'Redmi 9A'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])M2006C3L[GC]'
+      - '(?<![A-Z0-9])M2006C3M(?!G)'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])9\s?A(?![A-Z0-9]))'
+    sinonimos: [redmi 9a]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-9t
+    nombre: 'Redmi 9T'
+    marca: Xiaomi
+    match:
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])9T(?![A-Z0-9]))'
+    sinonimos: [redmi 9t]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-a3x
+    nombre: 'Redmi A3x'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])24044RN32L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:REDMI\s?A\s?3X|(?<![A-Z0-9])A\s?3X)'
+    sinonimos: [redmi a3x]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-a3
+    nombre: 'Redmi A3'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2312CRNCCL'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])A\s?3(?![A-Z0-9])|REDMIA\s?3|REDMA\s?3)'
+    sinonimos: [redmi a3]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-a5
+    nombre: 'Redmi A5'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])25028RN03L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])A\s?5(?![A-Z0-9])|REDMIA\s?5|REDMA\s?5)'
+    sinonimos: [redmi a5]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-a2
+    nombre: 'Redmi A2 / A2+'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23026RN54G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])A\s?2(?![A-Z0-9]))'
+    sinonimos: [redmi a2 / a2+]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-a9
+    nombre: 'Redmi A9 / 9'
+    marca: Xiaomi
+    match:
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])A\s?9(?![A-Z0-9]))'
+    sinonimos: [redmi a9 / 9]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-15
+    nombre: 'Redmi Note 15'
+    marca: Xiaomi
+    match:
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?15(?![0-9]))'
+    sinonimos: [redmi note 15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-14-pro
+    nombre: 'Redmi Note 14 Pro'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])24116RACCG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?14\s?PRO)'
+    sinonimos: [redmi note 14 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-14
+    nombre: 'Redmi Note 14'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])24117RN76L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?14(?![0-9]))'
+    sinonimos: [redmi note 14]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-13-pro
+    nombre: 'Redmi Note 13 Pro'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23117RA68G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?13\s?PRO)'
+    sinonimos: [redmi note 13 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-13
+    nombre: 'Redmi Note 13'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23129RA5FL'
+      - '(?<![A-Z0-9])23129RAA4G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?13(?![0-9])|NETE\s?13)'
+    sinonimos: [redmi note 13]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-12-pro
+    nombre: 'Redmi Note 12 Pro'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])221013161'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?12\s?PRO|NETE12\s?PRO)'
+    sinonimos: [redmi note 12 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-12s
+    nombre: 'Redmi Note 12S'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2303ERA42L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?12\s?S)'
+    sinonimos: [redmi note 12s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-12
+    nombre: 'Redmi Note 12'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23028RA60L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?12(?![0-9]))'
+    sinonimos: [redmi note 12]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-11
+    nombre: 'Redmi Note 11'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2201117TL'
+      - '(?<![A-Z0-9])2201117TG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?11(?![0-9]))'
+    sinonimos: [redmi note 11]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-10s
+    nombre: 'Redmi Note 10S'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])M2101K7BL'
+      - '(?<![A-Z0-9])M2101K7AG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?10\s?S)'
+    sinonimos: [redmi note 10s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-9
+    nombre: 'Redmi Note 9'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])M2003J15SS'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?9(?![0-9]))'
+    sinonimos: [redmi note 9]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-note-8
+    nombre: 'Redmi Note 8'
+    marca: Xiaomi
+    match:
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:NOTE\s?8(?![0-9]))'
+    sinonimos: [redmi note 8]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-13
+    nombre: 'Redmi 13'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])24049RN28L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:REDMI\s?13(?![0-9A-Z])|REDMI\s?13\s?X)'
+    sinonimos: [redmi 13]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-12
+    nombre: 'Redmi 12'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23053RN02L'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:REDMI\s?12(?![0-9A-Z]))'
+    sinonimos: [redmi 12]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.redmi-10
+    nombre: 'Redmi 10'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])21061119AL'
+      - '(?<![A-Z0-9])21121119SG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:REDMI\s?10(?![0-9A-Z]))'
+    sinonimos: [redmi 10]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-c75
+    nombre: 'Poco C75'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2410FPCC5G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?C\s?75)'
+    sinonimos: [poco c75]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-c65
+    nombre: 'Poco C65'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2310FPCA4G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?C\s?65)'
+    sinonimos: [poco c65]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-m6-pro
+    nombre: 'Poco M6 Pro'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2312FPCAG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?M\s?6)'
+    sinonimos: [poco m6 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-m5s
+    nombre: 'Poco M5s'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2207117BPG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?M\s?5\s?S)'
+    sinonimos: [poco m5s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-m5
+    nombre: 'Poco M5'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])22071219CG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?M\s?5(?![A-Z0-9]))'
+    sinonimos: [poco m5]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-m4
+    nombre: 'Poco M4 / M4 Pro'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])2201117PG'
+      - '(?<![A-Z0-9])22041219PG'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?M\s?4)'
+    sinonimos: [poco m4 / m4 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.poco-x6
+    nombre: 'Poco X6'
+    marca: Xiaomi
+    match:
+      - '(?<![A-Z0-9])23122PCD1G'
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:POCO\s?X\s?6)'
+    sinonimos: [poco x6]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.xiaomi-11t
+    nombre: 'Xiaomi 11T / 11T Pro'
+    marca: Xiaomi
+    match:
+      - '^(?=.*(?:\bX[IAO]{1,3}[MO]{1,2}[AI]?\b|\bXIAO|XIOMI|REDMI|REDMA|REDM\b|\bREMI\b|\bPOCO)).*(?:(?<![A-Z0-9])11\s?(?:T\s?)?(?:POR|PRO))'
+    excluir:
+      - 'RED\s?MAGIC'
+      - 'NX809J'
+    sinonimos: [xiaomi 11t / 11t pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.axon-60-lite
+    nombre: 'ZTE Axon 60 Lite'
+    marca: ZTE
+    match:
+      - 'Z2350(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:AXON\s?60\s?LITE)'
+    sinonimos: [zte axon 60 lite, zte axon 60 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.axon-60
+    nombre: 'ZTE Axon 60'
+    marca: ZTE
+    match:
+      - 'Z2356(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:AXON\s?60(?![0-9]))'
+    sinonimos: [zte axon 60, zte axon 60]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.axon-50-lite
+    nombre: 'ZTE Axon 50 Lite'
+    marca: ZTE
+    match:
+      - 'ZTE\s?8050(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:AXON\s?50)'
+    sinonimos: [zte axon 50 lite, zte axon 50 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-v70
+    nombre: 'ZTE Blade V70 / V70 Max'
+    marca: ZTE
+    match:
+      - 'Z2467(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?V\s?70)'
+    sinonimos: [zte blade v70 / v70 max, zte v70 / v70 max]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-v50
+    nombre: 'ZTE Blade V50 (Smart / Design)'
+    marca: ZTE
+    match:
+      - '7060(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?V\s?50)'
+    sinonimos: [zte blade v50 (smart / design), zte v50 (smart / design)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-v41
+    nombre: 'ZTE Blade V41 / V41 Smart'
+    marca: ZTE
+    match:
+      - 'ZTEA7050(?![0-9])'
+      - 'A7050(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?V\s?41)'
+    sinonimos: [zte blade v41 / v41 smart, zte v41 / v41 smart]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-v40
+    nombre: 'ZTE Blade V40 Pro'
+    marca: ZTE
+    match:
+      - '9046(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?V\s?40)'
+    sinonimos: [zte blade v40 pro, zte v40 pro]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a71
+    nombre: 'ZTE Blade A71'
+    marca: ZTE
+    match:
+      - 'A7030(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?71)'
+    sinonimos: [zte blade a71, zte a71]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a56
+    nombre: 'ZTE Blade A56'
+    marca: ZTE
+    match:
+      - 'Z2473(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?56)'
+    sinonimos: [zte blade a56, zte a56]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a55
+    nombre: 'ZTE Blade A55'
+    marca: ZTE
+    match:
+      - 'Z2450(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?55)'
+    sinonimos: [zte blade a55, zte a55]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a54
+    nombre: 'ZTE Blade A54'
+    marca: ZTE
+    match:
+      - 'A7040(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?54)'
+    sinonimos: [zte blade a54, zte a54]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a53
+    nombre: 'ZTE Blade A53'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?53)'
+    sinonimos: [zte blade a53, zte a53]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a52
+    nombre: 'ZTE Blade A52 / A52 Lite'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?52)'
+    sinonimos: [zte blade a52 / a52 lite, zte a52 / a52 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a35e
+    nombre: 'ZTE Blade A35e'
+    marca: ZTE
+    match:
+      - 'Z2466(?![0-9])'
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?35\s?E)'
+    sinonimos: [zte blade a35e, zte a35e]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a35
+    nombre: 'ZTE Blade A35'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?35(?![0-9A-Z]))'
+    sinonimos: [zte blade a35, zte a35]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-a34
+    nombre: 'ZTE Blade A34'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?A\s?34)'
+    sinonimos: [zte blade a34, zte a34]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-l9
+    nombre: 'ZTE Blade L9'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?L\s?9(?![0-9]))'
+    sinonimos: [zte blade l9, zte l9]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-l8
+    nombre: 'ZTE Blade L8'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?L\s?8(?![0-9]))'
+    sinonimos: [zte blade l8, zte l8]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-l22x
+    nombre: 'ZTE Blade L210 / L220'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:(?:BLADE|BLDE|BALDE|BLANDE|ZTE|ZYE|(?<![A-Z0-9]))\s?L\s?2[12]0)'
+    sinonimos: [zte blade l210 / l220, zte l210 / l220]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.blade-9
+    nombre: 'ZTE Blade 9 / 8030'
+    marca: ZTE
+    match:
+      - '^(?=.*(?:ZTE|BLADE|BLDE|BALDE|BLANDE|AXON)).*(?:BLADE\s?9(?![0-9])|BLADE\s?8030)'
+    sinonimos: [zte blade 9 / 8030, zte 9 / 8030]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a80
+    nombre: 'Oppo A80 5G'
+    marca: Oppo
+    match:
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?80(?![A-Z0-9]))'
+    sinonimos: [oppo a80 5g, a80 5g]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a79
+    nombre: 'Oppo A79 5G'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2557'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?79(?![A-Z0-9]))'
+    sinonimos: [oppo a79 5g, a79 5g]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a78
+    nombre: 'Oppo A78'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2565'
+      - '\bCPH\s?2483'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?78(?![A-Z0-9]))'
+    sinonimos: [oppo a78, a78]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a58
+    nombre: 'Oppo A58'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2577'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?58(?![A-Z0-9])|OPPOA58)'
+    sinonimos: [oppo a58, a58]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a57
+    nombre: 'Oppo A57'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2387'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?57(?![A-Z0-9]))'
+    sinonimos: [oppo a57, a57]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a54
+    nombre: 'Oppo A54'
+    marca: Oppo
+    match:
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?54(?![A-Z0-9]))'
+    sinonimos: [oppo a54, a54]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a40
+    nombre: 'Oppo A40'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2669'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?40(?![A-Z0-9])|APPOA40)'
+    sinonimos: [oppo a40, a40]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a38
+    nombre: 'Oppo A38'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2579'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?38(?![A-Z0-9]))'
+    sinonimos: [oppo a38, a38]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a17
+    nombre: 'Oppo A17'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2477'
+      - '\bCPL2477'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?17(?![A-Z0-9]))'
+    sinonimos: [oppo a17, a17]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a16
+    nombre: 'Oppo A16'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2269'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?16(?![A-Z0-9]))'
+    sinonimos: [oppo a16, a16]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a15
+    nombre: 'Oppo A15'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2185'
+      - '\bCPH2185'
+      - '\b2185'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?15(?![A-Z0-9])|A\s15)'
+    sinonimos: [oppo a15, a15]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a12
+    nombre: 'Oppo A12'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2083'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?12(?![A-Z0-9]))'
+    sinonimos: [oppo a12, a12]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.a6x
+    nombre: 'Oppo A6x / A60'
+    marca: Oppo
+    match:
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])A\s?6[0X]?(?![A-Z0-9]))'
+    sinonimos: [oppo a6x / a60, a6x / a60]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-10
+    nombre: 'Oppo Reno 10'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2531'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?10)'
+    sinonimos: [oppo reno 10, reno 10]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-13
+    nombre: 'Oppo Reno 13 / 13F'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2699'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?13)'
+    sinonimos: [oppo reno 13 / 13f, reno 13 / 13f]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-12f
+    nombre: 'Oppo Reno 12F'
+    marca: Oppo
+    match:
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RE+NO\s?12)'
+    sinonimos: [oppo reno 12f, reno 12f]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-11
+    nombre: 'Oppo Reno 11'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2599'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?11)'
+    sinonimos: [oppo reno 11, reno 11]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-7
+    nombre: 'Oppo Reno 7'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2363'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?0?7)'
+    sinonimos: [oppo reno 7, reno 7]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-6
+    nombre: 'Oppo Reno 6 / 6 Lite'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2365'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?6)'
+    sinonimos: [oppo reno 6 / 6 lite, reno 6 / 6 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.reno-5
+    nombre: 'Oppo Reno 5 Lite'
+    marca: Oppo
+    match:
+      - '\bCPH\s?2205'
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:RENO\s?5)'
+    sinonimos: [oppo reno 5 lite, reno 5 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.c71
+    nombre: 'Oppo C71 / C55'
+    marca: Oppo
+    match:
+      - '^(?=.*(?:OPP|\bAPP(?!LE)|\bCPH\s?\d)).*(?:(?<![A-Z0-9])C\s?(?:71|55)(?![0-9]))'
+    sinonimos: [oppo c71 / c55, c71 / c55]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y29
+    nombre: 'Vivo Y29'
+    marca: Vivo
+    match:
+      - '\bV2434'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?29(?![0-9A-Z]))'
+    sinonimos: [vivo y29, y29]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y36
+    nombre: 'Vivo Y36'
+    marca: Vivo
+    match:
+      - '\bV2247'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?36(?![0-9A-Z]))'
+    sinonimos: [vivo y36, y36]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y22s
+    nombre: 'Vivo Y22s'
+    marca: Vivo
+    match:
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?22\s?S(?![0-9A-Z]))'
+    sinonimos: [vivo y22s, y22s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y18
+    nombre: 'Vivo Y18'
+    marca: Vivo
+    match:
+      - '\bV2333'
+      - '\bV233(?![0-9])'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?18(?![0-9A-Z]))'
+    sinonimos: [vivo y18, y18]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y17s
+    nombre: 'Vivo Y17s'
+    marca: Vivo
+    match:
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?17\s?S(?![0-9A-Z]))'
+    sinonimos: [vivo y17s, y17s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y04
+    nombre: 'Vivo Y04'
+    marca: Vivo
+    match:
+      - '\bV2430'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?0?4(?![0-9A-Z]))'
+    sinonimos: [vivo y04, y04]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y03
+    nombre: 'Vivo Y03'
+    marca: Vivo
+    match:
+      - '\bV2332'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?0?3(?![0-9A-Z]))'
+    sinonimos: [vivo y03, y03]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y1s
+    nombre: 'Vivo Y1s / Y1 (por confirmar)'
+    marca: Vivo
+    match:
+      - '\bV2028'
+      - '\bV2027'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?1(?![0-9A-Z]))'
+    sinonimos: [vivo y1s / y1 (por confirmar), y1s / y1 (por confirmar)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.y01
+    nombre: 'Vivo Y01'
+    marca: Vivo
+    match:
+      - '\bV2118'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:(?<![A-Z0-9])(?:VY|Y)\s?01(?![0-9A-Z]))'
+    sinonimos: [vivo y01, y01]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.v50-lite
+    nombre: 'Vivo V50 Lite'
+    marca: Vivo
+    match:
+      - '\bV2441'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:V\s?50\s?LITE)'
+    sinonimos: [vivo v50 lite, v50 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.v40-lite
+    nombre: 'Vivo V40 Lite'
+    marca: Vivo
+    match:
+      - '\bV2419'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:V\s?40\s?LITE)'
+    sinonimos: [vivo v40 lite, v40 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.v30-lite
+    nombre: 'Vivo V30 Lite'
+    marca: Vivo
+    match:
+      - '\bV2314'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:V\s?30\s?LITE)'
+    sinonimos: [vivo v30 lite, v30 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.v25e
+    nombre: 'Vivo V25e'
+    marca: Vivo
+    match:
+      - '\bV2242'
+      - '^(?=.*(?:VIVO|\bVY?\d|\bV\d{4})).*(?:V\s?25\s?E)'
+    sinonimos: [vivo v25e, v25e]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x9
+    nombre: 'Honor X9 / X9b'
+    marca: Honor
+    match:
+      - '\bANY[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?9)'
+    sinonimos: [honor x9 / x9b, x9 / x9b]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x8b
+    nombre: 'Honor X8b'
+    marca: Honor
+    match:
+      - '\bLLY[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?8\s?B)'
+    sinonimos: [honor x8b, x8b]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x8a
+    nombre: 'Honor X8a'
+    marca: Honor
+    match:
+      - '\bCRT[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?8\s?A?(?![A-Z0-9])|TFY)'
+    sinonimos: [honor x8a, x8a]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x7
+    nombre: 'Honor X7a / X7b / X7c'
+    marca: Honor
+    match:
+      - '\bRKY[ -]?LX3'
+      - '\bC[KL]{2}[ -]?LX3'
+      - '\bALT[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?7)'
+    sinonimos: [honor x7a / x7b / x7c, x7a / x7b / x7c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x6c
+    nombre: 'Honor X6c'
+    marca: Honor
+    match:
+      - '\bNIC[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?6\s?C)'
+    sinonimos: [honor x6c, x6c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x6b
+    nombre: 'Honor X6b / X6b Plus'
+    marca: Honor
+    match:
+      - '\bJDY[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?6\s?B)'
+    sinonimos: [honor x6b / x6b plus, x6b / x6b plus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x6a
+    nombre: 'Honor X6a / X6a Plus'
+    marca: Honor
+    match:
+      - '\bWDY[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?6\s?A)'
+    sinonimos: [honor x6a / x6a plus, x6a / x6a plus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x6
+    nombre: 'Honor X6 / X6s'
+    marca: Honor
+    match:
+      - '\bVNE[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?6\s?S?(?![A-Z0-9]))'
+    sinonimos: [honor x6 / x6s, x6 / x6s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x5-plus
+    nombre: 'Honor X5 Plus'
+    marca: Honor
+    match:
+      - '\bWOD[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:X\s?5\s?PLUS)'
+    sinonimos: [honor x5 plus, x5 plus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x5c
+    nombre: 'Honor X5c'
+    marca: Honor
+    match:
+      - '\bNLA[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?5\s?C)'
+    sinonimos: [honor x5c, x5c]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.x5
+    nombre: 'Honor X5 / X5b'
+    marca: Honor
+    match:
+      - '\bVNA[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:(?<![A-Z0-9])X\s?5\s?B?(?![A-Z0-9]))'
+    sinonimos: [honor x5 / x5b, x5 / x5b]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.9a
+    nombre: 'Honor 9A / Play 9A'
+    marca: Honor
+    match:
+      - '\bGFY[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:9\s?A(?![A-Z0-9]))'
+    sinonimos: [honor 9a / play 9a, 9a / play 9a]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.50-lite
+    nombre: 'Honor 50 Lite'
+    marca: Honor
+    match:
+      - '\bNTH[ -]?LX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:50\s?LITE)'
+    sinonimos: [honor 50 lite, 50 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.90-lite
+    nombre: 'Honor 90 Lite / Magic6 Lite'
+    marca: Honor
+    match:
+      - '\bCRT[ -]?NX3'
+      - '\bALI[ -]?NX3'
+      - '^(?=.*(?:HONOR|HONRO)).*(?:90\s?LITE|MAGIC\s?6)'
+    sinonimos: [honor 90 lite / magic6 lite, 90 lite / magic6 lite]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.note-50
+    nombre: 'Realme Note 50'
+    marca: Realme
+    match:
+      - '\bRMX3834'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:NOTE\s?50)'
+    sinonimos: [realme note 50, note 50]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.note-60
+    nombre: 'Realme Note 60'
+    marca: Realme
+    match:
+      - '\bRMX3933'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:NOTE\s?60)'
+    sinonimos: [realme note 60, note 60]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c63
+    nombre: 'Realme C63'
+    marca: Realme
+    match:
+      - '\bRMX3939'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?63)'
+    sinonimos: [realme c63, c63]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c61
+    nombre: 'Realme C61'
+    marca: Realme
+    match:
+      - '\bRMX3930'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?61)'
+    sinonimos: [realme c61, c61]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c67
+    nombre: 'Realme C67'
+    marca: Realme
+    match:
+      - '\bRMX3890'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?67)'
+    sinonimos: [realme c67, c67]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c55
+    nombre: 'Realme C55'
+    marca: Realme
+    match:
+      - '\bRMX3710'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?55)'
+    sinonimos: [realme c55, c55]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c53
+    nombre: 'Realme C53'
+    marca: Realme
+    match:
+      - '\bRMX3760'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?53)'
+    sinonimos: [realme c53, c53]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c51
+    nombre: 'Realme C51'
+    marca: Realme
+    match:
+      - '\bRMX3830'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?51)'
+    sinonimos: [realme c51, c51]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.c11
+    nombre: 'Realme C11 (2021)'
+    marca: Realme
+    match:
+      - '\bRMX3231'
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])C\s?11)'
+    sinonimos: [realme c11 (2021), c11 (2021)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.9t-r7
+    nombre: 'Realme 9T / 7'
+    marca: Realme
+    match:
+      - '^(?=.*(?:REALME|RELAME|REALMI|\bRMX\d)).*(?:(?<![A-Z0-9])9T|(?<![A-Z0-9])R\s?7(?![0-9]))'
+    sinonimos: [realme 9t / 7, 9t / 7]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.nova-11
+    nombre: 'Huawei Nova 11'
+    marca: Huawei
+    match:
+      - '\bMAO[ -]?LX9'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:NOVA\s?11)'
+    sinonimos: [huawei nova 11, nova 11]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.nova-9-se
+    nombre: 'Huawei Nova 9 SE'
+    marca: Huawei
+    match:
+      - '\bJLN[ -]?LX3'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:NOVA\s?9)'
+    sinonimos: [huawei nova 9 se, nova 9 se]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.p50
+    nombre: 'Huawei P50'
+    marca: Huawei
+    match:
+      - '\bABR[ -]?LX9'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])P\s?50)'
+    sinonimos: [huawei p50, p50]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.p30
+    nombre: 'Huawei P30'
+    marca: Huawei
+    match:
+      - '\bMAR[ -]?LX3A?'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])P\s?30)'
+    sinonimos: [huawei p30, p30]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y9a
+    nombre: 'Huawei Y9a'
+    marca: Huawei
+    match:
+      - '\bFRL[ -]?L23'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?9\s?A(?![A-Z0-9]))'
+    sinonimos: [huawei y9a, y9a]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y9s
+    nombre: 'Huawei Y9s'
+    marca: Huawei
+    match:
+      - '\bSTK[ -]?LX3'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?9\s?S(?![A-Z0-9]))'
+    sinonimos: [huawei y9s, y9s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y9-prime
+    nombre: 'Huawei Y9 Prime'
+    marca: Huawei
+    match:
+      - '\bSTK[ -]?L2\d'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?9\s?PRIME)'
+    sinonimos: [huawei y9 prime, y9 prime]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y8s
+    nombre: 'Huawei Y8s'
+    marca: Huawei
+    match:
+      - '\bJKM[ -]?LX3'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?8\s?S)'
+    sinonimos: [huawei y8s, y8s]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y7
+    nombre: 'Huawei Y7 (2018/2019)'
+    marca: Huawei
+    match:
+      - '\bDUB[ -]?LX3'
+      - '\bLDN[ -]?LX3'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?7(?![0-9A-Z]))'
+    sinonimos: [huawei y7 (2018/2019), y7 (2018/2019)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.y5
+    nombre: 'Huawei Y5 (2018)'
+    marca: Huawei
+    match:
+      - '\bDRA[ -]?LX3'
+      - '^(?=.*(?:HUAWEI|HAUAWEI|HUAWWI)).*(?:(?<![A-Z0-9])Y\s?5(?![0-9A-Z]))'
+    sinonimos: [huawei y5 (2018), y5 (2018)]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.apple.iphone-17-pro-max
+    nombre: 'iPhone 17 Pro Max'
     marca: Apple
-    match: ['IPHONE\s*14\s*PRO\s*MAX', '\bA2893\b']
+    match:
+      - 'IP[HO]{1,2}N?E?\s?17\s?PRO\s?MAX'
+    sinonimos: [iphone 17 pro max, 17 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-17-pro
+    nombre: 'iPhone 17 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?17\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 17 pro, 17 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-17
+    nombre: 'iPhone 17'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?17(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 17, 17]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-16-pro-max
+    nombre: 'iPhone 16 Pro Max'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?16\s?PRO\s?MAX'
+    sinonimos: [iphone 16 pro max, 16 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-16-pro
+    nombre: 'iPhone 16 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?16\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 16 pro, 16 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-16-plus
+    nombre: 'iPhone 16 Plus'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?16\s?PLUS'
+    sinonimos: [iphone 16 plus, 16 plus]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-16e
+    nombre: 'iPhone 16e'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A3408(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?16\s?E(?![A-Z])'
+    sinonimos: [iphone 16e, 16e]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-16
+    nombre: 'iPhone 16'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A3286(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?16(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 16, 16]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-15-pro-max
+    nombre: 'iPhone 15 Pro Max'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?15\s?PRO\s?MAX'
+      - '^(?=.*(?:APPLE|IPHONE|IPOHNE|IPHON)).*PRO\s?MAX\s?15'
+    sinonimos: [iphone 15 pro max, 15 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-15-pro
+    nombre: 'iPhone 15 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?15\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 15 pro, 15 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-15-plus
+    nombre: 'iPhone 15 Plus'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?15\s?PLUS'
+    sinonimos: [iphone 15 plus, 15 plus]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-15
+    nombre: 'iPhone 15'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A3092(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?15(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 15, 15]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-14-pro-max
+    nombre: 'iPhone 14 Pro Max'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A2893(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?14\s?PRO\s?MAX'
+    sinonimos: [iphone 14 pro max, 14 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-14-pro
+    nombre: 'iPhone 14 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?14\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 14 pro, 14 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-14-plus
+    nombre: 'iPhone 14 Plus'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?14\s?PLUS'
+    sinonimos: [iphone 14 plus, 14 plus]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-14
+    nombre: 'iPhone 14'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?14(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 14, 14]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-13-pro-max
+    nombre: 'iPhone 13 Pro Max'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A2641(?![A-Z0-9])'
+      - '(?<![A-Z0-9])A2484(?![A-Z0-9])'
+      - '(?<![A-Z0-9])NLF53LL/A(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?13\s?PRO\s?MAX'
+    sinonimos: [iphone 13 pro max, 13 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-13-pro
+    nombre: 'iPhone 13 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?13\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 13 pro, 13 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-13-mini
+    nombre: 'iPhone 13 mini'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?13\s?MINI'
+    sinonimos: [iphone 13 mini, 13 mini]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-13
+    nombre: 'iPhone 13'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A2631(?![A-Z0-9])'
+      - '(?<![A-Z0-9])MLNG3E/A(?![A-Z0-9])'
+      - '(?<![A-Z0-9])MLMQ3LL/A(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?13(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 13, 13]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-12-pro-max
+    nombre: 'iPhone 12 Pro Max'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?12\s?PRO\s?MAX'
+    sinonimos: [iphone 12 pro max, 12 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-12-pro
+    nombre: 'iPhone 12 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?12\s?PRO(?!\s?MAX)(?![A-Z])'
+    sinonimos: [iphone 12 pro, 12 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-12-mini
+    nombre: 'iPhone 12 mini'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?12\s?MINI'
+    sinonimos: [iphone 12 mini, 12 mini]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-12
+    nombre: 'iPhone 12'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A2403(?![A-Z0-9])'
+      - '(?<![A-Z0-9])MGJC3LZ/A(?![A-Z0-9])'
+      - '(?<![A-Z0-9])MGJ53LZA(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?12(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+    sinonimos: [iphone 12, 12]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-11-pro-max
+    nombre: 'iPhone 11 Pro Max'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?11\s?PRO\s?MAX'
+    sinonimos: [iphone 11 pro max, 11 pro max]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-11-pro
+    nombre: 'iPhone 11 Pro'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?11\s?PRO(?!\s?MAX)(?![A-Z])'
+      - '^(?=.*(?:APPLE|IPHONE|IPOHNE|IPHON)).*MODELO 11 PRO'
+    sinonimos: [iphone 11 pro, 11 pro]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-11
+    nombre: 'iPhone 11'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A2111(?![A-Z0-9])'
+      - '(?<![A-Z0-9])A2221(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?11(?!\s*(?:PRO|MINI|PLUS|P\s?MAX|MAX|[0-9]))'
+      - 'MARCA APPLE \| MODELO 11$'
+    sinonimos: [iphone 11, 11]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-xr-xs-x
+    nombre: 'iPhone X / XR / XS'
+    marca: Apple
+    match:
+      - 'IP[HO]{1,2}N?E?\s?X[RS]?(?![A-Z0-9])'
+    sinonimos: [iphone x / xr / xs, x / xr / xs]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.apple.iphone-8-7-6
+    nombre: 'iPhone 6 / 7 / 8 / SE'
+    marca: Apple
+    match:
+      - '(?<![A-Z0-9])A1778(?![A-Z0-9])'
+      - 'IP[HO]{1,2}N?E?\s?(?:[678]|SE)(?![0-9])'
+    sinonimos: [iphone 6 / 7 / 8 / se, 6 / 7 / 8 / se]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.zte.redmagic-11-pro
+    nombre: 'Nubia Red Magic 11 Pro'
+    marca: ZTE
+    match:
+      - 'NX809J'
+      - 'RED\s?MAGIC\s?11'
+    sinonimos: [red magic 11 pro, redmagic, nubia]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.samsung.generico
+    nombre: 'Samsung (modelo sin identificar)'
+    marca: Samsung
+    generica: true
+    solo_familia: true
+    match:
+      - '\bS[AM][MNSU]{1,3}[SUNG]{1,5}'
+      - '\bGALAX'
+      - '(?<![A-Z0-9])SM\s?-?[A-Z]?\d{2,4}'
+    sinonimos: [samsung, galaxy]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.motorola.generico
+    nombre: 'Motorola (modelo sin identificar)'
+    marca: Motorola
+    generica: true
+    solo_familia: true
+    match:
+      - 'M[NO]?[OR]{1,2}T[OR]{1,3}L?A?S?\b'
+      - '\bMOTO'
+      - '\bXT\s?\d{4}'
+    sinonimos: [motorola, moto]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.xiaomi.generico
+    nombre: 'Xiaomi / Redmi / Poco (modelo sin identificar)'
+    marca: Xiaomi
+    generica: true
+    solo_familia: true
+    match:
+      - '\bX[IAO]{1,3}[MO]{1,2}[AI]?\b'
+      - '\bXIAO'
+      - 'XIOMI'
+      - 'REDMI'
+      - 'REDMA\d'
+      - '\bREMI\b'
+      - '\bREDM\b'
+      - '\bPOCO\b'
+      - '\bM20\d\d[A-Z]\d'
+      - '\b2[0-5]\d{2}[A-Z]{3}\d{1,2}[A-Z]{1,2}\b'
+    sinonimos: [xiaomi, redmi, poco]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.zte.generico
+    nombre: 'ZTE (modelo sin identificar)'
+    marca: ZTE
+    generica: true
+    solo_familia: true
+    match:
+      - '\bZTE\b'
+      - '\bBLADE'
+      - '\bBLDE'
+      - '\bBALDE'
+      - '\bAXON\b'
+      - '\bZTE[A-Z]?\d{4}'
+    sinonimos: [zte, blade]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.oppo.generico
+    nombre: 'Oppo (modelo sin identificar)'
+    marca: Oppo
+    generica: true
+    solo_familia: true
+    match:
+      - '\bOPP'
+      - '\bAPP(?!LE)[O]*\b'
+      - '\bAPPO'
+      - '\bCPH\s?\d{4}'
+      - '\bCPL\d{4}'
+    sinonimos: [oppo]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.vivo.generico
+    nombre: 'Vivo (modelo sin identificar)'
+    marca: Vivo
+    generica: true
+    solo_familia: true
+    match:
+      - '\bVIVO'
+      - '\bV\d{4}\b'
+      - '\bVY\d{2}'
+    sinonimos: [vivo]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.honor.generico
+    nombre: 'Honor (modelo sin identificar)'
+    marca: Honor
+    generica: true
+    solo_familia: true
+    match:
+      - '\bHONOR'
+      - '\bHONRO'
+    sinonimos: [honor]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.realme.generico
+    nombre: 'Realme (modelo sin identificar)'
+    marca: Realme
+    generica: true
+    solo_familia: true
+    match:
+      - '\bRE[AL]{1,2}M[EI]\b'
+      - '\bRELAME'
+      - '\bRMX\s?\d{4}'
+    sinonimos: [realme]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.huawei.generico
+    nombre: 'Huawei (modelo sin identificar)'
+    marca: Huawei
+    generica: true
+    solo_familia: true
+    match:
+      - '\bHUAWEI'
+      - '\bHAUAWEI'
+      - '\b[A-Z]{3}[ -]?L[X]?\d{1,2}[A-Z]?\b'
+    sinonimos: [huawei]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
   - id: cel.apple.generico
-    nombre: iPhone (modelo sin identificar)
+    nombre: 'iPhone (modelo sin identificar)'
     marca: Apple
     generica: true
-    match: ['\bIPHONE\b', 'MARCA APPLE']
+    solo_familia: true
+    match:
+      - 'IPHONE'
+      - 'MARCA APPLE\b'
+      - '\bAPLE\b'
+    sinonimos: [iphone, apple]
+    checklist: *chk_iphone
+    fotos: *fotos_iphone
+    molde_descripcion: *molde_iphone
+  - id: cel.otras.cubot
+    nombre: 'Cubot (modelo sin identificar)'
+    marca: Cubot
+    generica: true
+    solo_familia: true
+    match:
+      - '\bCUBOT'
+      - '\bCUBOB'
+      - 'KINGKONG?\s?\d'
+    sinonimos: [cubot]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.infinix
+    nombre: 'Infinix (modelo sin identificar)'
+    marca: Infinix
+    generica: true
+    solo_familia: true
+    match:
+      - '\bINFINIX'
+      - '\bINFIX'
+    sinonimos: [infinix]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.oneplus
+    nombre: 'OnePlus (modelo sin identificar)'
+    marca: OnePlus
+    generica: true
+    solo_familia: true
+    match:
+      - 'ONE\s?PLUS'
+      - '\bONEPLUS'
+    sinonimos: [oneplus]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.blackview
+    nombre: 'Blackview (modelo sin identificar)'
+    marca: Blackview
+    generica: true
+    solo_familia: true
+    match:
+      - '\bBLACKVIEW'
+      - '\bBV\d{4}'
+    sinonimos: [blackview]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.nubia
+    nombre: 'Nubia / Red Magic (modelo sin identificar)'
+    marca: ZTE
+    generica: true
+    solo_familia: true
+    match:
+      - '\bNUBIA'
+      - 'RED\s?MAGIC'
+      - '\bNX\d{3}[A-Z]\b'
+    sinonimos: [nubia, red magic]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.lg
+    nombre: 'LG (modelo sin identificar)'
+    marca: LG
+    generica: true
+    solo_familia: true
+    match:
+      - 'MARCA LG\b'
+      - '\bLM\s?K\d+'
+    sinonimos: [lg]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.lanix
+    nombre: 'Lanix (modelo sin identificar)'
+    marca: Lanix
+    generica: true
+    solo_familia: true
+    match:
+      - '\bLANIX'
+    sinonimos: [lanix]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.alcatel
+    nombre: 'Alcatel (modelo sin identificar)'
+    marca: Alcatel
+    generica: true
+    solo_familia: true
+    match:
+      - '\bALCATEL'
+    sinonimos: [alcatel]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
+  - id: cel.otras.celular-generico
+    nombre: 'Celular (marca sin identificar)'
+    marca: Otra
+    generica: true
+    solo_familia: true
+    match:
+      - '\bCEL(?:ULAR)?\b'
+      - '\bSMARTPHONE'
+      - '\bTELEFONO'
+      - '\bCELU?LAR\b'
+      - '\bCEL\b'
+      - '\bCORN\b'
+      - '\bTWL\b'
+      - '\bDOPPIO'
+      - '\bMAXON'
+      - '\bYEEMI'
+      - '\bBLU\b'
+      - '\bREVVL'
+      - '\bHYUNDAI'
+      - '\bACER\b'
+      - '\bSENWA'
+      - '\bBMOBILE'
+      - '\bTECH\s?40'
+      - '\bFREEY'
+      - '\bGOXAWEE'
+      - '\bMAXWEST'
+      - '\bSONY\b'
+    sinonimos: [celular, telefono]
+    checklist: *chk_android
+    fotos: *fotos_android
+    molde_descripcion: *molde_android
