@@ -13,6 +13,8 @@ cuánto se presta, qué % desempeña, refrenda o se remata, a cuánto se vende y
 - 10,589 prendas en 9,303 contratos (mar-2024 → oct-2026); 4,651 ventas de vitrina; 1,666 apartados.
 - **33 categorías · 644 plantillas** cubren el **99%** de las prendas (95% en plantilla específica, no genérica).
 - Resumen legible: [`reportes/cobertura.md`](reportes/cobertura.md).
+- Modelo Plantilla › Objeto › Variante: [`docs/MODELO_PLANTILLAS.md`](docs/MODELO_PLANTILLAS.md) y
+  `reportes/maxi_pos_plantillas.xlsx` (228 plantillas, 3,116 objetos, sin joyería).
 
 ## Estructura
 
@@ -20,7 +22,8 @@ cuánto se presta, qué % desempeña, refrenda o se remata, a cuánto se vende y
 data/raw/            exportes de PRENDA FLEX tal cual (.xls)
 data/processed/      CSV limpios + contratos, prendas, ventas, prendas_clasificadas
 catalogo/plantillas/ reglas de cada categoría (YAML) — aquí se edita el catálogo
-catalogo/catalogo.json   catálogo + métricas, listo para cargar a MAXI-POS
+catalogo/catalogo.json   catálogo + métricas (todas las reglas)
+catalogo/maxi_pos.json   modelo MAXI-POS: Plantilla › Objeto › Variante (ver docs/MODELO_PLANTILLAS.md)
 reportes/            métricas por categoría / plantilla / variante, pendientes, historial de cobertura
 docs/                PLAN.md, FORMATO_PLANTILLAS.md, notas_<categoría>.md (decisiones y dudas)
 scripts/             pipeline
@@ -30,7 +33,7 @@ scripts/             pipeline
 
 ```bash
 pip install -r requirements.txt
-bash scripts/correr_todo.sh          # ingest → contratos → ventas → plantillas
+bash scripts/correr_todo.sh          # ingest → contratos → ventas → plantillas → exportar
 python3 scripts/plantillas.py --probar catalogo/plantillas/celulares.yaml   # probar una categoría sin escribir nada
 ```
 

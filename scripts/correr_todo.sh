@@ -6,3 +6,4 @@ python3 scripts/ingest.py
 python3 scripts/contratos.py
 python3 scripts/ventas.py
 python3 scripts/plantillas.py "$@"
+python3 scripts/exportar_maxi.py
