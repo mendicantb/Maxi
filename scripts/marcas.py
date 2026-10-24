@@ -83,6 +83,8 @@ def resolver(row, cfg):
         marca = texto_marca.title()
     if solo_alnum(marca) and modelo == solo_alnum(marca):
         modelo = ""
+    if modelo.isdigit() and len(modelo) <= 3:  # "32", "40": es la medida, no un modelo
+        modelo = ""
     return marca, gama, (modelo if len(modelo) >= 2 else ""), ok
 
 
