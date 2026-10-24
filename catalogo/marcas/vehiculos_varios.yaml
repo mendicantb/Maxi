@@ -1,0 +1,155 @@
+sector: vehiculos_varios
+categorias: [Motos, Autos y camionetas, Bicicletas, Relojes, Navajas, Cascos, "Bebés y juguetes", Varios, "Deportes y recreación", "Ropa, calzado y accesorios", "Accesorios para vehículos"]
+gama_por_defecto: basica
+
+marcas:
+  # ---- Motos y motocarros
+  Italika: {gama: media, escritura: [ITALIKA, ITALICA, ITALIKA MOTOS]}
+  Piaggio: {gama: media, escritura: [PIAGGIO, PIAGIO, APE, POCHIMOVIL]}
+  Yamaha: {gama: alta, escritura: [YAMAHA, YAMAJA]}
+  Honda: {gama: alta, escritura: [HONDA]}
+  Suzuki: {gama: media, escritura: [SUZUKI, SUSUKI]}
+  Kawasaki: {gama: alta, escritura: [KAWASAKI, KAWAZAKI]}
+  Bajaj: {gama: media, escritura: [BAJAJ, BAJAJ PULSAR]}
+  Vento: {gama: basica, escritura: [VENTO, BENTO]}
+  Dinamo: {gama: basica, escritura: [DINAMO, DYNAMO]}
+  Veloci: {gama: basica, escritura: [VELOCI, VELOCY, VELOSI]}
+  Kiwo: {gama: basica, escritura: [KIWO, KYWO]}
+  Tribu: {gama: basica, escritura: [TRIBU]}
+  TVS: {gama: media, escritura: [TVS]}
+  # ---- Autos y camionetas
+  Nissan: {gama: media, escritura: [NISSAN, NISAN, TSURU]}
+  Volkswagen: {gama: media, escritura: [VOLKSWAGEN, VOLSKWAGEN, VW, VOLKSWAGEN VW]}
+  Ford: {gama: media, escritura: [FORD, EXPLORER]}
+  Dodge: {gama: media, escritura: [DODGE, DOG, DODGE RAM]}
+  Chrysler: {gama: media, escritura: [CHRYSLER, CHYSLER, CRYSLER, VOYAGER]}
+  Chevrolet: {gama: media, escritura: [CHEVROLET, CHEVY, CHEVROLETT]}
+  Toyota: {gama: media, escritura: [TOYOTA, TOYOTTA]}
+  Massey Ferguson: {gama: alta, escritura: [MASSEY, MASSEY FERGUSON, MASSEY FERGUZON]}
+  # ---- Bicicletas
+  Mercurio: {gama: basica, escritura: [MERCURIO, MERCURIO BICICLETAS]}
+  Benotto: {gama: media, escritura: [BENOTTO, BENOTO, BENNOTO, BENOTTTO]}
+  Mongoose: {gama: media, escritura: [MONGOOSE, MONGUS, MONGOSE, MONKGOOSE, MONK]}
+  Bimex: {gama: basica, escritura: [BIMEX]}
+  Ghost: {gama: media, escritura: [GHOST, GOHST]}
+  Trek: {gama: alta, escritura: [TREK]}
+  Specialized: {gama: alta, escritura: [SPECIALIZED]}
+  Giant: {gama: alta, escritura: [GIANT]}
+  Cannondale: {gama: alta, escritura: [CANNONDALE]}
+  Scott: {gama: alta, escritura: [SCOTT]}
+  Alubike: {gama: media, escritura: [ALUBIKE, ALU BIKE]}
+  Vairo: {gama: media, escritura: [VAIRO]}
+  Raleigh: {gama: media, escritura: [RALEIGH]}
+  Rocket: {gama: basica, escritura: [ROCKET]}
+  Condor: {gama: basica, escritura: [CONDOR]}
+  Chopper: {gama: basica, escritura: [CHOPPER, CHOPER, CHOPPPER]}
+  Sport Times: {gama: basica, escritura: [SPORT TIMES, SPORTIMES]}
+  Stronger: {gama: basica, escritura: [STRONGER]}
+  Renzo: {gama: basica, escritura: [RENZO]}
+  Weluvfit: {gama: basica, escritura: [WELUVFIT]}
+  Surtek: {gama: basica, escritura: [SURTEK]}
+  Bet Motion: {gama: basica, escritura: [BET MOTION]}
+  Altrego: {gama: basica, escritura: [ALTREGO, ALTREG]}
+  Kingstone: {gama: basica, escritura: [KINGSTONE]}
+  Bucanero: {gama: basica, escritura: [BUCANERO]}
+  Kaiser: {gama: basica, escritura: [KAISER, KAIZER]}
+  Next: {gama: media, escritura: [NEXT]}
+  # ---- Relojes
+  Rolex: {gama: alta, escritura: [ROLEX, ROLES]}
+  Tag Heuer: {gama: alta, escritura: [TAG HEUER, TAGHEUER, TAG HEUR]}
+  Rado: {gama: alta, escritura: [RADO, DIASTAR, PRADA DIASTAR]}
+  Bvlgari: {gama: alta, escritura: [BVLGARI, BULGARI]}
+  Omega: {gama: alta, escritura: [OMEGA]}
+  Citizen: {gama: media, escritura: [CITIZEN]}
+  Fossil: {gama: media, escritura: [FOSSIL, FOSSI, FOCIL]}
+  Michael Kors: {gama: media, escritura: [MICHAEL KORS, MICHEAL KORS, MK, MICHAELKORS]}
+  Invicta: {gama: media, escritura: [INVICTA, INVICT]}
+  Armani Exchange: {gama: media, escritura: [ARMANI EXCHANGE, ARMANI, EMPORIO ARMANI]}
+  Anne Klein: {gama: media, escritura: [ANNE KLEIN, ANN KLEIN]}
+  Philipp Plein: {gama: media, escritura: [PHILIPP PLEIN, PHILIP PLEIN]}
+  Casio: {gama: basica, escritura: [CASIO, G SHOCK, GSHOCK, G-SHOCK, BABY G]}
+  Huawei: {gama: media, escritura: [HUAWEI, HUAWUEI]}
+  Apple Watch: {gama: alta, escritura: [APPLE WATCH, IWATCH]}
+  Samsung: {gama: media, escritura: [SAMSUNG, GALAXY WATCH]}
+  Orient: {gama: basica, escritura: [ORIENT, ORIENT CLON]}
+  Prada Diastar: {gama: basica, escritura: [PRADA]}
+  Salco: {gama: basica, escritura: [SALCO]}
+  Curren: {gama: basica, escritura: [CURREN]}
+  Poedagar: {gama: basica, escritura: [POEDAGAR]}
+  Bulova: {gama: media, escritura: [BULOVA]}
+  Coach: {gama: media, escritura: [COACH]}
+  Tommy Hilfiger: {gama: media, escritura: [TOMMY, TOMMY HILFIGER]}
+  Kenneth Cole: {gama: media, escritura: [KENNETH COLE, KENNET COLE]}
+  Mido: {gama: alta, escritura: [MIDO]}
+  Swatch: {gama: media, escritura: [SWATCH, SWSICH, SWAHTC WISS]}
+  Steren: {gama: basica, escritura: [STEREN]}
+  Cat: {gama: basica, escritura: [CAT]}
+  Branzi: {gama: basica, escritura: [BRANZI]}
+  Luylou: {gama: basica, escritura: [LUYLOU]}
+  Naomicase: {gama: basica, escritura: [NAOMICASE]}
+  Oruss: {gama: basica, escritura: [ORUSS]}
+  Startime: {gama: basica, escritura: [STARTIME, STARITIME]}
+  Fngeen: {gama: basica, escritura: [FNGEEN]}
+  Zumpai: {gama: basica, escritura: [ZUMPAI]}
+  Poshi: {gama: basica, escritura: [POSHI]}
+  Nibosi: {gama: basica, escritura: [NIBOSI]}
+  Folio: {gama: basica, escritura: [FOLIO]}
+  Kilwans: {gama: basica, escritura: [KILWANS]}
+  Dash: {gama: basica, escritura: [DASH]}
+  G Sport: {gama: basica, escritura: [G SPORT]}
+  Force: {gama: basica, escritura: [FORCE]}
+  Tubular: {gama: basica, escritura: [TUBULAR]}
+  Fresh Fun: {gama: basica, escritura: [FRESH FUN]}
+  Cruss: {gama: basica, escritura: [CRUSS]}
+  Amoled: {gama: basica, escritura: [AMOLED]}
+  Moy: {gama: basica, escritura: [MOY]}
+  # ---- Navajas
+  Victorinox: {gama: alta, escritura: [VICTORINOX, VICTORINO, VICTORIO, VICTIRINO, VICTORINA, VICTORINOS, VICTORIONX, SWISS ARMY, SWISS CHAMP, CLIMBER, SPARTAN, HUNTSMAN, RANGER]}
+  Leatherman: {gama: alta, escritura: [LEATHERMAN, KEARTHERMAN, LEATHERMANN, LEATHERMAM, WAVE, SURGE, SIDEKICK]}
+  Mikels: {gama: media, escritura: [MIKELS, MIKEL]}
+  Gerber: {gama: alta, escritura: [GERBER]}
+  Buck: {gama: alta, escritura: [BUCK]}
+  Cuchillo Traveler: {gama: basica, escritura: [TRAVELER]}
+  # ---- Cascos
+  Uchoose: {gama: basica, escritura: [UCHOOSE, U CHOOSE]}
+  MRC: {gama: basica, escritura: [MRC, MCR]}
+  Brumm: {gama: basica, escritura: [BRUMM, BRUM, BRUMV]}
+  Fox: {gama: alta, escritura: [FOX]}
+  Shaft: {gama: media, escritura: [SHAFT]}
+  Italika Casco: {gama: basica, escritura: [ITALIKA ITALIKA]}
+  Helano: {gama: basica, escritura: [HELANO, HALANO]}
+  MCT: {gama: basica, escritura: [MCT]}
+  QKE: {gama: basica, escritura: [QKE]}
+  Sleek: {gama: basica, escritura: [SLEEK]}
+  NZI: {gama: basica, escritura: [NZI, NZI HELMETS PROJECT]}
+  Azteca: {gama: basica, escritura: [AZTECA]}
+  Potion: {gama: basica, escritura: [POTION]}
+  YB: {gama: basica, escritura: [YB]}
+  Guira: {gama: basica, escritura: [GUIRA]}
+  ISP: {gama: basica, escritura: [ISP]}
+  Litio: {gama: basica, escritura: [LITIO]}
+  AN: {gama: basica, escritura: [AN]}
+  # ---- Bebés y juguetes
+  Takara Tomy: {gama: media, escritura: [TAKARA TOMY, TOKARA TOMY, TAKARA, TRANSFORMERS, BUMBLEBEE]}
+  Evenflo: {gama: media, escritura: [EVENFLO]}
+  Prinsel: {gama: basica, escritura: [PRINSEL]}
+  DBB: {gama: basica, escritura: [DBB]}
+  Funzone: {gama: basica, escritura: [FUNZONE]}
+  # ---- Varios
+  Truper: {gama: media, escritura: [TRUPER, TRUPPER, TRUPE]}
+  Coleman: {gama: alta, escritura: [COLEMAN]}
+  Igloo: {gama: media, escritura: [IGLOO, IGLLOO]}
+  Omron: {gama: media, escritura: [OMRON, OMROM, ONROM]}
+  Cuprum: {gama: media, escritura: [CUPRUM, CUPROM, CUPRON]}
+  Baofeng: {gama: basica, escritura: [BAOFENG, AVOFENG]}
+  # ---- Deportes
+  Body Crunch: {gama: basica, escritura: [BODY CRUNCH]}
+  By Power: {gama: basica, escritura: [BY POWER]}
+  Mendoza: {gama: media, escritura: [MENDOZA]}
+  Tasco: {gama: media, escritura: [TASCO]}
+  Joyeox: {gama: basica, escritura: [JOYEOX]}
+  Inov: {gama: basica, escritura: [INOV]}
+  # ---- Ropa, calzado y accesorios
+  Avon: {gama: basica, escritura: [AVON]}
+  Star Alban: {gama: basica, escritura: [STAR ALBAN, RED ALBAN]}
+modelos: {}

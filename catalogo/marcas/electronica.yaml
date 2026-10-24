@@ -1,0 +1,220 @@
+sector: electronica
+categorias: [Audio, Pantallas y Proyectores, Cómputo, Videojuegos, Instrumentos Musicales]
+gama_por_defecto: basica
+
+marcas:
+  # ---- Premium (alta)
+  Samsung: {gama: alta, escritura: [SAMSUNG, SANSUNG, SAMNSUNG, SANSUMG, SMSUNG, SAMSUN]}
+  LG: {gama: alta, escritura: [LG]}
+  Sony: {gama: alta, escritura: [SONY, SONNY]}
+  JBL: {gama: alta, escritura: [JBL, JVL, JB]}
+  Bose: {gama: alta, escritura: [BOSE]}
+  Marshall: {gama: alta, escritura: [MARSHALL]}
+  Harman Kardon: {gama: alta, escritura: [HARMAN KARDON, HARMAN]}
+  Pioneer: {gama: alta, escritura: [PIONEER, PIONNER, PIONER]}
+  Beats: {gama: alta, escritura: [BEATS]}
+  Apple: {gama: alta, escritura: [APPLE, MACBOOK, MACBOOK AIR, MACBOOK AIR M2, MAC BOOK]}
+  Dell: {gama: alta, escritura: [DELL]}
+  Asus: {gama: alta, escritura: [ASUS, AZUS, ASSUS]}
+  Huawei: {gama: alta, escritura: [HUAWEI, HUAWUEI]}
+  Honor: {gama: alta, escritura: [HONOR]}
+  Microsoft: {gama: alta, escritura: [MICROSOFT, XBOX, XBOOX, X BOX]}
+  Nintendo: {gama: alta, escritura: [NINTENDO, NITENDO, SWITCH, SWICH]}
+  PlayStation: {gama: alta, escritura: [PLAYSTATION, PLAY STATION, PS4, PS5, PS3]}
+  Yamaha: {gama: alta, escritura: [YAMAHA]}
+  Fender: {gama: alta, escritura: [FENDER]}
+  Ibanez: {gama: alta, escritura: [IBANEZ]}
+  Casio: {gama: alta, escritura: [CASIO]}
+  Korg: {gama: alta, escritura: [KORG]}
+  Shure: {gama: alta, escritura: [SHURE]}
+  Behringer: {gama: alta, escritura: [BEHRINGER]}
+  Epson: {gama: alta, escritura: [EPSON]}
+  Brother: {gama: alta, escritura: [BROTHER, BROTHERS]}
+  DeWalt: {gama: alta, escritura: [DEWALT]}
+  Makita: {gama: alta, escritura: [MAKITA, MAKTA]}
+  Bosch: {gama: alta, escritura: [BOSCH, BOSH]}
+  # ---- Media
+  Hisense: {gama: media, escritura: [HISENSE, HISENCE, HISENSES, HISENCSE]}
+  TCL: {gama: media, escritura: [TCL]}
+  Philips: {gama: media, escritura: [PHILIPS, PHILLIPS, PHULIPS]}
+  Sharp: {gama: media, escritura: [SHARP]}
+  Panasonic: {gama: media, escritura: [PANASONIC]}
+  RCA: {gama: media, escritura: [RCA]}
+  Motorola: {gama: media, escritura: [MOTOROLA]}
+  HKPro: {gama: media, escritura: [HKPRO, HKRPO, HK PRO, HKPR, HIKERS]}
+  JVC: {gama: media, escritura: [JVC]}
+  Sansui: {gama: media, escritura: [SANSUI, SASUI, SANSU]}
+
+  Aiwa: {gama: media, escritura: [AIWA, ALWA]}
+  Steren: {gama: media, escritura: [STEREN]}
+  Kaiser: {gama: media, escritura: [KAISER, KIASER, KAISE, KEYSER]}
+  Tronsmart: {gama: media, escritura: [TRONSMART, TROSMART]}
+  Xiaomi: {gama: media, escritura: [XIAOMI, XIOMI, MI SMAET SPEAKER]}
+  Amazon Alexa: {gama: media, escritura: [ALEXA, AMAZON, ECHO, ECHOPOP]}
+  Google: {gama: media, escritura: [GOOGLE]}
+  Daewoo: {gama: media, escritura: [DAEWOO, DAEWWOD, DAEWWO]}
+  Sanyo: {gama: media, escritura: [SANYO]}
+  Konka: {gama: media, escritura: [KONKA]}
+  InFocus: {gama: media, escritura: [INFOCUS]}
+  HP: {gama: media, escritura: [HP, HEWLETT PACKARD]}
+  Lenovo: {gama: media, escritura: [LENOVO, LENOBO]}
+  Acer: {gama: media, escritura: [ACER, NITRO]}
+  MSI: {gama: media, escritura: [MSI]}
+  Compaq: {gama: media, escritura: [COMPAQ, COMPAG]}
+  TP-Link: {gama: media, escritura: [TP LINK, TPLINK]}
+  Ghia: {gama: media, escritura: [GHIA]}
+  Chuwi: {gama: media, escritura: [CHUWI]}
+  Kicker: {gama: media, escritura: [KICKER]}
+  Pyle: {gama: media, escritura: [PYLE]}
+  Conair: {gama: media, escritura: [CONAIR]}
+  Koblenz: {gama: media, escritura: [KOBLENZ]}
+  Lanix: {gama: media, escritura: [LANIX]}
+  # ---- Básica
+  Weyon: {gama: basica, escritura: [WEYON]}
+  Atvio: {gama: basica, escritura: [ATVIO]}
+  Hyundai: {gama: basica, escritura: [HYUNDAI, HOIUNDAY, HY]}
+  Spectra: {gama: basica, escritura: [SPECTRA]}
+  Makena: {gama: basica, escritura: [MAKENA]}
+  Mitsui: {gama: basica, escritura: [MITSUI]}
+  Vorago: {gama: basica, escritura: [VORAGO]}
+  QFX: {gama: basica, escritura: [QFX]}
+  Link Bits: {gama: basica, escritura: [LINK BITS, LINK NITS, LB LINK BITS]}
+  Select Sound: {gama: basica, escritura: [SELECT SOUND, SELEC SOUN, SELECT SOUN, SELEC SOUND, SELED SOUND, SELECT SUN]}
+  Aek Cyber: {gama: basica, escritura: [AEK CYBER]}
+  Mitzu: {gama: basica, escritura: [MITZU, MISIK, MITZU MISK]}
+  Greatnice: {gama: basica, escritura: [GREATNICE, GRETNICE, GRECITNICE, GRECITECE, GRCITNICE, GRATNICE]}
+  Moreka: {gama: basica, escritura: [MOREKA, MORAKA]}
+  Ridgeway: {gama: basica, escritura: [RIDGEWAY, RIDGARAY]}
+  Billboard: {gama: basica, escritura: [BILLBOARD, BILBOAR]}
+  Fussion: {gama: basica, escritura: [FUSSION]}
+  Hyper: {gama: media, escritura: [HYPER]}
+  STF: {gama: media, escritura: [STF]}
+  KSR: {gama: media, escritura: [KSR]}
+  EVL: {gama: media, escritura: [EVL]}
+  Master Sound: {gama: media, escritura: [MASTER SOUND, MASTE SOUND, MASTER]}
+  Oppo: {gama: basica, escritura: [OPPO]}
+  Zealot: {gama: basica, escritura: [ZEALOT]}
+  Zmartech: {gama: basica, escritura: [ZMARTECH]}
+  Vios: {gama: basica, escritura: [VIOS]}
+  Baofeng: {gama: basica, escritura: [BAOFENG, BAOFEN, BAOFENDG]}
+  Kbroad: {gama: basica, escritura: [KBROAD]}
+  Fol: {gama: basica, escritura: [FOL]}
+  Melo: {gama: media, escritura: [MELO]}
+  Radox: {gama: basica, escritura: [RADOX]}
+  Brodu: {gama: basica, escritura: [BRODU]}
+  Segovia: {gama: basica, escritura: [SEGOVIA]}
+  La Purepecha: {gama: basica, escritura: [LA PUREPECHA]}
+
+modelos:
+  HKPro:
+    HKP32R03: [HKP32R03, HK P32R03]
+    HKP40R02: [HKP40R02, 40R02]
+    HKP50RUHD2: [HKP50RUHD2 (2021), HKP50RUHD22021, HKP50UHD2]
+    HKP32SM8: [HKPRO32SM8, HKP32SM8 (2019), HKP32SM82019]
+    HKP43R02: [HKP43R02, HKD43R02]
+    HKP32R02: [HKP32R02/, HKD32R02]
+    HKP32F18: [HKP32F18 (2017)]
+    HKSB150T: [HKSB150, HKSBT150T, HKSB2150T]
+  Kaiser:
+    MSA-7515MX: [MSA7515MX, MSA 7515MX, 7515 MSA, M SA7515, MSA-7515, MSA7515]
+    MSA-7530MX: [MSA 7530MX, MSA7530MX]
+    MSA-7912BT: [MSA-7912BTE, MSA7912BT]
+    PAK-9015: [PAQ-9015, PAK9015]
+    KSW-5004: [KSW5004]
+    KSW-5003: [KSW.-5003, KSW5003]
+    KSB-4008: [BOCINA KAISER KSB-4008, KSB4008]
+  JVC:
+    SI32RF: [SI32RF (2024), SI32RF (2023), SII32RF, SI32RF2023, SI32RF2024]
+    SI40FR: [SI40FR (2021), SI40FR (2024), SL40FR]
+  Sansui:
+    SMX32V1HA: ['SM,X32V1HA', 'MODELO: SMX32V1HA (2022)', SMX32V1YHA, SMX32VAH, SMX32VAHW, SMX32V1HA (2022)]
+    SMX32D7HR: [SMX32D7HR (2022)]
+    SMX40V1FA: [SMX40V1FA (2022)]
+    SMX32P28NF: [SMX-32P28NF, SMX32P28NF (2020)]
+  Hisense:
+    32A4K: [32A4KV, 32A 4K, 32A4HV, 32A45K, 32A45KV2023]
+    40H5G: [40H5G 2022, 32H5G, 32H5G (2022), 32H5, 32H5F1]
+    43A60GV: [43A60GV2021]
+    40A4K: [40A4KV]
+    43A4K: [43A4KV, 43A45NV (2025)]
+  LG:
+    XBOOM RNC7: [XBOOM XBOOM RNC7, RNC7]
+    50NANO80: [50NANO80SQA, 50NANO80ASQA]
+    OM5541: [OM5540]
+  Samsung:
+    UN40J5200: [UN40J5200DFXZX, UN40J5500AF (2016)]
+    UN55DU7000: [UN55DU7000F, UN50DU7000F (2024)]
+    UN32J4290: [UN32J4290AFXZX, UN32J]
+    CHROMEBOOK: [CHROMEBOOK INTELK INSIDE, CHROMEBOOK INTELKINSIDE]
+  TCL:
+    A343: [32A343 (2021)]
+    43S443: [43S443-MX (2021), 43S412]
+    32S331: [32S331-MX (2020), 32S312]
+  Link Bits:
+    KTS-1752: [KTS1752]
+    RFR-315: [RFR315]
+    RFR-239: [RFR239]
+    RFR-274: [RFR274]
+  Select Sound:
+    BT1708: [BT 1708, BT-1708]
+    BT228: [BT-228]
+    BT1608: [BT 1608]
+  Aek Cyber:
+    S-10303: ['S-10303}', S10303]
+  JBL:
+    FLIP 5: [PLIP5, FLIP5, FLIP 5]
+    CHARGE 5: [CHARGE5]
+    CHARGE ESSENTIAL 2: [CHARGE ESSENTIAL2]
+    XTREME MINI: [XTRMMINI 4, XTREME MINI]
+  Amazon Alexa:
+    ECHO DOT 3: [DOTCH 3, DOTCH3, DOT 3RA GENERACION, 3RA GENERACION]
+    ECHO DOT 5: [5TA GENERACION, ECHO DOT 5]
+    ECHO SHOW 5: [SHOW 5 SEGUNDA GENERACIO]
+  Sony:
+    SRS-XP500: [XP500, SRSXP500]
+    PS4: [PLAY STATION 4 SLIM, PS4 SLIM]
+  Aiwa:
+    AWS600BT: [600BT, AWS-600BT]
+  Tronsmart:
+    T2: [MODELO T2, T2 PLUS]
+    T7: [TRONSMART T7, T7 LITE]
+    HALO 100: [HALO100]
+  QFX:
+    BT-2401: [QFX BT-2401, BT2401, QFXBT2401]
+  Hyundai:
+    HYLED4322GIM: [4322GIM, HYLED4322GIM, HYLEDE3254GIM]
+  Philips:
+    50PFL5756: [50PFL5756/F8, 50PFL5756F8]
+  Epson:
+    S41: [S41+]
+    S18: [S18+, POWER LITE S18+]
+  Brother:
+    DCP-T520W: [T-520W, DCPT520W]
+  Dell:
+    LATITUDE 5490: [LATITUDE5490]
+  Acer:
+    ASPIRE 3: [ASPIRE3]
+    ASPIRE 1: [ASPIRE1]
+  HP:
+    14-DQ0505LA: [14-DQ0501LA (2022), 14-DQ0510LA, 14-DQ0510LA (2023), 14DQ0505LA]
+    14-DQ0508LA: [HP 14-DQ0508LA, 14DQ0508LA]
+    ELITEBOOK 840: [ELITE BOOK 840, BOOK ELITE BOOK, ELITEBOOK840]
+  Lenovo:
+    IDEAPAD 3: [IDEALPAD SLIM 3, IDEAPAS 3, IDEAPAD SLIM 3]
+    IDEAPAD 330: [IDEAPAD330-14AST, 330-20IGM]
+    V130-14IGM: [V130--14IGM]
+  Asus:
+    VIVOBOOK GO 15: [VIVOBOOK GO 15 E1504GA-NJ083W]
+  Microsoft:
+    XBOX ONE: [ONE, XBOX ONE]
+    XBOX ONE S: [ONE S, 1681]
+    XBOX SERIES S: [SERIE S, SERIE S 512GB]
+  Makena:
+    32S2: [32S2]
+    40S2: [40S2 (2018)]
+  Xiaomi:
+    MI SMART SPEAKER: [L09G, MI SMART SPEAKER L09G]
+  RCA:
+    RTV22N2NF: [RTV22N2NF (2021), RTV22N2F]
+  Sharp:
+    2T-C32EF4UR: [2C-C32EF4UR]

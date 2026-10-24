@@ -1,0 +1,154 @@
+sector: hogar
+categorias: [Hogar - Cocina, Hogar - Ventilacion y clima, Hogar - Linea blanca, Hogar - Ropa y limpieza, Hogar - Belleza y salud, Hogar - Muebles]
+gama_por_defecto: basica
+marcas:
+  # ---- alta ----
+  Samsung:    {gama: alta, escritura: [SAMSUNG, SANSUNG, SANSON, SAMSONIC, SAMSUNG CHEF, SAMSUN]}
+  LG:         {gama: alta, escritura: [LG, L G]}
+  Whirlpool:  {gama: alta, escritura: [WHIRLPOOL, WHIRPOOL, WIRLPOOL, WHIRPOL, WHIRLPOL]}
+  KitchenAid: {gama: alta, escritura: [KITCHENAID, KITCHEN AID, KITCHEN-AID]}
+  Ninja:      {gama: alta, escritura: [NINJA, NINGA, NINYA]}
+  Panasonic:  {gama: alta, escritura: [PANASONIC, PANASONI]}
+  Mabe:       {gama: alta, escritura: [MABE, MABE., MAVE, MABEE]}
+  Hisense:    {gama: alta, escritura: [HISENSE, HYSENSE, HISENCE, HISSENSE]}
+  # ---- media ----
+  Midea:      {gama: media, escritura: [MIDEA, MEDEA, MIDIA]}
+  Mirage:     {gama: media, escritura: [MIRAGE, AMIRAGE, MIRRAGE, MIRAJE]}
+  Oster:      {gama: media, escritura: [OSTER, OSTERIZER, OSTERIZE, OSTERIZADOR]}
+  Black+Decker: {gama: media, escritura: [BLACK DECKER, BLACK AND DECKER, BLACK A DECKER, BLACK & DECKER, BLACK+DECKER, B&D, BLACK Y DECKER, BLAK DECKER, BLACK DEKER]}
+  T-fal:      {gama: media, escritura: [T FAL, T-FAL, TFAL, T FALL]}
+  Hamilton Beach: {gama: media, escritura: [HAMILTON BEACH, HAMILTHON BEACH, HALMITON BEACH, HALMITON BEACDH, HAMILTON, HAMILTOM BEACH]}
+  Taurus:     {gama: media, escritura: [TAURUS, TAURU, TAUROS]}
+  Singer:     {gama: media, escritura: [SINGER, SINGUER]}
+  Brother:    {gama: media, escritura: [BROTHER]}
+  Janome:     {gama: media, escritura: [JANOME]}
+  Koblenz:    {gama: media, escritura: [KOBLENZ, KBLENZ, KOBLEZ, COBLENZ]}
+  Craftsman:  {gama: media, escritura: [CRAFTSMAN, CRAFSMAN, CRASFMAN, CRASHMAN, CRAFTMAN, CRAFSTMAN, MAN]}
+  Winia:      {gama: media, escritura: [WINIA, WANIA]}
+  Daewoo:     {gama: media, escritura: [DAEWOO, DAEWOOD, DAEWO]}
+  Frigidaire: {gama: media, escritura: [FRIGIDAIRE, FRIGIDARE, FRIGARE, FRIGIDARIE]}
+  Acros:      {gama: media, escritura: [ACROS, ACRO]}
+  HKPro:      {gama: media, escritura: [HKPRO, HK PRO, HK-PRO]}
+  Galanz:     {gama: media, escritura: [GALANZ]}
+  Danby:      {gama: media, escritura: [DANBY]}
+  Coleman:    {gama: media, escritura: [COLEMAN]}
+  Igloo:      {gama: media, escritura: [IGLOO, IGLUOS, IGLU]}
+  Cuisinart:  {gama: media, escritura: [CUISINART]}
+  Conair:     {gama: media, escritura: [CONAIR]}
+  Remington:  {gama: media, escritura: [REMINGTON]}
+  Revlon:     {gama: media, escritura: [REVLON]}
+  Babyliss:   {gama: media, escritura: [BABYLISS, BBABYLISS, BABYLISS PRO, BABYLIS]}
+  Wahl:       {gama: media, escritura: [WAHL]}
+  Philco:     {gama: media, escritura: [PHILCO]}
+  Moulinex:   {gama: media, escritura: [MOULINEX, MOULIMEX, MOLUIMEX]}
+  Sunbeam:    {gama: media, escritura: [SUNBEAM]}
+  Proctor Silex: {gama: media, escritura: [PROCTOR SILEX, PROCTOR-SILEX]}
+  Turmix:     {gama: media, escritura: [TURMIX]}
+  Benelux:    {gama: media, escritura: [BENELUX]}
+  Tupperware: {gama: media, escritura: [TUPPERWARE]}
+  Gama Italy: {gama: media, escritura: [GAMA SONIC, GAMA ITALY, GAMA]}
+  # ---- basica ----
+  Atvio:      {gama: basica, escritura: [ATVIO, AT VIO, ATVIO HOME, AT VIO HOME, ATVIO-HOME]}
+  Chefmate:   {gama: basica, escritura: [CHEFMATE, CHEMATE, CHEFAMTE, CHEFMAN, CHEF MATE, BETTER CHEF, BETETR CHEF, BATTER CHEF]}
+  American:   {gama: basica, escritura: [AMERICAN, AMERICA]}
+  Brentwood:  {gama: basica, escritura: [BRENTWOOD, BRENTWOOS]}
+  Fancy:      {gama: basica, escritura: [FANCY, FANCI]}
+  Navia:      {gama: basica, escritura: [NAVIA]}
+  Record:     {gama: basica, escritura: [RECORD, RECORRD, RECOR]}
+  Mytek:      {gama: basica, escritura: [MYTEK]}
+  Betterware: {gama: basica, escritura: [BETTERWARE, BETTER WARE, BETERWARE, BETTERWERE]}
+  Rival:      {gama: basica, escritura: [RIVAL]}
+  Home Line:  {gama: basica, escritura: [HOME LINE, HOMELINE]}
+  Holstein:   {gama: basica, escritura: [HOLSTEIN]}
+  Sokany:     {gama: basica, escritura: [SOKANY]}
+  Zmartech:   {gama: basica, escritura: [ZMARTECH]}
+  Vec:        {gama: basica, escritura: [VEC, SUPRIME VEC, SUPREME VEC]}
+  Timco:      {gama: basica, escritura: [TIMCO]}
+  Kokken:     {gama: basica, escritura: [KOKKEN]}
+  Gourmia:    {gama: basica, escritura: [GOURMIA]}
+  Renpho:     {gama: basica, escritura: [RENPHO]}
+  Dash:       {gama: basica, escritura: [DASH]}
+  Truper:     {gama: basica, escritura: [TRUPER]}
+  Super Crow: {gama: basica, escritura: [SUPER CROW]}
+  Sharper Image: {gama: basica, escritura: [SHARPER IMAGE]}
+  Mainstays:  {gama: basica, escritura: [MAINSTAYS]}
+  Gadnic:     {gama: basica, escritura: [GADNIC]}
+  Aspix:      {gama: basica, escritura: [ASPIX]}
+  Roalflux:   {gama: basica, escritura: [ROALFLUX]}
+  Anbec:      {gama: basica, escritura: [ANBEC]}
+  # Tanques de gas: la "marca" es la distribuidora; no mueve el préstamo (lo mueve la capacidad)
+  Tara:       {gama: basica, escritura: [TARA]}
+  Armebe:     {gama: basica, escritura: [ARMEBE, ARMABE]}
+  Amarillo:   {gama: basica, escritura: [AMARILLO]}
+  Tatsa:      {gama: basica, escritura: [TATSA]}
+  Flamineta:  {gama: basica, escritura: [FLAMINETA, FLAMENTA, FLAMA]}
+  Super Flama: {gama: basica, escritura: [SUPER FLAMA]}
+  Sara:       {gama: basica, escritura: [SARA]}
+  Foset:      {gama: basica, escritura: [FOSET]}
+  RCA:        {gama: basica, escritura: [RCA]}
+  Azteca:     {gama: basica, escritura: [AZTECA]}
+  Iusa:       {gama: media, escritura: [IUSA, INCUSA, INGUSA]}
+  Woozoo:     {gama: basica, escritura: [WOOZOO]}
+  Vortex:     {gama: basica, escritura: [VORTEX]}
+  Haussman:   {gama: basica, escritura: [HAUSSMAN, HAUSSMANN]}
+  Nostalgia:  {gama: media, escritura: [NOSTALGIA, NOSTAL GIA, NOSTALGY]}
+  Ekco:       {gama: basica, escritura: [EKCO]}
+  Voltek:     {gama: basica, escritura: [VOLTEK, VOLTECK]}
+  Doce:       {gama: basica, escritura: [DOCE]}
+  Komn:       {gama: basica, escritura: [KOMN]}
+  Nano Titanium: {gama: basica, escritura: [NANO TITANIUM]}
+  Steam Style: {gama: basica, escritura: [STEAM STYLE]}
+  Fashion Xtreme: {gama: basica, escritura: [FASHION XTREME]}
+  Armex:      {gama: basica, escritura: [ARMEX]}
+modelos:
+  Mabe:
+    "": [SN, S/N, X, XX, XXX]
+    LMDX3123PBAB0: [LMDX3123PBADO, LMDX3123PBAD0, LMDX3123PBABO, LMDX3123PBAB]
+    LMDX1123PBAB0: [LMDX1123PBABO, LMDX1123PBAD0, LMDX1123PBADO]
+    LMDX3124PBAB0: [LMDX3124PBABO, LMDX3124PBAD0]
+    LMDX3123HBAB0: [LMDX3123HBABO]
+    LMDX2224HBAB0: [LMDX2224HBABO]
+  Mirage:
+    "": [SN, S/N, X, XX, XXX]
+    LMS013M: [LMS013ML, LMS013, LMS013M L]
+    LMS016M: [LMS016]
+  Atvio:
+    "": [SN, S/N, X, XX, XXX]
+    11KGH: [11KG H, 11 KGH]
+    TT-11KG-2: [TT11KG2, TT-11KG2]
+  HKPro:
+    "": [SN, S/N, X, XX, XXX]
+    THK-SM16015: [THKSM16015, THK SM16015]
+    THK-SM13015: [THKSM13015, THK SM13015]
+  Winia:
+    "": [SN, S/N, X, XX, XXX]
+    DWMK303PB: [DWM-K303PB, DWMK303P8]
+  Hisense:
+    "": [SN, S/N, X, XX, XXX]
+    WSA1102PCN1: [WSA1102P, WSA1102PCN]
+  Craftsman:
+    "": [SN, S/N, X, XX, XXX, MAN, 18 PULGADAS, 2020, 2021, 20 PULGADAS, DE PEDESTAL, VENTILADOR DE CAJON]
+    FREAL2020: [FREA2020, FREAL 2020, FREA 2020, FREAL-2020]
+    VPG-0018: [VPG0018]
+  Fancy:
+    "": [SN, S/N, X, XX, XXX]
+    EKATF-20F: [EKATF20F]
+    MISF-1806: [MISF1806]
+  Navia:
+    "": [SN, S/N, X, XX, XXX]
+    CFN220: [CFN 220, CFN2020, CFN 2020]
+  Oster:
+    "": [SN, S/N, X, XX, XXX]
+    OGYW3701: [OGYW 3701]
+  Chefmate:
+    "": [SN, S/N, X, XX, XXX]
+    BL01: [BL-01]
+    SW5001: [SW-5001]
+  American:
+    "": [SN, S/N, X, XX, XXX]
+  Tara:
+    "": [SN, S/N, X, XX, XXX, 9K, 9 KG, 9KG, 20K, 30K]
+  Armebe:
+    "": [SN, S/N, X, XX, XXX, 9K, 9KG]
+  Singer:
+    "": [SN, S/N, X, XX, XXX]

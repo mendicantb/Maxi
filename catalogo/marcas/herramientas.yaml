@@ -1,0 +1,9 @@
+sector: herramientas
+categorias: [Herramienta eléctrica, Herramienta de jardín y motor, Herramienta manual y de obra, Herramienta varia (sin identificar)]
+gama_por_defecto: basica
+marcas:
+  DeWalt: {gama: alta, escritura: [DEWALT, DEWAL, DE WALT]}
+  Truper: {gama: media, escritura: [TRUPER, TRUPPER]}
+modelos:
+  Truper:
+    ROTO-1/2A7: [ROTO12A7, RROTO12A7]

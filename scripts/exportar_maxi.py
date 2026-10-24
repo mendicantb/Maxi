@@ -27,6 +27,7 @@ import pandas as pd
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from marcas import cargar as cargar_marcas, gama_objeto, resolver  # noqa: E402
 from plantillas import campo, metricas  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,6 +36,8 @@ P = os.path.join(ROOT, "data", "processed")
 POR_MODELO = {"Celulares", "Tablets", "Motos", "Autos y camionetas", "Videojuegos", "Relojes"}
 EXCLUIR = {"Joyería de oro", "Joyería de plata"}
 MIN_HISTORIAL = 5  # regla del mockup: con 5+ operaciones propias manda el historial
+MIN_OBJETO = 5     # empeños para que una marca+modelo sea objeto propio; si no, va al genérico por gama
+GAMA_TXT = {"alta": "gama alta", "media": "gama media", "basica": "gama básica"}
 
 CAMPOS_METRICA = ["prendas", "prestamo_p25", "prestamo_mediana", "prestamo_p75", "pct_desempeno",
                   "pct_refrenda", "pct_remate", "drop_cerrados", "vendidas", "venta_p25",
@@ -116,30 +119,45 @@ def main():
     df["plantilla_maxi"] = df.plantilla.where(~por_modelo, df.categoria)
     df["plantilla_maxi_id"] = df.plantilla_id.where(~por_modelo, df.categoria.str.lower().str.replace(" ", "-"))
 
-    # objetos: por modelo = la regla del YAML; generales = marca + modelo capturados
-    df["marca_obj"] = df.apply(marca_de, axis=1)
-    gen = ~por_modelo
-    df.loc[gen, "marca_obj"] = df[gen].groupby("plantilla_id")["marca_obj"].transform(unificar_marcas)
-    modelo = df.Modelo.map(campo).str.replace(r"[^A-Z0-9]", "", regex=True)
-    modelo = modelo.where((modelo.str.len() >= 2) & (modelo != df.marca_obj.str.upper().str.replace(" ", "")), "")
-    df["objeto"] = df.plantilla.where(por_modelo, "")
-    df.loc[gen, "objeto"] = [
-        (f"{m} {mo}" if m and mo else f"{m} (modelo sin anotar)" if m else "Sin marca")
-        for m, mo in zip(df.loc[gen, "marca_obj"], modelo[gen])]
-    df.loc[por_modelo, "marca_obj"] = [defs.get(i, {}).get("p", {}).get("marca") or m
-                                       for i, m in zip(df.loc[por_modelo, "plantilla_id"],
-                                                       df.loc[por_modelo, "marca_obj"])]
-    # "FT150" -> "Italika FT150" (si el nombre no trae ya la marca)
-    df.loc[por_modelo, "objeto"] = [
-        o if not m or o.upper().startswith(m.upper()) or "(" in o and m.upper() in o.upper() else f"{m} {o}"
-        for o, m in zip(df.loc[por_modelo, "objeto"], df.loc[por_modelo, "marca_obj"])]
+    # marca, gama y modelo limpios (catalogo/marcas/*.yaml)
+    cfg_marcas = cargar_marcas()
+    res = [resolver(r, cfg_marcas.get(r["categoria"])) for r in df.to_dict("records")]
+    df["marca_obj"], df["gama"], df["modelo_obj"], df["marca_ok"] = zip(*res)
+    df["marca_res"] = df.marca_obj
+    fija = [gama_objeto(i, cfg_marcas.get(c)) for i, c in zip(df.plantilla_id, df.categoria)]
+    df["gama"] = [f or g for f, g in zip(fija, df.gama)]
+
+    # candidato a objeto propio: modelo de celular/moto (regla no genérica) o marca + modelo capturados
+    marca_regla = df.plantilla_id.map(lambda i: defs.get(i, {}).get("p", {}).get("marca"))
+    generica = df.plantilla_id.map(lambda i: bool(defs.get(i, {}).get("p", {}).get("generica")))
+    cand = pd.Series(None, index=df.index, dtype=object)
+    pm = por_modelo & ~generica
+    cand[pm] = [o if not m or o.upper().startswith(str(m).upper()) else f"{m} {o}"
+                for o, m in zip(df.loc[pm, "plantilla"], marca_regla[pm])]
+    gen = ~por_modelo & df.marca_ok & (df.modelo_obj != "")
+    cand[gen] = df.loc[gen, "marca_obj"] + " " + df.loc[gen, "modelo_obj"]
+    df["candidato"] = cand
+    n = df[df.es_compra != True].groupby(["plantilla_maxi_id", "candidato"]).size()  # noqa: E712
+    propio = [pd.notna(c) and n.get((p, c), 0) >= MIN_OBJETO for p, c in zip(df.plantilla_maxi_id, df.candidato)]
+    df["tipo_objeto"] = ["propio" if x else "genérico por gama" for x in propio]
+    df["objeto"] = [c if x else f"{pl} · {GAMA_TXT.get(g, 'gama básica')}"
+                    for c, x, pl, g in zip(df.candidato, propio, df.plantilla_maxi, df.gama)]
+    df.loc[[not x for x in propio], "marca_obj"] = None
 
     m_pl = tabla_metricas(df, ["categoria", "plantilla_maxi_id", "plantilla_maxi"])
-    m_ob = tabla_metricas(df, ["categoria", "plantilla_maxi_id", "plantilla_maxi", "objeto", "plantilla_id"])
+    m_ob = tabla_metricas(df, ["categoria", "plantilla_maxi_id", "plantilla_maxi", "objeto", "tipo_objeto", "gama"])
     m_va = tabla_metricas(df, ["categoria", "plantilla_maxi_id", "plantilla_maxi", "objeto", "variante"])
     for t in (m_ob, m_va):
         t["precio_por"] = t.prendas.map(lambda n: "historial" if n >= MIN_HISTORIAL else "regla de la plantilla")
     m_ob["marca"] = m_ob.objeto.map(df.groupby("objeto").marca_obj.first())
+    m_ob["plantilla_id"] = m_ob.objeto.map(df.groupby("objeto").plantilla_id.first())
+    # en los genéricos: qué marcas caen ahí
+    marcas_gen = (df[(df.tipo_objeto != "propio") & (df.marca_res != "")].groupby("objeto").marca_res
+                  .agg(lambda x: ", ".join(x.value_counts().head(6).index)))
+    m_ob["marcas_incluidas"] = m_ob.objeto.map(marcas_gen)
+    # por promover: marca+modelo con 2-4 empeños (llegan a objeto propio al juntar 5)
+    pend = n[(n >= 2) & (n < MIN_OBJETO)].reset_index(name="empeños")
+    pend["plantilla"] = pend.plantilla_maxi_id.map(df.groupby("plantilla_maxi_id").plantilla_maxi.first())
 
     salida = []
     for (cat, pid, nombre), _ in df.groupby(["categoria", "plantilla_maxi_id", "plantilla_maxi"]):
@@ -155,8 +173,10 @@ def main():
             "molde_descripcion": d0["p"].get("molde_descripcion"),
             "historial": {k: fila.get(k) for k in CAMPOS_METRICA},
             "objetos": [{
-                "objeto": o.objeto, "marca": o.marca,
-                "sinonimos": defs[o.plantilla_id]["p"].get("sinonimos") if cat in POR_MODELO else None,
+                "objeto": o.objeto, "tipo": o.tipo_objeto, "gama": o.gama, "marca": o.marca,
+                "marcas_incluidas": o.marcas_incluidas if isinstance(o.marcas_incluidas, str) else None,
+                "sinonimos": defs[o.plantilla_id]["p"].get("sinonimos")
+                if cat in POR_MODELO and o.tipo_objeto == "propio" else None,
                 "precio_por": o.precio_por,
                 "historial": {k: o.get(k) for k in CAMPOS_METRICA},
                 "variantes": [{"variante": v.variante, "precio_por": v.precio_por,
@@ -175,16 +195,22 @@ def main():
         "Categoría": s["categoria"], "Plantilla": s["plantilla"],
         "Campos que crean variante": ", ".join(c["campo"] for c in s["campos"] if c["crea_variante"]) or "—",
         "Campos descriptivos": ", ".join(c["campo"] for c in s["campos"] if not c["crea_variante"]),
-        "Objetos": len(s["objetos"]),
+        "Objetos propios": sum(o["tipo"] == "propio" for o in s["objetos"]),
+        "Genéricos por gama": sum(o["tipo"] != "propio" for o in s["objetos"]),
         "Objetos con historial (5+)": sum(o["precio_por"] == "historial" for o in s["objetos"]),
         "Checklist": texto_lista(s["checklist"]), "Fotos": texto_lista(s["fotos"]),
         **{k: s["historial"][k] for k in CAMPOS_METRICA}} for s in salida]).sort_values("prendas", ascending=False)
-    cols = ["categoria", "plantilla_maxi", "objeto", "marca", "precio_por"] + CAMPOS_METRICA
-    hoja_ob = m_ob[cols].sort_values(["categoria", "plantilla_maxi", "prendas"], ascending=[True, True, False])
+    cols = ["categoria", "plantilla_maxi", "objeto", "tipo_objeto", "gama", "marca", "marcas_incluidas",
+            "precio_por"] + CAMPOS_METRICA
+    hoja_ob = m_ob[cols].sort_values(["categoria", "plantilla_maxi", "tipo_objeto", "prendas"],
+                                     ascending=[True, True, True, False])
+    hoja_pp = pend[["plantilla", "candidato", "empeños"]].sort_values(["plantilla", "empeños"],
+                                                                     ascending=[True, False])
     hoja_va = m_va[["categoria", "plantilla_maxi", "objeto", "variante", "precio_por"] + CAMPOS_METRICA] \
         .sort_values(["categoria", "plantilla_maxi", "objeto", "prendas"], ascending=[True, True, True, False])
     ren = {"categoria": "Categoría", "plantilla_maxi": "Plantilla", "objeto": "Objeto", "marca": "Marca",
-           "variante": "Variante", "precio_por": "Precio sugerido por", "prendas": "Empeños",
+           "variante": "Variante", "precio_por": "Precio sugerido por", "tipo_objeto": "Tipo de objeto",
+           "gama": "Gama", "marcas_incluidas": "Marcas que caen aquí", "candidato": "Marca + modelo", "prendas": "Empeños",
            "prestamo_p25": "Préstamo p25", "prestamo_mediana": "Préstamo mediana", "prestamo_p75": "Préstamo p75",
            "pct_desempeno": "% desempeña", "pct_refrenda": "% refrenda ≥1", "pct_remate": "% remate",
            "drop_cerrados": "DROP cerrados", "vendidas": "Vendidas", "venta_p25": "Venta p25",
@@ -192,10 +218,15 @@ def main():
            "dias_vitrina_mediana": "Días en vitrina", "salida": "Salida"}
     xlsx = os.path.join(ROOT, "reportes", "maxi_pos_plantillas.xlsx")
     with pd.ExcelWriter(xlsx) as w:
-        for nombre, t in [("Plantillas", hoja_pl), ("Objetos", hoja_ob), ("Variantes", hoja_va)]:
+        for nombre, t in [("Plantillas", hoja_pl), ("Objetos", hoja_ob), ("Variantes", hoja_va),
+                          ("Por promover", hoja_pp)]:
             t.rename(columns=ren).to_excel(w, sheet_name=nombre, index=False)
-    print(f"plantillas: {len(salida)}  objetos: {len(m_ob)}  "
-          f"con historial (5+): {(m_ob.precio_por == 'historial').sum()}  variantes: {len(m_va)}")
+    prop = m_ob.tipo_objeto == "propio"
+    print(f"plantillas: {len(salida)}  objetos propios: {prop.sum()}  genéricos por gama: {(~prop).sum()}  "
+          f"variantes: {len(m_va)}  por promover (2-4 empeños): {len(pend)}")
+    emp = df[df.es_compra != True]  # noqa: E712
+    print(f"empeños en objeto propio: {(emp.tipo_objeto == 'propio').mean():.0%}  "
+          f"marca reconocida: {emp.marca_ok.mean():.0%}")
 
 
 if __name__ == "__main__":
