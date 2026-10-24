@@ -75,7 +75,7 @@ marcas:
     gama: media
     escritura: [CRAFTSMAN, CASFTMAN, CRASFTMAN, CRAFSMAN, CRAFTMAN]
   Husky:
-    gama: media
+    gama: basica
     escritura: [HUSKY, HUSKI, HISKY, HUSKY GOLD ENERGY]
   Koblenz:
     gama: media
@@ -139,7 +139,7 @@ marcas:
     gama: basica
     escritura: [INGCO, INCCO, INGKO]
   Kinro:
-    gama: basica
+    gama: media
     escritura: [KINRO, KINRRO, KINROO, KINRRO]
   Oakland:
     gama: basica
@@ -270,6 +270,9 @@ marcas:
   Xiwer:
     gama: basica
     escritura: [XIWER, SIWER]
+  Aksi:
+    gama: basica
+    escritura: [AKSI, AKZI]
   Mirage:
     gama: basica
     escritura: [MIRAGE]
@@ -354,6 +357,11 @@ modelos:
     "61": [MODELO 61, "061", H61]
     "365": [MODELO 365]
     "440": [MODELO 440]
+  Kinro:
+    DK550: [KD550, DK 550]
+  Husky:
+    HKM5220: ["5220"]
+    HKM52 PLUS: [HKME52 PLUS]
   Black+Decker:
     G720: [G720 B3, G720 BE, QJ720 B3, F720 B3]
     HD500: [HD500 B3]
