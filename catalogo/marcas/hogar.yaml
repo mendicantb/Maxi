@@ -99,6 +99,9 @@ marcas:
   Nano Titanium: {gama: basica, escritura: [NANO TITANIUM]}
   Steam Style: {gama: basica, escritura: [STEAM STYLE]}
   Fashion Xtreme: {gama: basica, escritura: [FASHION XTREME]}
+  Solac:      {gama: media, escritura: [SOLAC]}
+  Continental: {gama: basica, escritura: [CONTINENTAL, CONTINETAL]}
+  Signa:      {gama: basica, escritura: [SIGNA]}
   Armex:      {gama: basica, escritura: [ARMEX]}
 modelos:
   Mabe:

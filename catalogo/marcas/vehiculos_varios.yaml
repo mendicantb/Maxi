@@ -54,6 +54,9 @@ marcas:
   Bucanero: {gama: basica, escritura: [BUCANERO]}
   Kaiser: {gama: basica, escritura: [KAISER, KAIZER]}
   Next: {gama: media, escritura: [NEXT]}
+  Koblenz: {gama: media, escritura: [KOBLENZ]}
+  High Power: {gama: basica, escritura: [HIGH POWER]}
+  Chefstyle: {gama: basica, escritura: [CHEFSTYLE]}
   # ---- Relojes
   Rolex: {gama: alta, escritura: [ROLEX, ROLES]}
   Tag Heuer: {gama: alta, escritura: [TAG HEUER, TAGHEUER, TAG HEUR]}
@@ -152,4 +155,131 @@ marcas:
   # ---- Ropa, calzado y accesorios
   Avon: {gama: basica, escritura: [AVON]}
   Star Alban: {gama: basica, escritura: [STAR ALBAN, RED ALBAN]}
-modelos: {}
+
+# Un año capturado como "modelo" no es modelo: el año ya crea la variante, se manda a "" (objeto de la marca).
+modelos:
+  Italika:
+    ZW150: [ZW 150, ZW150 2025]
+    FT150: [FT 150, FT150GTS, FT150G, FT150 GTS, FT150TS]
+    FT125: [FT125TS, FT 125]
+    D125: [D1252025, D 125, D125 2025]
+    125Z: [125 Z, SERIE Z 125, Z125]
+    200Z: [200 Z, Z200]
+    AT110: [AT110LT, AT 110, AT110 LT]
+    AT125: [AT 125]
+    DT125: [DT125LT, DT 125]
+    DS150: [DS 150]
+    GS150: [GS 150]
+    "": ["150", "125", "110", "200", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+  Yamaha:
+    ENTICER 125: [ENTICER125CC, ENTICER 125 CC, ENTICER]
+  Kiwo:
+    KY200: [KY200CC, KY 200, KY 200 CC]
+  Piaggio:
+    APE: ["2022", "2023", "2024", "2025", APE CITY, APE CAR]
+  Dinamo: {"": ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]}
+  Tribu: {"": ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]}
+  Veloci: {"": ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]}
+  Vento:
+    CYCLONE: [CICLONE, CYCLON]
+    "": ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+  Mercurio:
+    KAISER: [KAIZER, KAISSER]
+    MONTAÑA: [MONTANA, MOTANA, MONTAÑERA]
+    "": [AZUL, VERDE, ROJA, ROJO, FLORES, SM, SN, ROSA, NEGRA, TRICICLIO, TRICICLO]
+  Benotto:
+    "": [ROSA, AZUL, NEGRA]
+  Mongoose:
+    MONK: [MONKGOOSE, MONGOOSE MONK]
+    "": [MONGOOSE]
+  Nissan:
+    "": [2002NATS01, NATS01]
+  Takara Tomy:
+    "": [TRANSFORMERS]
+  Victorinox:
+    "": [VICTORINO, VICTORIO, NAVAJA, ROJA, MULTIUSOS, STAINLESS]
+    HUNTSMAN: [HUNTMAN]
+    RANGER: [RANGER GRIP]
+  Rolex:
+    OYSTER PERPETUAL: [OYSTERPERPEETUAL, OYSTER PERPEETUAL, OYSTER]
+    DATEJUST: [DATE JUST]
+    "": [NEW YORK, ROLEX]
+  Casio:
+    F-91W: [F91W, F 91W]
+    G-SHOCK: [GSHOCK, G SHOCK]
+
+# Sólo plantillas por modelo: id de la regla -> gama
+gama_por_objeto:
+  # Motos
+  moto.italika.ft150: media
+  moto.italika.ft125: media
+  moto.italika.ft180: media
+  moto.italika.ft200: media
+  moto.italika.dm150: media
+  moto.italika.dm200: media
+  moto.italika.dm250: media
+  moto.italika.d125: media
+  moto.italika.ds150: basica
+  moto.italika.dt125: basica
+  moto.italika.zw150: media
+  moto.italika.zw125: media
+  moto.italika.zr200: media
+  moto.italika.serie-z: media
+  moto.italika.at110: basica
+  moto.italika.at125: basica
+  moto.italika.st110: basica
+  moto.italika.gs150: basica
+  moto.italika.v200: media
+  moto.italika.150cc: basica
+  moto.yamaha.fz16: alta
+  moto.yamaha.enticer: media
+  moto.yamaha.otros: media
+  moto.vento.cyclone: basica
+  moto.vento.lithium: basica
+  moto.vento.otros: basica
+  moto.dinamo: basica
+  moto.tribu: basica
+  moto.kiwo: media
+  moto.veloci: basica
+  moto.honda: alta
+  moto.bajaj: media
+  moto.suzuki: media
+  moto.kawasaki: alta
+  moto.otras-marcas: basica
+  moto.piaggio.ape: media
+  moto.tvs.motocarro: media
+  moto.motocarro.generico: basica
+  moto.italika.generico: basica
+  moto.generica: basica
+  # Autos
+  auto.ford.explorer: alta
+  auto.chrysler.voyager: media
+  auto.ford.otros: media
+  auto.massey-ferguson.tractor: alta
+  auto.camion.generico: media
+  auto.volkswagen: media
+  auto.nissan: basica
+  auto.dodge: media
+  auto.chevrolet: media
+  auto.toyota: media
+  auto.otras-marcas: basica
+  auto.camioneta.generica: media
+  auto.generico: basica
+  # Relojes
+  rel.rolex: alta
+  rel.tagheuer: alta
+  rel.rado: alta
+  rel.michaelkors: media
+  rel.fossil: media
+  rel.casio: basica
+  rel.invicta: media
+  rel.orient: basica
+  rel.huawei: media
+  rel.applewatch: alta
+  rel.samsung-watch: media
+  rel.otras-marcas: basica
+  rel.smartwatch: basica
+  rel.pared: basica
+  rel.digital: basica
+  rel.generico: basica
+  rel.reloj-otro: basica

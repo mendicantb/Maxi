@@ -104,6 +104,18 @@ marcas:
   Brodu: {gama: basica, escritura: [BRODU]}
   Segovia: {gama: basica, escritura: [SEGOVIA]}
   La Purepecha: {gama: basica, escritura: [LA PUREPECHA]}
+  1Hora: {gama: basica, escritura: [1HORA, 1 HORA, IHORA, HORA]}
+  Dorras: {gama: basica, escritura: [DORRAS]}
+  Musicord: {gama: basica, escritura: [MUSICORD, MUSICOR]}
+  Smikr: {gama: basica, escritura: [SMIKR]}
+  Maiz: {gama: basica, escritura: [MAIZ]}
+  Speler: {gama: basica, escritura: [SPELER]}
+  Edson: {gama: basica, escritura: [EDSON]}
+  Majority: {gama: basica, escritura: [MAJORITY]}
+  Energy: {gama: basica, escritura: [ENERGY]}
+  Forte Studio: {gama: basica, escritura: [FORTE STUDIO]}
+  Buytiti: {gama: basica, escritura: [BUYTITI]}
+  Fx: {gama: basica, escritura: [FX]}
 
 modelos:
   HKPro:
@@ -207,7 +219,7 @@ modelos:
     VIVOBOOK GO 15: [VIVOBOOK GO 15 E1504GA-NJ083W]
   Microsoft:
     XBOX ONE: [ONE, XBOX ONE]
-    XBOX ONE S: [ONE S, 1681]
+    XBOX ONE S: [ONE S, '1681']
     XBOX SERIES S: [SERIE S, SERIE S 512GB]
   Makena:
     32S2: [32S2]

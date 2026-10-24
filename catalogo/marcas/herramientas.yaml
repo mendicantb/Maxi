@@ -1,9 +1,365 @@
 sector: herramientas
 categorias: [Herramienta eléctrica, Herramienta de jardín y motor, Herramienta manual y de obra, Herramienta varia (sin identificar)]
-gama_por_defecto: basica
+gama_por_defecto: basica          # marca no reconocida, china o vacía (SN, X, XXX, VARIAS, GENERICA, SIN MARCA)
+
 marcas:
-  DeWalt: {gama: alta, escritura: [DEWALT, DEWAL, DE WALT]}
-  Truper: {gama: media, escritura: [TRUPER, TRUPPER]}
+  # ---------------- ALTA: profesional / premium ----------------
+  DeWalt:
+    gama: alta
+    escritura: [DEWALT, DEWAL, DE WALT, DWALT, DEWALL, DEWATL, DELWAL, DEALT, DEWALKE, DEWAL20VMAX, DWD, DWO]
+  Makita:
+    gama: alta
+    escritura: [MAKITA, MAKTA, MALIKEE, MAKITTA, MAKIT]
+  Milwaukee:
+    gama: alta
+    escritura: [MILWAUKEE, MILWAKEE, MILWAKEN, MILWUAKEE, MILWAAUKEE, MILKWAUKEE, MILWWUELKEE, MILWAUKE, MILWAAKER, MILWAWKEE, MILWAKE, MILWAUKE, MILWAUKEEE]
+  Bosch:
+    gama: alta
+    escritura: [BOSCH, BOSH, BOCH, BOSCHE]
+  Hilti:
+    gama: alta
+    escritura: [HILTI]
+  Metabo:
+    gama: alta
+    escritura: [METABO]
+  Stihl:
+    gama: alta
+    escritura: [STIHL, STHIL, STHILL, STHILT, STILHL, STILTH, STIL, STILL, STHL, DTIHL, SHIL, STHIHL, STIHLL, STIIHL]
+  Husqvarna:
+    gama: alta
+    escritura: [HUSQVARNA, HUSQURVANA, HUSQUARNA, HUSQUARVANA, HUSQVANA, HUSQVARVA, HUSQVARNAS, HUSQVARMA, HUZQVARNA]
+  Dolmar:
+    gama: alta
+    escritura: [DOLMAR]
+  Honda:
+    gama: alta
+    escritura: [HONDA]
+  Yamaha:
+    gama: alta
+    escritura: [YAMAHA]
+  Lincoln Electric:
+    gama: alta
+    escritura: [LINCOLN, LINCOLT, LINCOLN ELECTRIC]
+  Miller:
+    gama: alta
+    escritura: [MILLER]
+  Ridgid:
+    gama: alta
+    escritura: [RIDGID, RIGID]
+  # ---------------- MEDIA: conocida, uso doméstico / semi-pro ----------------
+  Truper:
+    gama: media
+    escritura: [TRUPER, TRUPPER, TRUPE, TRUPPE, TRUPPEER, TRUOER, TRPER, TRUPEL, TRUPWE, TRUPOWER]
+  Black+Decker:
+    gama: media
+    escritura: [BLACK DECKER, BLACK AND DECKER, BLACK A DECKER, BLACK Y DECKER, BLACK DECKE, BLACKANDDECKER, BLACKDECKER, BALCK DECKER, BLACK DEKER, BLASCK DECKER, BLACIK A DECKER, BLAK DEKERR, BLACK DECKR, BLACK  DECKER]
+  Ryobi:
+    gama: media
+    escritura: [RYOBI, RIOBI, RYOVI]
+  Skil:
+    gama: media
+    escritura: [SKIL, SKILL, SKYL]
+  Stanley:
+    gama: media
+    escritura: [STANLEY, STALEY, STARLEY, STANLY, STANELY]
+  Urrea:
+    gama: media
+    escritura: [URREA, URRER]
+  Surtek:
+    gama: media
+    escritura: [SURTEK, SRTTEK, SURTEC]
+  Einhell:
+    gama: media
+    escritura: [EINHELL]
+  Craftsman:
+    gama: media
+    escritura: [CRAFTSMAN, CASFTMAN, CRASFTMAN, CRAFSMAN, CRAFTMAN]
+  Husky:
+    gama: media
+    escritura: [HUSKY, HUSKI, HISKY, HUSKY GOLD ENERGY]
+  Koblenz:
+    gama: media
+    escritura: [KOBLENZ, KOBLEZ]
+  Karcher:
+    gama: media
+    escritura: [KARCHER, KAYCHER, KERCHER, KARCHEL]
+  Kobalt:
+    gama: media
+    escritura: [KOBALT]
+  Porter-Cable:
+    gama: media
+    escritura: [PORTER CABLE, PORTER-CABLE]
+  Pittsburgh:
+    gama: media
+    escritura: [PITTSBURGH, CHICAGO ELECTRIC]
+  Duralast:
+    gama: media
+    escritura: [DURALAST]
+  Weg:
+    gama: media
+    escritura: [WEG]
+  Siemens:
+    gama: media
+    escritura: [SIEMENS, SIEMNS]
+  Toyama:
+    gama: media
+    escritura: [TOYAMA, TOYOMA]
+  Campbell Hausfeld:
+    gama: media
+    escritura: [CAMPBELL, CAMPBELL HAUSFELD]
+  Evans:
+    gama: media
+    escritura: [EVANS]
+  Hitachi:
+    gama: media
+    escritura: [HITACHI, HIKOKI]
+  Daewoo:
+    gama: media
+    escritura: [DAEWOO]
+  Remington:
+    gama: media
+    escritura: [REMINGTON]
+  Total:
+    gama: media
+    escritura: [TOTAL, TOTAL TOOLS]
+  Foy:
+    gama: media
+    escritura: [FOY]
+  # ---------------- BASICA: económica, china o genérica ----------------
+  Pretul:
+    gama: basica
+    escritura: [PRETUL, PREMUL, PRETTUL, TREPUL, PRETIL, PRETUUL]
+  Toolcraft:
+    gama: basica
+    escritura: [TOOLCRAFT, TOOL CRAFT]
+  Hyundai:
+    gama: basica
+    escritura: [HYUNDAI]
+  Ingco:
+    gama: basica
+    escritura: [INGCO, INCCO, INGKO]
+  Kinro:
+    gama: basica
+    escritura: [KINRO, KINRRO, KINROO, KINRRO]
+  Oakland:
+    gama: basica
+    escritura: [OAKLAND, OAKLAN, DAKLAND]
+  Burcat Power:
+    gama: basica
+    escritura: [BURCAT, BURCAT POWER, BURCAT POWE]
+  Columbia:
+    gama: basica
+    escritura: [COLUMBIA]
+  Oks:
+    gama: basica
+    escritura: [OKS]
+  Teeno:
+    gama: basica
+    escritura: [TEENO, TEECNO, TENNO]
+  Shawty:
+    gama: basica
+    escritura: [SHAWTY]
+  Bowoshen:
+    gama: basica
+    escritura: [BOWOSHEN, BWEEN]
+  Maxtool:
+    gama: basica
+    escritura: [MAXTOOL]
+  Gladiador:
+    gama: basica
+    escritura: [GLADIADOR]
+  Adir:
+    gama: basica
+    escritura: [ADIR, AADIR, ADR]
+  Goxawee:
+    gama: basica
+    escritura: [GOXAWEE, GOXAGEE]
+  Victeche:
+    gama: basica
+    escritura: [VICTECHE]
+  Sydsys:
+    gama: basica
+    escritura: [SYDSYS, SIDSYS]
+  Coldtek:
+    gama: basica
+    escritura: [COLDTEK]
+  Parizziini:
+    gama: basica
+    escritura: [PARIZIINI]
+  Knova:
+    gama: basica
+    escritura: [KNOVA]
+  Takashi:
+    gama: basica
+    escritura: [TAKASHI, TAKASYH]
+  Vinson:
+    gama: basica
+    escritura: [VINSON]
+  Trent:
+    gama: basica
+    escritura: [TRENT]
+  Volt:
+    gama: basica
+    escritura: [VOLT]
+  Furius:
+    gama: basica
+    escritura: [FURIUS, FURIOS]
+  Lamborghini:
+    gama: basica
+    escritura: [LAMBORDINI, LAMBORGHINI]
+  Hecelo:
+    gama: basica
+    escritura: [HECELO, HACELO, HACELO]
+  Promaker:
+    gama: basica
+    escritura: [PROMAKER]
+  Vevor:
+    gama: basica
+    escritura: [VEVOR]
+  Hercher:
+    gama: basica
+    escritura: [HERCHER]
+  Power Hunt:
+    gama: basica
+    escritura: [POWER HUT, POWERHUNT, POWER HUNT]
+  Welder Force:
+    gama: basica
+    escritura: [WELD FORCE]
+  Red Force:
+    gama: basica
+    escritura: [RED FORCE]
+  Sure Bill:
+    gama: basica
+    escritura: [SURE BILL]
+  Hyper Tough:
+    gama: basica
+    escritura: [HYPER TOUGH]
+  Master Mechanic:
+    gama: basica
+    escritura: [MASTER MECHANI, MASTER MECHANIC]
+  Lion Tools:
+    gama: basica
+    escritura: [LION TOOLS]
+  Osaka:
+    gama: basica
+    escritura: [OSAKA]
+  Bergen:
+    gama: basica
+    escritura: [BERGEN, BERGER]
+  Foreman:
+    gama: basica
+    escritura: [FOREMAN, FORMAN]
+  Found Tools:
+    gama: basica
+    escritura: [FOUND, FOUND TOOLS, FAUND]
+  Mikels:
+    gama: basica
+    escritura: [MIKELS]
+  Knoon:
+    gama: basica
+    escritura: [KNOON]
+  Torrey:
+    gama: basica
+    escritura: [TORREY]
+  Pro Point:
+    gama: basica
+    escritura: [PRO POINT]
+  Sisaya:
+    gama: basica
+    escritura: [SISAYA]
+  Xiwer:
+    gama: basica
+    escritura: [XIWER, SIWER]
+  Mirage:
+    gama: basica
+    escritura: [MIRAGE]
+  Raptor:
+    gama: basica
+    escritura: [RAPTOR]
+  Titan:
+    gama: basica
+    escritura: [TITAN]
+  Steren:
+    gama: basica
+    escritura: [STEREN]
+  Gavilan:
+    gama: basica
+    escritura: [GAVILAN]
+
 modelos:
   Truper:
-    ROTO-1/2A7: [ROTO12A7, RROTO12A7]
+    ROTO-1/2A7: [RROTO12A7, ROTO A7, ROTO1/A7, ROTO 1/2A7]
+    ROTO-1/2A8: [ROTO 1/22A8, ROTO1/2AB, ROTO 1/2AB]
+    ROTO-1/2A9: [ROTO 1/2AS9, ROT 1/2A9]
+    ROTO-1/2A10: [ROTO 1 2A10]
+    ROTO-1/2N7: [1/2N7]
+    ROTO-3/8A4: [ROTO3/8A4]
+    SICI-7-1/4A3: [SICI 7A/4A3, SICI 7/4A3]
+    SICI-7-1/4N4: [SICI 71/4N4]
+    ESMA-4-1/2A12: [ESMA 4 1/2A12SN, ESMA4A/2A12, ESMA 4 11/2A12, ESMA4 A/2A12]
+    ESMA-4-1/2A10: [ESMA4/1/2A10, ESMA41/2A10, EMA4/1 A9X]
+    ESMA-4-1/2A9: [4 1/2A9, EMA4/1 A9]
+    ERGO-4580: [EEGO 4580, ERGO 4580.]
+    ESMA-4590N: [ESMA 4590 N]
+    ESMA-4580N: [ESMA 4580 N]
+    CALA-A4: [CALA A4]
+  Pretul:
+    ESMA-4-1/2P5: [4 1/2P5, ESMA 4/2 P5]
+    ESMA-4-1/2P2: [ESMA 4 41/2P2]
+    ROTO-1/2P6: [ROTO 1/2P6]
+    COMP-20L: [20 L, 20L, 20 LITROS, COMP 20LP, COMP 20L]
+  DeWalt:
+    DWE4120: [DWE4120 B3, DEW4120 B3, 4120 B3]
+    DWD024: [DWD024 B3, DWD024 D3, DEWD024B3, DWD0214 B3, DWD024B3]
+    DW508: [DW508 B]
+    DW508S: [DW508S B3]
+    D21008: [21008, D21008 B3]
+    D25260: [D25260 B3]
+    DWE4020: [DWE4020 B3]
+    DWE4314: [DWE4314 B3]
+    DWE4010: [DWE4010 B3, DWE4010 B3X]
+    DWE490: [DWE490 B, DWE490 B3]
+    DWE4212: [DWE4212 B3]
+    DWE560: [DWE560 B3]
+    DW300: [DW300 B3]
+    DW505: [DW505 B3]
+    D28490: [D28490 B3]
+    D28730: [D28730 B3]
+    DW713: [DW713 B13]
+    DCD776: [DCD776 B3]
+  Makita:
+    HP1630: [O HP1630, HP1630 B3]
+    GA4530: [GA4530R]
+    9557HP: [9557 HP]
+  Bosch:
+    GBH 2-24 D: [GBH 224D, GBH 2 24 D]
+    GSB 13 RE: [GSB13RE, GSB 13RE]
+    GST 650: [GST650]
+    GWS 670: [GWS670]
+    GWS 850: [GWS850]
+  Stihl:
+    MS250: [250, MS250/C, MS 250 C]
+    MS361: [361]
+    MS381: [381]
+    MS382: [382]
+    MS210: [210]
+    MS170: [170]
+    MS180: [MS 180 C, 180]
+    FS38: [38]
+    FS55: [F55STHIL]
+    FS220: [220]
+    FS280: [FS 0280, 280]
+    FS235: [235]
+  Husqvarna:
+    "61": [MODELO 61, "061", H61]
+    "365": [MODELO 365]
+    "440": [MODELO 440]
+  Black+Decker:
+    G720: [G720 B3, G720 BE, QJ720 B3, F720 B3]
+    HD500: [HD500 B3]
+    HD555: [HD555 B3]
+    KS501: [KS501 B3]
+    KS406: [KS 406 B3, KS406 B3]
+    KS400: [KS400 B3]
+    KS405: [KS405 B3]
+    WP1500K: [WP1500K B3]
