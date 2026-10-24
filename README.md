@@ -14,7 +14,8 @@ cuánto se presta, qué % desempeña, refrenda o se remata, a cuánto se vende y
 - **33 categorías · 644 plantillas** cubren el **99%** de las prendas (95% en plantilla específica, no genérica).
 - Resumen legible: [`reportes/cobertura.md`](reportes/cobertura.md).
 - Modelo Plantilla › Objeto › Variante: [`docs/MODELO_PLANTILLAS.md`](docs/MODELO_PLANTILLAS.md) y
-  `reportes/maxi_pos_plantillas.xlsx` (228 plantillas, 3,116 objetos, sin joyería).
+  `reportes/maxi_pos_plantillas.xlsx` (228 plantillas, 274 objetos propios con 5+ empeños + 408 genéricos
+  por gama alta / media / básica, sin joyería).
 
 ## Estructura
 
@@ -22,6 +23,7 @@ cuánto se presta, qué % desempeña, refrenda o se remata, a cuánto se vende y
 data/raw/            exportes de PRENDA FLEX tal cual (.xls)
 data/processed/      CSV limpios + contratos, prendas, ventas, prendas_clasificadas
 catalogo/plantillas/ reglas de cada categoría (YAML) — aquí se edita el catálogo
+catalogo/marcas/     marcas: nombre correcto, faltas de ortografía, gama y modelos unificados
 catalogo/catalogo.json   catálogo + métricas (todas las reglas)
 catalogo/maxi_pos.json   modelo MAXI-POS: Plantilla › Objeto › Variante (ver docs/MODELO_PLANTILLAS.md)
 reportes/            métricas por categoría / plantilla / variante, pendientes, historial de cobertura

@@ -15,8 +15,15 @@
 - **Variante = sólo lo que mueve el precio.** En celulares: capacidad (128/256 GB). El **color es un atributo
   descriptivo**: se captura y sale en la descripción, pero no crea otro precio. Si mañana el negro se vende más
   caro que el rosa, se cambia a `crea_variante: true` y listo.
-- Regla de precio (mockup): un objeto o variante con **5+ empeños propios** sugiere con su historial; con menos,
-  usa la regla de la plantilla.
+- **Objeto propio vs genérico por gama.** Un artículo es **objeto propio** (`iPhone 15 Pro Max`,
+  `Truper ROTO-1/2A7`, `DeWalt DCD776`) sólo cuando junta **5+ empeños** con marca reconocida y modelo.
+  Mientras no, cae en el **objeto genérico de su plantilla y gama**: `Rotomartillo · gama alta`,
+  `Celulares · gama media`, `Lavadora · gama básica`. Así la evaluadora siempre tiene historial con qué cotizar,
+  aunque sea una marca china o un modelo que nunca ha visto. Cuando un modelo llega a 5 empeños, se promueve.
+- La **gama** sale de la marca (`catalogo/marcas/*.yaml`, formato en `docs/FORMATO_MARCAS.md`):
+  alta = profesional / premium (DeWalt, Makita, Milwaukee, Stihl, Apple, LG…), media = marca conocida
+  doméstica (Truper, Black+Decker, Mirage…), básica = económica, china o sin marca. En celulares, tablets y
+  motos la gama va por modelo (iPhone 15 Pro = alta, Moto G24 = básica).
 
 ## Dos tipos de plantilla
 
@@ -25,27 +32,26 @@
    El catálogo ya trae los objetos limpios (nombres comerciales, sinónimos, códigos de modelo).
 2. **Plantilla por tipo de artículo** — el tipo pesa más que el modelo exacto.
    Lavadora, Licuadora, Rotomartillo, Tanque de gas, Ventilador, Bocina… (todo lo "general").
-   Los objetos se **proponen** a partir de la marca y modelo que capturó la evaluadora
-   (`Truper ROTO12A7`, `Mabe LMDX3123PBADO`). Vienen con faltas de captura (`ROTO12A7` / `RROTO12A7`):
-   hay que depurarlos antes de cargarlos.
+   Los objetos propios salen de marca + modelo capturados, ya unificados (`ROTO12A7` = `RROTO12A7` =
+   `ROTO-1/2A7`).
 
 ## Cuánto hay (corte 4-oct-2026, sin joyería)
 
 - **228 plantillas**: 6 por modelo + 222 de artículo general, en 31 categorías.
-- **3,116 objetos** propuestos; **352 con 5+ empeños** (ya pueden sugerir precio con historial).
-  El resto es cola larga de 1–4 empeños: se cotizan con la regla de su plantilla.
-- **3,307 variantes**.
+- **274 objetos propios** (5+ empeños) que juntan el **42 %** de los empeños.
+- **408 objetos genéricos por gama** para el resto. Marca reconocida en el **84 %** de las prendas.
+- **977 variantes**. **486 candidatos por promover** (2–4 empeños, hoja *Por promover*).
 
-| Plantilla | Objetos | Con historial (5+) | Empeños |
+La gama sí separa el préstamo (mediana):
+
+| Genérico | Alta | Media | Básica |
 |---|---:|---:|---:|
-| Celulares | 253 | 139 | 2,504 |
-| Motos | 31 | 10 | 125 |
-| Tablets | 21 | 9 | 96 |
-| Relojes | 17 | 11 | 146 |
-| Esmeriladora angular 4 ½ | 117 | 16 | 286 |
-| Rotomartillo | 112 | 8 | 223 |
-| Desbrozadora a gasolina | 61 | 10 | 174 |
-| Lavadora | 53 | 6 | 141 |
+| Celulares | $2,100 | $1,000 | $800 |
+| Rotomartillo | $800 | $350 | $350 |
+| Desbrozadora a gasolina | $2,200 | $1,500 | $1,000 |
+| Lavadora | $1,800 | $1,500 | $1,500 |
+
+Donde no separa (esmeriladora: Truper y Pretul se prestan igual) la gama sólo informa; el precio lo da el historial.
 
 ## Plantilla Motos
 
@@ -61,10 +67,10 @@
 
 ## Dónde está todo
 
-- `reportes/maxi_pos_plantillas.xlsx` — hojas **Plantillas** (campos, checklist, fotos), **Objetos** y
-  **Variantes**, cada una con préstamo, % desempeña / refrenda / remate, venta y días en vitrina.
+- `reportes/maxi_pos_plantillas.xlsx` — hojas **Plantillas** (campos, checklist, fotos), **Objetos**
+  (propios y genéricos por gama, con las marcas que caen en cada genérico), **Variantes** y **Por promover**, cada una con préstamo, % desempeña / refrenda / remate, venta y días en vitrina.
 - `catalogo/maxi_pos.json` — lo mismo para cargar a MAXI-POS.
-- Las reglas viven en `catalogo/plantillas/*.yaml`; `scripts/exportar_maxi.py` arma el modelo.
+- Las reglas viven en `catalogo/plantillas/*.yaml` y las marcas/gamas en `catalogo/marcas/*.yaml`; `scripts/exportar_maxi.py` arma el modelo.
 
 ## Decisiones tomadas
 
